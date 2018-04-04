@@ -19,9 +19,20 @@ class Aquatic {
         /* Destructor */
     	~Aquatic();
 
-    	/* Methods */
+        /*Getter - Setter */
         Aquarium *getAquarium();
 
+        int getMoveSpeed() const;
+
+        int getX();
+
+        int setX();
+
+        int getY();
+
+        int setY();
+
+    	/* Methods */
         bool isInside(); // Whether the position is inside the aquarium or not.
 
         virtual bool move() = 0; // All aquatic entities can move. Returns whether the movement is successful or not.

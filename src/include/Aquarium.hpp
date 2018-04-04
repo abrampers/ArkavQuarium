@@ -2,12 +2,14 @@
 #define AQUARIUM_HPP
 
 #include "LinkedList.hpp"
-#include "Aquatic.hpp"
 #include "Coin.hpp"
 #include "Guppy.hpp"
 #include "Pellet.hpp"
 #include "Piranha.hpp"
 #include "Snail.hpp"
+
+/* Forward declaration */ 
+class Aquatic;
 
 class Aquarium {
     private:
@@ -32,8 +34,6 @@ class Aquarium {
         int getYMax() const;
 
         /* Methods */
-        bool isInside(const Aquatic& aquatic);
-
         /* TODO: check if this is necessary */
         /* A function that will increment time and processes all content (coin moves down, etc.) */
         void advTime();
