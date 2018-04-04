@@ -14,7 +14,7 @@ class Fish {
     	//ctor
     	Fish(); //Initialize fish variables
 
-        void dropCoin(int); //Create new coin, value depends on type of fish and its phase, or what it eats
+        void dropCoin(); //Create new coin, value depends on type of fish and its phase, or what it eats
     	virtual void eat() = 0; // Method for eat action
 };
 

@@ -1,5 +1,6 @@
 #ifndef COIN_HPP
 #define COIN_HPP
+
 #include "Aquatic.hpp"
 
 class Coin : public Aquatic {

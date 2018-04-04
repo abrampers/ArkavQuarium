@@ -24,8 +24,8 @@ class Aquatic {
 
         bool isInside(); // Whether the position is inside the aquarium or not.
 
-        virtual bool move(int, int) = 0; // All aquatic entities can move. Returns whether the movement is successful or not.
-        
+        virtual bool move() = 0; // All aquatic entities can move. Returns whether the movement is successful or not.
+
         virtual void advTimeHandler() = 0; // What action will it take if the time increments
 };
 

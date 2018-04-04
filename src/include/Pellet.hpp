@@ -1,5 +1,6 @@
 #ifndef PELLET_HPP
 #define PELLET_HPP
+
 #include "Aquatic.hpp"
 
 class Pellet : public Aquatic {
@@ -9,7 +10,7 @@ class Pellet : public Aquatic {
 
 		//methods
         void advTimeHandler(); // What action will it take if the time increments
-}
+        void move()
 };
 
 #endif

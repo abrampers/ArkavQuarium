@@ -1,5 +1,6 @@
 #ifndef SNAIL_HPP
 #define SNAIL_HPP
+
 #include "Aquatic.hpp"
 
 class Snail : public Aquatic {
@@ -11,6 +12,7 @@ class Snail : public Aquatic {
 
 		//methods
         void advTimeHandler() = 0; // What action will it take if the time increments
+        void move();
 };
 
 #endif
