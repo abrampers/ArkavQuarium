@@ -44,9 +44,7 @@ class Aquatic {
         virtual bool move() = 0;                
 
         /* What action will it take if the time increments*/
-        virtual void updateState() = 0;         
-
-        virtual void advTimeHandler() = 0; // What action will it take if the time increments
+        virtual void updateState() = 0;
 };
 
 #endif
