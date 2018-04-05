@@ -19,6 +19,8 @@ class Aquatic {
         /* Destructor */
     	~Aquatic();
 
+        /* Operator Overloading */
+
     	/* Methods */
         Aquarium *getAquarium();
 
@@ -27,6 +29,10 @@ class Aquatic {
         virtual bool move() = 0; // All aquatic entities can move. Returns whether the movement is successful or not.
 
         virtual void advTimeHandler() = 0; // What action will it take if the time increments
+
+        virtual void operator!=(const Aquatic& a) = 0;
+
+        virtual void operator==(const Aquatic& a) = 0;
 };
 
 #endif
