@@ -1,4 +1,4 @@
-// Doubly linked list
+/* Doubly linked list */
 #ifndef DOUBLL_HPP
 #define DOUBLL_HPP
 
