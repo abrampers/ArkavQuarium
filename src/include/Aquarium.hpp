@@ -32,6 +32,11 @@ class Aquarium {
         /* Setter & Getter */
         double getXMax() const;
         double getYMax() const;
+        LinkedList<Coin*>& getCoinList();
+        LinkedList<Guppy*>& getGuppyList();
+        LinkedList<Pellet*>& getPelletList();
+        LinkedList<Piranha*>& getPiranhaList();
+        LinkedList<Snail*>& getSnailList();
 
         void setCurrTime(double t);
 
@@ -41,6 +46,11 @@ class Aquarium {
         /* A function that will increment time and processes all content (coin moves down, etc.) */
         void updateState();
 
+        /* Create and Delete Operations for Aquatic */
+        void createPiranha();
+        void createPiranha();
+        void createPiranha();
+        void createPiranha();
         void deleteCoin(Coin* c);
         void deleteGuppy(Guppy* g);
         void deletePellet(Pellet* p);
