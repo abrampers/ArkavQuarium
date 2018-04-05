@@ -9,7 +9,7 @@ class Pellet : public Aquatic {
 		Pellet();
 
 		//methods
-        void advTimeHandler(); // What action will it take if the time increments
+        void updateState(); // What action will it take if the time increments
         void move()
 };
 

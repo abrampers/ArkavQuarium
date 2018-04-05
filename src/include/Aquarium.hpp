@@ -13,8 +13,8 @@ class Aquatic;
 
 class Aquarium {
     private:
-        const int xMax, yMax;
-        int time;
+        const double xMax, yMax;
+        double curr_time;
         LinkedList<Coin*> content_coin;
         LinkedList<Guppy*> content_guppy;
         LinkedList<Pellet*> content_pellet;
@@ -30,13 +30,22 @@ class Aquarium {
         /* Operator Overloading */
 
         /* Setter & Getter */
-        int getXMax() const;
-        int getYMax() const;
+        double getXMax() const;
+        double getYMax() const;
 
+        void setCurrTime(double t);
+
+        /***********/
         /* Methods */
-        /* TODO: check if this is necessary */
+        /***********/
         /* A function that will increment time and processes all content (coin moves down, etc.) */
-        void advTime();
+        void updateState();
+
+        void deleteCoin(Coin* c);
+        void deleteGuppy(Guppy* g);
+        void deletePellet(Pellet* p);
+        void deletePiranha(Piranha* p);
+        void deleteSnail(Snail* s);
 };
 
 #endif

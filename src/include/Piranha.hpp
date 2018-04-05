@@ -10,10 +10,9 @@ class Piranha : public Fish, public Aquatic {
         Piranha();
 
         //methods
-        void advTimeHandler(); // What action will it take if the time increments
+        void updateState(); // What action will it take if the time increments
         void eat();
         void move();
-        void advTimeHandler();
 };
 
 #endif

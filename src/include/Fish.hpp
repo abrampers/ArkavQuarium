@@ -4,11 +4,12 @@
 class Fish {
     protected:
         const int food_thres; // Pellets needed for growth
-        const int eat_radius; // Pellet fetch radius
-        const int full_interval; // Duration until next hunger
-        const int hunger_timeout; // Duration until starvation
+        const double eat_radius; // Pellet fetch radius
+        const double full_interval; // Duration until next hunger
+        const double hunger_timeout; // Duration until starvation
         int level;
-        int last_eat_time;
+        double last_eat_time;
+        double last_random_time;
 
     public:
     	//ctor
