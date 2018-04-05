@@ -12,7 +12,9 @@ class Coin : public Aquatic {
 		Coin(int);
 
 		//methods
-        void advTimeHandler(); // What action will it take if the time increments
+		void move();
+
+        void update_state(); // What action will it take if the time increments
 };
 
 #endif

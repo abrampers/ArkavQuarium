@@ -2,17 +2,19 @@
 #define AQUARIUM_HPP
 
 #include "LinkedList.hpp"
-#include "Aquatic.hpp"
 #include "Coin.hpp"
 #include "Guppy.hpp"
 #include "Pellet.hpp"
 #include "Piranha.hpp"
 #include "Snail.hpp"
 
+/* Forward declaration */ 
+class Aquatic;
+
 class Aquarium {
     private:
-        const int xMax, yMax;
-        int time;
+        const double xMax, yMax;
+        double curr_time;
         LinkedList<Coin*> content_coin;
         LinkedList<Guppy*> content_guppy;
         LinkedList<Pellet*> content_pellet;
@@ -28,15 +30,22 @@ class Aquarium {
         /* Operator Overloading */
 
         /* Setter & Getter */
-        int getXMax() const;
-        int getYMax() const;
+        double getXMax() const;
+        double getYMax() const;
 
+        void setCurrTime(double t);
+
+        /***********/
         /* Methods */
-        bool isInside(const Aquatic& aquatic);
-
-        /* TODO: check if this is necessary */
+        /***********/
         /* A function that will increment time and processes all content (coin moves down, etc.) */
-        void advTime();
+        void updateState();
+
+        void deleteCoin(Coin* c);
+        void deleteGuppy(Guppy* g);
+        void deletePellet(Pellet* p);
+        void deletePiranha(Piranha* p);
+        void deleteSnail(Snail* s);
 };
 
 #endif

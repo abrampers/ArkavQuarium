@@ -6,17 +6,16 @@
 
 class Guppy : public Fish, public Aquatic {
     private:
-        const int coin_creation_interval; // Time needed for coin creation
+        const double coin_creation_interval; // Time needed for coin creation
 
     public:
     	//ctor
         Guppy();
 
         //methods
-        void advTimeHandler(); // What action will it take if the time increments
+        void updateState(); // What action will it take if the time increments
         void eat();
         void move();
-        void advTimeHandler();
 };
 
 #endif

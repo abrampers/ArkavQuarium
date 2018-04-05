@@ -1,14 +1,19 @@
-// A parent class for aquatic entities sans fish 
+/* A parent class for aquatic entities sans fish */
 #ifndef AQUATIC_HPP
 #define AQUATIC_HPP
 
 #include "Aquarium.hpp"
+#include <pair.h>
+
+using namespace std;
 
 class Aquatic {
     private:
         Aquarium* a;
-        int x, y;
-        const int move_speed; /* Movement Speed */
+        double x, y;
+        double curr_time;
+        pair position;
+        const double move_speed; /* Movement Speed */
     public:
         /* Constructor */
     	Aquatic();
@@ -19,20 +24,29 @@ class Aquatic {
         /* Destructor */
     	~Aquatic();
 
-        /* Operator Overloading */
-
-    	/* Methods */
+        /*Getter - Setter */
         Aquarium *getAquarium();
+        double getMoveSpeed() const;
+        double getX();
+        double getY();
+        void setX();
+        void setY();
+        void setCurrTime(double t);
+        void setPosition(pair p);
 
-        bool isInside(); // Whether the position is inside the aquarium or not.
+        /***********/
+    	/* Methods */
+        /***********/
+        /* Whether the position is inside the aquarium or not. */
+        bool isInside();                        
 
-        virtual bool move() = 0; // All aquatic entities can move. Returns whether the movement is successful or not.
+        /* All aquatic entities can move. Returns whether the movement is successful or not.*/
+        virtual bool move() = 0;                
+
+        /* What action will it take if the time increments*/
+        virtual void updateState() = 0;         
 
         virtual void advTimeHandler() = 0; // What action will it take if the time increments
-
-        virtual void operator!=(const Aquatic& a) = 0;
-
-        virtual void operator==(const Aquatic& a) = 0;
 };
 
 #endif
