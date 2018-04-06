@@ -68,7 +68,17 @@ public:
 		}
 	}
 
-	// ~LinkedList() { delete head; }
+	~LinkedList() {
+		Node<T>* target;
+		Node<T>* next = head->getNext();
+		while (next != NULL) {
+			target = next;
+			next = target->getNext();
+			delete target;
+		}
+		delete head;
+	}
+	
 	// LinkedList(const LinkedList&);
 	// void operator=(const LinkedList&) {
 	// 	head = new Node<T>;
