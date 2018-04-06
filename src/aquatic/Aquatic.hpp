@@ -8,7 +8,7 @@ class Aquatic {
     private:
         Aquarium* aquarium;
         double x, y;
-        double curr_time;
+        double last_curr_time;
         const double move_speed; /* Movement Speed per second */
 
     public:
@@ -21,10 +21,10 @@ class Aquatic {
         double getMoveSpeed() const;
         double getX();
         double getY();
-        double getCurrTime() const;
+        double getLastCurrTime() const;
         void setX(double x);
         void setY(double y);
-        void setCurrTime(double t);
+        void setLastCurrTime(double t);
 
         /***********/
     	/* Methods */
