@@ -14,26 +14,10 @@ int main() {
 	dll.add(8);
 	dll.add(3);
 
+	LinkedList<int> dll2 = dll;
+	dll2.remove(3);
 	dll.print();
-
-	dll.remove(3);
-	dll.remove(1);
-	dll.remove(5);
-	dll.remove(1);
-	dll.remove(6);
-	dll.remove(0);
-	dll.remove(8);
-	dll.remove(3);
-	dll.remove(3);
-	dll.remove(3);
-	dll.remove(3);
-	dll.remove(3);
-	dll.remove(3);
-	dll.remove(3);
-	dll.remove(3);
-	
-
-	dll.print();
+	dll2.print();
 
 	return 0;
 }

@@ -2,23 +2,18 @@
 #ifndef AQUATIC_HPP
 #define AQUATIC_HPP
 
-#include "Aquarium.hpp"
-#include <pair.h>
-
-using namespace std;
+class Aquarium;
 
 class Aquatic {
     private:
-        Aquarium* a;
+        Aquarium* aquarium;
         double x, y;
         double curr_time;
-        pair position;
-        const double move_speed; /* Movement Speed */
+        const double move_speed; /* Movement Speed per second */
+
     public:
         /* Constructor */
     	Aquatic();
-
-        /* User Defined Constructor */
     	Aquatic(int, int);
 
         /* Destructor */
@@ -32,7 +27,6 @@ class Aquatic {
         void setX();
         void setY();
         void setCurrTime(double t);
-        void setPosition(pair p);
 
         /***********/
     	/* Methods */
@@ -40,11 +34,11 @@ class Aquatic {
         /* Whether the position is inside the aquarium or not. */
         bool isInside();                        
 
-        /* All aquatic entities can move. Returns whether the movement is successful or not.*/
-        virtual bool move() = 0;                
+        /* All aquatic entities can move. Returns pair of <vx, vy> where vx is velocity in X direction and vy is velocity in y direction.*/
+        virtual void move(double current_time) = 0; // Check if move should be private member function          
 
         /* What action will it take if the time increments*/
-        virtual void updateState() = 0;
+        virtual void updateState(double current_time) = 0;
 };
 
 #endif

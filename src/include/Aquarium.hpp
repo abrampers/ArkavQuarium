@@ -8,9 +8,6 @@
 #include "Piranha.hpp"
 #include "Snail.hpp"
 
-/* Forward declaration */ 
-class Aquatic;
-
 class Aquarium {
     private:
         const double xMax, yMax;

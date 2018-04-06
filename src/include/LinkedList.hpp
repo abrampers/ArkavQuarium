@@ -55,9 +55,29 @@ public:
 		head->setPrev(NULL);
 	}
 
+	LinkedList(const LinkedList<T>& ll) {
+		head = new Node<T>;
+		head->setValue(0);
+		head->setNext(NULL);
+		head->setPrev(NULL);
+
+		Node<T>* currLLNode = ll.head;
+		while(currLLNode->getNext() != NULL) {
+			currLLNode = currLLNode->getNext();
+			this->add(currLLNode->getValue());
+		}
+	}
+
 	// ~LinkedList() { delete head; }
 	// LinkedList(const LinkedList&);
-	// void operator=(const LinkedList&);
+	// void operator=(const LinkedList&) {
+	// 	head = new Node<T>;
+	// 	head->setValue(0);
+	// 	head->setNext(NULL);
+	// 	head->setPrev(NULL);
+
+	// 	ll
+	// }
 
 	bool isEmpty() { return head->getNext() == NULL; }
 
@@ -102,7 +122,7 @@ public:
 		}
 	}
 
-	// Assume the index is always correct
+	/* Assume the index is always correct */
 	T get(int idx) {
 		Node<T>* currNode = head->getNext();
 		for (int i = 0; i < idx; ++i) {
