@@ -1,7 +1,7 @@
 #ifndef SNAIL_HPP
 #define SNAIL_HPP
 
-#include "Aquatic.hpp"
+#include "../aquatic/Aquatic.hpp"
 
 class Snail : public Aquatic {
 	private:

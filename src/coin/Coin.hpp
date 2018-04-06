@@ -1,7 +1,7 @@
 #ifndef COIN_HPP
 #define COIN_HPP
 
-#include "Aquatic.hpp"
+#include "../aquatic/Aquatic.hpp"
 
 class Coin : public Aquatic {
 	private:

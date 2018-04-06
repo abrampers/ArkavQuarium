@@ -1,23 +1,29 @@
 /* Implementation file of Guppy */
-#include "include/Guppy.hpp"
-#include "include/Aquarium.hpp"
+#include "../guppy/Guppy.hpp"
+#include "../aquarium/Aquarium.hpp"
 
 const int GUPPY_FOOD_THRES = 20;
 const double GUPPY_EAT_RADIUS = 1.25;
 const double GUPPY_FULL_INTERVAL = 5; /* Ini detik ye bos */
 const double GUPPY_HUNGER_TIMEOUT = 10;
+const double GUPPY_MOVE_SPEED = 10;
 
 const double Guppy::coin_creation_interval = 8; /* Ini juga detik ye bos */
 
-Guppy::Guppy() : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT) {
+double fRand(double fMin, double fMax) {
+    double f = (double)rand() / RAND_MAX;
+    return fMin + f * (fMax - fMin);
+}
+
+Guppy::Guppy(Aquarium *aquarium) : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT), Aquatic(fRand(0, this->getAquarium()->getXMax()), fRand(0, this->getAquarium()->getYMax()), 0, GUPPY_MOVE_SPEED, aquarium) {
 	last_eat_time = 0;
 	last_random_time = 0;
 	nearest_pellet = NULL;
 }
 
-Guppy::Guppy(double last_eat_time, double last_random_time) : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT) {
-	this->last_eat_time = last_eat_time;
-	this->last_random_time = last_random_time;
+Guppy::Guppy(double created_time, Aquarium *aquarium) : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT), Aquatic(fRand(0, this->getAquarium()->getXMax()), fRand(0, this->getAquarium()->getYMax()), created_time, GUPPY_MOVE_SPEED, aquarium) {
+	this->last_eat_time = created_time;
+	this->last_random_time = created_time;
 	nearest_pellet = NULL;
 }
 

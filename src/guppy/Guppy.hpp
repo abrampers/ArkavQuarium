@@ -1,10 +1,10 @@
 #ifndef GUPPY_HPP
 #define GUPPY_HPP
 
-#include "Aquatic.hpp"
-#include "Fish.hpp"
-#include "LinkedList.hpp"
-#include "Pellet.hpp"
+#include "../aquatic/Aquatic.hpp"
+#include "../fish/Fish.hpp"
+#include "../linkedlist/LinkedList.hpp"
+#include "../pellet/Pellet.hpp"
 #include <cmath>
 
 class Guppy : public Fish, public Aquatic {
@@ -24,8 +24,8 @@ class Guppy : public Fish, public Aquatic {
     	/* Coin Creation Interval */
     	static const double coin_creation_interval; 
     	/* Constructor */
-        Guppy(); // Check is default constructor is necessary?
-        Guppy(double last_eat_time, double last_random_time);
+        Guppy(Aquarium *aquarium); // Check is default constructor is necessary?
+        Guppy(double created_time, Aquarium *aquarium);
 
         /***********/
         /* Methods */

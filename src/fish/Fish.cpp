@@ -1,5 +1,5 @@
 /* Implementation file of Fish */
-#include "include/Fish.hpp"
+#include "../fish/Fish.hpp"
 
 Fish::Fish(int food_thres, double eat_radius, double full_interval, double hunger_timeout) {
 	this->food_thres = food_thres;

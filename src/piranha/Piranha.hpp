@@ -1,8 +1,8 @@
 #ifndef PIRANHA_HPP
 #define PIRANHA_HPP
 
-#include "Aquatic.hpp"
-#include "Fish.hpp"
+#include "../aquatic/Aquatic.hpp"
+#include "../fish/Fish.hpp"
 
 class Piranha : public Fish, public Aquatic {
 	private:

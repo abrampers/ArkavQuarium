@@ -13,11 +13,8 @@ class Aquatic {
 
     public:
         /* Constructor */
-    	Aquatic();
-    	Aquatic(int, int);
-
-        /* Destructor */
-    	~Aquatic();
+    	Aquatic(Aquarium *aquarium);
+    	Aquatic(double x, double y, double curr_time, double move_speed, Aquarium* aquarium);
 
         /*Getter - Setter */
         Aquarium *getAquarium();
