@@ -7,14 +7,16 @@ class Coin : public Aquatic {
 	private:
 		const int value;
 	public:
-		//ctor
-		Coin();
-		Coin(int);
+		/* Constructor */
+		Coin(double x, double y, Aquarium* aquarium);
+		Coin(double x, double y, int value, double created_time, Aquarium* aquarium);
 
-		//methods
-		void move();
-
-        void update_state(); // What action will it take if the time increments
+		/***********/
+        /* Methods */
+        /***********/
+		/* Implements pure virtual method from Aquatic */
+        void updateState(double current_time); 
+        void move(double current_time);
 };
 
 #endif

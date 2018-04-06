@@ -91,8 +91,8 @@ void Aquarium::createPellet() {
 	content_pellet.add(new Pellet( /* TBD */ ));
 }
 
-void Aquarium::createCoin() {
-	content_coin.add(new Coin( /* TBD */ ));
+void Aquarium::createCoin(double x, double y, int value) {
+	content_coin.add(new Coin(x, y, value, curr_time, this));
 }
 
 void Aquarium::deletePiranha(Piranha* p) {
