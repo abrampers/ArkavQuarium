@@ -24,8 +24,9 @@ class Aquatic {
         double getMoveSpeed() const;
         double getX();
         double getY();
-        void setX();
-        void setY();
+        double getCurrTime() const;
+        void setX(double x);
+        void setY(double y);
         void setCurrTime(double t);
 
         /***********/

@@ -7,7 +7,7 @@ const double GUPPY_EAT_RADIUS = 1.25;
 const double GUPPY_FULL_INTERVAL = 5; /* Ini detik ye bos */
 const double GUPPY_HUNGER_TIMEOUT = 10;
 
-static const Guppy::coin_creation_interval = 8; /* Ini juga detik ye bos */
+const double Guppy::coin_creation_interval = 8; /* Ini juga detik ye bos */
 
 Guppy::Guppy() : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT) {
 	last_eat_time = 0;
@@ -33,7 +33,7 @@ double Guppy::distanceToPellet(Pellet *p) {
 void Guppy::findNearestPellet() {
 	LinkedList<Pellet*> ll = this->getAquarium()->getPelletList();
 	Pellet* current_nearest_pellet = NULL;
-	Node<T>* curr_node = ll.head;
+	Node<Pellet*>* curr_node = ll.getHead();
 	while(curr_node->getNext() != NULL) {
 	    curr_node = curr_node->getNext();
 	    Pellet* current_pellet = curr_node->getValue();
@@ -68,8 +68,8 @@ void Guppy::move(double current_time) {
 	double y_direction = nearest_pellet->getY() - this->getY();
 	double distance = distanceToPellet(nearest_pellet);
 
-	double dx = (x_direction / distance) * this->move_speed * ((current_time - this->curr_time) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
-	double dy = (y_direction / distance) * this->move_speed * ((current_time - this->curr_time) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
+	double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getCurrTime()) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
+	double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getCurrTime()) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
 
 	this->setX(this->getX() + dx);
 	this->setY(this->getY() + dy);

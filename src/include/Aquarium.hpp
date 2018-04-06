@@ -12,11 +12,12 @@ class Aquarium {
     private:
         const double xMax, yMax;
         double curr_time;
-        LinkedList<Coin*> content_coin;
-        LinkedList<Guppy*> content_guppy;
-        LinkedList<Pellet*> content_pellet;
         LinkedList<Piranha*> content_piranha;
+        LinkedList<Guppy*> content_guppy;
         LinkedList<Snail*> content_snail;
+        LinkedList<Pellet*> content_pellet;
+        LinkedList<Coin*> content_coin;
+
     public:
         /* Constructor */
         Aquarium();
@@ -29,12 +30,12 @@ class Aquarium {
         /* Setter & Getter */
         double getXMax() const;
         double getYMax() const;
-        LinkedList<Coin*>& getCoinList();
-        LinkedList<Guppy*>& getGuppyList();
-        LinkedList<Pellet*>& getPelletList();
         LinkedList<Piranha*>& getPiranhaList();
+        LinkedList<Guppy*>& getGuppyList();
         LinkedList<Snail*>& getSnailList();
-
+        LinkedList<Pellet*>& getPelletList();
+        LinkedList<Coin*>& getCoinList();
+        
         void setCurrTime(double t);
 
         /***********/
@@ -45,14 +46,15 @@ class Aquarium {
 
         /* Create and Delete Operations for Aquatic */
         void createPiranha();
-        void createPiranha();
-        void createPiranha();
-        void createPiranha();
-        void deleteCoin(Coin* c);
-        void deleteGuppy(Guppy* g);
-        void deletePellet(Pellet* p);
+        void createGuppy();
+        void createSnail();
+        void createPellet();
+        void createCoin();
         void deletePiranha(Piranha* p);
+        void deleteGuppy(Guppy* g);
         void deleteSnail(Snail* s);
+        void deletePellet(Pellet* p);
+        void deleteCoin(Coin* c);
 };
 
 #endif

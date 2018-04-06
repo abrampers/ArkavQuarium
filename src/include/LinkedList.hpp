@@ -79,6 +79,10 @@ public:
 	// 	ll
 	// }
 
+	Node<T>* getHead() {
+		return head;
+	}
+
 	bool isEmpty() { return head->getNext() == NULL; }
 
 	void add(T value) {
