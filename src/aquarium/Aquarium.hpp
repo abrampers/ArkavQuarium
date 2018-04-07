@@ -43,14 +43,14 @@ class Aquarium {
         /* Methods */
         /***********/
         /* A function that will increment time and processes all content (coin moves down, etc.) */
-        void updateState();
+        void updateState(double current_time);
 
         /* Create and Delete Operations for Aquatic */
         void createPiranha();
         void createGuppy();
         void createSnail();
         void createPellet();
-        void createCoin();
+        void createCoin(double x, double y, int value);
         void deletePiranha(Piranha* p);
         void deleteGuppy(Guppy* g);
         void deleteSnail(Snail* s);

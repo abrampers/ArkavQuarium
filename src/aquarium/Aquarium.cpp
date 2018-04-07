@@ -43,7 +43,8 @@ void Aquarium::setCurrTime(double t) {
 	this->curr_time = t;
 }
 
-void Aquarium::updateState() {
+void Aquarium::updateState(double current_time) {
+	this->curr_time = current_time;
 	Aquatic* pointer;
 	/* Piranha */
 	pointer = content_piranha.getHead()->getNext();
@@ -78,19 +79,23 @@ void Aquarium::updateState() {
 }
 
 void Aquarium::createPiranha() {
-	content_piranha.add(new Piranha( /* TBD */ ));
+	Piranha* new_elmt = new Piranha (/* TBD */);
+	content_piranha.add(new_elmt);
 }
 
 void Aquarium::createGuppy() {
-	content_guppy.add(new Guppy(curr_time, this));
+	Guppy* new_elmt = new Guppy(curr_time, this)
+	content_guppy.add(new_elmt);
 }
 
 void Aquarium::createSnail() {
-	content_snail.add(new Snail( /* TBD */ ));
+	Snail* new_elmt = new Snail( /* TBD */ );
+	content_snail.add(new_elmt);
 }
 
 void Aquarium::createPellet() {
-	content_pellet.add(new Pellet( /* TBD */ ));
+	Pellet* new_elmt = new Pellet( /* TBD */ );
+	content_pellet.add(new_elmt);
 }
 
 void Aquarium::createCoin(double x, double y, int value) {
@@ -98,21 +103,21 @@ void Aquarium::createCoin(double x, double y, int value) {
 }
 
 void Aquarium::deletePiranha(Piranha* p) {
-	content_piranha.remove(*p);
+	content_piranha.remove(p);
 }
 
 void Aquarium::deleteGuppy(Guppy* g) {
-	content_guppy.remove(*g);
+	content_guppy.remove(g);
 }
 
 void Aquarium::deleteSnail(Snail* s) {
-	content_snail.remove(*s);
+	content_snail.remove(s);
 }
 
 void Aquarium::deletePellet(Pellet* p) {
-	content_pellet.remove(*p);
+	content_pellet.remove(p);
 }
 
 void Aquarium::deleteCoin(Coin* c) {
-	content_coin.remove(*c);
+	content_coin.remove(c);
 }
