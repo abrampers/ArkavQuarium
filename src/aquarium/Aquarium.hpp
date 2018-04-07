@@ -30,6 +30,7 @@ class Aquarium {
         /* Setter & Getter */
         double getXMax() const;
         double getYMax() const;
+        double getCurrTime();
         LinkedList<Piranha*>& getPiranhaList();
         LinkedList<Guppy*>& getGuppyList();
         LinkedList<Snail*>& getSnailList();

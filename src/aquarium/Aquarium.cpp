@@ -17,6 +17,8 @@ double Aquarium::getYMax() const {
 	return yMax;
 }
 
+double Aquarium::getCurrTime() {return this->curr_time;}
+
 LinkedList<Piranha*>& Aquarium::getPiranhaList() {
 	return content_piranha;
 }
