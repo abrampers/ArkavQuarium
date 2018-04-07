@@ -41,7 +41,8 @@ void Aquarium::setCurrTime(double t) {
 	this->curr_time = t;
 }
 
-void Aquarium::updateState() {
+void Aquarium::updateState(double current_time) {
+	this->curr_time = current_time;
 	Aquatic* pointer;
 	/* Piranha */
 	pointer = content_piranha.getHead()->getNext();
