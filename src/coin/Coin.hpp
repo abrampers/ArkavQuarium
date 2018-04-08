@@ -9,7 +9,7 @@ class Coin : public Aquatic {
 		double last_bottom_time;
 	public:
 		/* Constructor */
-		Coin(double x, double y, Aquarium* aquarium);
+		Coin(double x, double y, int value, Aquarium* aquarium);
 
 		/* Getter - Setter */
 		int getValue() const;
