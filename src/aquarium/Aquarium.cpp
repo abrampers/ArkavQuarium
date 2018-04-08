@@ -2,7 +2,7 @@
 
 #include "../aquarium/Aquarium.hpp"
 
-Aquarium::Aquarium(double xMax, yMax) : xMax(xMax), yMax(yMax), content_piranha(), content_guppy(), content_snail(), content_pellet(), content_coin() {
+Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax), content_piranha(), content_guppy(), content_snail(), content_pellet(), content_coin() {
 	curr_time = 0;
 	/*Bikin guppy, snail*/
 }
@@ -45,11 +45,11 @@ void Aquarium::updateState(double current_time) {
 	this->curr_time = current_time;
 	Node<Piranha*>* pointer_piranha;
 	/* Piranha */
-	pointer_piranha = content_piranha.getHead();
-	while (pointer_piranha != NULL) {
-		pointer_piranha->getValue()->updateState();
-		pointer_piranha = pointer_piranha->getNext();
-	}
+	// pointer_piranha = content_piranha.getHead();
+	// while (pointer_piranha != NULL) {
+	// 	pointer_piranha->getValue()->updateState();
+	// 	pointer_piranha = pointer_piranha->getNext();
+	// }
 	/* Guppy */
 	Node<Guppy*>* pointer_guppy;
 	pointer_guppy = content_guppy.getHead();
@@ -81,8 +81,8 @@ void Aquarium::updateState(double current_time) {
 }
 
 void Aquarium::createPiranha() {
-	Piranha* new_elmt = new Piranha (/* TBD */);
-	content_piranha.add(new_elmt);
+	// Piranha* new_elmt = new Piranha ( TBD );
+	// content_piranha.add(new_elmt);
 }
 
 void Aquarium::createGuppy() {

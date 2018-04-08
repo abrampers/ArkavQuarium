@@ -1,7 +1,7 @@
 /* Implementation file of Fish */
 #include "../fish/Fish.hpp"
 
-Fish::Fish(int food_thres, double eat_radius, double full_interval, double hunger_timeout, double created_time) : food_thres(food_thres), eat_radius(eat_radius), full_interval(full_interval), hunger_timeout(hunger_timeout) {
+Fish::Fish(int food_thres, double eat_radius, double full_interval, double hunger_timeout, double created_time) : foodThres(food_thres), eatRadius(eat_radius), fullInterval(full_interval), hungerTimeout(hunger_timeout) {
 	last_eat_time = created_time;
 	last_random_time = created_time;
 	food_eaten = 0;
@@ -19,7 +19,7 @@ double Fish::getLastRandomTime() {
 }
 
 int Fish::getFoodEaten() {
-	return food_eaten
+	return food_eaten;
 }
 
 bool Fish::getHungry() {
@@ -28,6 +28,10 @@ bool Fish::getHungry() {
 
 int Fish::getLevel() {
  	return level;
+}
+
+double Fish::getDirection() {
+	return x_dir;
 }
 
 void Fish::setLastEatTime(double last_eat_time) {

@@ -9,14 +9,17 @@ class Coin : public Aquatic {
 		double last_bottom_time;
 	public:
 		/* Constructor */
-		Coin(double x, double y, Aquarium* aquarium);
+		Coin(double x, double y, int value, Aquarium* aquarium);
+
+		/* Getter - Setter */
+		int getValue() const;
 
 		/***********/
         /* Methods */
         /***********/
 		/* Implements pure virtual method from Aquatic */
-        void updateState(double current_time); 
-        void move(double current_time);
+        void updateState(); 
+        void move();
 };
 
 #endif

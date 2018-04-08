@@ -10,8 +10,6 @@
 class Guppy : public Fish, public Aquatic {
     private:
         Pellet *nearest_pellet;
-        int x_dir;
-        int y_dir;
         double last_drop_coin;
 
         /****************************/
@@ -24,9 +22,6 @@ class Guppy : public Fish, public Aquatic {
     public:
     	/* Constructor */
         Guppy(Aquarium *aquarium);
-
-        /* Getter & Setter */
-        int getXDir();
 
         /***********/
         /* Methods */

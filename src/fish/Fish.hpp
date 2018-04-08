@@ -15,13 +15,16 @@ class Fish {
         int level;
     protected:
         /* Food needed for growth */
-        const int food_thres; 
+        const int foodThres; 
         /* Pellet fetch radius */
-        const double eat_radius; 
+        const double eatRadius; 
         /* Duration until next hunger */
-        const double full_interval; 
+        const double fullInterval; 
         /* Duration until starvation */
-        const double hunger_timeout; 
+        const double hungerTimeout;
+
+        double x_dir;
+        double y_dir;
         
 
     public:
@@ -41,6 +44,8 @@ class Fish {
         void setFoodEaten(int food_eaten);
         void setHungry(bool hungry);
         void setLevel(int level);
+        /* TODO: Ganti enum */
+        double getDirection();
 
         /***********/
         /* Methods */
