@@ -40,10 +40,13 @@ void Game::saveState(string filename) {
 
 /* Start a game */
 void Game::startGame() {
-    double frame_start_time = graphics.timeSinceStart();
+
     bool running = true;
 
     while (running) {
+        /* Start frame timer */
+        double frame_start_time = graphics.timeSinceStart();
+        
         /* Handle input from OS */
         graphics.handleInput();
         if (graphics.quitPressed()) {
