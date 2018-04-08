@@ -1,74 +1,26 @@
-#include "include/Graphics.hpp"
+#include "Graphics.hpp"
 
-#include <map>
-#include <iostream>
-#include <chrono>
-
+using namespace std;
 using namespace std::chrono;
 
-high_resolution_clock::time_point start = high_resolution_clock::now();
-
-double time_since_start()
-{
-    high_resolution_clock::time_point now = high_resolution_clock::now();
-        return duration_cast<duration<double>>(now - start).count();
+Graphics::Graphics(int screen_width, int screen_height):
+screenWidth(screen_width), screenHeight(screen_height) {
+    high_resolution_clock::time_point start = high_resolution_clock::now();
+    SDL_Window* sdlWindow;
+    SDL_Surface* gScreenSurface = NULL;
+    std::map<std::string, SDL_Surface*> loadedSurfaces;
+    std::map<int, TTF_Font*> loadedFontSizes;
+    std::set<SDL_Keycode> pressedKeys;
+    std::set<SDL_Keycode> tappedKeys;
+    bool quit = false;
 }
 
-SDL_Window* sdlWindow;
-std::map<std::string, SDL_Surface*> loadedSurfaces;
-std::map<int, TTF_Font*> loadedFontSizes;
-SDL_Surface* gScreenSurface = NULL;
+Graphics::~Graphics() {
 
-bool init_graphics()
-{
-    bool success = true;
-
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-        printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
-        success = false;
-    }
-    else
-    {
-
-        if(TTF_Init() == -1) {
-            printf("TTF_Init: %s\n", TTF_GetError());
-            success = false;
-        }
-        sdlWindow = SDL_CreateWindow( "ArkavQuarium", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-        if( sdlWindow == NULL )
-        {
-            printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
-            success = false;
-        }
-        else
-        {
-            gScreenSurface = SDL_GetWindowSurface( sdlWindow );
-        }
-    }
-
-    return success;
 }
 
-void close_graphics()
-{
-    for (auto const& x : loadedSurfaces)
-    {
-        SDL_FreeSurface( x.second );
-    }
-
-    for (auto const& x : loadedFontSizes)
-    {
-        TTF_CloseFont( x.second );
-    }
-
-    SDL_DestroyWindow( sdlWindow );
-    sdlWindow = NULL;
-
-    SDL_Quit();
-}
-
-SDL_Surface* loadSurface( std::string path ) {
+/* Private functions */
+SDL_Surface* Graphics::loadSurface( std::string path ) {
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
     if( loadedSurface == NULL )
     {
@@ -78,7 +30,93 @@ SDL_Surface* loadSurface( std::string path ) {
     return loadedSurface;
 }
 
-void draw_image(std::string filename, int x, int y) {
+/* Setup */
+bool Graphics::init() {
+    bool success = true;
+
+    if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
+        printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
+        success = false;
+    } else {
+        if(TTF_Init() == -1) {
+            printf("TTF_Init: %s\n", TTF_GetError());
+            success = false;
+        }
+        sdlWindow = SDL_CreateWindow( "ArkavQuarium", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_SHOWN );
+        if( sdlWindow == NULL ) {
+            printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
+            success = false;
+        } else {
+            gScreenSurface = SDL_GetWindowSurface( sdlWindow );
+        }
+    }
+    return success;
+}
+
+void Graphics::close() {
+    for (auto const& x : loadedSurfaces) {
+        SDL_FreeSurface( x.second );
+    }
+    for (auto const& x : loadedFontSizes) {
+        TTF_CloseFont( x.second );
+    }
+    SDL_DestroyWindow( sdlWindow );
+    sdlWindow = NULL;
+    SDL_Quit();
+}
+
+/* High level drawing */
+void Graphics::drawBackground() {
+    const string assetPath = "assets/graphics/aquarium.jpg";
+    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
+}
+
+void Graphics::drawGuppy(int x, int y, Direction direction, FishSize size) {
+    string assetPath = "assets/graphics/guppy";
+    
+    if (size == FishSize::small) {
+        assetPath += "_small";
+    } else if (size == FishSize::medium) {
+        assetPath += "_medium";
+    } else {
+        assetPath += "_large";
+    }
+
+    if (direction == Direction::left) {
+        assetPath += "_left";
+    } else {
+        assetPath += "_right";
+    }
+
+    drawImage(assetPath, x, y);
+}
+
+void Graphics::drawPiranha(int x, int y, Direction direction, FishSize size) {
+
+}
+
+void Graphics::drawSnail(int x, int y, Direction face) {
+
+}
+
+void Graphics::drawCoin(int x, int y) {
+
+}
+
+void Graphics::drawPellet(int x, int y) {
+
+}
+
+/* Low level rawing */
+void Graphics::clearScreen() {
+    SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 255, 255, 255));
+}
+
+void Graphics::updateScreen() {
+    SDL_UpdateWindowSurface(sdlWindow);
+}
+
+void Graphics::drawImage(std::string filename, int x, int y) {
     if (loadedSurfaces.count(filename) < 1) {
         loadedSurfaces[filename] = loadSurface(filename);
     }
@@ -93,9 +131,10 @@ void draw_image(std::string filename, int x, int y) {
     SDL_BlitSurface(s, NULL, gScreenSurface, &dest);
 }
 
-void draw_text(std::string text, int font_size, int x, int y, unsigned char r, unsigned char g, unsigned char b) {
+void Graphics::drawText(std::string text, int font_size, int x, int y,
+    unsigned char r, unsigned char g, unsigned char b) {
     if (loadedFontSizes.count(font_size) < 1) {
-        loadedFontSizes[font_size] = TTF_OpenFont(FONT_NAME, font_size);
+        loadedFontSizes[font_size] = TTF_OpenFont(fontPath, font_size);
     }
 
     TTF_Font* font = loadedFontSizes[font_size];
@@ -109,42 +148,47 @@ void draw_text(std::string text, int font_size, int x, int y, unsigned char r, u
     SDL_FreeSurface(result);
 }
 
-void clear_screen() {
-    SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 255, 255, 255));
+/* Time */
+double Graphics::timeSinceStart() {
+    high_resolution_clock::time_point now = high_resolution_clock::now();
+    return duration_cast<duration<double>>(now - start).count();
 }
 
-void update_screen() {
-    SDL_UpdateWindowSurface(sdlWindow);
-}
-
-bool quit = false;
-std::set<SDL_Keycode> pressedKeys;
-std::set<SDL_Keycode> tappedKeys;
-
-void handle_input() {
+/* Input handling */
+// Memproses masukan dari sistem operasi.
+void Graphics::handleInput() {
     SDL_Event e;
     if (!tappedKeys.empty()) tappedKeys.clear();
-    while( SDL_PollEvent( &e ) != 0 )
-        {
-            if ( e.type == SDL_QUIT ) {
-                quit = true;
-            } else if (e.type == SDL_KEYDOWN && !e.key.repeat) {
-                pressedKeys.insert(e.key.keysym.sym);
-                tappedKeys.insert(e.key.keysym.sym);
-            } else if (e.type == SDL_KEYUP) {
-                pressedKeys.erase(e.key.keysym.sym);
-            }
+    while( SDL_PollEvent( &e ) != 0 ) {
+        if ( e.type == SDL_QUIT ) {
+            quit = true;
+        } else if (e.type == SDL_KEYDOWN && !e.key.repeat) {
+            pressedKeys.insert(e.key.keysym.sym);
+            tappedKeys.insert(e.key.keysym.sym);
+        } else if (e.type == SDL_KEYUP) {
+            pressedKeys.erase(e.key.keysym.sym);
         }
+    }
 }
 
-bool quit_pressed() {
+// Mengembalikan apakah pengguna telah meminta keluar dengan menekan tombol
+// keluar di jendela program ketika handle_input() terakhir dipanggil.
+bool Graphics::quitPressed() {
     return quit;
 }
 
-const std::set<SDL_Keycode>& get_pressed_keys() {
+// Untuk dua fungsi berikut, nama konstan kode yang tepat dapat dilihat di
+// https://wiki.libsdl.org/SDL_Keycode pada kolom "SDL_Keycode Value".
+
+// Mengembalikan himpunan kode tombol yang sedang ditekan pada saat
+// handle_input() terakhir dipanggil.
+const std::set<SDL_Keycode>& Graphics::getPressedKeys() {
     return pressedKeys;
 }
 
-const std::set<SDL_Keycode>& get_tapped_keys() {
+// Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
+// handle_input() terakhir dipanggil.
+const std::set<SDL_Keycode>& Graphics::getTappedKeys() {
     return tappedKeys;
 }
+

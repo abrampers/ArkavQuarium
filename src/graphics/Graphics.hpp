@@ -1,71 +1,81 @@
 #ifndef GRAPHICS_HPP
 #define GRAPHICS_HPP
 
+#include "../common/Constants.hpp"
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <set>
 #include <string>
+#include <map>
+#include <iostream>
+#include <chrono>
 
-// Pengaturan ukuran layar yang dihasilkan.
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+using namespace std;
+using namespace std::chrono;
 
-// Nama font yang digunakan untuk menggambar tulisan.
-const char* const FONT_NAME = "assets/fonts/OpenSans-Regular.ttf";
+class Graphics {
+private:
+	const char* fontPath = "assets/fonts/OpenSans-Regular.ttf";
+	const int screenWidth;
+	const int screenHeight;
+	
+	high_resolution_clock::time_point start;
+    SDL_Window* sdlWindow;
+    SDL_Surface* gScreenSurface;
+    std::map<std::string, SDL_Surface*> loadedSurfaces;
+    std::map<int, TTF_Font*> loadedFontSizes;
+    std::set<SDL_Keycode> pressedKeys;
+    std::set<SDL_Keycode> tappedKeys;
+    bool quit;
 
-// ---------------------------------- SETUP ----------------------------------
+    SDL_Surface* loadSurface(std::string path);
 
-// Melakukan inisialisasi terhadap program.
-bool init_graphics();
+public:
+	Graphics(int screen_width, int screen_height);
+	~Graphics();
 
-// Menghentikan program.
-void close_graphics();
+	/* Setup */
+	bool init();
+	void close();
 
-// ------------------------------ PENGGAMBARAN -------------------------------
+	/* High level drawing */
+	void drawBackground();
+	void drawGuppy(int x, int y, Direction direction, FishSize size);
+    void drawPiranha(int x, int y, Direction direction, FishSize size);
+    void drawSnail(int x, int y, Direction face);
+    void drawCoin(int x, int y);
+    void drawPellet(int x, int y);
 
-// Menggambar suatu gambar png, jpg, bmp sehingga tengah gambar berada di
-// titik (x, y).
-// Perubahan di layar baru muncul ketika update_screen() dipanggil.
-void draw_image(std::string filename, int x, int y);
+	/* Low level drawing */
+	void clearScreen();
+	void updateScreen();
+	void drawImage(std::string filename, int x, int y);
+	void drawText(std::string text, int font_size, int x, int y,
+    	unsigned char r, unsigned char g, unsigned char b);
 
-// Menuliskan teks berukuran font_size berwarna (r, g, b) ke layar sehingga
-// kiri atas teks berada di titik (x, y).
-// Perubahan di layar baru muncul ketika update_screen() dipanggil.
-void draw_text(std::string text, int font_size,
-               int x, int y,
-               unsigned char r, unsigned char g, unsigned char b);
+	/* Time */
+	double timeSinceStart();
 
-// Mengisi layar dengan warna putih.
-// Perubahan di layar baru muncul ketika update_screen() dipanggil.
-void clear_screen();
+	/* Input handling */
+	// Memproses masukan dari sistem operasi.
+	void handleInput();
 
-// Melakukan proses update terhadap layar.
-void update_screen();
+	// Mengembalikan apakah pengguna telah meminta keluar dengan menekan tombol
+	// keluar di jendela program ketika handle_input() terakhir dipanggil.
+	bool quitPressed();
 
-// --------------------------------- MASUKAN ---------------------------------
+	// Untuk dua fungsi berikut, nama konstan kode yang tepat dapat dilihat di
+	// https://wiki.libsdl.org/SDL_Keycode pada kolom "SDL_Keycode Value".
 
-// Memproses masukan dari sistem operasi.
-void handle_input();
+	// Mengembalikan himpunan kode tombol yang sedang ditekan pada saat
+	// handle_input() terakhir dipanggil.
+	const std::set<SDL_Keycode>& getPressedKeys();
 
-// Mengembalikan apakah pengguna telah meminta keluar dengan menekan tombol
-// keluar di jendela program ketika handle_input() terakhir dipanggil.
-bool quit_pressed();
-
-// Untuk dua fungsi berikut, nama konstan kode yang tepat dapat dilihat di
-// https://wiki.libsdl.org/SDL_Keycode pada kolom "SDL_Keycode Value".
-
-// Mengembalikan himpunan kode tombol yang sedang ditekan pada saat
-// handle_input() terakhir dipanggil.
-const std::set<SDL_Keycode>& get_pressed_keys();
-
-// Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
-// handle_input() terakhir dipanggil.
-const std::set<SDL_Keycode>& get_tapped_keys();
-
-// ---------------------------------- WAKTU ----------------------------------
-
-// Mengembalikan waktu dari permulaan program dalam nilai detik (bisa pecahan).
-double time_since_start();
+	// Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
+	// handle_input() terakhir dipanggil.
+	const std::set<SDL_Keycode>& getTappedKeys();
+};
 
 #endif

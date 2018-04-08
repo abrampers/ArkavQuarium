@@ -1,35 +1,52 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-// #include "Aquarium.hpp"
-// #include "Aquatic.hpp"
-// #include "LinkedList.hpp"
-// #include "Coin.hpp"
-// #include "Guppy.hpp"
-// #include "Pellet.hpp"
-// #include "Piranha.hpp"
-// #include "Snail.hpp"
-#include "Graphics.hpp"
+#include "../common/Constants.hpp"
+#include "../graphics/Graphics.hpp"
+// #include "../aquarium/Aquarium.hpp"
+// #include "../guppy/Guppy.hpp"
 
 #include <iostream>
 #include <math.h>
 #include <sstream>
 
+using namespace std;
+
 class Game {
     private:
-        const int SCREEN_WIDTH = 640;
-        const int SCREEN_HEIGHT = 480;
-        double start_time, curr_time;
-        Aquarium *aquarium;
+        /* Graphics */
+        const int screenWidth;
+        const int screenHeight;
+        const double frameRate;
+        Graphics graphics;
+
+        /* Game objects */
+        // Aquarium *aquarium;
+
+        /* Player state */
+        int coin;
+        int egg;
 
     public:
         /* Constructor */
-        Game();
+        Game(int screen_width, int screen_height);
 
         /* Destructor */
         ~Game();
 
+        /* Initialize game state */
+        void initState();
+
+        /* Load game state from an external file */
+        void loadState(string filename);
+
+        /* Save game state to an external file */
+        void saveState(string filename);
+
         /* Start a game */
+        void startGame();
+
+        /* Run game sequence */
         void run();
 };
 

@@ -1,5 +1,5 @@
 # Masukkan semua file cpp Anda
-OBJS = src/main.cpp src/Graphics.cpp src/Game.cpp
+OBJS = src/main.cpp src/graphics/Graphics.cpp src/game/Game.cpp
 
 CC = g++
 COMPILER_FLAGS = -std=c++11 -Wall -O2

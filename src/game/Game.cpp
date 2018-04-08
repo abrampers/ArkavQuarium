@@ -1,106 +1,86 @@
-#include "include/Game.hpp"
+#include "Game.hpp"
 
 using namespace std;
 
-Game::Game() {
-	/* Initialize Aquarium */
-	aquarium = new Aquarium();
-
-	/* Initialize game graphics */
-	bool succ = init_graphics();
-	if (!succ) {
-		cerr << "ERROR: Game initialization failed." << endl;
-	}
-	start_time = 0.0;
-	curr_time = 0.0;
+Game::Game(int screen_width, int screen_height):
+screenWidth(screen_width), 
+screenHeight(screen_height), 
+frameRate(120), 
+graphics(screen_width, screen_height),
+coin(0), 
+egg(0) {
+    /* Initialize game graphics */
+    bool succ = graphics.init();
+    if (!succ) {
+        cerr << "ERROR: Game initialization failed." << endl;
+    }
 }
 
 /* Destructor */
 Game::~Game() {
+    // delete aquarium;
 
+    /* Close game graphics */
+    graphics.close();
+}
+
+/* Initialize game state */
+void Game::initState() {
+    // aquarium = new Aquarium();
+    // aquarium.createGuppy();
+}
+
+/* Load game state from an external file */
+void Game::loadState(string filename) {
+    /* TODO */
+}
+
+/* Save game state to an external file */
+void Game::saveState(string filename) {
+    /* TODO */
 }
 
 /* Start a game */
-void Game::run() {
+void Game::startGame() {
 
-	// Menghitung FPS
-    int frames_passed = 0;
-    const double speed = 50;
-    double fpc_start = time_since_start();
-    std::string fps_text = "FPS: 0";
-
-    // Posisi ikan
-    double cy = SCREEN_HEIGHT / 2;
-    double cx = SCREEN_WIDTH / 2;
-
+    double frame_start_time = graphics.timeSinceStart();
     bool running = true;
 
-    double prevtime = time_since_start();
-
     while (running) {
-        double now = time_since_start();
-        double sec_since_last = now - prevtime;
-        prevtime = now;
 
-        handle_input();
-        if (quit_pressed()) {
+        /* Handle input from OS */
+        graphics.handleInput();
+        if (graphics.quitPressed()) {
             running = false;
         }
 
-        // Gerakkan ikan selama tombol panah ditekan
-        // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
-        // konstan pada komputer yang berbeda.
-        for (auto key : get_pressed_keys()) {
-            switch (key) {
-            case SDLK_UP:
-                cy -= speed * sec_since_last;
-                break;
-            case SDLK_DOWN:
-                cy += speed * sec_since_last;
-                break;
-            case SDLK_LEFT:
-                cx -= speed * sec_since_last;
-                break;
-            case SDLK_RIGHT:
-                cx += speed * sec_since_last;
-                break;
-            }
-        }
+        /* TODO: Update objects state */
 
-        // Proses masukan yang bersifat "tombol"
-        for (auto key : get_tapped_keys()) {
-            switch (key) {
-            // r untuk reset
-            case SDLK_r:
-                cy = SCREEN_HEIGHT / 2;
-                cx = SCREEN_WIDTH / 2;
-                break;
-            // x untuk keluar
-            case SDLK_x:
-                running = false;
-                break;
-            }
-        }
 
-        // Update FPS setiap detik
-        frames_passed++;
-        if (now - fpc_start > 1) {
-            std::ostringstream strs;
-            strs << "FPS: " ;
-            strs << frames_passed/(now - fpc_start);
-            fps_text = strs.str();;
-            fpc_start = now;
-            frames_passed = 0;
-        }
+        /* Clear objects on screen */
+        graphics.clearScreen();
 
-        // Gambar ikan di posisi yang tepat.
-        clear_screen();
-        draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        draw_image("assets/graphics/ikan.png", cx, cy);
-        update_screen();
+        /* TODO: Draw objects */
+        graphics.drawBackground();
+        
+        /* Update objects on screen */
+        graphics.updateScreen();
+
+        /* Wait until frame time reaches 1 / frameRate */
+        double frame_curr_time = graphics.timeSinceStart();
+        while (frame_curr_time - frame_start_time < 1.0 / frameRate) {
+            frame_curr_time = graphics.timeSinceStart();
+        }
     }
-	
-	/* Close game graphics */
-	close_graphics();
+}
+
+/* Run game sequence */
+void Game::run() {
+
+    /* TODO: Show main menu */
+    
+    /* Init game states */
+    initState();
+    startGame();
+
 }
