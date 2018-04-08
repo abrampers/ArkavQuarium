@@ -96,14 +96,11 @@ void Piranha::move() {
 	} else {
 		/* Randomize move direction after some interval */
 		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
-			cout << "lololo" << endl;
 			this->setLastRandomTime(current_time);
 			double rad = fRand(0.0, 2.0 * pi);
 
 			this->x_dir = cos(rad);
 			this->y_dir = sin(rad);
-			cout << this->x_dir << endl;
-			cout << this->y_dir << endl;
 		}
 
 

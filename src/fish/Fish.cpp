@@ -19,6 +19,10 @@ double Fish::getLastRandomTime() {
 	return last_random_time;
 }
 
+double Fish::getLastHungerTime() {
+	return last_hunger_time;
+}
+
 int Fish::getFoodEaten() {
 	return food_eaten;
 }
@@ -41,6 +45,10 @@ void Fish::setLastEatTime(double last_eat_time) {
 
 void Fish::setLastRandomTime(double last_random_time) {
 	this->last_random_time = last_random_time;
+}
+
+void Fish::setLastHungerTime(double last_hunger_time) {
+	this->last_hunger_time = last_hunger_time;
 }
 
 void Fish::setFoodEaten(int food_eaten) {

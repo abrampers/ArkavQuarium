@@ -6,6 +6,7 @@ src/game/Game.cpp \
 src/aquarium/Aquarium.cpp \
 src/aquatic/Aquatic.cpp \
 src/fish/Fish.cpp \
+src/piranha/Piranha.cpp \
 src/guppy/Guppy.cpp \
 src/coin/Coin.cpp \
 src/pellet/Pellet.cpp \

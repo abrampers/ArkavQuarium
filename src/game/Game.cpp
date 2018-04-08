@@ -75,7 +75,7 @@ void Game::startGame() {
 
         /* Draw piranha */
         for (int i = 0; i < piranha_list.getLength(); i++) {
-            Guppy *curr_piranha = piranha_list.get(i);
+            Piranha *curr_piranha = piranha_list.get(i);
             double curr_piranha_x = curr_piranha->getX();
             double curr_piranha_y = curr_piranha->getY();
             int curr_piranha_level = curr_piranha->getLevel();

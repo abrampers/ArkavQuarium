@@ -7,6 +7,7 @@ Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	/* TODO: Bikin guppy, snail*/
 	this->createGuppy();
 	this->createSnail();
+	this->createCoin(100, 100, 100);
 }
 
 Aquarium::~Aquarium() {};
@@ -105,8 +106,13 @@ void Aquarium::createPellet(double x) {
 }
 
 void Aquarium::createCoin(double x, double y, int value) {
+	cout << "create coin" << endl;
 	Coin* new_elmt = new Coin(x, y, value, this);
+	cout << "lalalalalalalalalal" << endl;
 	content_coin.add(new_elmt);
+	cout << "lalalalalallalallululululululul" << endl;
+	// content_coin.print();
+	// cout << content_coin.getLength() << endl;
 }
 
 void Aquarium::deletePiranha(Piranha* p) {

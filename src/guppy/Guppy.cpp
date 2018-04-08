@@ -73,7 +73,7 @@ void Guppy::updateState() {
 		/* Dead guppy */
 		this->getAquarium()->getGuppyList().remove(this);
 	} else {
-		this->dropCoin();
+		// this->dropCoin();
 		this->findNearestPellet();
 		this->eat();
 		this->findNearestPellet();
@@ -99,14 +99,11 @@ void Guppy::move() {
 	} else {
 		/* Randomize move direction after some interval */
 		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
-			cout << "lololo" << endl;
 			this->setLastRandomTime(current_time);
 			double rad = fRand(0.0, 2.0 * pi);
 
 			this->x_dir = cos(rad);
 			this->y_dir = sin(rad);
-			cout << this->x_dir << endl;
-			cout << this->y_dir << endl;
 		}
 
 
@@ -160,6 +157,9 @@ void Guppy::eat() {
 void Guppy::dropCoin() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->last_drop_coin > guppyCoinInterval) {
+		cout << "coinnnn" << endl;
 		this->getAquarium()->createCoin(this->getX(), this->getY(), this->getLevel() * guppyCoinMultiplier);
+		this->last_drop_coin = current_time;
+		cout << "coinnnn dropped" << endl;
 	}
 }
