@@ -6,7 +6,7 @@
 const double COIN_MOVE_SPEED = 10; //TBD
 const double COIN_DELETION_INTERVAL = 10; //TBD
 
-Coin::Coin(double x, double y, int value, Aquarium *aquarium) : Aquatic(x, y, aquarium->getCurrTime(), COIN_MOVE_SPEED, aquarium), value(value) {
+Coin::Coin(double x, double y, int value, Aquarium *aquarium) : Aquatic(x, y, COIN_MOVE_SPEED, aquarium), value(value) {
 	last_bottom_time = 0;
 }
 

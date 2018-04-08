@@ -12,7 +12,7 @@ double fRand(double fMin, double fMax) {
     return fMin + f * (fMax - fMin);
 }
 
-Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), a->getCurrTime(), SNAIL_SPEED, a), coin_radius(SNAIL_RADIUS) {
+Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), SNAIL_SPEED, a), coin_radius(SNAIL_RADIUS) {
 	nearest_coin = NULL;
 	hold_coin_value = 0;
 	x_dir = 0;

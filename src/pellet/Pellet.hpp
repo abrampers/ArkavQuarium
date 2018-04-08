@@ -6,7 +6,7 @@
 class Pellet : public Aquatic {
 	public:
 		/*ctor*/
-		Pellet(double, Aquarium*);
+		Pellet(double x, Aquarium* a);
 
 		/***********/
         /* Methods */
