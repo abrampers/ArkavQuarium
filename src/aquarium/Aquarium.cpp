@@ -99,7 +99,8 @@ void Aquarium::createPellet(double x) {
 }
 
 void Aquarium::createCoin(double x, double y, int value) {
-	content_coin.add(new Coin(x, y, value, curr_time, this));
+	Coin* new_elmt = new Coin(x, y, value, curr_time, this);
+	content_coin.add(new_elmt);
 }
 
 void Aquarium::deletePiranha(Piranha* p) {
