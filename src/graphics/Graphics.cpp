@@ -84,7 +84,6 @@ void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
     }
 
     assetPath += ".png";
-
     drawImage(assetPath, x, y);
 }
 
@@ -92,8 +91,17 @@ void Graphics::drawPiranha(int x, int y, int level, Direction direction) {
 
 }
 
-void Graphics::drawSnail(int x, int y, Direction face) {
+void Graphics::drawSnail(int x, int y, Direction direction) {
+    string assetPath = "assets/graphics/snail";
 
+    if (direction == Direction::left) {
+        assetPath += "_left";
+    } else {
+        assetPath += "_right";
+    }
+
+    assetPath += ".png";
+    drawImage(assetPath, x, y);
 }
 
 void Graphics::drawCoin(int x, int y) {

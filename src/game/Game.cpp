@@ -56,12 +56,11 @@ void Game::startGame() {
         /* Update objects state */
         aquarium->updateState(game_current_time - game_start_time);
         LinkedList<Guppy*>& guppy_list = aquarium->getGuppyList();
+        LinkedList<Snail*>& snail_list = aquarium->getSnailList();
 
-        /* Clear objects on screen */
-        // graphics.clearScreen();
-
-        /* TODO: Draw objects */
+        /* Draw objects */
         graphics.drawBackground();
+
         for (int i = 0; i < guppy_list.getLength(); i++) {
             Guppy *curr_guppy = guppy_list.get(i);
             double curr_guppy_x = curr_guppy->getX();
@@ -70,9 +69,14 @@ void Game::startGame() {
             Direction curr_guppy_direction = curr_guppy->getDirection();
             graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_direction);
         }
-        // graphics.drawGuppy(300, 100, 3, Direction::left);
-        // graphics.drawGuppy(100, 100, 2, Direction::left);
-        // graphics.drawGuppy(100, 300, 1, Direction::right);
+        
+        for (int i = 0; i < snail_list.getLength(); i++) {
+            Snail *curr_snail = snail_list.get(i);
+            double curr_snail_x = curr_snail->getX();
+            double curr_snail_y = curr_snail->getY();
+            Direction curr_snail_direction = curr_snail->getDirection();
+            graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_direction);
+        }
         
         /* Update objects on screen */
         graphics.updateScreen();

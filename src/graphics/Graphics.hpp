@@ -44,7 +44,7 @@ public:
 	void drawBackground();
 	void drawGuppy(int x, int y, int level, Direction direction);
     void drawPiranha(int x, int y, int level, Direction direction);
-    void drawSnail(int x, int y, Direction face);
+    void drawSnail(int x, int y, Direction direction);
     void drawCoin(int x, int y);
     void drawPellet(int x, int y);
 
