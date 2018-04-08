@@ -19,8 +19,9 @@ class Game {
         const double frameRate;
         Graphics graphics;
 
-        /* Game objects */
+        /* Game state */
         Aquarium *aquarium;
+        double game_start_time;
 
         /* Player state */
         int coin;
