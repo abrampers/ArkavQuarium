@@ -9,9 +9,10 @@
 
 class Guppy : public Fish, public Aquatic {
     private:
-        double last_eat_time;
-        double last_random_time;
         Pellet *nearest_pellet;
+        int x_dir;
+        int y_dir;
+        double last_drop_coin;
 
         /****************************/
         /* Private member functions */
@@ -21,11 +22,12 @@ class Guppy : public Fish, public Aquatic {
         /* Euclidean distance from guppy to pellet */
         double distanceToPellet(Pellet *p);
     public:
-    	/* Coin Creation Interval */
-    	static const double coin_creation_interval; 
     	/* Constructor */
         Guppy(Aquarium *aquarium); // Check is default constructor is necessary?
         Guppy(double created_time, Aquarium *aquarium);
+
+        /* Getter & Setter */
+        int getXDir();
 
         /***********/
         /* Methods */
@@ -34,12 +36,10 @@ class Guppy : public Fish, public Aquatic {
         void updateState(double current_time); 
         void move(double current_time);
 
-        /* Create new coin, value depends on type of fish and its phase, or what it eats */
-        void dropCoin(); 
-
         /* Implements pure virtual method from Fish */
-        void eat();
-        
+        void eat(double current_time);
+
+        void dropCoin(double current_time); 
 };
 
 #endif

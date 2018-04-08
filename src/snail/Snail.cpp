@@ -19,7 +19,7 @@ void Snail::updateState() {
 	LinkedList<Coin*> ll = this->getAquarium()->getCoinList();
 	Coin* current_nearest_coin = NULL;
 	Node<Coin*>* curr_node = ll.getHead();
-	while(curr_node->getNext() != NULL) {
+	while(curr_node != NULL) {
 	  curr_node = curr_node->getNext();
 	  Coin* current_coin = curr_node->getValue();
 	  if(current_nearest_coin == NULL) {

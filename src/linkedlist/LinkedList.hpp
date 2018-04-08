@@ -90,7 +90,7 @@ public:
 	// }
 
 	Node<T>* getHead() {
-		return head;
+		return head->getNext();
 	}
 
 	bool isEmpty() { return head->getNext() == NULL; }
