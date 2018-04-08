@@ -42,8 +42,8 @@ public:
 
 	/* High level drawing */
 	void drawBackground();
-	void drawGuppy(int x, int y, Direction direction, FishSize size);
-    void drawPiranha(int x, int y, Direction direction, FishSize size);
+	void drawGuppy(int x, int y, int level, Direction direction);
+    void drawPiranha(int x, int y, int level, Direction direction);
     void drawSnail(int x, int y, Direction face);
     void drawCoin(int x, int y);
     void drawPellet(int x, int y);

@@ -4,7 +4,6 @@
 #include "../common/Constants.hpp"
 #include "../graphics/Graphics.hpp"
 // #include "../aquarium/Aquarium.hpp"
-// #include "../guppy/Guppy.hpp"
 
 #include <iostream>
 #include <math.h>
@@ -21,7 +20,7 @@ class Game {
         Graphics graphics;
 
         /* Game objects */
-        // Aquarium *aquarium;
+        Aquarium *aquarium;
 
         /* Player state */
         int coin;

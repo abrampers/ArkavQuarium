@@ -5,8 +5,4 @@ enum Direction {
     left, right
 };
 
-enum FishSize {
-    small, medium, large
-};
-
 #endif

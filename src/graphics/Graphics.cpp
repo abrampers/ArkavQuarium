@@ -5,14 +5,9 @@ using namespace std::chrono;
 
 Graphics::Graphics(int screen_width, int screen_height):
 screenWidth(screen_width), screenHeight(screen_height) {
-    high_resolution_clock::time_point start = high_resolution_clock::now();
-    SDL_Window* sdlWindow;
-    SDL_Surface* gScreenSurface = NULL;
-    std::map<std::string, SDL_Surface*> loadedSurfaces;
-    std::map<int, TTF_Font*> loadedFontSizes;
-    std::set<SDL_Keycode> pressedKeys;
-    std::set<SDL_Keycode> tappedKeys;
-    bool quit = false;
+    start = high_resolution_clock::now();
+    gScreenSurface = NULL;
+    quit = false;
 }
 
 Graphics::~Graphics() {
@@ -71,12 +66,12 @@ void Graphics::drawBackground() {
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
-void Graphics::drawGuppy(int x, int y, Direction direction, FishSize size) {
+void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
     string assetPath = "assets/graphics/guppy";
     
-    if (size == FishSize::small) {
+    if (level == 1) {
         assetPath += "_small";
-    } else if (size == FishSize::medium) {
+    } else if (level == 2) {
         assetPath += "_medium";
     } else {
         assetPath += "_large";
@@ -91,7 +86,7 @@ void Graphics::drawGuppy(int x, int y, Direction direction, FishSize size) {
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawPiranha(int x, int y, Direction direction, FishSize size) {
+void Graphics::drawPiranha(int x, int y, int level, Direction direction) {
 
 }
 

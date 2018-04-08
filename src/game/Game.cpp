@@ -18,7 +18,8 @@ egg(0) {
 
 /* Destructor */
 Game::~Game() {
-    // delete aquarium;
+    /* Delete objects */
+    delete aquarium;
 
     /* Close game graphics */
     graphics.close();
@@ -26,8 +27,7 @@ Game::~Game() {
 
 /* Initialize game state */
 void Game::initState() {
-    // aquarium = new Aquarium();
-    // aquarium.createGuppy();
+    aquarium = new Aquarium();
 }
 
 /* Load game state from an external file */
@@ -42,12 +42,10 @@ void Game::saveState(string filename) {
 
 /* Start a game */
 void Game::startGame() {
-
     double frame_start_time = graphics.timeSinceStart();
     bool running = true;
 
     while (running) {
-
         /* Handle input from OS */
         graphics.handleInput();
         if (graphics.quitPressed()) {
@@ -55,13 +53,22 @@ void Game::startGame() {
         }
 
         /* TODO: Update objects state */
-
+        aquarium.updateState(frame_start_time);
+        LinkedList<Guppy*>& guppy_list = aquarium.getGuppyList();
 
         /* Clear objects on screen */
-        graphics.clearScreen();
+        // graphics.clearScreen();
 
         /* TODO: Draw objects */
         graphics.drawBackground();
+        for (int i = 0; i < guppy_list.getLength(); i++) {
+            Guppy *curr_guppy = guppy_list.get(i);
+            int curr_guppy_x = curr_guppy->getX();
+            int curr_guppy_y = curr_guppy->getY();
+            int curr_guppy_level = curr_guppy->getLevel();
+            Direction curr_guppy_direction = curr_guppy->getDirection();
+            graphics.drawGuppy(x, y, curr_guppy_direction, curr_guppy_level);
+        }
         
         /* Update objects on screen */
         graphics.updateScreen();
