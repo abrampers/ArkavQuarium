@@ -88,7 +88,25 @@ void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
 }
 
 void Graphics::drawPiranha(int x, int y, int level, Direction direction) {
+    string assetPath = "assets/graphics/piranha";
+    
+    /* TODO */
+    // if (level == 1) {
+    //     assetPath += "_small";
+    // } else if (level == 2) {
+    //     assetPath += "_medium";
+    // } else {
+    //     assetPath += "_large";
+    // }
 
+    if (direction == Direction::left) {
+        assetPath += "_left";
+    } else {
+        assetPath += "_right";
+    }
+
+    assetPath += ".png";
+    drawImage(assetPath, x, y);
 }
 
 void Graphics::drawSnail(int x, int y, Direction direction) {

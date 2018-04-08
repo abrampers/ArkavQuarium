@@ -24,7 +24,7 @@ Game::~Game() {
 
 /* Initialize game state */
 void Game::initState() {
-    aquarium = new Aquarium(screenWidth, screenHeight - 80);
+    aquarium = new Aquarium(screenWidth, screenHeight - 60);
     game_start_time = graphics.timeSinceStart();
 }
 
@@ -56,11 +56,13 @@ void Game::startGame() {
         /* Update objects state */
         aquarium->updateState(game_current_time - game_start_time);
         LinkedList<Guppy*>& guppy_list = aquarium->getGuppyList();
+        LinkedList<Piranha*>& piranha_list = aquarium->getPiranhaList();
         LinkedList<Snail*>& snail_list = aquarium->getSnailList();
 
-        /* Draw objects */
+        /* Draw background */
         graphics.drawBackground();
 
+        /* Draw guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
             Guppy *curr_guppy = guppy_list.get(i);
             double curr_guppy_x = curr_guppy->getX();
@@ -69,7 +71,18 @@ void Game::startGame() {
             Direction curr_guppy_direction = curr_guppy->getDirection();
             graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_direction);
         }
+
+        /* Draw piranha */
+        for (int i = 0; i < piranha_list.getLength(); i++) {
+            Guppy *curr_piranha = piranha_list.get(i);
+            double curr_piranha_x = curr_piranha->getX();
+            double curr_piranha_y = curr_piranha->getY();
+            int curr_piranha_level = curr_piranha->getLevel();
+            Direction curr_piranha_direction = curr_piranha->getDirection();
+            graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_level, curr_piranha_direction);
+        }
         
+        /* Draw snail */
         for (int i = 0; i < snail_list.getLength(); i++) {
             Snail *curr_snail = snail_list.get(i);
             double curr_snail_x = curr_snail->getX();
