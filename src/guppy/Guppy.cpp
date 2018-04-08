@@ -9,10 +9,8 @@ const double GUPPY_HUNGER_TIMEOUT = 10;
 const double GUPPY_MOVE_SPEED = 10;
 const double RANDOM_MOVE_INTERVAL = 4; /* Ini juga detik ya brok */
 const double PI = 3.14159265;
-const double GUPPY_COIN_INTERVAL = 5;
+const double GUPPY_COIN_INTERVAL = 8;
 const double GUPPY_COIN_MULTIPLIER = 10;
-
-const double Guppy::coin_creation_interval = 8; /* Ini juga detik ye bos */
 
 double fRand(double fMin, double fMax) {
     double f = (double)rand() / RAND_MAX;
@@ -74,13 +72,13 @@ bool Guppy::nearestPelletInRange() {
 
 /* Change hunger status */
 void Guppy::updateState(double current_time) {
-	if(current_time - this->last_curr_time > this->hunger_timeout) {
+	if(current_time - this->getLastCurrTime() > this->hunger_timeout) {
 		/* Dead guppy */
-		this->getAquarium()->getGuppyList()->remove(this);
+		this->getAquarium()->getGuppyList().remove(this);
 	} else {
-		dropCoin();
+		dropCoin(current_time);
 		this->findNearestPellet();
-		eat();
+		eat(current_time);
 		this->findNearestPellet();
 		move(current_time);
 		this->setLastCurrTime(current_time);

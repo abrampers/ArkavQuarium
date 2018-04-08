@@ -11,9 +11,6 @@ class Piranha : public Fish, public Aquatic {
     	/* Constructor */
         Piranha();
 
-        /* Create new coin, value depends on type of fish and its phase, or what it eats */
-        void dropCoin(); 
-
         /***********/
         /* Methods */
         /***********/
@@ -24,6 +21,7 @@ class Piranha : public Fish, public Aquatic {
         /* Implements pure virtual method from Fish */
         void eat(double current_time);
 
+        /* Create new coin, value depends on type of fish and its phase, or what it eats */
         void dropCoin();
 };
 
