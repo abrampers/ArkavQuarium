@@ -27,8 +27,8 @@ void Snail::findNearestCoin() {
 	LinkedList<Coin*> ll = this->getAquarium()->getCoinList();
 	Coin* current_nearest_coin = NULL;
 	Node<Coin*>* curr_node = ll.getHead();
-	while(curr_node != NULL) {
-	  curr_node = curr_node->getNext();
+
+	for (int i = 0; i < ll.getLength(); i++) {
 	  Coin* current_coin = curr_node->getValue();
 	  if(current_nearest_coin == NULL) {
 	  	current_nearest_coin = current_coin;
@@ -36,6 +36,7 @@ void Snail::findNearestCoin() {
 	  else if ((getDistance(current_coin, this)) > getDistance(current_nearest_coin, this)) {
 	  	current_nearest_coin = current_coin;
 	  }
+	  curr_node = curr_node->getNext();
 	}
 
 	this->nearest_coin = current_nearest_coin;
