@@ -13,18 +13,19 @@ const double guppyCoinInterval = 8;
 const double guppyCoinMultiplier = 10;
 
 Guppy::Guppy(Aquarium *aquarium): 
-Aquatic(floor(fRand(0, this->getAquarium()->getXMax())), 
-	floor(fRand(0, this->getAquarium()->getYMax())), 
+Aquatic(floor(fRand(0, aquarium->getXMax())), 
+	floor(fRand(0, aquarium->getYMax())), 
 	guppyMoveSpeed, 
 	aquarium),
 Fish(guppyFoodThres, 
 	guppyEatRadius, 
 	guppyFullInterval, 
 	guppyHungerInterval, 
-	this->getAquarium()->getCurrTime()) {
+	aquarium->getCurrTime()) {
+	cout << "lololo" << endl;
 	
 	nearest_pellet = NULL;
-	last_drop_coin = this->getAquarium()->getCurrTime();
+	last_drop_coin = aquarium->getCurrTime();
 	x_dir = 0;
 	y_dir = 0;
 }
