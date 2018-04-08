@@ -9,12 +9,12 @@ class Aquatic {
         Aquarium* aquarium;
         double x, y;
         double last_curr_time;
-        const double move_speed; /* Movement Speed per second */
+        const double moveSpeed; /* Movement Speed per second */
 
     public:
         /* Constructor */
     	Aquatic(Aquarium *aquarium);
-    	Aquatic(double x, double y, double curr_time, double move_speed, Aquarium* aquarium);
+    	Aquatic(double x, double y, double move_speed, Aquarium* aquarium);
 
         /*Getter - Setter */
         Aquarium *getAquarium();
@@ -33,10 +33,10 @@ class Aquatic {
         bool isInside();                        
 
         /* All aquatic entities can move. Returns pair of <vx, vy> where vx is velocity in X direction and vy is velocity in y direction.*/
-        virtual void move(double current_time) = 0; // Check if move should be private member function          
+        virtual void move() = 0; // Check if move should be private member function          
 
         /* What action will it take if the time increments*/
-        virtual void updateState(double current_time) = 0;
+        virtual void updateState() = 0;
 };
 
 #endif

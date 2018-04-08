@@ -3,17 +3,17 @@
 #include "../aquatic/Aquatic.hpp"
 #include "../aquarium/Aquarium.hpp"
 
-Aquatic::Aquatic(Aquarium *aquarium) : move_speed(0) {
+Aquatic::Aquatic(Aquarium *aquarium) : moveSpeed(0) {
 	x = 0;
 	y = 0;
-	last_curr_time = 0;
+	last_curr_time = this->getAquarium()->getCurrTime();
 	this->aquarium = aquarium;
 }
 
-Aquatic::Aquatic(double x, double y, double curr_time, double move_speed, Aquarium *aquarium) : move_speed(move_speed){
+Aquatic::Aquatic(double x, double y, double move_speed, Aquarium *aquarium) : moveSpeed(move_speed) {
 	this->x = x;
 	this->y = y;
-	this->last_curr_time = curr_time;
+	this->last_curr_time = this->getAquarium()->getCurrTime();
 	this->aquarium = aquarium;
 }
 
@@ -22,7 +22,7 @@ Aquarium *Aquatic::getAquarium() {
 }
 
 double Aquatic::getMoveSpeed() const {
-	return this->move_speed;
+	return this->moveSpeed;
 }
 
 double Aquatic::getX() {
