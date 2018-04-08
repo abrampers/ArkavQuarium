@@ -6,7 +6,7 @@
 class Pellet : public Aquatic {
 	public:
 		//ctor
-		Pellet();
+		Pellet(double, Aquarium*);
 
 		//methods
         void updateState(); // What action will it take if the time increments

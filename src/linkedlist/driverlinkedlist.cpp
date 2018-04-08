@@ -14,10 +14,14 @@ int main() {
 	dll.add(8);
 	dll.add(3);
 
+
 	LinkedList<int> dll2 = dll;
 	dll2.remove(3);
 	dll.print();
 	dll2.print();
+
+	LinkedList<int> dll3;
+	cout << dll3.getHead() << endl;
 
 	return 0;
 }
