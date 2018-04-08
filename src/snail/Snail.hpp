@@ -3,7 +3,7 @@
 
 #include "../aquatic/Aquatic.hpp"
 #include "../coin/Coin.hpp"
-#include "../common/Constants.hpp"
+#include "../common/Common.hpp"
 #include <cmath>
 
 class Snail : public Aquatic {

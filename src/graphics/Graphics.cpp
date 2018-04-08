@@ -83,6 +83,8 @@ void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
         assetPath += "_right";
     }
 
+    assetPath += ".png";
+
     drawImage(assetPath, x, y);
 }
 

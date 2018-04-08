@@ -4,7 +4,8 @@
 
 Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax), /*content_piranha(),*/ content_guppy(), content_snail(), content_pellet(), content_coin() {
 	curr_time = 0;
-	/*Bikin guppy, snail*/
+	/* TODO: Bikin guppy, snail*/
+	this->createGuppy();
 }
 
 Aquarium::~Aquarium() {};

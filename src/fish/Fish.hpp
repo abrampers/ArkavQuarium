@@ -1,7 +1,7 @@
 #ifndef FISH_HPP
 #define FISH_HPP
 
-#include "../common/Constants.hpp"
+#include "../common/Common.hpp"
 
 class Fish {
     private:

@@ -12,12 +12,17 @@ const double pi = 3.14159265;
 const double guppyCoinInterval = 8;
 const double guppyCoinMultiplier = 10;
 
-double fRand(double fMin, double fMax) {
-    double f = (double)rand() / RAND_MAX;
-    return fMin + f * (fMax - fMin);
-}
-
-Guppy::Guppy(Aquarium *aquarium) : Fish(guppyFoodThres, guppyEatRadius, guppyFullInterval, guppyHungerInterval, this->getAquarium()->getCurrTime()), Aquatic(floor(fRand(0, this->getAquarium()->getXMax())), floor(fRand(0, this->getAquarium()->getYMax())), guppyMoveSpeed, aquarium) {
+Guppy::Guppy(Aquarium *aquarium): 
+Aquatic(floor(fRand(0, this->getAquarium()->getXMax())), 
+	floor(fRand(0, this->getAquarium()->getYMax())), 
+	guppyMoveSpeed, 
+	aquarium),
+Fish(guppyFoodThres, 
+	guppyEatRadius, 
+	guppyFullInterval, 
+	guppyHungerInterval, 
+	this->getAquarium()->getCurrTime()) {
+	
 	nearest_pellet = NULL;
 	last_drop_coin = this->getAquarium()->getCurrTime();
 	x_dir = 0;

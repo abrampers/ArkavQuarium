@@ -7,11 +7,6 @@
 const double SNAIL_SPEED = 1.0;
 const double SNAIL_RADIUS = 1.0;
 
-double fRand(double fMin, double fMax) {
-    double f = (double)rand() / RAND_MAX;
-    return fMin + f * (fMax - fMin);
-}
-
 Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), SNAIL_SPEED, a), coin_radius(SNAIL_RADIUS) {
 	nearest_coin = NULL;
 	hold_coin_value = 0;

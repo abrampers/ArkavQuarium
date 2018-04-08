@@ -5,6 +5,7 @@
 #include "../fish/Fish.hpp"
 #include "../linkedlist/LinkedList.hpp"
 #include "../pellet/Pellet.hpp"
+#include "../common/Common.hpp"
 #include <cmath>
 
 class Guppy : public Fish, public Aquatic {

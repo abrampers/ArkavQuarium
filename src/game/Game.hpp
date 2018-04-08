@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "../common/Constants.hpp"
+#include "../common/Common.hpp"
 #include "../graphics/Graphics.hpp"
 #include "../aquarium/Aquarium.hpp"
 
