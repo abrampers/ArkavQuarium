@@ -55,9 +55,8 @@ bool Snail::nearestCoinInRange() {
 	return false;
 }
 
-//TODO: CHANGE TO ENUM
-int Snail::getDirection() { 
-	return x_dir;
+Direction Snail::getDirection() { 
+	return x_dir >= 0 ? Direction::right : Direction::left;
 }
 
 void Snail::updateState() {

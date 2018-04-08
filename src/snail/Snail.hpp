@@ -3,6 +3,7 @@
 
 #include "../aquatic/Aquatic.hpp"
 #include "../coin/Coin.hpp"
+#include "../common/Constants.hpp"
 #include <cmath>
 
 class Snail : public Aquatic {
@@ -24,8 +25,7 @@ class Snail : public Aquatic {
 		Snail(Aquarium*); //Initialize y-axis location to be always at the bottom of the aquarium
 
 		/*getter-setter*/
-		//TODO: CHANGE TO ENUM
-        int getDirection();
+        Direction getDirection();
 
 		/*methods*/
         void updateState(); // What action will it take if the time increments
