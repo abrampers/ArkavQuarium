@@ -89,6 +89,7 @@ void Guppy::move() {
 		double y_direction = nearest_pellet->getY() - this->getY();
 		double distance = distanceToPellet(nearest_pellet);
 
+		/* Check if this need to change */
 		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
 		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
 

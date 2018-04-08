@@ -20,9 +20,9 @@ double Aquarium::getYMax() const {
 
 double Aquarium::getCurrTime() {return this->curr_time;}
 
-// LinkedList<Piranha*>& Aquarium::getPiranhaList() {
-// 	return content_piranha;
-// }
+LinkedList<Piranha*>& Aquarium::getPiranhaList() {
+	return content_piranha;
+}
 
 LinkedList<Guppy*>& Aquarium::getGuppyList() {
 	return content_guppy;
@@ -46,13 +46,13 @@ void Aquarium::setCurrTime(double t) {
 
 void Aquarium::updateState(double current_time) {
 	this->curr_time = current_time;
-	// Node<Piranha*>* pointer_piranha;
+	Node<Piranha*>* pointer_piranha;
 	/* Piranha */
-	// pointer_piranha = content_piranha.getHead();
-	// while (pointer_piranha != NULL) {
-	// 	pointer_piranha->getValue()->updateState();
-	// 	pointer_piranha = pointer_piranha->getNext();
-	// }
+	pointer_piranha = content_piranha.getHead();
+	while (pointer_piranha != NULL) {
+		pointer_piranha->getValue()->updateState();
+		pointer_piranha = pointer_piranha->getNext();
+	}
 	/* Guppy */
 	Node<Guppy*>* pointer_guppy;
 	pointer_guppy = content_guppy.getHead();
@@ -83,10 +83,10 @@ void Aquarium::updateState(double current_time) {
 	}
 }
 
-// void Aquarium::createPiranha() {
-// 	// Piranha* new_elmt = new Piranha ( TBD );
-// 	// content_piranha.add(new_elmt);
-// }
+void Aquarium::createPiranha() {
+	// Piranha* new_elmt = new Piranha ( TBD );
+	// content_piranha.add(new_elmt);
+}
 
 void Aquarium::createGuppy() {
 	Guppy* new_elmt = new Guppy(this);
@@ -108,9 +108,9 @@ void Aquarium::createCoin(double x, double y, int value) {
 	content_coin.add(new_elmt);
 }
 
-// void Aquarium::deletePiranha(Piranha* p) {
-// 	content_piranha.remove(p);
-// }
+void Aquarium::deletePiranha(Piranha* p) {
+	content_piranha.remove(p);
+}
 
 void Aquarium::deleteGuppy(Guppy* g) {
 	content_guppy.remove(g);

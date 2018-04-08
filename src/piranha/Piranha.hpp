@@ -3,6 +3,10 @@
 
 #include "../aquatic/Aquatic.hpp"
 #include "../fish/Fish.hpp"
+#include "../linkedlist/LinkedList.hpp"
+#include "../guppy/Guppy.hpp"
+#include "../common/Common.hpp"
+#include <cmath>
 
 class Piranha : public Fish, public Aquatic {
 	private:
@@ -14,7 +18,7 @@ class Piranha : public Fish, public Aquatic {
         void findNearestGuppy();
         bool nearestGuppyInRange();
         /* Euclidean distance from guppy to pellet */
-        double distanceToGuppy(Pellet *p);
+        double distanceToGuppy(Guppy *p);
     public:
     	/* Constructor */
         Piranha(Aquarium *aquarium);
