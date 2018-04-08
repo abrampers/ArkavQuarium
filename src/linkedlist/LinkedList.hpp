@@ -47,12 +47,14 @@ template <typename T>
 class LinkedList {
 private:
 	Node<T> *head;
+	int length;
 public:
 	LinkedList() {
 		head = new Node<T>;
 		head->setValue(0);
 		head->setNext(NULL);
 		head->setPrev(NULL);
+		length = 0;
 	}
 
 	LinkedList(const LinkedList<T>& ll) {
@@ -60,6 +62,7 @@ public:
 		head->setValue(0);
 		head->setNext(NULL);
 		head->setPrev(NULL);
+		length = ll.length;
 
 		Node<T>* currLLNode = ll.head;
 		while(currLLNode->getNext() != NULL) {
@@ -103,6 +106,7 @@ public:
 		}
 		currNode->setNext(n);
 		n->setPrev(currNode);
+		length += 1;
 	}
 
 	int find(T value) {
@@ -132,6 +136,7 @@ public:
 					currNode = currNode->getNext(); 
 				}
 				delete currNode;
+				length -= 1;
 			}
 		}
 	}
@@ -143,6 +148,10 @@ public:
 			currNode = currNode->getNext();
 		}
 		return currNode->getValue();
+	}
+
+	int getLength() {
+		return length;
 	}
 
 	void print() {
