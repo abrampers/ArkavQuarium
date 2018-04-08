@@ -2,7 +2,7 @@
 
 #include "../aquarium/Aquarium.hpp"
 
-Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax), /*content_piranha(),*/ content_guppy(), content_snail(), content_pellet(), content_coin() {
+Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	curr_time = 0;
 	/* TODO: Bikin guppy, snail*/
 	this->createGuppy();

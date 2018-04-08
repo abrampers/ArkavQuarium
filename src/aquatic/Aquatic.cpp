@@ -13,7 +13,7 @@ Aquatic::Aquatic(Aquarium *aquarium) : moveSpeed(0) {
 Aquatic::Aquatic(double x, double y, double move_speed, Aquarium *aquarium) : moveSpeed(move_speed) {
 	this->x = x;
 	this->y = y;
-	this->last_curr_time = this->getAquarium()->getCurrTime();
+	this->last_curr_time = aquarium->getCurrTime();
 	this->aquarium = aquarium;
 }
 
