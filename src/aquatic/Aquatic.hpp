@@ -7,7 +7,7 @@ class Aquarium;
 class Aquatic {
     private:
         Aquarium* aquarium;
-        int x, y;
+        double x, y;
         double last_curr_time;
         const double moveSpeed; /* Movement Speed per second */
 

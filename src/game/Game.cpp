@@ -46,6 +46,7 @@ void Game::startGame() {
     while (running) {
         /* Start frame timer */
         double frame_start_time = graphics.timeSinceStart();
+        srand(frame_start_time);
         
         /* Handle input from OS */
         graphics.handleInput();

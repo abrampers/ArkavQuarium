@@ -6,7 +6,7 @@ const int guppyFoodThres = 20;
 const double guppyEatRadius = 1.25;
 const double guppyFullInterval = 5; /* Ini detik ye bos */
 const double guppyHungerInterval = 10;
-const double guppyMoveSpeed = 10;
+const double guppyMoveSpeed = 200000;
 const double randomMoveInterval = 4; /* Ini juga detik ya brok */
 const double pi = 3.14159265;
 const double guppyCoinInterval = 8;
@@ -25,8 +25,6 @@ Fish(guppyFoodThres,
 	
 	nearest_pellet = NULL;
 	last_drop_coin = aquarium->getCurrTime();
-
-	/* Initialize random movement */
 	double rad = fRand(0, 360) * pi / 180;
 	this->x_dir = cos(rad);
 	this->y_dir = sin(rad);
@@ -99,29 +97,29 @@ void Guppy::move() {
 	} else {
 		/* Random movement guppy */
 		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
+			cout << "lololo" << endl;
 			this->setLastRandomTime(current_time);
 			double rad = fRand(0, 360) * pi / 180;
 
 			this->x_dir = cos(rad);
 			this->y_dir = sin(rad);
-		}
+			cout << this->x_dir << endl;
+			cout << this->y_dir << endl;
 
+		}
 		double dx = this->x_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
 		double dy = this->y_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
 
-		if ((this->getX() + dx >= this->getAquarium()->getXMax()) ||
-			(this->getX() + dx <= 0)) {
+		if(this->getX() + dx > this->getAquarium()->getXMax() || 
+		   this->getX() + dx < 0) {
 			this->x_dir *= -1;
-			dx *= -1;
-			// dx = this->x_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
-		}
+			dx *= -1; 
+		} 
 
-		if ((this->getY() + dy >= this->getAquarium()->getYMax()) ||
-			(this->getY() + dy <= 0)) {
+		if(this->getY() + dy > this->getAquarium()->getYMax() || 
+		   this->getY() + dy < 0) {
 			this->y_dir *= -1;
 			dy *= -1;
-			cout << "Y nabrak" << endl;
-			// dy = this->y_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
 		}
 
 		this->setX(this->getX() + dx);
