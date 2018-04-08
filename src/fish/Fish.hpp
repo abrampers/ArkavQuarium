@@ -1,6 +1,8 @@
 #ifndef FISH_HPP
 #define FISH_HPP
 
+#include "../common/Constants.hpp"
+
 class Fish {
     private:
         /* Last eat time of the fish */
@@ -45,7 +47,7 @@ class Fish {
         void setHungry(bool hungry);
         void setLevel(int level);
         /* TODO: Ganti enum */
-        double getDirection();
+        Direction getDirection();
 
         /***********/
         /* Methods */
