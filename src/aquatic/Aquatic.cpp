@@ -25,11 +25,11 @@ double Aquatic::getMoveSpeed() const {
 	return this->moveSpeed;
 }
 
-int Aquatic::getX() {
+double Aquatic::getX() {
 	return this->x;
 }
 
-int Aquatic::getY() {
+double Aquatic::getY() {
 	return this->y;
 }
 
@@ -38,11 +38,11 @@ double Aquatic::getLastCurrTime() const {
 }
 
 void Aquatic::setX(double x) {
-	this->x = floor(x);
+	this->x = x;
 }
 
 void Aquatic::setY(double y) {
-	this->y = floor(y);
+	this->y = y;
 }
 
 void Aquatic::setLastCurrTime(double t) {

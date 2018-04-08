@@ -6,7 +6,7 @@ const int guppyFoodThres = 20;
 const double guppyEatRadius = 1.25;
 const double guppyFullInterval = 5; /* Ini detik ye bos */
 const double guppyHungerInterval = 10;
-const double guppyMoveSpeed = 10;
+const double guppyMoveSpeed = 120; /* Pixels per second */
 const double randomMoveInterval = 4; /* Ini juga detik ya brok */
 const double pi = 3.14159265;
 const double guppyCoinInterval = 8;
@@ -27,7 +27,7 @@ Fish(guppyFoodThres,
 	last_drop_coin = aquarium->getCurrTime();
 
 	/* Initialize random movement */
-	double rad = fRand(0, 360) * pi / 180;
+	double rad = fRand(0.0, 2.0 * pi);
 	this->x_dir = cos(rad);
 	this->y_dir = sin(rad);
 }
@@ -74,11 +74,11 @@ void Guppy::updateState() {
 		/* Dead guppy */
 		this->getAquarium()->getGuppyList().remove(this);
 	} else {
-		dropCoin();
+		this->dropCoin();
 		this->findNearestPellet();
-		eat();
+		this->eat();
 		this->findNearestPellet();
-		move();
+		this->move();
 		this->setLastCurrTime(current_time);
 	}
 }
@@ -97,35 +97,40 @@ void Guppy::move() {
 		this->setY(this->getY() + dy);
 		this->x_dir = x_direction;
 	} else {
-		/* Random movement guppy */
+		/* Randomize move direction after some interval */
 		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
 			this->setLastRandomTime(current_time);
-			double rad = fRand(0, 360) * pi / 180;
+			double rad = fRand(0.0, 2.0 * pi);
 
 			this->x_dir = cos(rad);
 			this->y_dir = sin(rad);
 		}
 
-		double dx = this->x_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
-		double dy = this->y_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
+		/* Continue movement */
+		double dx = this->x_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
+		double dy = this->y_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
 
-		if ((this->getX() + dx >= this->getAquarium()->getXMax()) ||
-			(this->getX() + dx <= 0)) {
-			this->x_dir *= -1;
-			dx *= -1;
-			// dx = this->x_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
+		if (getX() + dx >= getAquarium()->getXMax() && x_dir > 0.0) {
+			this->x_dir *= -1.0;
+		} else if (getX() + dx <= 0.0 && x_dir < 0.0) {
+			this->x_dir *= -1.0;
+		} else {
+			this->setX(this->getX() + dx);
 		}
 
-		if ((this->getY() + dy >= this->getAquarium()->getYMax()) ||
-			(this->getY() + dy <= 0)) {
-			this->y_dir *= -1;
-			dy *= -1;
-			cout << "Y nabrak" << endl;
-			// dy = this->y_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
+		if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
+			this->y_dir *= -1.0;
+		} else if (getY() + dy <= 0.0 && y_dir < 0.0) {
+			this->y_dir *= -1.0;
+		} else {
+			this->setY(this->getY() + dy);
 		}
 
-		this->setX(this->getX() + dx);
-		this->setY(this->getY() + dy);
+		/* DEBUG */
+		// cout << "x_dir: " << x_dir << endl;
+		// cout << "y_dir: " << y_dir << endl;
+		// cout << "mag: " << x_dir * x_dir + y_dir * y_dir << endl << endl;
+
 	}
 }
 
