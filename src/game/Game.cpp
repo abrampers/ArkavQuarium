@@ -45,6 +45,7 @@ void Game::startGame() {
 
     while (running) {
         /* Start frame timer */
+
         double game_current_time = graphics.timeSinceStart();
         
         /* Handle input from OS */

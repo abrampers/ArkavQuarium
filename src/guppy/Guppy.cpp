@@ -25,7 +25,6 @@ Fish(guppyFoodThres,
 	
 	nearest_pellet = NULL;
 	last_drop_coin = aquarium->getCurrTime();
-
 	/* Initialize random movement */
 	double rad = fRand(0.0, 2.0 * pi);
 	this->x_dir = cos(rad);
@@ -70,7 +69,7 @@ bool Guppy::nearestPelletInRange() {
 /* Change hunger status */
 void Guppy::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(current_time - this->getLastCurrTime() > this->hungerTimeout) {
+	if(this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout) {
 		/* Dead guppy */
 		this->getAquarium()->getGuppyList().remove(this);
 	} else {
@@ -90,6 +89,7 @@ void Guppy::move() {
 		double y_direction = nearest_pellet->getY() - this->getY();
 		double distance = distanceToPellet(nearest_pellet);
 
+		/* Check if this need to change */
 		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
 		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
 
@@ -99,16 +99,21 @@ void Guppy::move() {
 	} else {
 		/* Randomize move direction after some interval */
 		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
+			cout << "lololo" << endl;
 			this->setLastRandomTime(current_time);
 			double rad = fRand(0.0, 2.0 * pi);
 
 			this->x_dir = cos(rad);
 			this->y_dir = sin(rad);
+			cout << this->x_dir << endl;
+			cout << this->y_dir << endl;
 		}
+
 
 		/* Continue movement */
 		double dx = this->x_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
 		double dy = this->y_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
+
 
 		if (getX() + dx >= getAquarium()->getXMax() && x_dir > 0.0) {
 			this->x_dir *= -1.0;
@@ -117,6 +122,7 @@ void Guppy::move() {
 		} else {
 			this->setX(this->getX() + dx);
 		}
+
 
 		if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
 			this->y_dir *= -1.0;
@@ -140,6 +146,7 @@ void Guppy::eat() {
 	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
 		/* Change guppy hunger state */
 		this->setHungry(true);
+		this->setLastHungerTime(current_time);
 	}
 
 	if(this->getHungry() && nearestPelletInRange()) {
