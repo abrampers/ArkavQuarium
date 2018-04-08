@@ -17,16 +17,9 @@ double fRand(double fMin, double fMax) {
     return fMin + f * (fMax - fMin);
 }
 
-Guppy::Guppy(Aquarium *aquarium) : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT, 0), Aquatic(fRand(0, this->getAquarium()->getXMax()), fRand(0, this->getAquarium()->getYMax()), 0, GUPPY_MOVE_SPEED, aquarium) {
+Guppy::Guppy(Aquarium *aquarium) : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT, this->getAquarium()->getCurrTime()), Aquatic(fRand(0, this->getAquarium()->getXMax()), fRand(0, this->getAquarium()->getYMax()), this->getAquarium()->getCurrTime(), GUPPY_MOVE_SPEED, aquarium) {
 	nearest_pellet = NULL;
-	last_drop_coin = 0;
-	x_dir = 0;
-	y_dir = 0;
-}
-
-Guppy::Guppy(double created_time, Aquarium *aquarium) : Fish(GUPPY_FOOD_THRES, GUPPY_EAT_RADIUS, GUPPY_FULL_INTERVAL, GUPPY_HUNGER_TIMEOUT, created_time), Aquatic(fRand(0, this->getAquarium()->getXMax()), fRand(0, this->getAquarium()->getYMax()), created_time, GUPPY_MOVE_SPEED, aquarium) {
-	nearest_pellet = NULL;
-	last_drop_coin = created_time;
+	last_drop_coin = this->getAquarium()->getCurrTime();
 	x_dir = 0;
 	y_dir = 0;
 }
@@ -71,22 +64,24 @@ bool Guppy::nearestPelletInRange() {
 }
 
 /* Change hunger status */
-void Guppy::updateState(double current_time) {
+void Guppy::updateState() {
+	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->getLastCurrTime() > this->hunger_timeout) {
 		/* Dead guppy */
 		this->getAquarium()->getGuppyList().remove(this);
 	} else {
-		dropCoin(current_time);
+		dropCoin();
 		this->findNearestPellet();
-		eat(current_time);
+		eat();
 		this->findNearestPellet();
-		move(current_time);
+		move();
 		this->setLastCurrTime(current_time);
 	}
 }
 
 /* TODO: Implementasi random */
-void Guppy::move(double current_time) {
+void Guppy::move() {
+	double current_time = this->getAquarium()->getCurrTime();
 	if(nearest_pellet != NULL && this->getHungry()) {
 		double x_direction = nearest_pellet->getX() - this->getX();
 		double y_direction = nearest_pellet->getY() - this->getY();
@@ -101,6 +96,7 @@ void Guppy::move(double current_time) {
 	} else {
 		/* Random movement guppy */
 		if(current_time - this->getLastRandomTime() > RANDOM_MOVE_INTERVAL) {
+			this->setLastRandomTime(current_time);
 			double rad = fRand(0, 360) * PI / 180;
 
 			this->x_dir = cos(rad);
@@ -109,13 +105,24 @@ void Guppy::move(double current_time) {
 		double dx = this->x_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
 		double dy = this->y_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
 
+		if(this->getX() + dx > this->getAquarium()->getXMax()) {
+			this->x_dir *= -1;
+			dx = this->x_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
+		} 
+
+		if(this->getY() + dy > this->getAquarium()->getYMax()) {
+			this->y_dir *= -1;
+			dy = this->y_dir * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
+		}
+
 		this->setX(this->getX() + dx);
 		this->setY(this->getY() + dy);
 	}
 }
 
 /* TODO: kalo makan, ubah last_eat_time */
-void Guppy::eat(double current_time) {
+void Guppy::eat() {
+	double current_time = this->getAquarium()->getCurrTime();
 	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->full_interval)) {
 		/* Change guppy hunger state */
 		this->setHungry(true);
@@ -126,11 +133,13 @@ void Guppy::eat(double current_time) {
 		ll.remove(nearest_pellet);
 		nearest_pellet = NULL;
 		this->setHungry(false);
+		this->setLastEatTime(current_time);
 	} 
 }
 
 /* TODO: Implementasi dropCoin */
-void Guppy::dropCoin(double current_time) {
+void Guppy::dropCoin() {
+	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->last_drop_coin > GUPPY_COIN_INTERVAL) {
 		this->getAquarium()->createCoin(this->getX(), this->getY(), this->getLevel() * GUPPY_COIN_MULTIPLIER);
 	}

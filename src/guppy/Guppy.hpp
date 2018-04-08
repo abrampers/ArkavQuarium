@@ -23,8 +23,7 @@ class Guppy : public Fish, public Aquatic {
         double distanceToPellet(Pellet *p);
     public:
     	/* Constructor */
-        Guppy(Aquarium *aquarium); // Check is default constructor is necessary?
-        Guppy(double created_time, Aquarium *aquarium);
+        Guppy(Aquarium *aquarium);
 
         /* Getter & Setter */
         int getXDir();
@@ -33,13 +32,12 @@ class Guppy : public Fish, public Aquatic {
         /* Methods */
         /***********/
         /* Implements pure virtual method from Aquatic */
-        void updateState(double current_time); 
-        void move(double current_time);
+        void updateState(); 
+        void move();
 
         /* Implements pure virtual method from Fish */
-        void eat(double current_time);
-
-        void dropCoin(double current_time); 
+        void eat();
+        void dropCoin(); 
 };
 
 #endif

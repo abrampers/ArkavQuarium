@@ -46,7 +46,8 @@ class Fish {
         /* Methods */
         /***********/
     	/* Method for eat action */
-        virtual void eat(double current_time) = 0; 
+        virtual void eat() = 0; 
+        virtual void dropCoin() = 0; 
 };
 
 #endif
