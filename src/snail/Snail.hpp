@@ -23,6 +23,10 @@ class Snail : public Aquatic {
 		/*ctor*/
 		Snail(Aquarium*); //Initialize y-axis location to be always at the bottom of the aquarium
 
+		/*getter-setter*/
+		//TODO: CHANGE TO ENUM
+        int getDirection();
+
 		/*methods*/
         void updateState(); // What action will it take if the time increments
         void move();

@@ -55,6 +55,11 @@ bool Snail::nearestCoinInRange() {
 	return false;
 }
 
+//TODO: CHANGE TO ENUM
+int Snail::getDirection() { 
+	return x_dir;
+}
+
 void Snail::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
 	findNearestCoin();
