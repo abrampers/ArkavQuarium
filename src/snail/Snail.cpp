@@ -4,7 +4,7 @@
 #include "../aquarium/Aquarium.hpp"
 #include <math.h>
 
-const double SNAIL_SPEED = 1.0;
+const double SNAIL_SPEED = 80;
 const double SNAIL_RADIUS = 1.0;
 
 Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), SNAIL_SPEED, a), coin_radius(SNAIL_RADIUS) {
@@ -69,7 +69,7 @@ void Snail::updateState() {
 void Snail::move() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if (nearest_coin != NULL) {
-		double dx = this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000);
+		double dx = this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 		if (nearest_coin->getX() > this->getX()) {
 			x_dir = 1;
 			this->setX(this->getX() + dx);
