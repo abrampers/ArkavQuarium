@@ -20,7 +20,7 @@ class Aquarium {
 
     public:
         /* Constructor */
-        Aquarium();
+        Aquarium(double xMax, double yMax);
 
         /* Destructor */
         ~Aquarium();

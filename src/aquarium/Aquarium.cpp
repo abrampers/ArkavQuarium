@@ -2,11 +2,9 @@
 
 #include "../aquarium/Aquarium.hpp"
 
-const double XMAX = 0; //TBD
-const double YMAX = 0; //TBD
-
-Aquarium::Aquarium() : xMax(XMAX), yMax(YMAX), content_piranha(), content_guppy(), content_snail(), content_pellet(), content_coin() {
+Aquarium::Aquarium(double xMax, yMax) : xMax(xMax), yMax(yMax), content_piranha(), content_guppy(), content_snail(), content_pellet(), content_coin() {
 	curr_time = 0;
+	/*Bikin guppy, snail*/
 }
 
 double Aquarium::getXMax() const {
@@ -49,35 +47,35 @@ void Aquarium::updateState(double current_time) {
 	/* Piranha */
 	pointer_piranha = content_piranha.getHead();
 	while (pointer_piranha != NULL) {
-		pointer_piranha->getValue()->updateState(curr_time);
+		pointer_piranha->getValue()->updateState();
 		pointer_piranha = pointer_piranha->getNext();
 	}
 	/* Guppy */
 	Node<Guppy*>* pointer_guppy;
 	pointer_guppy = content_guppy.getHead();
 	while (pointer_guppy != NULL) {
-		pointer_guppy->getValue()->updateState(curr_time);
+		pointer_guppy->getValue()->updateState();
 		pointer_guppy = pointer_guppy->getNext();
 	}
 	/* Snail */
 	Node<Snail*>* pointer_snail;
 	pointer_snail = content_snail.getHead();
 	while (pointer_snail != NULL) {
-		pointer_snail->getValue()->updateState(curr_time);
+		pointer_snail->getValue()->updateState();
 		pointer_snail = pointer_snail->getNext();
 	}
 	/* Pellet */
 	Node<Pellet*>* pointer_pellet;
 	pointer_pellet = content_pellet.getHead();
 	while (pointer_pellet != NULL) {
-		pointer_pellet->getValue()->updateState(curr_time);
+		pointer_pellet->getValue()->updateState();
 		pointer_pellet = pointer_pellet->getNext();
 	}
 	/*Coin*/
 	Node<Coin*>* pointer_coin;
 	pointer_coin = content_coin.getHead();
 	while (pointer_coin != NULL) {
-		pointer_coin->getValue()->updateState(curr_time);
+		pointer_coin->getValue()->updateState();
 		pointer_coin = pointer_coin->getNext();
 	}
 }
@@ -88,7 +86,7 @@ void Aquarium::createPiranha() {
 }
 
 void Aquarium::createGuppy() {
-	Guppy* new_elmt = new Guppy(curr_time, this);
+	Guppy* new_elmt = new Guppy(this);
 	content_guppy.add(new_elmt);
 }
 
@@ -103,7 +101,7 @@ void Aquarium::createPellet(double x) {
 }
 
 void Aquarium::createCoin(double x, double y, int value) {
-	Coin* new_elmt = new Coin(x, y, value, curr_time, this);
+	Coin* new_elmt = new Coin(x, y, value, this);
 	content_coin.add(new_elmt);
 }
 

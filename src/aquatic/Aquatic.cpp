@@ -50,5 +50,5 @@ void Aquatic::setLastCurrTime(double t) {
 }
 
 bool Aquatic::isInside() {
-	return x >= 0 && y >= 0 && y < this->aquarium->getYMax() && x <this->aquarium->getXMax();
+	return x >= 0 && y >= 0 && y < this->aquarium->getYMax() && x < this->aquarium->getXMax();
 }

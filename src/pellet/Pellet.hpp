@@ -9,8 +9,8 @@ class Pellet : public Aquatic {
 		Pellet(double, Aquarium*);
 
 		//methods
-        void updateState(double t); // What action will it take if the time increments
-        void move(double t);
+        void updateState(); // What action will it take if the time increments
+        void move();
 };
 
 #endif

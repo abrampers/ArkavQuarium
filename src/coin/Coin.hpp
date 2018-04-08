@@ -10,7 +10,6 @@ class Coin : public Aquatic {
 	public:
 		/* Constructor */
 		Coin(double x, double y, Aquarium* aquarium);
-		Coin(double x, double y, int value, double created_time, Aquarium* aquarium);
 
 		/***********/
         /* Methods */
