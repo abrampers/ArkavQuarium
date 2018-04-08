@@ -5,11 +5,14 @@
 
 class Pellet : public Aquatic {
 	public:
-		//ctor
+		/*ctor*/
 		Pellet(double, Aquarium*);
 
-		//methods
-        void updateState(); // What action will it take if the time increments
+		/***********/
+        /* Methods */
+        /***********/
+        /* Implements pure virtual method from Aquatic */
+        void updateState();
         void move();
 };
 

@@ -3,21 +3,29 @@
 
 #include "../aquatic/Aquatic.hpp"
 #include "../coin/Coin.hpp"
+#include <cmath>
 
 class Snail : public Aquatic {
 	private:
 		const double coin_radius;
 		Coin* nearest_coin;
+		int hold_coin_value;
+		int x_dir;
 
+		/****************************/
+        /* Private member functions */
+        /****************************/
 		double getDistance(Aquatic*, Aquatic*);
+		void pickCoin(Coin*);
+		void findNearestCoin();
+        bool nearestCoinInRange();
 	public:
-		//ctor
+		/*ctor*/
 		Snail(Aquarium*); //Initialize y-axis location to be always at the bottom of the aquarium
 
-		//methods
-        void updateState(double); // What action will it take if the time increments
-        void move(double);
-		void pickCoin(Coin*);
+		/*methods*/
+        void updateState(); // What action will it take if the time increments
+        void move();
 };
 
 #endif

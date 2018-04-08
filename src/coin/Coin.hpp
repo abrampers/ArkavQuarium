@@ -11,12 +11,15 @@ class Coin : public Aquatic {
 		/* Constructor */
 		Coin(double x, double y, Aquarium* aquarium);
 
+		/* Getter - Setter */
+		int getValue() const;
+
 		/***********/
         /* Methods */
         /***********/
 		/* Implements pure virtual method from Aquatic */
-        void updateState(double current_time); 
-        void move(double current_time);
+        void updateState(); 
+        void move();
 };
 
 #endif
