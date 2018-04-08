@@ -25,12 +25,12 @@ double Aquatic::getMoveSpeed() const {
 	return this->moveSpeed;
 }
 
-int Aquatic::getX() {
-	return int(this->x);
+double Aquatic::getX() {
+	return this->x;
 }
 
-int Aquatic::getY() {
-	return int(this->y);
+double Aquatic::getY() {
+	return this->y;
 }
 
 double Aquatic::getLastCurrTime() const {

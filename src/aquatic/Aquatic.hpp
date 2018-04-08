@@ -19,8 +19,8 @@ class Aquatic {
         /*Getter - Setter */
         Aquarium *getAquarium();
         double getMoveSpeed() const;
-        int getX();
-        int getY();
+        double getX();
+        double getY();
         double getLastCurrTime() const;
         void setX(double x);
         void setY(double y);
