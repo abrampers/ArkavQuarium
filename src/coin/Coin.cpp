@@ -2,7 +2,7 @@
 
 #include "../coin/Coin.hpp"
 
-const double COIN_MOVE_SPEED = 0 //TBD
+const double COIN_MOVE_SPEED = 0; //TBD
 
 Coin::Coin(double x, double y, Aquarium *aquarium) : Aquatic(x, y, 0, COIN_MOVE_SPEED, aquarium) {
 	value = 0;
