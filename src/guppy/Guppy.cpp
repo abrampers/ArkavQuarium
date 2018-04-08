@@ -69,7 +69,7 @@ bool Guppy::nearestPelletInRange() {
 /* Change hunger status */
 void Guppy::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(current_time - this->getLastCurrTime() > this->hungerTimeout) {
+	if(this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout) {
 		/* Dead guppy */
 		this->getAquarium()->getGuppyList().remove(this);
 	} else {
@@ -146,6 +146,7 @@ void Guppy::eat() {
 	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
 		/* Change guppy hunger state */
 		this->setHungry(true);
+		this->setLastHungerTime(current_time);
 	}
 
 	if(this->getHungry() && nearestPelletInRange()) {

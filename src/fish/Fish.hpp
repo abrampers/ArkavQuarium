@@ -9,6 +9,8 @@ class Fish {
         double last_eat_time;
         /* Last random time of the fish */
         double last_random_time;
+        /* Last hunger time */
+        double last_hunger_time;
         /* Number of food eaten */
         int food_eaten;
         /* State of the fish */
@@ -38,11 +40,13 @@ class Fish {
         /* Getter and Setter */
         double getLastEatTime();
         double getLastRandomTime();
+        double getLastHungerTime();
         int getFoodEaten();
         bool getHungry();
         int getLevel();
         void setLastEatTime(double last_eat_time);
         void setLastRandomTime(double last_random_time);
+        void setLastHungerTime(double last_hunger_time);
         void setFoodEaten(int food_eaten);
         void setHungry(bool hungry);
         void setLevel(int level);
