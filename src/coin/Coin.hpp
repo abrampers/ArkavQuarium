@@ -6,6 +6,7 @@
 class Coin : public Aquatic {
 	private:
 		const int value;
+		double last_bottom_time;
 	public:
 		/* Constructor */
 		Coin(double x, double y, Aquarium* aquarium);
