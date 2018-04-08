@@ -27,7 +27,7 @@ Game::~Game() {
 
 /* Initialize game state */
 void Game::initState() {
-    aquarium = new Aquarium();
+    aquarium = new Aquarium(screenWidth, screenHeight - 80);
 }
 
 /* Load game state from an external file */
@@ -53,8 +53,8 @@ void Game::startGame() {
         }
 
         /* TODO: Update objects state */
-        aquarium.updateState(frame_start_time);
-        LinkedList<Guppy*>& guppy_list = aquarium.getGuppyList();
+        aquarium->updateState(frame_start_time);
+        LinkedList<Guppy*>& guppy_list = aquarium->getGuppyList();
 
         /* Clear objects on screen */
         // graphics.clearScreen();
@@ -67,7 +67,7 @@ void Game::startGame() {
             int curr_guppy_y = curr_guppy->getY();
             int curr_guppy_level = curr_guppy->getLevel();
             Direction curr_guppy_direction = curr_guppy->getDirection();
-            graphics.drawGuppy(x, y, curr_guppy_direction, curr_guppy_level);
+            graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_direction);
         }
         
         /* Update objects on screen */

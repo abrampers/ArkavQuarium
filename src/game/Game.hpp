@@ -3,7 +3,7 @@
 
 #include "../common/Constants.hpp"
 #include "../graphics/Graphics.hpp"
-// #include "../aquarium/Aquarium.hpp"
+#include "../aquarium/Aquarium.hpp"
 
 #include <iostream>
 #include <math.h>

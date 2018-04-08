@@ -5,14 +5,14 @@
 #include "../coin/Coin.hpp"
 #include "../guppy/Guppy.hpp"
 #include "../pellet/Pellet.hpp"
-#include "../piranha/Piranha.hpp"
+// #include "../piranha/Piranha.hpp"
 #include "../snail/Snail.hpp"
 
 class Aquarium {
     private:
         const double xMax, yMax;
         double curr_time;
-        LinkedList<Piranha*> content_piranha;
+        // LinkedList<Piranha*> content_piranha;
         LinkedList<Guppy*> content_guppy;
         LinkedList<Snail*> content_snail;
         LinkedList<Pellet*> content_pellet;
@@ -31,7 +31,7 @@ class Aquarium {
         double getXMax() const;
         double getYMax() const;
         double getCurrTime();
-        LinkedList<Piranha*>& getPiranhaList();
+        // LinkedList<Piranha*>& getPiranhaList();
         LinkedList<Guppy*>& getGuppyList();
         LinkedList<Snail*>& getSnailList();
         LinkedList<Pellet*>& getPelletList();
@@ -46,12 +46,12 @@ class Aquarium {
         void updateState(double current_time);
 
         /* Create and Delete Operations for Aquatic */
-        void createPiranha();
+        // void createPiranha();
         void createGuppy();
         void createSnail();
         void createPellet(double x);
         void createCoin(double x, double y, int value);
-        void deletePiranha(Piranha* p);
+        // void deletePiranha(Piranha* p);
         void deleteGuppy(Guppy* g);
         void deleteSnail(Snail* s);
         void deletePellet(Pellet* p);

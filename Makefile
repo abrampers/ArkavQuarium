@@ -1,5 +1,14 @@
 # Masukkan semua file cpp Anda
-OBJS = src/main.cpp src/graphics/Graphics.cpp src/game/Game.cpp
+OBJS = src/main.cpp \
+src/graphics/Graphics.cpp \
+src/game/Game.cpp \
+src/aquarium/Aquarium.cpp \
+src/aquatic/Aquatic.cpp \
+src/fish/Fish.cpp \
+src/guppy/Guppy.cpp \
+src/coin/Coin.cpp \
+src/pellet/Pellet.cpp \
+src/snail/Snail.cpp
 
 CC = g++
 COMPILER_FLAGS = -std=c++11 -Wall -O2
