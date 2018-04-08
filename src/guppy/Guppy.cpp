@@ -17,7 +17,7 @@ double fRand(double fMin, double fMax) {
     return fMin + f * (fMax - fMin);
 }
 
-Guppy::Guppy(Aquarium *aquarium) : Fish(guppyFoodThres, guppyEatRadius, guppyFullInterval, guppyHungerInterval, this->getAquarium()->getCurrTime()), Aquatic(fRand(0, this->getAquarium()->getXMax()), fRand(0, this->getAquarium()->getYMax()), guppyMoveSpeed, aquarium) {
+Guppy::Guppy(Aquarium *aquarium) : Fish(guppyFoodThres, guppyEatRadius, guppyFullInterval, guppyHungerInterval, this->getAquarium()->getCurrTime()), Aquatic(floor(fRand(0, this->getAquarium()->getXMax())), floor(fRand(0, this->getAquarium()->getYMax())), guppyMoveSpeed, aquarium) {
 	nearest_pellet = NULL;
 	last_drop_coin = this->getAquarium()->getCurrTime();
 	x_dir = 0;
@@ -75,7 +75,6 @@ void Guppy::updateState() {
 	}
 }
 
-/* TODO: Implementasi random */
 void Guppy::move() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(nearest_pellet != NULL && this->getHungry()) {
@@ -116,7 +115,7 @@ void Guppy::move() {
 	}
 }
 
-/* TODO: kalo makan, ubah last_eat_time */
+/* TODO: Implement naik level */
 void Guppy::eat() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
@@ -132,7 +131,6 @@ void Guppy::eat() {
 	} 
 }
 
-/* TODO: Implementasi dropCoin */
 void Guppy::dropCoin() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->last_drop_coin > guppyCoinInterval) {

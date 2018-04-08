@@ -30,7 +30,7 @@ int Fish::getLevel() {
  	return level;
 }
 
-double Fish::getXDir() {
+double Fish::getDirection() {
 	return x_dir;
 }
 
