@@ -6,6 +6,7 @@ Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	curr_time = 0;
 	/* TODO: Bikin guppy, snail*/
 	this->createGuppy();
+	this->createSnail();
 }
 
 Aquarium::~Aquarium() {};
