@@ -4,8 +4,8 @@
 #include "../aquarium/Aquarium.hpp"
 #include <math.h>
 
-#define SNAIL_SPEED 1.0
-#define SNAIL_RADIUS 1.0
+const double SNAIL_SPEED 1.0;
+const double SNAIL_RADIUS 1.0;
 
 Snail::Snail(Aquarium* a) : Aquatic(0.5, a->getYMax(), a->getCurrTime(), SNAIL_SPEED, a), coin_radius(SNAIL_RADIUS) {}
 

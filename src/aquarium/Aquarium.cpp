@@ -93,17 +93,18 @@ void Aquarium::createGuppy() {
 }
 
 void Aquarium::createSnail() {
-	Snail* new_elmt = new Snail( /* TBD */ );
+	Snail* new_elmt = new Snail(this);
 	content_snail.add(new_elmt);
 }
 
-void Aquarium::createPellet() {
-	Pellet* new_elmt = new Pellet( /* TBD */ );
+void Aquarium::createPellet(double x) {
+	Pellet* new_elmt = new Pellet(x, this);
 	content_pellet.add(new_elmt);
 }
 
 void Aquarium::createCoin(double x, double y, int value) {
-	content_coin.add(new Coin(x, y, value, curr_time, this));
+	Coin* new_elmt = new Coin(x, y, value, curr_time, this);
+	content_coin.add(new_elmt);
 }
 
 void Aquarium::deletePiranha(Piranha* p) {
