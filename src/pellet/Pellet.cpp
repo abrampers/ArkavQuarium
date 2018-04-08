@@ -2,7 +2,7 @@
 #include "Pellet.hpp"
 #include "../aquarium/Aquarium.hpp"
 
-const double PELLET_SPEED 1.0; //TBD
+const double PELLET_SPEED = 1.0; //TBD
 
 Pellet::Pellet(double x, Aquarium* a) : Aquatic(x, 0.0, PELLET_SPEED, a) {}
 
