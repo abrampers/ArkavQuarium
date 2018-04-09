@@ -62,7 +62,7 @@ bool Guppy::nearestPelletInRange() {
 /* Change hunger status */
 void Guppy::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(this->getState() == State::dead || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
+	if(this->getState() == State::deadLeft || this->getState() == State::deadRight || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
 		/* Dead guppy */
 		this->dead();
 	} else {
@@ -199,9 +199,9 @@ void Guppy::updateProgress() {
 
 /* Implementasi dead masih salah bung */
 void Guppy::dead() {
-	if(this->getState() == moveRight || (this->getState() == turningRight && this->getProgress() >= 5) || (this->getState() == turningLeft && this->getProgress() < 5)) {
+	if(this->getState() == movingRight || (this->getState() == turningRight && this->getProgress() >= 5) || (this->getState() == turningLeft && this->getProgress() < 5)) {
 		this->setState(State::deadRight);
-	} else if(this->getState() == moveLeft || (this->getState() == turningLeft && this->getProgress() >= 5) || (this->getState() == turningRight && this->getProgress() < 5)) {
+	} else if(this->getState() == movingLeft || (this->getState() == turningLeft && this->getProgress() >= 5) || (this->getState() == turningRight && this->getProgress() < 5)) {
 		this->setState(State::deadLeft);
 	}
 	double current_time = this->getAquarium()->getCurrTime();
