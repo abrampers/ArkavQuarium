@@ -18,7 +18,7 @@ using namespace std::chrono;
 
 class Graphics {
 private:
-	const char* fontPath = "assets/fonts/OpenSans-Regular.ttf";
+	const char* fontPath = "assets/fonts/Oswald-Regular.ttf";
 	const int screenWidth, screenHeight;
 	int mouse_x, mouse_y;
 	
@@ -30,7 +30,7 @@ private:
     set<SDL_Keycode> pressed_keys;
     set<SDL_Keycode> tapped_keys;
     vector<tuple<int, int, int, int> > click_targets;
-    set<int> clicked_targets;
+    int clicked_target;
     bool quit;
 
     SDL_Surface* loadSurface(string path);
@@ -45,6 +45,7 @@ public:
 
 	/* High level drawing */
 	void drawAquarium();
+	void drawCoinText(int value);
 	void drawGuppy(int x, int y, int level, State state, int state_progress);
     void drawPiranha(int x, int y, State state, int state_progress);
     void drawSnail(int x, int y, State state, int state_progress);
@@ -85,7 +86,7 @@ public:
 	/* Mouse events handling */
 	int addClickTarget(int x_min, int x_max, int y_min, int y_max);
 	void resetClickTargets();
-	const set<int>& getClickedTargets();
+	const int& getClickedTarget();
 	int getMouseX();
 	int getMouseY();
 };

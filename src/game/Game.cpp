@@ -10,6 +10,10 @@ screenWidth(gameScreenWidth),
 screenHeight(gameScreenHeight), 
 frameRate(gameFrameRate), 
 graphics(gameScreenWidth, gameScreenHeight),
+gameScreenXStart(0),
+gameScreenXEnd(gameScreenWidth),
+gameScreenYStart(200),
+gameScreenYEnd(gameScreenHeight - 100),
 coin(0),
 egg(0) {
     /* Initialize game graphics */
@@ -27,7 +31,7 @@ Game::~Game() {
 
 /* Initialize game state */
 void Game::initState() {
-    aquarium = new Aquarium(screenWidth, screenHeight - 60);
+    aquarium = new Aquarium(gameScreenXStart, gameScreenYStart, gameScreenXEnd, gameScreenYEnd);
     game_start_time = graphics.timeSinceStart();
 }
 
@@ -62,8 +66,9 @@ void Game::startGame() {
         LinkedList<Coin*>& coin_list = aquarium->getCoinList();
         vector<int> coin_click_targets;
 
-        /* Draw background */
+        /* Draw UI */
         graphics.drawAquarium();
+        graphics.drawCoinText(coin);
 
         /* Draw Guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
@@ -123,18 +128,18 @@ void Game::startGame() {
         graphics.handleInput();
 
         /* Check mouse click events */
-        for (auto clicked_target : graphics.getClickedTargets()) {
+        int clicked_target = graphics.getClickedTarget();
+        if (clicked_target == 0) {
+            int x = graphics.getMouseX();
+            int y = graphics.getMouseY();
+            aquarium->createPellet(x, y);
+        } else {
             for (int i = 0; i < coin_click_targets.size(); i++) {
                 if (clicked_target == coin_click_targets[i]) {
                     coin += coin_list.get(i)->getValue();
                     aquarium->deleteCoin(coin_list.get(i));
+                    break;
                 }
-            }
-            /* Click event is outside any registered target */
-            if (clicked_target == -1) {
-                int x = graphics.getMouseX();
-                int y = graphics.getMouseY();
-                aquarium->createPellet(x, y);
             }
         }
 

@@ -63,7 +63,11 @@ void Graphics::drawAquarium() {
     const string bgAssetPath = "assets/graphics/statics/aquarium_background.jpg";
     const string uiAssetPath = "assets/graphics/statics/aquarium_ui.png";
     drawImage(bgAssetPath, screenWidth / 2, screenHeight / 2);
-    drawImage(uiAssetPath, screenWidth / 2, 83);
+    drawImage(uiAssetPath, screenWidth / 2, 87);
+}
+
+void Graphics::drawCoinText(int value) {
+    drawText(to_string(value), 100, 200, 300, 45, 252, 48);
 }
 
 void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
@@ -210,9 +214,7 @@ void Graphics::handleInput() {
     if (!tapped_keys.empty()) {
         tapped_keys.clear();
     }
-    if (!clicked_targets.empty()) {
-        clicked_targets.clear();
-    }
+    clicked_target = -1;
 
     while(SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
@@ -233,12 +235,8 @@ void Graphics::handleInput() {
                         mouse_x <= get<1>(target) &&
                         mouse_y >= get<2>(target) &&
                         mouse_y <= get<3>(target)) {
-                        clicked_targets.insert(i);
+                        clicked_target = i;
                     }
-                }
-                /* If click event is not inside any registered target */
-                if (clicked_targets.empty()) {
-                    clicked_targets.insert(-1);
                 }
             }
         }
@@ -275,14 +273,14 @@ int Graphics::addClickTarget(int x_min, int x_max, int y_min, int y_max) {
 void Graphics::resetClickTargets() {
     if (!click_targets.empty()) {
         click_targets.clear();
-    }
-    if (!clicked_targets.empty()) {
-        clicked_targets.clear();
+        /* Screen is always a click target */
+        tuple<int, int, int, int> screen = make_tuple(0, screenWidth, 0, screenHeight);
+        click_targets.push_back(screen);
     }
 }
 
-const set<int>& Graphics::getClickedTargets() {
-    return clicked_targets;
+const int& Graphics::getClickedTarget() {
+    return clicked_target;
 }
 
 int Graphics::getMouseX() {
