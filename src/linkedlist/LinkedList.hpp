@@ -27,10 +27,6 @@ public:
 	~Node() { 
 		Node* n = next;
 		Node* p = prev;
-		next = NULL;
-		prev = NULL;
-		delete next;
-		delete prev;
 		if(n != NULL) n->setPrev(p);
 		if(p != NULL) p->setNext(n);
 	}

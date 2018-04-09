@@ -2,12 +2,12 @@
 
 using namespace std;
 
-Game::Game(int screen_width, int screen_height):
-screenWidth(screen_width), 
-screenHeight(screen_height), 
-frameRate(35), 
-graphics(screen_width, screen_height),
-coin(0), 
+Game::Game():
+screenWidth(gameScreenWidth), 
+screenHeight(gameScreenHeight), 
+frameRate(gameFrameRate), 
+graphics(gameScreenWidth, gameScreenHeight),
+coin(0),
 egg(0) {
     /* Initialize game graphics */
     bool succ = graphics.init();
@@ -59,11 +59,13 @@ void Game::startGame() {
         LinkedList<Guppy*>& guppy_list = aquarium->getGuppyList();
         LinkedList<Piranha*>& piranha_list = aquarium->getPiranhaList();
         LinkedList<Snail*>& snail_list = aquarium->getSnailList();
+        LinkedList<Coin*>& coin_list = aquarium->getCoinList();
+        LinkedList<Pellet*>& pellet_list = aquarium->getPelletList();
 
         /* Draw background */
         graphics.drawBackground();
 
-        /* Draw guppy */
+        /* Draw Guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
             Guppy *curr_guppy = guppy_list.get(i);
             double curr_guppy_x = curr_guppy->getX();
@@ -73,7 +75,7 @@ void Game::startGame() {
             graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_direction);
         }
 
-        /* Draw piranha */
+        /* Draw Piranha */
         for (int i = 0; i < piranha_list.getLength(); i++) {
             Piranha *curr_piranha = piranha_list.get(i);
             double curr_piranha_x = curr_piranha->getX();
@@ -83,13 +85,29 @@ void Game::startGame() {
             graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_level, curr_piranha_direction);
         }
         
-        /* Draw snail */
+        /* Draw Snail */
         for (int i = 0; i < snail_list.getLength(); i++) {
             Snail *curr_snail = snail_list.get(i);
             double curr_snail_x = curr_snail->getX();
             double curr_snail_y = curr_snail->getY();
             Direction curr_snail_direction = curr_snail->getDirection();
             graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_direction);
+        }
+
+        /* Draw Coin */
+        for (int i = 0; i < coin_list.getLength(); i++) {
+            Coin *curr_coin = coin_list.get(i);
+            double curr_coin_x = curr_coin->getX();
+            double curr_coin_y = curr_coin->getY();
+            graphics.drawCoin(curr_coin_x, curr_coin_y);
+        }
+
+        /* Draw Pellet */
+        for (int i = 0; i < pellet_list.getLength(); i++) {
+            Pellet *curr_pellet = pellet_list.get(i);
+            double curr_pellet_x = curr_pellet->getX();
+            double curr_pellet_y = curr_pellet->getY();
+            graphics.drawPellet(curr_pellet_x, curr_pellet_y);
         }
         
         /* Update objects on screen */

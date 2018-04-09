@@ -29,7 +29,7 @@ class Game {
 
     public:
         /* Constructor */
-        Game(int screen_width, int screen_height);
+        Game();
 
         /* Destructor */
         ~Game();

@@ -90,14 +90,13 @@ void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
 void Graphics::drawPiranha(int x, int y, int level, Direction direction) {
     string assetPath = "assets/graphics/piranha";
     
-    /* TODO */
-    // if (level == 1) {
-    //     assetPath += "_small";
-    // } else if (level == 2) {
-    //     assetPath += "_medium";
-    // } else {
-    //     assetPath += "_large";
-    // }
+    if (level == 1) {
+        assetPath += "_small";
+    } else if (level == 2) {
+        assetPath += "_medium";
+    } else {
+        assetPath += "_large";
+    }
 
     if (direction == Direction::left) {
         assetPath += "_left";
@@ -123,11 +122,15 @@ void Graphics::drawSnail(int x, int y, Direction direction) {
 }
 
 void Graphics::drawCoin(int x, int y) {
-
+    string assetPath = "assets/graphics/coin";
+    assetPath += ".png";
+    drawImage(assetPath, x, y);
 }
 
 void Graphics::drawPellet(int x, int y) {
-
+    string assetPath = "assets/graphics/pellet";
+    assetPath += ".gif";
+    drawImage(assetPath, x, y);
 }
 
 /* Low level rawing */
