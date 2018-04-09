@@ -60,7 +60,7 @@ bool Piranha::nearestGuppyInRange() {
 /* Change hunger status */
 void Piranha::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(this->getState() == State::dead || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
+	if(this->getState() == State::deadLeft || this->getState() == State::deadRight || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
 		/* Dead guppy */
 		this->dead();
 	} else {
@@ -192,7 +192,11 @@ void Piranha::updateProgress() {
 }
 
 void Piranha::dead() {
-	this->setState(State::dead);
+	if(this->getState() == movingRight || (this->getState() == turningRight && this->getProgress() >= 5) || (this->getState() == turningLeft && this->getProgress() < 5)) {
+		this->setState(State::deadRight);
+	} else if(this->getState() == movingLeft || (this->getState() == turningLeft && this->getProgress() >= 5) || (this->getState() == turningRight && this->getProgress() < 5)) {
+		this->setState(State::deadLeft);
+	}
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->getLastProgressTime() > piranhaDeadProgressIncrementTime) {
 		this->setProgress(this->getProgress() + 1);
