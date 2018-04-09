@@ -73,7 +73,7 @@ void Guppy::updateState() {
 		/* Dead guppy */
 		this->getAquarium()->getGuppyList().remove(this);
 	} else {
-		// this->dropCoin();
+		this->dropCoin();
 		this->findNearestPellet();
 		this->eat();
 		this->findNearestPellet();
