@@ -28,7 +28,7 @@ double Guppy::distanceToPellet(Pellet *p) {
 	double guppy_x_position = this->getX();
 	double guppy_y_position = this->getY();
 	double pellet_x_position = p->getX();
-	double pellet_y_position = p->getX();
+	double pellet_y_position = p->getY();
 
 	return sqrt((guppy_x_position - pellet_x_position) * (guppy_x_position - pellet_x_position) + (guppy_y_position - pellet_y_position) * (guppy_y_position - pellet_y_position));
 }
@@ -90,13 +90,13 @@ void Guppy::move() {
 
 			this->setX(this->getX() + dx);
 			this->setY(this->getY() + dy);
-			this->x_dir = x_direction;
-			this->y_dir = y_direction;
+			this->x_dir = x_direction / distance;
+			this->y_dir = y_direction / distance;
 		} else {
 			/* Randomize move direction after some interval */
 			if(current_time - this->getLastRandomTime() > randomMoveInterval) {
 				this->setLastRandomTime(current_time);
-				double rad = fRand(0.0, 2.0 * pi);
+				double rad = fRand(0.1, 1.9 * pi);
 
 				double x_direction = cos(rad);
 				if(x_direction >= 0 && this->x_dir < 0) {
