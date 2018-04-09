@@ -6,7 +6,7 @@
 #include "linkedlist/LinkedList.hpp"
 #include "guppy/Guppy.hpp"
 
-class Piranha : public Fish, public Aquatic {
+class Piranha : public Aquatic, public Fish {
 	private:
 		Guppy *nearest_guppy;
 

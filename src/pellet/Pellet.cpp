@@ -2,7 +2,7 @@
 #include "pellet/Pellet.hpp"
 #include "aquarium/Aquarium.hpp"
 
-Pellet::Pellet(double x, Aquarium* a) : Aquatic(x, 0.0, PELLET_SPEED, a) {}
+Pellet::Pellet(double x, Aquarium* a) : Aquatic(x, 0.0, pelletSpeed, a) {}
 
 void Pellet::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
