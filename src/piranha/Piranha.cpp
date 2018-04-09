@@ -3,8 +3,8 @@
 #include "aquarium/Aquarium.hpp"
 
 Piranha::Piranha(Aquarium *aquarium): 
-Aquatic(floor(fRand(0, aquarium->getXMax())), 
-	floor(fRand(0, aquarium->getYMax())), 
+Aquatic(floor(fRand(aquarium->getXMin(), aquarium->getXMax())), 
+	floor(fRand(aquarium->getYMin(), aquarium->getYMax())), 
 	piranhaMoveSpeed, 
 	aquarium),
 Fish(piranhaFoodThres, 
@@ -123,7 +123,7 @@ void Piranha::move() {
 				this->setState(turningLeft);
 				this->setLastProgressTime(current_time);
 				this->setProgress(0);
-			} else if (getX() + dx <= 0.0 && x_dir < 0.0) {
+			} else if (getX() + dx <= aquarium->getXMin() && x_dir < 0.0) {
 				this->x_dir *= -1.0;
 				this->setState(turningRight);
 				this->setLastProgressTime(current_time);
@@ -136,7 +136,7 @@ void Piranha::move() {
 
 			if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
 				this->y_dir *= -1.0;
-			} else if (getY() + dy <= 0.0 && y_dir < 0.0) {
+			} else if (getY() + dy <= aquarium->getYMin() && y_dir < 0.0) {
 				this->y_dir *= -1.0;
 			} else {
 				this->setY(this->getY() + dy);

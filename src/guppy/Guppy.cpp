@@ -3,8 +3,8 @@
 #include "aquarium/Aquarium.hpp"
 
 Guppy::Guppy(Aquarium *aquarium): 
-Aquatic(floor(fRand(0, aquarium->getXMax())), 
-	floor(fRand(0, aquarium->getYMax())), 
+Aquatic(floor(fRand(aquarium->getXMin(), aquarium->getXMax())), 
+	floor(fRand(aquarium->getYMin(), aquarium->getYMax())), 
 	guppyMoveSpeed, 
 	aquarium),
 Fish(guppyFoodThres, 
@@ -99,13 +99,13 @@ void Guppy::move() {
 				double rad = fRand(0.1, 1.9 * pi);
 
 				double x_direction = cos(rad);
-				if(x_direction >= 0 && this->x_dir < 0) {
+				if(x_direction >= 0 && this->x_dir < aquarium->getXMin()) {
 					this->setState(turningRight);
 					this->setLastProgressTime(current_time);
 					this->setProgress(0);
 				}
 
-				if(x_direction < 0 && this->x_dir >= 0) {
+				if(x_direction < 0 && this->x_dir >= aquarium->getXMin()) {
 					this->setState(turningLeft);
 					this->setLastProgressTime(current_time);
 					this->setProgress(0);
@@ -126,7 +126,7 @@ void Guppy::move() {
 				this->setState(turningLeft);
 				this->setLastProgressTime(current_time);
 				this->setProgress(0);
-			} else if (getX() + dx <= 0.0 && this->x_dir < 0.0) {
+			} else if (getX() + dx <= aquarium->getXMin() && this->x_dir < 0.0) {
 				this->x_dir *= -1.0;
 				this->setState(turningRight);
 				this->setLastProgressTime(current_time);
@@ -138,7 +138,7 @@ void Guppy::move() {
 
 			if (getY() + dx >= getAquarium()->getYMax() && this->y_dir > 0.0) {
 				this->y_dir *= -1.0;
-			} else if (getY() + dy <= 0.0 && this->y_dir < 0.0) {
+			} else if (getY() + dy <= aquarium->getYMin() && this->y_dir < 0.0) {
 				this->y_dir *= -1.0;
 			} else {
 				this->setY(this->getY() + dy);

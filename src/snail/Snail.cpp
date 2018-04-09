@@ -2,7 +2,7 @@
 #include "snail/Snail.hpp"
 #include "aquarium/Aquarium.hpp"
 
-Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), snailSpeed, a), snailRadius(snailEatRadius) {
+Snail::Snail(Aquarium* a) : Aquatic(fRand(a->getXMin(), a->getXMax()), a->getYMax(), snailSpeed, a), snailRadius(snailEatRadius) {
 	nearest_coin = NULL;
 	hold_coin_value = 0;
 	x_dir = 0;
