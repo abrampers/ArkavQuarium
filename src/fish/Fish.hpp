@@ -51,7 +51,6 @@ class Fish {
         void setFoodEaten(int food_eaten);
         void setHungry(bool hungry);
         void setLevel(int level);
-        /* TODO: Ganti enum */
         Direction getDirection();
 
         /***********/

@@ -97,7 +97,7 @@ void Game::startGame() {
 
         /* Wait until frame time reaches 1 / frameRate */
         while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate);
-        cout << "fps: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
+        cout << "FPS: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
     }
 }
 

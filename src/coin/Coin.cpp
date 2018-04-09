@@ -24,7 +24,7 @@ void Coin::updateState() {
 /* For coin, X is constant, Y always move downwards */
 void Coin::move() {
 	double current_time = this->getAquarium()->getCurrTime();
-	double dy = this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); //Asumsi waktu dalam ms
+	double dy = this->getMoveSpeed() * ((current_time - this->getLastCurrTime())); //Asumsi waktu dalam ms
 	if (this->isInside()) {
 		if (this->getY() + dy > this->getAquarium()->getYMax()) {
 			this->setY(this->getAquarium()->getYMax());

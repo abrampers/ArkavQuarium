@@ -115,12 +115,6 @@ void Piranha::move() {
 		} else {
 			this->setY(this->getY() + dy);
 		}
-
-		/* DEBUG */
-		// cout << "x_dir: " << x_dir << endl;
-		// cout << "y_dir: " << y_dir << endl;
-		// cout << "mag: " << x_dir * x_dir + y_dir * y_dir << endl << endl;
-
 	}
 }
 

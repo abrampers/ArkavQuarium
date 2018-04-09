@@ -80,8 +80,8 @@ void Guppy::move() {
 		double distance = distanceToPellet(nearest_pellet);
 
 		/* Check if this need to change */
-		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
-		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
+		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
 		this->setX(this->getX() + dx);
 		this->setY(this->getY() + dy);
@@ -118,12 +118,6 @@ void Guppy::move() {
 		} else {
 			this->setY(this->getY() + dy);
 		}
-
-		/* DEBUG */
-		// cout << "x_dir: " << x_dir << endl;
-		// cout << "y_dir: " << y_dir << endl;
-		// cout << "mag: " << x_dir * x_dir + y_dir * y_dir << endl << endl;
-
 	}
 }
 
@@ -147,9 +141,7 @@ void Guppy::eat() {
 void Guppy::dropCoin() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->last_drop_coin > guppyCoinInterval) {
-		cout << "coinnnn" << endl;
 		this->getAquarium()->createCoin(this->getX(), this->getY(), this->getLevel() * guppyCoinMultiplier);
 		this->last_drop_coin = current_time;
-		cout << "coinnnn dropped" << endl;
 	}
 }
