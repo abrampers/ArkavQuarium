@@ -30,8 +30,10 @@ class Snail : public Aquatic {
         Direction getDirection();
 
 		/*methods*/
-        void updateState(); // What action will it take if the time increments
+        void updateState(); 
         void move();
+        void updateProgress();
+        void dead();
 };
 
 #endif

@@ -30,7 +30,7 @@ void Snail::findNearestCoin() {
 		Coin *current_coin = coin_list.get(i);
 		if(current_nearest_coin == NULL) {
 			current_nearest_coin = current_coin;
-		} else if ((getDistance(current_coin, this)) > getDistance(current_nearest_coin, this)) {
+		} else if ((getDistance(current_coin, this)) < getDistance(current_nearest_coin, this)) {
 			current_nearest_coin = current_coin;
 		}
 	}
@@ -76,4 +76,8 @@ void Snail::move() {
 		}
 	}
 }
+
+void Snail::updateProgress() {}
+
+void Snail::dead() {}
 

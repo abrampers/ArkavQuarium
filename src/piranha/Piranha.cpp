@@ -12,11 +12,14 @@ Fish(piranhaFoodThres,
 	piranhaFullInterval, 
 	piranhaHungerInterval, 
 	aquarium->getCurrTime()) {
-	
 	nearest_guppy = NULL;
+	/* Initialize random movement */
 	double rad = fRand(0, 360) * pi / 180;
 	this->x_dir = cos(rad);
 	this->y_dir = sin(rad);
+	/* Initialize aquatic state */
+	State state = this->x_dir >= 0 ? movingRight : movingLeft;
+	this->setState(state);
 }
 
 double Piranha::distanceToGuppy(Guppy *g) {
@@ -145,3 +148,7 @@ void Piranha::eat() {
 void Piranha::dropCoin() {
 	this->getAquarium()->createCoin(this->getX(), this->getY(), 100 * (nearest_guppy->getLevel() + 1));
 }
+
+void Piranha::updateProgress() {}
+
+void Piranha::dead() {}

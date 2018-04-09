@@ -5,15 +5,17 @@
 
 class Pellet : public Aquatic {
 	public:
-		/*ctor*/
-		Pellet(double x, Aquarium* a);
+	/* Constructor */
+	Pellet(double x, double y, Aquarium* a);
 
-		/***********/
+	/***********/
         /* Methods */
         /***********/
         /* Implements pure virtual method from Aquatic */
         void updateState();
         void move();
+        void updateProgress();
+        void dead();
 };
 
 #endif

@@ -51,7 +51,7 @@ class Aquarium {
         void createPiranha();
         void createGuppy();
         void createSnail();
-        void createPellet(double x);
+        void createPellet(double x, double y);
         void createCoin(double x, double y, int value);
         void deletePiranha(Piranha* p);
         void deleteGuppy(Guppy* g);

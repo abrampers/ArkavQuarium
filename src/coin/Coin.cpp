@@ -35,3 +35,7 @@ void Coin::move() {
 		}
 	}
 }
+
+void Coin::updateProgress() {}
+
+void Coin::dead() {}

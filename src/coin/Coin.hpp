@@ -20,6 +20,8 @@ class Coin : public Aquatic {
 		/* Implements pure virtual method from Aquatic */
         void updateState(); 
         void move();
+        void updateProgress();
+        void dead();
 };
 
 #endif

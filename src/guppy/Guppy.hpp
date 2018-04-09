@@ -29,6 +29,8 @@ class Guppy : public Aquatic, public Fish {
         /* Implements pure virtual method from Aquatic */
         void updateState(); 
         void move();
+        void updateProgress();
+        void dead();
 
         /* Implements pure virtual method from Fish */
         void eat();

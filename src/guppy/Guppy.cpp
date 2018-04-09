@@ -13,12 +13,15 @@ Fish(guppyFoodThres,
 	guppyHungerInterval, 
 	aquarium->getCurrTime()) {
 	
-	nearest_pellet = NULL;
-	last_drop_coin = aquarium->getCurrTime();
+	this->nearest_pellet = NULL;
+	this->last_drop_coin = aquarium->getCurrTime();
 	/* Initialize random movement */
 	double rad = fRand(0.0, 2.0 * pi);
 	this->x_dir = cos(rad);
 	this->y_dir = sin(rad);
+	/* Initialize Aquatic state */
+	State state = this->x_dir >= 0 ? movingRight : movingLeft;
+	this->setState(state);
 }
 
 double Guppy::distanceToPellet(Pellet *p) {
@@ -59,10 +62,11 @@ bool Guppy::nearestPelletInRange() {
 /* Change hunger status */
 void Guppy::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout) {
+	if(this->getState() == State::dead || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
 		/* Dead guppy */
-		this->getAquarium()->getGuppyList().remove(this);
+		this->dead();
 	} else {
+		this->updateProgress();
 		this->dropCoin();
 		this->findNearestPellet();
 		this->eat();
@@ -74,73 +78,81 @@ void Guppy::updateState() {
 
 void Guppy::move() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(nearest_pellet != NULL && this->getHungry()) {
-		double x_direction = nearest_pellet->getX() - this->getX();
-		double y_direction = nearest_pellet->getY() - this->getY();
-		double distance = distanceToPellet(nearest_pellet);
+	if(this->getState() != turningRight || this->getState() != turningLeft) {
+		if(nearest_pellet != NULL && this->getHungry()) {
+			double x_direction = nearest_pellet->getX() - this->getX();
+			double y_direction = nearest_pellet->getY() - this->getY();
+			double distance = distanceToPellet(nearest_pellet);
 
-		/* Check if this need to change */
-		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
-		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+			/* Check if this need to change */
+			double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+			double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
-		this->setX(this->getX() + dx);
-		this->setY(this->getY() + dy);
-		this->x_dir = x_direction;
-	} else {
-		/* Randomize move direction after some interval */
-		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
-			this->setLastRandomTime(current_time);
-			double rad = fRand(0.0, 2.0 * pi);
-
-			this->x_dir = cos(rad);
-			this->y_dir = sin(rad);
-		}
-
-
-		/* Continue movement */
-		double dx = this->x_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
-		double dy = this->y_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
-
-
-		if (getX() + dx >= getAquarium()->getXMax() && x_dir > 0.0) {
-			this->x_dir *= -1.0;
-		} else if (getX() + dx <= 0.0 && x_dir < 0.0) {
-			this->x_dir *= -1.0;
-		} else {
 			this->setX(this->getX() + dx);
-		}
-
-
-		if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
-			this->y_dir *= -1.0;
-		} else if (getY() + dy <= 0.0 && y_dir < 0.0) {
-			this->y_dir *= -1.0;
-		} else {
 			this->setY(this->getY() + dy);
+			this->x_dir = x_direction;
+		} else {
+			/* Randomize move direction after some interval */
+			if(current_time - this->getLastRandomTime() > randomMoveInterval) {
+				this->setLastRandomTime(current_time);
+				double rad = fRand(0.0, 2.0 * pi);
+
+				this->x_dir = cos(rad);
+				this->y_dir = sin(rad);
+			}
+
+
+			/* Continue movement */
+			double dx = this->x_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
+			double dy = this->y_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
+
+
+			if (getX() + dx >= getAquarium()->getXMax() && this->x_dir > 0.0) {
+				this->x_dir *= -1.0;
+				this->setState(turningLeft);
+				this->setLastChangedProgressTime(current_time);
+			} else if (getX() + dx <= 0.0 && this->x_dir < 0.0) {
+				this->x_dir *= -1.0;
+				this->setState(turningRight);
+				this->setLastChangedProgressTime(current_time);
+			} else {
+				this->setX(this->getX() + dx);
+			}
+
+
+			if (getY() + dx >= getAquarium()->getYMax() && this->y_dir > 0.0) {
+				this->y_dir *= -1.0;
+			} else if (getY() + dy <= 0.0 && this->y_dir < 0.0) {
+				this->y_dir *= -1.0;
+			} else {
+				this->setY(this->getY() + dy);
+			}
 		}
 	}
 }
 
 void Guppy::eat() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
-		/* Change guppy hunger state */
-		this->setHungry(true);
-		this->setLastHungerTime(current_time);
-	}
-
-	if(this->getHungry() && nearestPelletInRange()) {
-		this->getAquarium()->deletePellet(nearest_pellet);
-		nearest_pellet = NULL;
-		this->setHungry(false);
-		this->setLastEatTime(current_time);
-		this->setFoodEaten(this->getFoodEaten() + 1);
-
-		if(this->getLevel() < maxLevel && this->getFoodEaten() > this->foodThres) {
-			this->setLevel(this->getLevel() + 1);
-			this->setFoodEaten(0);
+	if(this->getState() != turningRight || this->getState() != turningLeft) {
+		if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
+			/* Change guppy hunger state */
+			this->setHungry(true);
+			this->setLastHungerTime(current_time);
 		}
-	} 
+
+		if(this->getHungry() && nearestPelletInRange()) {
+			this->getAquarium()->deletePellet(nearest_pellet);
+			this->nearest_pellet = NULL;
+			this->setHungry(false);
+			this->setLastEatTime(current_time);
+			this->setFoodEaten(this->getFoodEaten() + 1);
+
+			if(this->getLevel() < maxLevel && this->getFoodEaten() > this->foodThres) {
+				this->setLevel(this->getLevel() + 1);
+				this->setFoodEaten(0);
+			}
+		} 
+	}
 }
 
 void Guppy::dropCoin() {
@@ -148,5 +160,34 @@ void Guppy::dropCoin() {
 	if(current_time - this->last_drop_coin > guppyCoinInterval) {
 		this->getAquarium()->createCoin(this->getX(), this->getY(), this->getLevel() * guppyCoinMultiplier);
 		this->last_drop_coin = current_time;
+	}
+}
+
+/* TODO: Last changed progress time perlu ga? */
+void Guppy::updateProgress() {
+	double current_time = this->getAquarium()->getCurrTime();
+	if(current_time - this->getLastProgressTime() > progressIncrementTime) {
+		if(this->getProgress() < progressPeriod - 1) {
+			this->setProgress(this->getProgress() + 1);
+		} else if(this->getState() == turningRight) {
+			this->setProgress(0);
+			this->setState(movingRight);
+		} else if(this->getState() == turningLeft) {
+			this->setProgress(0);
+			this->setState(movingLeft);
+		}
+		this->setLastProgressTime(current_time);
+	}
+}
+
+void Guppy::dead() {
+	this->setState(State::dead);
+	double current_time = this->getAquarium()->getCurrTime();
+	if(current_time - this->getLastProgressTime() > progressIncrementTime) {
+		if(this->getProgress() < progressPeriod - 1) {
+			this->setProgress(this->getProgress() + 1);
+		} else {
+			this->getAquarium()->getGuppyList().remove(this);
+		}
 	}
 }

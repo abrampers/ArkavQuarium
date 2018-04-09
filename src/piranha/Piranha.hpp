@@ -27,11 +27,11 @@ class Piranha : public Aquatic, public Fish {
         /* Implements pure virtual method from Aquatic */
         void updateState();
         void move();
+        void updateProgress();
+        void dead();
 
         /* Implements pure virtual method from Fish */
         void eat();
-
-        /* Create new coin, value depends on type of fish and its phase, or what it eats */
         void dropCoin();
 };
 

@@ -5,18 +5,24 @@ enum Direction {
     left, right
 };
 
+enum State {
+	movingLeft, movingRight, turningLeft, turningRight, dead
+};
+
 /* Game constants */
 const int gameFrameRate = 35;
 const int gameScreenWidth = 1024;
 const int gameScreenHeight = 768;
+const double progressPeriod = 10;
+const double progressIncrementTime = 0.5;
 
 const int maxLevel = 3;
 const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
 
 /* Coin's constant */
-const double coinMoveSpeed = 10; 			/* TBD */
-const double coinDeletionInterval = 10; 	/* TBD */
+const double coinMoveSpeed = 50; 			/* TBD */
+const double coinDeletionInterval = 15; 	/* TBD */
 
 /* Guppy constants */
 const int guppyFoodThres = 20;
@@ -32,7 +38,7 @@ const double pelletSpeed = 100; 			/* TBD */
 
 /* Piranha constants */
 const int piranhaFoodThres = 50;
-const double piranhaEatRadius = 200;
+const double piranhaEatRadius = 100;
 const double piranhaFullInterval = 10; 		/* Ini detik ye bos */
 const double piranhaHungerInterval = 15;
 const double piranhaMoveSpeed = 82;

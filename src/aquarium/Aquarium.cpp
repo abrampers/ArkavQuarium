@@ -99,8 +99,8 @@ void Aquarium::createSnail() {
 	content_snail.add(new_elmt);
 }
 
-void Aquarium::createPellet(double x) {
-	Pellet* new_elmt = new Pellet(x, this);
+void Aquarium::createPellet(double x, double y) {
+	Pellet* new_elmt = new Pellet(x, y, this);
 	content_pellet.add(new_elmt);
 }
 
