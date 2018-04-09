@@ -25,27 +25,15 @@ void Snail::findNearestCoin() {
 	// Find nearest coin to pursue
 	LinkedList<Coin*>& coin_list = this->getAquarium()->getCoinList();
 	Coin* current_nearest_coin = NULL;
-
-	cout << coin_list. getLength() << endl;
-	// coin_list.print();
-
 	for (int i = 0; i < coin_list.getLength(); i++) {
-		cout << "masuk" << endl;
 		Coin *current_coin = coin_list.get(i);
-		cout << "masuk sadfasdf" << endl;
 		if(current_nearest_coin == NULL) {
 			current_nearest_coin = current_coin;
 		} else if ((getDistance(current_coin, this)) > getDistance(current_nearest_coin, this)) {
 			current_nearest_coin = current_coin;
 		}
-		cout << "masuk sadfasdf kakama" << endl;
 	}
-
-	cout << "hhh" << endl;
-
 	this->nearest_coin = current_nearest_coin;
-
-	cout << "iii" << endl;
 }
 
 bool Snail::nearestCoinInRange() {

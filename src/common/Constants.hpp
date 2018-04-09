@@ -5,7 +5,7 @@ enum Direction {
     left, right
 };
 
-
+const int maxLevel = 3;
 const double randomMoveInterval = 4; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
 
@@ -28,10 +28,10 @@ const double PELLET_SPEED = 1.0; 			/* TBD */
 
 /* Piranha's constant */
 const int piranhaFoodThres = 10;
-const double piranhaEatRadius = 1.5;
+const double piranhaEatRadius = 100;
 const double piranhaFullInterval = 10; 		/* Ini detik ye bos */
 const double piranhaHungerInterval = 15;
-const double piranhaMoveSpeed = 250000;
+const double piranhaMoveSpeed = 250;
 const double piranhaCoinInterval = 8;
 const int guppyPrice = 100;
 

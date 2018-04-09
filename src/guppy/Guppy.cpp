@@ -31,17 +31,17 @@ double Guppy::distanceToPellet(Pellet *p) {
 }
 
 void Guppy::findNearestPellet() {
-	LinkedList<Pellet*> ll = this->getAquarium()->getPelletList();
+	LinkedList<Pellet*>& ll = this->getAquarium()->getPelletList();
 	Pellet* current_nearest_pellet = NULL;
 	Node<Pellet*>* curr_node = ll.getHead();
 	while(curr_node != NULL) {
-	    curr_node = curr_node->getNext();
 	    Pellet* current_pellet = curr_node->getValue();
 	    if(current_nearest_pellet == NULL) {
 	    	current_nearest_pellet = current_pellet;
 	    } else if(distanceToPellet(current_pellet) > distanceToPellet(current_nearest_pellet)) {
 	    	current_nearest_pellet = current_pellet;
 	    }
+	    curr_node = curr_node->getNext();
 	}
 	this->nearest_pellet =  current_nearest_pellet;
 }
@@ -80,8 +80,8 @@ void Guppy::move() {
 		double distance = distanceToPellet(nearest_pellet);
 
 		/* Check if this need to change */
-		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
-		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
+		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
 		this->setX(this->getX() + dx);
 		this->setY(this->getY() + dy);
@@ -118,16 +118,9 @@ void Guppy::move() {
 		} else {
 			this->setY(this->getY() + dy);
 		}
-
-		/* DEBUG */
-		// cout << "x_dir: " << x_dir << endl;
-		// cout << "y_dir: " << y_dir << endl;
-		// cout << "mag: " << x_dir * x_dir + y_dir * y_dir << endl << endl;
-
 	}
 }
 
-/* TODO: Implement naik level */
 void Guppy::eat() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
@@ -141,15 +134,19 @@ void Guppy::eat() {
 		nearest_pellet = NULL;
 		this->setHungry(false);
 		this->setLastEatTime(current_time);
+		this->setFoodEaten(this->getFoodEaten() + 1);
+
+		if(this->getLevel() < maxLevel && this->getFoodEaten() > this->foodThres) {
+			this->setLevel(this->getLevel() + 1);
+			this->setFoodEaten(0);
+		}
 	} 
 }
 
 void Guppy::dropCoin() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->last_drop_coin > guppyCoinInterval) {
-		cout << "coinnnn" << endl;
 		this->getAquarium()->createCoin(this->getX(), this->getY(), this->getLevel() * guppyCoinMultiplier);
 		this->last_drop_coin = current_time;
-		cout << "coinnnn dropped" << endl;
 	}
 }
