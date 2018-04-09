@@ -6,6 +6,7 @@ Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), snai
 	nearest_coin = NULL;
 	hold_coin_value = 0;
 	x_dir = 0;
+	this->setLastProgressTime(a->getCurrTime());
 }
 
 double Snail::getDistance(Aquatic* a, Aquatic* b) {
@@ -51,8 +52,10 @@ Direction Snail::getDirection() {
 }
 
 void Snail::updateState() {
+	cout << this->getState() << endl;
 	double current_time = this->getAquarium()->getCurrTime();
-	findNearestCoin();
+	this->updateProgress();
+	this->findNearestCoin();
 	if (nearestCoinInRange()) {
 		pickCoin(nearest_coin); 
 	} else {
@@ -63,21 +66,57 @@ void Snail::updateState() {
 
 void Snail::move() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if (nearest_coin != NULL) {
-		if(!isCoinOnTop()) {
-			double dx = this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
-			if (nearest_coin->getX() > this->getX()) {
-				x_dir = 1;
-				this->setX(this->getX() + dx);
-			} else {
-				x_dir = -1;
-				this->setX(this->getX() - dx);
+	if(this->getState() != turningRight && this->getState() != turningLeft) {
+		if (nearest_coin != NULL) {
+			if(!isCoinOnTop()) {
+				double dx = this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+				double x_direction = this->x_dir;
+				if (nearest_coin->getX() > this->getX()) {
+					x_dir = 1;
+					this->setX(this->getX() + dx);
+				} else {
+					x_dir = -1;
+					this->setX(this->getX() - dx);
+				}
+
+				if(x_direction >= 0 && this->x_dir < 0) {
+					this->setState(turningLeft);
+					this->setLastProgressTime(current_time);
+					this->setProgress(0);
+				}
+
+				if(x_direction < 0 && this->x_dir >= 0) {
+					this->setState(turningRight);
+					this->setLastProgressTime(current_time);
+					this->setProgress(0);
+				}
 			}
 		}
 	}
 }
 
-void Snail::updateProgress() {}
+void Snail::updateProgress() {
+	double current_time = this->getAquarium()->getCurrTime();
+	double progress_increment_time = (this->getState() == State::movingRight || this->getState() == State::movingLeft)
+									? snailMoveProgressIncrementTime 
+									: snailTurnProgressIncrementTime;
+	if(current_time - this->getLastProgressTime() > progress_increment_time) {
+		this->setProgress(this->getProgress() + 1);
+		if(this->getProgress() >= progressPeriod) {
+			if(this->getState() == turningRight) {
+				this->setProgress(0);
+				this->setState(movingRight);
+			} else if(this->getState() == turningLeft) {
+				this->setProgress(0);
+				this->setState(movingLeft);
+			} else {
+				this->setProgress(0);
+			}
+		}
+		this->setLastProgressTime(current_time);
+	}
+
+}
 
 void Snail::dead() {}
 
