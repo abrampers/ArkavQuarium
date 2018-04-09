@@ -5,7 +5,7 @@ enum Direction {
     left, right
 };
 
-
+const int maxLevel = 3;
 const double randomMoveInterval = 4; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
 

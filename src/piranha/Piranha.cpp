@@ -118,7 +118,6 @@ void Piranha::move() {
 	}
 }
 
-/* TODO: Implement naik level */
 void Piranha::eat() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(!this->getHungry() && (current_time - this->getLastEatTime() > this->fullInterval)) {
@@ -133,6 +132,12 @@ void Piranha::eat() {
 		nearest_guppy = NULL;
 		this->setHungry(false);
 		this->setLastEatTime(current_time);
+		this->setFoodEaten(this->getFoodEaten() + 1);
+
+		if(this->getLevel() < maxLevel && this->getFoodEaten() > this->foodThres) {
+			this->setLevel(this->getLevel() + 1);
+			this->setFoodEaten(0);
+		}
 	} 
 }
 
