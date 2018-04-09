@@ -44,7 +44,7 @@ public:
 	void close();
 
 	/* High level drawing */
-	void drawBackground();
+	void drawAquarium();
 	void drawGuppy(int x, int y, int level, State state, int state_progress);
     void drawPiranha(int x, int y, State state, int state_progress);
     void drawSnail(int x, int y, State state, int state_progress);

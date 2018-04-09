@@ -59,14 +59,16 @@ void Graphics::close() {
 }
 
 /* High level drawing */
-void Graphics::drawBackground() {
-    const string assetPath = "assets/graphics/static/aquarium.jpg";
-    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
+void Graphics::drawAquarium() {
+    const string bgAssetPath = "assets/graphics/statics/aquarium_background.jpg";
+    const string uiAssetPath = "assets/graphics/statics/aquarium_ui.png";
+    drawImage(bgAssetPath, screenWidth / 2, screenHeight / 2);
+    drawImage(uiAssetPath, screenWidth / 2, 83);
 }
 
 void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
     string assetPath = "assets/graphics/sprites/guppy";
-    
+ 
     if (level == 1) {
         assetPath += "_small";
     } else if (level == 2) {
@@ -148,7 +150,7 @@ void Graphics::drawCoin(int x, int y) {
 }
 
 void Graphics::drawPellet(int x, int y, int state_progress) {
-    string assetPath = "assets/graphics/pellet";
+    string assetPath = "assets/graphics/sprites/pellet";
     assetPath += "/" + to_string(state_progress + 1);
     assetPath += ".png";
     drawImage(assetPath, x, y);

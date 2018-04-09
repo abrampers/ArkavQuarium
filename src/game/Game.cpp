@@ -63,7 +63,7 @@ void Game::startGame() {
         vector<int> coin_click_targets;
 
         /* Draw background */
-        graphics.drawBackground();
+        graphics.drawAquarium();
 
         /* Draw Guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
