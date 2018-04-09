@@ -18,6 +18,7 @@ class Snail : public Aquatic {
         /* Private member functions */
         /****************************/
 		double getDistance(Aquatic*, Aquatic*);
+		bool isCoinOnTop();
 		void pickCoin(Coin*);
 		void findNearestCoin();
         bool nearestCoinInRange();
