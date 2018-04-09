@@ -6,7 +6,7 @@ enum Direction {
 };
 
 enum State {
-	movingLeft, movingRight, turningLeft, turningRight, deadLeft, deadRight, fading
+	movingLeft, movingRight, turningLeft, turningRight, deadLeft, deadRight, fading, stillRight, stillLeft
 };
 
 /* Game constants */
