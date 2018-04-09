@@ -7,7 +7,7 @@ Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	/* TODO: Bikin guppy, snail*/
 	this->createGuppy();
 	this->createSnail();
-	this->createCoin(100, 100, 100);
+	// this->createCoin(100, 100, 100);
 }
 
 Aquarium::~Aquarium() {};

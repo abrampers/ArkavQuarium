@@ -63,7 +63,7 @@ void Game::startGame() {
         /* Draw background */
         graphics.drawBackground();
 
-        /* Draw guppy */
+        /* Draw Guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
             Guppy *curr_guppy = guppy_list.get(i);
             double curr_guppy_x = curr_guppy->getX();
@@ -73,7 +73,7 @@ void Game::startGame() {
             graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_direction);
         }
 
-        /* Draw piranha */
+        /* Draw Piranha */
         for (int i = 0; i < piranha_list.getLength(); i++) {
             Piranha *curr_piranha = piranha_list.get(i);
             double curr_piranha_x = curr_piranha->getX();
@@ -83,7 +83,7 @@ void Game::startGame() {
             graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_level, curr_piranha_direction);
         }
         
-        /* Draw snail */
+        /* Draw Snail */
         for (int i = 0; i < snail_list.getLength(); i++) {
             Snail *curr_snail = snail_list.get(i);
             double curr_snail_x = curr_snail->getX();
