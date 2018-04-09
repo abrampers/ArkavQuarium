@@ -199,7 +199,11 @@ void Guppy::updateProgress() {
 
 /* Implementasi dead masih salah bung */
 void Guppy::dead() {
-	this->setState(State::dead);
+	if(this->getState() == moveRight || (this->getState() == turningRight && this->getProgress() >= 5) || (this->getState() == turningLeft && this->getProgress() < 5)) {
+		this->setState(State::deadRight);
+	} else if(this->getState() == moveLeft || (this->getState() == turningLeft && this->getProgress() >= 5) || (this->getState() == turningRight && this->getProgress() < 5)) {
+		this->setState(State::deadLeft);
+	}
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->getLastProgressTime() > guppyDeadProgressIncrementTime) {
 		this->setProgress(this->getProgress() + 1);
