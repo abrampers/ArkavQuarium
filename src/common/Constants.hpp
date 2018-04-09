@@ -27,9 +27,9 @@ const double coinDeletionInterval = 100; 	/* TBD */
 const int coinClickRadius = 20;
 
 /* Guppy constants */
-const int guppyFoodThres = 20;
+const int guppyFoodThres = 2;
 const double guppyEatRadius = 20;
-const double guppyFullInterval = 5; 		/* Ini detik ye bos */
+const double guppyFullInterval = 1; 		/* Ini detik ye bos */
 const double guppyHungerInterval = 10;
 const double guppyMoveSpeed = 60; 			/* Pixels per second */
 const double guppyCoinInterval = 8;
@@ -55,10 +55,10 @@ const double snailEatRadius = 50;
 const double progressPeriod = 10;
 const double guppyTurnProgressIncrementTime = 0.05;
 const double guppyMoveProgressIncrementTime = 0.05;
-const double guppyDeadProgressIncrementTime = 0.1;
+const double guppyDeadProgressIncrementTime = 0.16;
 const double piranhaTurnProgressIncrementTime = 0.05;
 const double piranhaMoveProgressIncrementTime = 0.05;
-const double piranhaDeadProgressIncrementTime = 0.1;
+const double piranhaDeadProgressIncrementTime = 0.16;
 const double snailTurnProgressIncrementTime = 0.05;
 const double snailMoveProgressIncrementTime = 0.05;
 const double pelletProgressIncrementTime = 0.05;
