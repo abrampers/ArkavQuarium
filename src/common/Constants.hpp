@@ -15,14 +15,19 @@ const int gameScreenWidth = 1024;
 const int gameScreenHeight = 768;
 const double progressPeriod = 10;
 const double progressIncrementTime = 0.5;
+const int gameScreenLeftPadding = 30;
+const int gameScreenRightPadding = 30;
+const int gameScreenTopPadding = 30;
+const int gameScreenBottomPadding = 70;
 
 const int maxLevel = 3;
 const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
 
 /* Coin's constant */
-const double coinMoveSpeed = 50; 			/* TBD */
-const double coinDeletionInterval = 15; 	/* TBD */
+const double coinMoveSpeed = 100; 			/* TBD */
+const double coinDeletionInterval = 100; 	/* TBD */
+const int coinClickRadius = 20;
 
 /* Guppy constants */
 const int guppyFoodThres = 20;
