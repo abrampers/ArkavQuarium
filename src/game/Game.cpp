@@ -2,12 +2,12 @@
 
 using namespace std;
 
-Game::Game(int screen_width, int screen_height):
-screenWidth(screen_width), 
-screenHeight(screen_height), 
-frameRate(35), 
-graphics(screen_width, screen_height),
-coin(0), 
+Game::Game():
+screenWidth(gameScreenWidth), 
+screenHeight(gameScreenHeight), 
+frameRate(gameFrameRate), 
+graphics(gameScreenWidth, gameScreenHeight),
+coin(0),
 egg(0) {
     /* Initialize game graphics */
     bool succ = graphics.init();
@@ -59,6 +59,8 @@ void Game::startGame() {
         LinkedList<Guppy*>& guppy_list = aquarium->getGuppyList();
         LinkedList<Piranha*>& piranha_list = aquarium->getPiranhaList();
         LinkedList<Snail*>& snail_list = aquarium->getSnailList();
+        LinkedList<Coin*>& coin_list = aquarium->getCoinList();
+        LinkedList<Pellet*>& pellet_list = aquarium->getPelletList();
 
         /* Draw background */
         graphics.drawBackground();
@@ -94,20 +96,18 @@ void Game::startGame() {
 
         /* Draw Coin */
         for (int i = 0; i < coin_list.getLength(); i++) {
-            Snail *curr_coin = coin_list.get(i);
+            Coin *curr_coin = coin_list.get(i);
             double curr_coin_x = curr_coin->getX();
             double curr_coin_y = curr_coin->getY();
-            Direction curr_coin_direction = curr_coin->getDirection();
-            graphics.drawCoin(curr_coin_x, curr_coin_y, curr_coin_direction);
+            graphics.drawCoin(curr_coin_x, curr_coin_y);
         }
 
         /* Draw Pellet */
         for (int i = 0; i < pellet_list.getLength(); i++) {
-            Snail *curr_pellet = pellet_list.get(i);
-            double curr_pellet_x = curr_snail->getX();
-            double curr_pellet_y = curr_snail->getY();
-            Direction curr_pellet_direction = curr_snail->getDirection();
-            graphics.drawPellet(curr_pellet_x, curr_pellet_y, curr_pellet_direction);
+            Pellet *curr_pellet = pellet_list.get(i);
+            double curr_pellet_x = curr_pellet->getX();
+            double curr_pellet_y = curr_pellet->getY();
+            graphics.drawPellet(curr_pellet_x, curr_pellet_y);
         }
         
         /* Update objects on screen */
