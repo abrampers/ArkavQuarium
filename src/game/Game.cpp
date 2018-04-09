@@ -6,14 +6,12 @@
 using namespace std;
 
 Game::Game():
-screenWidth(gameScreenWidth), 
-screenHeight(gameScreenHeight), 
+aquariumXStart(20),
+aquariumXEnd(gameScreenWidth - 20),
+aquariumYStart(200),
+aquariumYEnd(gameScreenHeight - 100),
 frameRate(gameFrameRate), 
 graphics(gameScreenWidth, gameScreenHeight),
-gameScreenXStart(0),
-gameScreenXEnd(gameScreenWidth),
-gameScreenYStart(200),
-gameScreenYEnd(gameScreenHeight - 100),
 coin(0),
 egg(0) {
     /* Initialize game graphics */
@@ -31,7 +29,7 @@ Game::~Game() {
 
 /* Initialize game state */
 void Game::initState() {
-    aquarium = new Aquarium(gameScreenXStart, gameScreenYStart, gameScreenXEnd, gameScreenYEnd);
+    aquarium = new Aquarium(aquariumXStart, aquariumYStart, aquariumXEnd, aquariumYEnd);
     game_start_time = graphics.timeSinceStart();
 }
 
@@ -91,7 +89,7 @@ void Game::startGame() {
             graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_state, curr_piranha_state_progress);
         }
         
-        /* Draw Snail */
+        /* Draw Snail and get coins */
         for (int i = 0; i < snail_list.getLength(); i++) {
             Snail *curr_snail = snail_list.get(i);
             double curr_snail_x = curr_snail->getX();
@@ -99,6 +97,8 @@ void Game::startGame() {
             State curr_snail_state = curr_snail->getState();
             int curr_snail_state_progress = curr_snail->getProgress();
             graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_state, curr_snail_state_progress);
+            coin += curr_snail->getCoin();
+            curr_snail->resetCoin();
         }
 
         /* Draw Pellet */

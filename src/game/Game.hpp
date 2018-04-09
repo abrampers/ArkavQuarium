@@ -14,12 +14,10 @@ using namespace std;
 class Game {
     private:
         /* Graphics */
-        const int screenWidth;
-        const int screenHeight;
-        const int gameScreenXStart;
-        const int gameScreenXEnd;
-        const int gameScreenYStart;
-        const int gameScreenYEnd;
+        const int aquariumXStart;
+        const int aquariumXEnd;
+        const int aquariumYStart;
+        const int aquariumYEnd;
         const double frameRate;
         Graphics graphics;
 

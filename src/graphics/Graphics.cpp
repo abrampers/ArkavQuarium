@@ -67,7 +67,7 @@ void Graphics::drawAquarium() {
 }
 
 void Graphics::drawCoinText(int value) {
-    drawText(to_string(value), 100, 200, 300, 45, 252, 48);
+    drawText(to_string(value), 28, 898, 50, 45, 252, 48);
 }
 
 void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
