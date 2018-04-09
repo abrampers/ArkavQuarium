@@ -1,11 +1,6 @@
 /* Implementation file of Snail */
-#include "Snail.hpp"
-#include "../linkedlist/LinkedList.hpp"
-#include "../aquarium/Aquarium.hpp"
-#include <math.h>
-
-const double SNAIL_SPEED = 80;
-const double SNAIL_RADIUS = 1.0;
+#include "snail/Snail.hpp"
+#include "aquarium/Aquarium.hpp"
 
 Snail::Snail(Aquarium* a) : Aquatic(fRand(0.0, a->getXMax()), a->getYMax(), SNAIL_SPEED, a), coin_radius(SNAIL_RADIUS) {
 	nearest_coin = NULL;

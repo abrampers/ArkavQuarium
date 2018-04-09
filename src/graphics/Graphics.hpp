@@ -1,7 +1,7 @@
 #ifndef GRAPHICS_HPP
 #define GRAPHICS_HPP
 
-#include "../common/Common.hpp"
+#include "common/master.hpp"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>

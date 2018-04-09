@@ -1,9 +1,10 @@
 #ifndef SNAIL_HPP
 #define SNAIL_HPP
 
-#include "../aquatic/Aquatic.hpp"
-#include "../coin/Coin.hpp"
-#include "../common/Common.hpp"
+#include "common/Constants.hpp"
+#include "common/Helper.hpp"
+#include "aquatic/Aquatic.hpp"
+#include "coin/Coin.hpp"
 #include <cmath>
 
 class Snail : public Aquatic {

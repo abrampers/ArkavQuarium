@@ -1,7 +1,7 @@
 #ifndef PELLET_HPP
 #define PELLET_HPP
 
-#include "../aquatic/Aquatic.hpp"
+#include "aquatic/Aquatic.hpp"
 
 class Pellet : public Aquatic {
 	public:

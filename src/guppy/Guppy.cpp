@@ -1,16 +1,6 @@
 /* Implementation file of Guppy */
-#include "../guppy/Guppy.hpp"
-#include "../aquarium/Aquarium.hpp"
-
-const int guppyFoodThres = 20;
-const double guppyEatRadius = 1.25;
-const double guppyFullInterval = 5; /* Ini detik ye bos */
-const double guppyHungerInterval = 10;
-const double guppyMoveSpeed = 120; /* Pixels per second */
-const double randomMoveInterval = 4; /* Ini juga detik ya brok */
-const double pi = 3.14159265;
-const double guppyCoinInterval = 8;
-const double guppyCoinMultiplier = 10;
+#include "guppy/Guppy.hpp"
+#include "aquarium/Aquarium.hpp"
 
 Guppy::Guppy(Aquarium *aquarium): 
 Aquatic(floor(fRand(0, aquarium->getXMax())), 

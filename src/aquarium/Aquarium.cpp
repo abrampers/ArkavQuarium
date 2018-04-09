@@ -1,6 +1,6 @@
 /* Implementation file of Aquarium */
 
-#include "../aquarium/Aquarium.hpp"
+#include "aquarium/Aquarium.hpp"
 
 Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	curr_time = 0;

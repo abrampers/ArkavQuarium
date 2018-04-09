@@ -1,16 +1,6 @@
 /* Implementation file of Piranha */
-#include "../piranha/Piranha.hpp"
-#include "../aquarium/Aquarium.hpp"
-
-const int piranhaFoodThres = 10;
-const double piranhaEatRadius = 1.5;
-const double piranhaFullInterval = 10; /* Ini detik ye bos */
-const double piranhaHungerInterval = 15;
-const double piranhaMoveSpeed = 250000;
-const double randomMoveInterval = 4; /* Ini juga detik ya brok */
-const double pi = 3.14159265;
-const double piranhaCoinInterval = 8;
-const int guppyPrice = 100;
+#include "piranha/Piranha.hpp"
+#include "aquarium/Aquarium.hpp"
 
 Piranha::Piranha(Aquarium *aquarium): 
 Aquatic(floor(fRand(0, aquarium->getXMax())), 
