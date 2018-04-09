@@ -31,17 +31,17 @@ double Guppy::distanceToPellet(Pellet *p) {
 }
 
 void Guppy::findNearestPellet() {
-	LinkedList<Pellet*> ll = this->getAquarium()->getPelletList();
+	LinkedList<Pellet*>& ll = this->getAquarium()->getPelletList();
 	Pellet* current_nearest_pellet = NULL;
 	Node<Pellet*>* curr_node = ll.getHead();
 	while(curr_node != NULL) {
-	    curr_node = curr_node->getNext();
 	    Pellet* current_pellet = curr_node->getValue();
 	    if(current_nearest_pellet == NULL) {
 	    	current_nearest_pellet = current_pellet;
 	    } else if(distanceToPellet(current_pellet) > distanceToPellet(current_nearest_pellet)) {
 	    	current_nearest_pellet = current_pellet;
 	    }
+	    curr_node = curr_node->getNext();
 	}
 	this->nearest_pellet =  current_nearest_pellet;
 }

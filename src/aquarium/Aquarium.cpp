@@ -4,6 +4,7 @@
 
 Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	curr_time = 0;
+	this->createPiranha();
 	this->createGuppy();
 	this->createSnail();
 }

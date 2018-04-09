@@ -29,17 +29,17 @@ double Piranha::distanceToGuppy(Guppy *g) {
 }
 
 void Piranha::findNearestGuppy() {
-	LinkedList<Guppy*> ll = this->getAquarium()->getGuppyList();
+	LinkedList<Guppy*>& ll = this->getAquarium()->getGuppyList();
 	Guppy* current_nearest_guppy = NULL;
 	Node<Guppy*>* curr_node = ll.getHead();
 	while(curr_node != NULL) {
-	    curr_node = curr_node->getNext();
 	    Guppy* current_guppy = curr_node->getValue();
 	    if(current_nearest_guppy == NULL) {
 	    	current_nearest_guppy = current_guppy;
 	    } else if(distanceToGuppy(current_guppy) > distanceToGuppy(current_nearest_guppy)) {
 	    	current_nearest_guppy = current_guppy;
 	    }
+	    curr_node = curr_node->getNext();
 	}
 	this->nearest_guppy =  current_nearest_guppy;
 }
@@ -77,8 +77,8 @@ void Piranha::move() {
 		double distance = distanceToGuppy(nearest_guppy);
 
 		/* Check if this need to change */
-		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Gue masih asumsikan kalo current time dalem ms */
-		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()) / 1000); /* Kabari kalo misalkan dalam fps atau satuan lain */
+		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
 		this->setX(this->getX() + dx);
 		this->setY(this->getY() + dy);
