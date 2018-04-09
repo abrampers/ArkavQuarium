@@ -128,9 +128,11 @@ void Game::startGame() {
                 }
             }
             /* Click event is outside any registered target */
-            int x = graphics.getMouseX();
-            int y = graphics.getMouseY();
-            aquarium->createPellet(x, y);
+            if (clicked_target == -1) {
+                int x = graphics.getMouseX();
+                int y = graphics.getMouseY();
+                aquarium->createPellet(x, y);
+            }
         }
 
         for (auto key : graphics.getPressedKeys()) {
