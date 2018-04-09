@@ -64,8 +64,8 @@ void Graphics::drawBackground() {
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
-void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
-    string assetPath = "assets/graphics/guppy";
+void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
+    string assetPath = "assets/graphics/sprites/guppy";
     
     if (level == 1) {
         assetPath += "_small";
@@ -75,11 +75,21 @@ void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
         assetPath += "_large";
     }
 
-    if (direction == Direction::left) {
-        assetPath += "_left";
-    } else {
-        assetPath += "_right";
+    if (state == State::movingLeft) {
+        assetPath += "/move_left";
+    } else if (state == State::movingRight) {
+        assetPath += "/move_right";
+    } else if (state == State::turningLeft) {
+        assetPath += "/turn_left";
+    } else if (state == State::turningRight) {
+        assetPath += "/turn_right";
+    } else if (state == State::deadLeft) {
+        assetPath += "/dead_left";
+    } else if (state == State::deadRight) {
+        assetPath += "/dead_right";
     }
+
+    assetPath += to_string(state_progress);
 
     assetPath += ".png";
     drawImage(assetPath, x, y);

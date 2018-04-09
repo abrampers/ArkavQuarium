@@ -71,8 +71,9 @@ void Game::startGame() {
             double curr_guppy_x = curr_guppy->getX();
             double curr_guppy_y = curr_guppy->getY();
             int curr_guppy_level = curr_guppy->getLevel();
-            Direction curr_guppy_direction = curr_guppy->getDirection();
-            graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_direction);
+            State curr_guppy_state = curr_guppy->getState();
+            int curr_guppy_state_progress = curr_guppy->getProgress();
+            graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_state, curr_guppy_state_progress);
         }
 
         /* Draw Piranha */
