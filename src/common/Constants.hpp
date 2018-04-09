@@ -17,7 +17,6 @@ const int gameScreenLeftPadding = 30;
 const int gameScreenRightPadding = 30;
 const int gameScreenTopPadding = 30;
 const int gameScreenBottomPadding = 70;
-
 const int maxLevel = 3;
 const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
