@@ -123,7 +123,7 @@ void Piranha::move() {
 				this->setState(turningLeft);
 				this->setLastProgressTime(current_time);
 				this->setProgress(0);
-			} else if (getX() + dx <= aquarium->getXMin() && x_dir < 0.0) {
+			} else if (getX() + dx <= getAquarium()->getXMin() && x_dir < 0.0) {
 				this->x_dir *= -1.0;
 				this->setState(turningRight);
 				this->setLastProgressTime(current_time);
@@ -136,7 +136,7 @@ void Piranha::move() {
 
 			if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
 				this->y_dir *= -1.0;
-			} else if (getY() + dy <= aquarium->getYMin() && y_dir < 0.0) {
+			} else if (getY() + dy <= getAquarium()->getYMin() && y_dir < 0.0) {
 				this->y_dir *= -1.0;
 			} else {
 				this->setY(this->getY() + dy);

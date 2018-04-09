@@ -2,7 +2,7 @@
 
 #include "aquarium/Aquarium.hpp"
 
-Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
+Aquarium::Aquarium(double xMin, double yMin, double xMax, double yMax) : xMin(xMin), yMin(yMin), xMax(xMax), yMax(yMax) {
 	curr_time = 0;
 	// this->createPiranha();
 	this->createGuppy();
@@ -18,6 +18,15 @@ double Aquarium::getXMax() const {
 double Aquarium::getYMax() const {
 	return yMax;
 }
+
+double Aquarium::getXMin() const {
+	return xMin;
+}
+
+double Aquarium::getYMin() const {
+	return yMin;
+}
+
 
 double Aquarium::getCurrTime() {return this->curr_time;}
 

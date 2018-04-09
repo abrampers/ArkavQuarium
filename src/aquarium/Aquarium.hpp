@@ -12,7 +12,7 @@
 
 class Aquarium {
     private:
-        const double xMax, yMax;
+        const double xMin, yMin, xMax, yMax;
         double curr_time;
         LinkedList<Piranha*> content_piranha;
         LinkedList<Guppy*> content_guppy;
@@ -22,7 +22,7 @@ class Aquarium {
 
     public:
         /* Constructor */
-        Aquarium(double xMax, double yMax);
+        Aquarium(double xMin, double yMin, double xMax, double yMax);
 
         /* Destructor */
         ~Aquarium();
@@ -32,6 +32,8 @@ class Aquarium {
         /* Setter & Getter */
         double getXMax() const;
         double getYMax() const;
+        double getXMin() const;
+        double getYMin() const;
         double getCurrTime();
         LinkedList<Piranha*>& getPiranhaList();
         LinkedList<Guppy*>& getGuppyList();
