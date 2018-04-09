@@ -1,6 +1,6 @@
 /* Implementation file of Aquarium */
 
-#include "../aquarium/Aquarium.hpp"
+#include "aquarium/Aquarium.hpp"
 
 Aquarium::Aquarium(double xMax, double yMax) : xMax(xMax), yMax(yMax) {
 	curr_time = 0;
@@ -47,6 +47,7 @@ void Aquarium::setCurrTime(double t) {
 }
 
 void Aquarium::updateState(double current_time) {
+	cout << content_coin.getLength();
 	this->curr_time = current_time;
 	Node<Piranha*>* pointer_piranha;
 	/* Piranha */

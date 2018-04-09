@@ -1,5 +1,5 @@
 /* Implementation file of Fish */
-#include "../fish/Fish.hpp"
+#include "fish/Fish.hpp"
 
 Fish::Fish(int food_thres, double eat_radius, double full_interval, double hunger_timeout, double created_time) : foodThres(food_thres), eatRadius(eat_radius), fullInterval(full_interval), hungerTimeout(hunger_timeout) {
 	last_eat_time = created_time;

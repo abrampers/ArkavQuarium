@@ -1,10 +1,6 @@
 /* Implementation file of Coin */
-
-#include "../coin/Coin.hpp"
-#include "../aquarium/Aquarium.hpp"
-
-const double COIN_MOVE_SPEED = 10; //TBD
-const double COIN_DELETION_INTERVAL = 10; //TBD
+#include "coin/Coin.hpp"
+#include "aquarium/Aquarium.hpp"
 
 Coin::Coin(double x, double y, int value, Aquarium *aquarium) : Aquatic(x, y, COIN_MOVE_SPEED, aquarium), value(value) {
 	last_bottom_time = 0;

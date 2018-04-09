@@ -1,4 +1,4 @@
-#include "Common.hpp"
+#include "Helper.hpp"
 
 double fRand(double fMin, double fMax) {
     double f = (double)rand() / RAND_MAX;

@@ -1,12 +1,10 @@
 #ifndef PIRANHA_HPP
 #define PIRANHA_HPP
 
-#include "../aquatic/Aquatic.hpp"
-#include "../fish/Fish.hpp"
-#include "../linkedlist/LinkedList.hpp"
-#include "../guppy/Guppy.hpp"
-#include "../common/Common.hpp"
-#include <cmath>
+#include "aquatic/Aquatic.hpp"
+#include "fish/Fish.hpp"
+#include "linkedlist/LinkedList.hpp"
+#include "guppy/Guppy.hpp"
 
 class Piranha : public Fish, public Aquatic {
 	private:

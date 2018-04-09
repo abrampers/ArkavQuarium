@@ -1,12 +1,11 @@
 #ifndef GUPPY_HPP
 #define GUPPY_HPP
 
-#include "../aquatic/Aquatic.hpp"
-#include "../fish/Fish.hpp"
-#include "../linkedlist/LinkedList.hpp"
-#include "../pellet/Pellet.hpp"
-#include "../common/Common.hpp"
-#include <cmath>
+#include "common/Helper.hpp"
+#include "aquatic/Aquatic.hpp"
+#include "fish/Fish.hpp"
+#include "linkedlist/LinkedList.hpp"
+#include "pellet/Pellet.hpp"
 
 class Guppy : public Fish, public Aquatic {
     private:

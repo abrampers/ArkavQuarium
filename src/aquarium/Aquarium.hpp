@@ -1,12 +1,14 @@
 #ifndef AQUARIUM_HPP
 #define AQUARIUM_HPP
 
-#include "../linkedlist/LinkedList.hpp"
-#include "../coin/Coin.hpp"
-#include "../guppy/Guppy.hpp"
-#include "../pellet/Pellet.hpp"
-#include "../piranha/Piranha.hpp"
-#include "../snail/Snail.hpp"
+#include "aquatic/Aquatic.hpp"
+#include "coin/Coin.hpp"
+#include "fish/Fish.hpp"
+#include "guppy/Guppy.hpp"
+#include "linkedlist/LinkedList.hpp"
+#include "pellet/Pellet.hpp"
+#include "piranha/Piranha.hpp"
+#include "snail/Snail.hpp"
 
 class Aquarium {
     private:
