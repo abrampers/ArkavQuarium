@@ -135,6 +135,10 @@ void Graphics::drawSnail(int x, int y, State state, int state_progress) {
         assetPath += "/turn_left";
     } else if (state == State::turningRight) {
         assetPath += "/turn_right";
+    } else if (state == State::stillRight) {
+        assetPath += "/move_right";
+    } else if (state == State::stillLeft) {
+        assetPath += "/move_left";
     }
 
     assetPath += "/" + to_string(state_progress + 1);
