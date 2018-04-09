@@ -7,7 +7,7 @@
 #include "linkedlist/LinkedList.hpp"
 #include "pellet/Pellet.hpp"
 
-class Guppy : public Fish, public Aquatic {
+class Guppy : public Aquatic, public Fish {
     private:
         Pellet *nearest_pellet;
         double last_drop_coin;

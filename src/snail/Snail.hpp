@@ -9,7 +9,7 @@
 
 class Snail : public Aquatic {
 	private:
-		const double coin_radius;
+		const double snailRadius;
 		Coin* nearest_coin;
 		int hold_coin_value;
 		int x_dir;

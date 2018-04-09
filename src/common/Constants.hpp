@@ -15,12 +15,12 @@ const int gameScreenTopPadding = 30;
 const int gameScreenBottomPadding = 70;
 
 const int maxLevel = 3;
-const double randomMoveInterval = 4; 		/* Ini juga detik ya brok */
+const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
 
-/* Coin constants */
-const double COIN_MOVE_SPEED = 100; 			/* TBD */
-const double COIN_DELETION_INTERVAL = 10; 	/* TBD */
+/* Coin's constant */
+const double coinMoveSpeed = 10; 			/* TBD */
+const double coinDeletionInterval = 10; 	/* TBD */
 const int coinClickRadius = 20;
 
 /* Guppy constants */
@@ -29,12 +29,11 @@ const double guppyEatRadius = 1.25;
 const double guppyFullInterval = 5; 		/* Ini detik ye bos */
 const double guppyHungerInterval = 10;
 const double guppyMoveSpeed = 60; 			/* Pixels per second */
-
 const double guppyCoinInterval = 8;
 const double guppyCoinMultiplier = 10;
 
-/* Pellet constants */
-const double PELLET_SPEED = 200; 			/* TBD */
+/* Pellet's constant */
+const double pelletSpeed = 100; 			/* TBD */
 
 /* Piranha constants */
 const int piranhaFoodThres = 50;
@@ -45,8 +44,8 @@ const double piranhaMoveSpeed = 82;
 const double piranhaCoinInterval = 8;
 const int guppyPrice = 100;
 
-/* Snail constants */
-const double SNAIL_SPEED = 80;
-const double SNAIL_RADIUS = 1.0;
+/* Snail's constant */
+const double snailSpeed = 80;
+const double snailEatRadius = 50;
 
 #endif

@@ -127,6 +127,7 @@ void Piranha::eat() {
 	}
 
 	if(this->getHungry() && nearestGuppyInRange()) {
+		cout << "lallalal" << endl;
 		this->dropCoin();
 		this->getAquarium()->deleteGuppy(nearest_guppy);
 		nearest_guppy = NULL;
