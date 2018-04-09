@@ -39,7 +39,7 @@ void Piranha::findNearestGuppy() {
 	    Guppy* current_guppy = curr_node->getValue();
 	    if(current_nearest_guppy == NULL) {
 	    	current_nearest_guppy = current_guppy;
-	    } else if(distanceToGuppy(current_guppy) > distanceToGuppy(current_nearest_guppy)) {
+	    } else if(distanceToGuppy(current_guppy) < distanceToGuppy(current_nearest_guppy)) {
 	    	current_nearest_guppy = current_guppy;
 	    }
 	    curr_node = curr_node->getNext();
@@ -60,63 +60,87 @@ bool Piranha::nearestGuppyInRange() {
 /* Change hunger status */
 void Piranha::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout) {
+	if(this->getState() == State::dead || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
 		/* Dead guppy */
-		this->getAquarium()->getPiranhaList().remove(this);
+		this->dead();
 	} else {
+		this->updateProgress();
 		this->findNearestGuppy();
-		eat();
+		this->eat();
 		this->findNearestGuppy();
-		move();
+		this->move();
 		this->setLastCurrTime(current_time);
 	}
 }
 
 void Piranha::move() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(nearest_guppy != NULL && this->getHungry()) {
-		double x_direction = nearest_guppy->getX() - this->getX();
-		double y_direction = nearest_guppy->getY() - this->getY();
-		double distance = distanceToGuppy(nearest_guppy);
+	if(this->getState() != turningRight && this->getState() != turningLeft) {
+		if(nearest_guppy != NULL && this->getHungry()) {
+			double x_direction = nearest_guppy->getX() - this->getX();
+			double y_direction = nearest_guppy->getY() - this->getY();
+			double distance = distanceToGuppy(nearest_guppy);
 
-		/* Check if this need to change */
-		double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
-		double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+			/* Check if this need to change */
+			double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
+			double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
-		this->setX(this->getX() + dx);
-		this->setY(this->getY() + dy);
-		this->x_dir = x_direction;
-	} else {
-		/* Randomize move direction after some interval */
-		if(current_time - this->getLastRandomTime() > randomMoveInterval) {
-			this->setLastRandomTime(current_time);
-			double rad = fRand(0.0, 2.0 * pi);
-
-			this->x_dir = cos(rad);
-			this->y_dir = sin(rad);
-		}
-
-
-		/* Continue movement */
-		double dx = this->x_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
-		double dy = this->y_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
-
-
-		if (getX() + dx >= getAquarium()->getXMax() && x_dir > 0.0) {
-			this->x_dir *= -1.0;
-		} else if (getX() + dx <= 0.0 && x_dir < 0.0) {
-			this->x_dir *= -1.0;
-		} else {
 			this->setX(this->getX() + dx);
-		}
-
-
-		if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
-			this->y_dir *= -1.0;
-		} else if (getY() + dy <= 0.0 && y_dir < 0.0) {
-			this->y_dir *= -1.0;
-		} else {
 			this->setY(this->getY() + dy);
+			this->x_dir = x_direction;
+			this->y_dir = y_direction;
+		} else {
+			/* Randomize move direction after some interval */
+			if(current_time - this->getLastRandomTime() > randomMoveInterval) {
+				this->setLastRandomTime(current_time);
+				double rad = fRand(0.0, 2.0 * pi);
+
+				double x_direction = cos(rad);
+				if(x_direction >= 0 && this->x_dir < 0) {
+					this->setState(turningRight);
+					this->setLastProgressTime(current_time);
+					this->setProgress(0);
+				}
+
+				if(x_direction < 0 && this->x_dir >= 0) {
+					this->setState(turningLeft);
+					this->setLastProgressTime(current_time);
+					this->setProgress(0);
+				}
+
+				this->x_dir = x_direction;
+				this->y_dir = sin(rad);
+			}
+
+
+			/* Continue movement */
+			double dx = this->x_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
+			double dy = this->y_dir * this->getMoveSpeed() * (current_time - this->getLastCurrTime());
+
+
+			if (getX() + dx >= getAquarium()->getXMax() && x_dir > 0.0) {
+				this->x_dir *= -1.0;
+				this->setState(turningLeft);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			} else if (getX() + dx <= 0.0 && x_dir < 0.0) {
+				this->x_dir *= -1.0;
+				this->setState(turningRight);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+
+			} else {
+				this->setX(this->getX() + dx);
+			}
+
+
+			if (getY() + dx >= getAquarium()->getYMax() && y_dir > 0.0) {
+				this->y_dir *= -1.0;
+			} else if (getY() + dy <= 0.0 && y_dir < 0.0) {
+				this->y_dir *= -1.0;
+			} else {
+				this->setY(this->getY() + dy);
+			}
 		}
 	}
 }
@@ -148,6 +172,33 @@ void Piranha::dropCoin() {
 	this->getAquarium()->createCoin(this->getX(), this->getY(), 100 * (nearest_guppy->getLevel() + 1));
 }
 
-void Piranha::updateProgress() {}
+void Piranha::updateProgress() {
+	double current_time = this->getAquarium()->getCurrTime();
+	double progress_increment_time = (this->getState() == State::movingRight || this->getState() == State::movingLeft)
+									? piranhaMoveProgressIncrementTime 
+									: piranhaTurnProgressIncrementTime;
+	if(current_time - this->getLastProgressTime() > progress_increment_time) {
+		if(this->getProgress() < progressPeriod - 1) {
+			this->setProgress(this->getProgress() + 1);
+		} else if(this->getState() == turningRight) {
+			this->setProgress(0);
+			this->setState(movingRight);
+		} else if(this->getState() == turningLeft) {
+			this->setProgress(0);
+			this->setState(movingLeft);
+		}
+		this->setLastProgressTime(current_time);
+	}
+}
 
-void Piranha::dead() {}
+void Piranha::dead() {
+	this->setState(State::dead);
+	double current_time = this->getAquarium()->getCurrTime();
+	if(current_time - this->getLastProgressTime() > piranhaDeadProgressIncrementTime) {
+		this->setProgress(this->getProgress() + 1);
+		this->setLastProgressTime(current_time);
+		if(this->getProgress() >= progressPeriod) {
+			this->getAquarium()->deletePiranha(this);
+		}
+	}
+}

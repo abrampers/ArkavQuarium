@@ -133,6 +133,17 @@ void Game::startGame() {
             aquarium->createPellet(x, y);
         }
 
+        for (auto key : graphics.getPressedKeys()) {
+            switch (key) {
+            case SDLK_p:
+                aquarium->createPiranha();
+                break;
+            case SDLK_g:
+                aquarium->createGuppy();
+                break;
+            }
+        }
+
         /* Quit loop if UI quit button is clicked */
         if (graphics.quitPressed()) {
             running = false;
