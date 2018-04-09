@@ -186,6 +186,8 @@ void Piranha::updateProgress() {
 		} else if(this->getState() == turningLeft) {
 			this->setProgress(0);
 			this->setState(movingLeft);
+		} else {
+			this->setProgress(0);
 		}
 		this->setLastProgressTime(current_time);
 	}
