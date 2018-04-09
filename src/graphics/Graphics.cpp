@@ -6,7 +6,7 @@ using namespace std::chrono;
 Graphics::Graphics(int screen_width, int screen_height):
 screenWidth(screen_width), screenHeight(screen_height) {
     start = high_resolution_clock::now();
-    gScreenSurface = NULL;
+    g_screen_surface = NULL;
     quit = false;
 }
 
@@ -17,11 +17,9 @@ Graphics::~Graphics() {
 /* Private functions */
 SDL_Surface* Graphics::loadSurface( std::string path ) {
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-    if( loadedSurface == NULL )
-    {
+    if( loadedSurface == NULL ) {
         printf( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
     }
-
     return loadedSurface;
 }
 
@@ -29,34 +27,34 @@ SDL_Surface* Graphics::loadSurface( std::string path ) {
 bool Graphics::init() {
     bool success = true;
 
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
-        printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
+    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
         success = false;
     } else {
         if(TTF_Init() == -1) {
             printf("TTF_Init: %s\n", TTF_GetError());
             success = false;
         }
-        sdlWindow = SDL_CreateWindow( "ArkavQuarium", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_SHOWN );
-        if( sdlWindow == NULL ) {
+        sdl_window = SDL_CreateWindow( "ArkavQuarium", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_SHOWN );
+        if( sdl_window == NULL ) {
             printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
             success = false;
         } else {
-            gScreenSurface = SDL_GetWindowSurface( sdlWindow );
+            g_screen_surface = SDL_GetWindowSurface( sdl_window );
         }
     }
     return success;
 }
 
 void Graphics::close() {
-    for (auto const& x : loadedSurfaces) {
-        SDL_FreeSurface( x.second );
+    for (auto const& x : loaded_surfaces) {
+        SDL_FreeSurface(x.second);
     }
-    for (auto const& x : loadedFontSizes) {
-        TTF_CloseFont( x.second );
+    for (auto const& x : loaded_font_sizes) {
+        TTF_CloseFont(x.second);
     }
-    SDL_DestroyWindow( sdlWindow );
-    sdlWindow = NULL;
+    SDL_DestroyWindow(sdl_window);
+    sdl_window = NULL;
     SDL_Quit();
 }
 
@@ -135,42 +133,42 @@ void Graphics::drawPellet(int x, int y) {
 
 /* Low level rawing */
 void Graphics::clearScreen() {
-    SDL_FillRect(gScreenSurface, NULL, SDL_MapRGB(gScreenSurface->format, 255, 255, 255));
+    SDL_FillRect(g_screen_surface, NULL, SDL_MapRGB(g_screen_surface->format, 255, 255, 255));
 }
 
 void Graphics::updateScreen() {
-    SDL_UpdateWindowSurface(sdlWindow);
+    SDL_UpdateWindowSurface(sdl_window);
 }
 
-void Graphics::drawImage(std::string filename, int x, int y) {
-    if (loadedSurfaces.count(filename) < 1) {
-        loadedSurfaces[filename] = loadSurface(filename);
+void Graphics::drawImage(string filename, int x, int y) {
+    if (loaded_surfaces.count(filename) < 1) {
+        loaded_surfaces[filename] = loadSurface(filename);
     }
 
-    SDL_Surface* s = loadedSurfaces[filename];
+    SDL_Surface* s = loaded_surfaces[filename];
 
     SDL_Rect dest;
     dest.x = x - s->w/2;
     dest.y = y - s->h/2;
     dest.w = s->w;
     dest.h = s->h;
-    SDL_BlitSurface(s, NULL, gScreenSurface, &dest);
+    SDL_BlitSurface(s, NULL, g_screen_surface, &dest);
 }
 
 void Graphics::drawText(std::string text, int font_size, int x, int y,
     unsigned char r, unsigned char g, unsigned char b) {
-    if (loadedFontSizes.count(font_size) < 1) {
-        loadedFontSizes[font_size] = TTF_OpenFont(fontPath, font_size);
+    if (loaded_font_sizes.count(font_size) < 1) {
+        loaded_font_sizes[font_size] = TTF_OpenFont(fontPath, font_size);
     }
 
-    TTF_Font* font = loadedFontSizes[font_size];
+    TTF_Font* font = loaded_font_sizes[font_size];
     SDL_Surface* result = TTF_RenderText_Blended(font, text.c_str(), {r, g, b});
     SDL_Rect dest;
     dest.x = x;
     dest.y = y;
     dest.w = result->w;
     dest.h = result->h;
-    SDL_BlitSurface(result, NULL, gScreenSurface, &dest);
+    SDL_BlitSurface(result, NULL, g_screen_surface, &dest);
     SDL_FreeSurface(result);
 }
 
@@ -183,16 +181,44 @@ double Graphics::timeSinceStart() {
 /* Input handling */
 // Memproses masukan dari sistem operasi.
 void Graphics::handleInput() {
-    SDL_Event e;
-    if (!tappedKeys.empty()) tappedKeys.clear();
-    while( SDL_PollEvent( &e ) != 0 ) {
-        if ( e.type == SDL_QUIT ) {
+    SDL_Event event;
+
+    if (!tapped_keys.empty()) {
+        tapped_keys.clear();
+    }
+
+    if (!clicked_targets.empty()) {
+        clicked_targets.clear();
+    }
+
+    while(SDL_PollEvent(&event) != 0) {
+        /* Get mouse position */
+        int mouse_x, mouse_y;
+        SDL_GetMouseState(&mouse_x, &mouse_y);
+
+        /* Handle input events */
+        if (event.type == SDL_QUIT) {
             quit = true;
-        } else if (e.type == SDL_KEYDOWN && !e.key.repeat) {
-            pressedKeys.insert(e.key.keysym.sym);
-            tappedKeys.insert(e.key.keysym.sym);
-        } else if (e.type == SDL_KEYUP) {
-            pressedKeys.erase(e.key.keysym.sym);
+
+        } else if (event.type == SDL_KEYDOWN && !event.key.repeat) {
+            pressed_keys.insert(event.key.keysym.sym);
+            tapped_keys.insert(event.key.keysym.sym);
+
+        } else if (event.type == SDL_KEYUP) {
+            pressed_keys.erase(event.key.keysym.sym);
+
+        } else if (event.type == SDL_MOUSEBUTTONDOWN) {
+            if (event.button.button == SDL_BUTTON_LEFT) {
+                for (int i = 0; i < click_targets.size(); i++) {
+                    tuple<int, int, int, int> target = click_targets[i];
+                    if (mouse_x >= get<0>(target) &&
+                        mouse_x <= get<1>(target) &&
+                        mouse_y >= get<2>(target) &&
+                        mouse_y <= get<3>(target)) {
+                        clicked_targets.insert(i);
+                    }
+                }
+            }
         }
     }
 }
@@ -208,13 +234,31 @@ bool Graphics::quitPressed() {
 
 // Mengembalikan himpunan kode tombol yang sedang ditekan pada saat
 // handle_input() terakhir dipanggil.
-const std::set<SDL_Keycode>& Graphics::getPressedKeys() {
-    return pressedKeys;
+const set<SDL_Keycode>& Graphics::getPressedKeys() {
+    return pressed_keys;
 }
 
 // Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
 // handle_input() terakhir dipanggil.
-const std::set<SDL_Keycode>& Graphics::getTappedKeys() {
-    return tappedKeys;
+const set<SDL_Keycode>& Graphics::getTappedKeys() {
+    return tapped_keys;
 }
 
+int Graphics::addClickTarget(int x_min, int x_max, int y_min, int y_max) {
+    tuple<int, int, int, int> target = make_tuple(x_min, x_max, y_min, y_max);
+    click_targets.push_back(target);
+    return click_targets.size() - 1;
+}
+
+void Graphics::resetClickTargets() {
+    if (!click_targets.empty()) {
+        click_targets.clear();
+    }
+    if (!clicked_targets.empty()) {
+        clicked_targets.clear();
+    }
+}
+
+const set<int>& Graphics::getClickedTargets() {
+    return clicked_targets;
+}

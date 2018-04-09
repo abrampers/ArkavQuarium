@@ -1,5 +1,8 @@
 #include "Game.hpp"
 
+#include <set>
+#include <vector>
+
 using namespace std;
 
 Game::Game():
@@ -45,22 +48,19 @@ void Game::startGame() {
 
     while (running) {
         /* Start frame timer */
-
         double game_current_time = graphics.timeSinceStart();
-        
-        /* Handle input from OS */
-        graphics.handleInput();
-        if (graphics.quitPressed()) {
-            running = false;
-        }
+
+        /* Reset mouse click targets */
+        graphics.resetClickTargets();
 
         /* Update objects state */
         aquarium->updateState(game_current_time - game_start_time);
         LinkedList<Guppy*>& guppy_list = aquarium->getGuppyList();
         LinkedList<Piranha*>& piranha_list = aquarium->getPiranhaList();
         LinkedList<Snail*>& snail_list = aquarium->getSnailList();
-        LinkedList<Coin*>& coin_list = aquarium->getCoinList();
         LinkedList<Pellet*>& pellet_list = aquarium->getPelletList();
+        LinkedList<Coin*>& coin_list = aquarium->getCoinList();
+        vector<int> coin_click_targets;
 
         /* Draw background */
         graphics.drawBackground();
@@ -94,14 +94,6 @@ void Game::startGame() {
             graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_direction);
         }
 
-        /* Draw Coin */
-        for (int i = 0; i < coin_list.getLength(); i++) {
-            Coin *curr_coin = coin_list.get(i);
-            double curr_coin_x = curr_coin->getX();
-            double curr_coin_y = curr_coin->getY();
-            graphics.drawCoin(curr_coin_x, curr_coin_y);
-        }
-
         /* Draw Pellet */
         for (int i = 0; i < pellet_list.getLength(); i++) {
             Pellet *curr_pellet = pellet_list.get(i);
@@ -109,13 +101,45 @@ void Game::startGame() {
             double curr_pellet_y = curr_pellet->getY();
             graphics.drawPellet(curr_pellet_x, curr_pellet_y);
         }
+
+        /* Draw Coin and register mouse click targets */
+        for (int i = 0; i < coin_list.getLength(); i++) {
+            Coin *curr_coin = coin_list.get(i);
+            double curr_coin_x = curr_coin->getX();
+            double curr_coin_y = curr_coin->getY();
+            graphics.drawCoin(curr_coin_x, curr_coin_y);
+            int click_target = graphics.addClickTarget(
+                curr_coin_x - coinClickRadius,
+                curr_coin_x + coinClickRadius,
+                curr_coin_y - coinClickRadius,
+                curr_coin_y + coinClickRadius);
+            coin_click_targets.push_back(click_target);
+        }
+
+        /* Handle input from OS */
+        graphics.handleInput();
+
+        /* Check mouse click events */
+        for (auto clicked_target : graphics.getClickedTargets()) {
+            for (int i = 0; i < coin_click_targets.size(); i++) {
+                if (clicked_target == coin_click_targets[i]) {
+                    coin += coin_list.get(i)->getValue();
+                    aquarium->deleteCoin(coin_list.get(i));
+                }
+            }
+        }
+
+        /* Quit loop if UI quit button is clicked */
+        if (graphics.quitPressed()) {
+            running = false;
+        }
         
         /* Update objects on screen */
         graphics.updateScreen();
 
         /* Wait until frame time reaches 1 / frameRate */
         while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate);
-        cout << "FPS: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
+        // cout << "FPS: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
     }
 }
 

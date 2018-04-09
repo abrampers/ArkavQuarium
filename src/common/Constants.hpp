@@ -9,6 +9,10 @@ enum Direction {
 const int gameFrameRate = 35;
 const int gameScreenWidth = 1024;
 const int gameScreenHeight = 768;
+const int gameScreenLeftPadding = 30;
+const int gameScreenRightPadding = 30;
+const int gameScreenTopPadding = 30;
+const int gameScreenBottomPadding = 70;
 
 const int maxLevel = 3;
 const double randomMoveInterval = 4; 		/* Ini juga detik ya brok */
@@ -17,6 +21,7 @@ const double pi = 3.14159265;
 /* Coin constants */
 const double COIN_MOVE_SPEED = 100; 			/* TBD */
 const double COIN_DELETION_INTERVAL = 10; 	/* TBD */
+const int coinClickRadius = 20;
 
 /* Guppy constants */
 const int guppyFoodThres = 20;
@@ -29,7 +34,7 @@ const double guppyCoinInterval = 8;
 const double guppyCoinMultiplier = 10;
 
 /* Pellet constants */
-const double PELLET_SPEED = 1.0; 			/* TBD */
+const double PELLET_SPEED = 200; 			/* TBD */
 
 /* Piranha constants */
 const int piranhaFoodThres = 50;
