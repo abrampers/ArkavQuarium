@@ -89,9 +89,10 @@ void Graphics::drawGuppy(int x, int y, int level, State state, int state_progres
         assetPath += "/dead_right";
     }
 
-    assetPath += to_string(state_progress);
+    assetPath += "/" + to_string(state_progress + 1);
 
     assetPath += ".png";
+    cout << assetPath << endl;
     drawImage(assetPath, x, y);
 }
 
