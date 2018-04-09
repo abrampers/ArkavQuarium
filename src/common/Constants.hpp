@@ -22,10 +22,10 @@ const int gameScreenBottomPadding = 70;
 const double progressPeriod = 10;
 const double guppyTurnProgressIncrementTime = 0.05;
 const double guppyMoveProgressIncrementTime = 0.05;
-const double guppyDeadProgressIncrementTime = 0.1;
+const double guppyDeadProgressIncrementTime = 0.15;
 const double piranhaTurnProgressIncrementTime = 0.05;
 const double piranhaMoveProgressIncrementTime = 0.05;
-const double piranhaDeadProgressIncrementTime = 0.1;
+const double piranhaDeadProgressIncrementTime = 0.15;
 const double snailTurnProgressIncrementTime = 0.05;
 const double snailMoveProgressIncrementTime = 0.05;
 

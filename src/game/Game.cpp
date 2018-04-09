@@ -81,9 +81,9 @@ void Game::startGame() {
             Piranha *curr_piranha = piranha_list.get(i);
             double curr_piranha_x = curr_piranha->getX();
             double curr_piranha_y = curr_piranha->getY();
-            int curr_piranha_level = curr_piranha->getLevel();
-            Direction curr_piranha_direction = curr_piranha->getDirection();
-            graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_level, curr_piranha_direction);
+            State curr_piranha_state = curr_piranha->getState();
+            int curr_piranha_state_progress = curr_piranha->getProgress();
+            graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_state, curr_piranha_state_progress);
         }
         
         /* Draw Snail */
@@ -91,8 +91,9 @@ void Game::startGame() {
             Snail *curr_snail = snail_list.get(i);
             double curr_snail_x = curr_snail->getX();
             double curr_snail_y = curr_snail->getY();
-            Direction curr_snail_direction = curr_snail->getDirection();
-            graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_direction);
+            State curr_snail_state = curr_snail->getState();
+            int curr_snail_state_progress = curr_snail->getProgress();
+            graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_state, curr_snail_state_progress);
         }
 
         /* Draw Pellet */
@@ -100,7 +101,8 @@ void Game::startGame() {
             Pellet *curr_pellet = pellet_list.get(i);
             double curr_pellet_x = curr_pellet->getX();
             double curr_pellet_y = curr_pellet->getY();
-            graphics.drawPellet(curr_pellet_x, curr_pellet_y);
+            int curr_pellet_state_progress = curr_pellet->getProgress();
+            graphics.drawPellet(curr_pellet_x, curr_pellet_y, curr_pellet_state_progress);
         }
 
         /* Draw Coin and register mouse click targets */

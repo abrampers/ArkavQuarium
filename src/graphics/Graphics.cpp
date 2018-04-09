@@ -60,7 +60,7 @@ void Graphics::close() {
 
 /* High level drawing */
 void Graphics::drawBackground() {
-    const string assetPath = "assets/graphics/aquarium.jpg";
+    const string assetPath = "assets/graphics/static/aquarium.jpg";
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
@@ -92,39 +92,46 @@ void Graphics::drawGuppy(int x, int y, int level, State state, int state_progres
     assetPath += "/" + to_string(state_progress + 1);
 
     assetPath += ".png";
-    cout << assetPath << endl;
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawPiranha(int x, int y, int level, Direction direction) {
-    string assetPath = "assets/graphics/piranha";
+void Graphics::drawPiranha(int x, int y, State state, int state_progress) {
+    string assetPath = "assets/graphics/sprites/piranha";
+
+    if (state == State::movingLeft) {
+        assetPath += "/move_left";
+    } else if (state == State::movingRight) {
+        assetPath += "/move_right";
+    } else if (state == State::turningLeft) {
+        assetPath += "/turn_left";
+    } else if (state == State::turningRight) {
+        assetPath += "/turn_right";
+    } else if (state == State::deadLeft) {
+        assetPath += "/dead_left";
+    } else if (state == State::deadRight) {
+        assetPath += "/dead_right";
+    }
+
+    assetPath += "/" + to_string(state_progress + 1);
     
-    if (level == 1) {
-        assetPath += "_small";
-    } else if (level == 2) {
-        assetPath += "_medium";
-    } else {
-        assetPath += "_large";
-    }
-
-    if (direction == Direction::left) {
-        assetPath += "_left";
-    } else {
-        assetPath += "_right";
-    }
-
     assetPath += ".png";
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawSnail(int x, int y, Direction direction) {
+void Graphics::drawSnail(int x, int y, State state, int state_progress) {
     string assetPath = "assets/graphics/snail";
 
-    if (direction == Direction::left) {
-        assetPath += "_left";
-    } else {
-        assetPath += "_right";
+    if (state == State::movingLeft) {
+        assetPath += "/move_left";
+    } else if (state == State::movingRight) {
+        assetPath += "/move_right";
+    } else if (state == State::turningLeft) {
+        assetPath += "/turn_left";
+    } else if (state == State::turningRight) {
+        assetPath += "/turn_right";
     }
+
+    assetPath += "/" + to_string(state_progress + 1);
 
     assetPath += ".png";
     drawImage(assetPath, x, y);
@@ -136,9 +143,10 @@ void Graphics::drawCoin(int x, int y) {
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawPellet(int x, int y) {
+void Graphics::drawPellet(int x, int y, int state_progress) {
     string assetPath = "assets/graphics/pellet";
-    assetPath += ".gif";
+    assetPath += "/" + to_string(state_progress + 1);
+    assetPath += ".png";
     drawImage(assetPath, x, y);
 }
 

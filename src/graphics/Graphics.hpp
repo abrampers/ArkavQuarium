@@ -46,10 +46,10 @@ public:
 	/* High level drawing */
 	void drawBackground();
 	void drawGuppy(int x, int y, int level, State state, int state_progress);
-    void drawPiranha(int x, int y, int level, Direction direction);
-    void drawSnail(int x, int y, Direction direction);
+    void drawPiranha(int x, int y, State state, int state_progress);
+    void drawSnail(int x, int y, State state, int state_progress);
     void drawCoin(int x, int y);
-    void drawPellet(int x, int y);
+    void drawPellet(int x, int y, int state_progress);
 
 	/* Low level drawing */
 	void clearScreen();
