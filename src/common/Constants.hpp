@@ -19,8 +19,8 @@ const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
 
 /* Coin's constant */
-const double coinMoveSpeed = 10; 			/* TBD */
-const double coinDeletionInterval = 10; 	/* TBD */
+const double coinMoveSpeed = 100; 			/* TBD */
+const double coinDeletionInterval = 100; 	/* TBD */
 const int coinClickRadius = 20;
 
 /* Guppy constants */

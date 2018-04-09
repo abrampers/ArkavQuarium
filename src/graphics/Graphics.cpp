@@ -181,22 +181,19 @@ double Graphics::timeSinceStart() {
 /* Input handling */
 // Memproses masukan dari sistem operasi.
 void Graphics::handleInput() {
+    /* Get mouse position */
+    SDL_GetMouseState(&mouse_x, &mouse_y);
+    
+    /* Handle input events */
     SDL_Event event;
-
     if (!tapped_keys.empty()) {
         tapped_keys.clear();
     }
-
     if (!clicked_targets.empty()) {
         clicked_targets.clear();
     }
 
     while(SDL_PollEvent(&event) != 0) {
-        /* Get mouse position */
-        int mouse_x, mouse_y;
-        SDL_GetMouseState(&mouse_x, &mouse_y);
-
-        /* Handle input events */
         if (event.type == SDL_QUIT) {
             quit = true;
 
@@ -217,6 +214,10 @@ void Graphics::handleInput() {
                         mouse_y <= get<3>(target)) {
                         clicked_targets.insert(i);
                     }
+                }
+                /* If click event is not inside any registered target */
+                if (clicked_targets.empty()) {
+                    clicked_targets.insert(-1);
                 }
             }
         }
@@ -262,3 +263,12 @@ void Graphics::resetClickTargets() {
 const set<int>& Graphics::getClickedTargets() {
     return clicked_targets;
 }
+
+int Graphics::getMouseX() {
+    return mouse_x;
+}
+
+int Graphics::getMouseY() {
+    return mouse_y;
+}
+

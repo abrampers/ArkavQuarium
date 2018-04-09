@@ -127,6 +127,10 @@ void Game::startGame() {
                     aquarium->deleteCoin(coin_list.get(i));
                 }
             }
+            /* Click event is outside any registered target */
+            int x = graphics.getMouseX();
+            int y = graphics.getMouseY();
+            aquarium->createPellet(x, y);
         }
 
         /* Quit loop if UI quit button is clicked */

@@ -19,8 +19,8 @@ using namespace std::chrono;
 class Graphics {
 private:
 	const char* fontPath = "assets/fonts/OpenSans-Regular.ttf";
-	const int screenWidth;
-	const int screenHeight;
+	const int screenWidth, screenHeight;
+	int mouse_x, mouse_y;
 	
 	high_resolution_clock::time_point start;
     SDL_Window* sdl_window;
@@ -86,6 +86,8 @@ public:
 	int addClickTarget(int x_min, int x_max, int y_min, int y_max);
 	void resetClickTargets();
 	const set<int>& getClickedTargets();
+	int getMouseX();
+	int getMouseY();
 };
 
 #endif
