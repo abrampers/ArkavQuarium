@@ -28,6 +28,8 @@ class Snail : public Aquatic {
 
 		/*getter-setter*/
         Direction getDirection();
+        int getCoin();
+        void resetCoin();
 
 		/*methods*/
         void updateState(); 

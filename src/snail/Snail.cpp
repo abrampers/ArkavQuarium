@@ -13,12 +13,20 @@ double Snail::getDistance(Aquatic* a, Aquatic* b) {
 	return sqrt(pow(a->getX() - b->getX(), 2) + pow(a->getY() - b->getY(), 2));
 }
 
+int Snail::getCoin() {
+	return hold_coin_value;
+}
+
+void Snail::resetCoin() {
+	this->hold_coin_value = 0;
+}
+
 bool Snail::isCoinOnTop() {
 	return (abs(this->getX() - nearest_coin->getX()) < this->snailRadius * 0.5);
 }
 
 void Snail::pickCoin(Coin* c) {
-	hold_coin_value = c->getValue();
+	hold_coin_value += c->getValue();
 	this->getAquarium()->deleteCoin(c);
 	nearest_coin = NULL;
 }
