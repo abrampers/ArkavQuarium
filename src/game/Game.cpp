@@ -91,6 +91,24 @@ void Game::startGame() {
             Direction curr_snail_direction = curr_snail->getDirection();
             graphics.drawSnail(curr_snail_x, curr_snail_y, curr_snail_direction);
         }
+
+        /* Draw Coin */
+        for (int i = 0; i < coin_list.getLength(); i++) {
+            Snail *curr_coin = coin_list.get(i);
+            double curr_coin_x = curr_coin->getX();
+            double curr_coin_y = curr_coin->getY();
+            Direction curr_coin_direction = curr_coin->getDirection();
+            graphics.drawCoin(curr_coin_x, curr_coin_y, curr_coin_direction);
+        }
+
+        /* Draw Pellet */
+        for (int i = 0; i < pellet_list.getLength(); i++) {
+            Snail *curr_pellet = pellet_list.get(i);
+            double curr_pellet_x = curr_snail->getX();
+            double curr_pellet_y = curr_snail->getY();
+            Direction curr_pellet_direction = curr_snail->getDirection();
+            graphics.drawPellet(curr_pellet_x, curr_pellet_y, curr_pellet_direction);
+        }
         
         /* Update objects on screen */
         graphics.updateScreen();
