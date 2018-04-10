@@ -67,7 +67,7 @@ void Graphics::drawAquarium() {
 }
 
 void Graphics::drawCoinText(int value) {
-    drawText(to_string(value), 28, 898, 50, 45, 252, 48);
+    drawText(to_string(value), 23, 885, 63, 166, 255, 112);
 }
 
 void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
@@ -277,9 +277,6 @@ int Graphics::addClickTarget(int x_min, int x_max, int y_min, int y_max) {
 void Graphics::resetClickTargets() {
     if (!click_targets.empty()) {
         click_targets.clear();
-        /* Screen is always a click target */
-        tuple<int, int, int, int> screen = make_tuple(0, screenWidth, 0, screenHeight);
-        click_targets.push_back(screen);
     }
 }
 

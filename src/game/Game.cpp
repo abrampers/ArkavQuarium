@@ -6,10 +6,10 @@
 using namespace std;
 
 Game::Game():
-aquariumXStart(20),
-aquariumXEnd(gameScreenWidth - 20),
-aquariumYStart(200),
-aquariumYEnd(gameScreenHeight - 100),
+aquariumXStart(gameScreenLeftPadding),
+aquariumXEnd(gameScreenWidth - gameScreenRightPadding),
+aquariumYStart(gameScreenTopPadding),
+aquariumYEnd(gameScreenHeight - gameScreenBottomPadding),
 frameRate(gameFrameRate), 
 graphics(gameScreenWidth, gameScreenHeight),
 coin(0),
@@ -67,6 +67,13 @@ void Game::startGame() {
         /* Draw UI */
         graphics.drawAquarium();
         graphics.drawCoinText(coin);
+
+        /* Register aquarium click target */
+        int aquarium_click_target = graphics.addClickTarget(
+            aquariumXStart, 
+            aquariumXEnd, 
+            aquariumYStart, 
+            aquariumYEnd);
 
         /* Draw Guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
@@ -129,10 +136,14 @@ void Game::startGame() {
 
         /* Check mouse click events */
         int clicked_target = graphics.getClickedTarget();
-        if (clicked_target == 0) {
+        cout << clicked_target << endl;
+        if (clicked_target == aquarium_click_target) {
             int x = graphics.getMouseX();
             int y = graphics.getMouseY();
-            aquarium->createPellet(x, y);
+            if (coin >= pelletPrice) {
+                aquarium->createPellet(x, y);
+                coin -= pelletPrice;
+            }
         } else {
             for (int i = 0; i < coin_click_targets.size(); i++) {
                 if (clicked_target == coin_click_targets[i]) {

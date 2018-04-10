@@ -18,7 +18,7 @@ using namespace std::chrono;
 
 class Graphics {
 private:
-	const char* fontPath = "assets/fonts/Oswald-Regular.ttf";
+	const char* fontPath = "assets/fonts/Oswald-Heavy.ttf";
 	const int screenWidth, screenHeight;
 	int mouse_x, mouse_y;
 	

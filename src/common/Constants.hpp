@@ -13,10 +13,10 @@ enum State {
 const int gameFrameRate = 35;
 const int gameScreenWidth = 1024;
 const int gameScreenHeight = 768;
-const int gameScreenLeftPadding = 30;
-const int gameScreenRightPadding = 30;
-const int gameScreenTopPadding = 30;
-const int gameScreenBottomPadding = 70;
+const int gameScreenLeftPadding = 20;
+const int gameScreenRightPadding = 20;
+const int gameScreenTopPadding = 170;
+const int gameScreenBottomPadding = 65;
 const int maxLevel = 3;
 const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
 const double pi = 3.14159265;
@@ -37,6 +37,7 @@ const double guppyCoinMultiplier = 10;
 
 /* Pellet's constant */
 const double pelletSpeed = 0.125; 				/* TBD */
+const int pelletPrice = 10;
 
 /* Piranha constants */
 const int piranhaFoodThres = 50;
