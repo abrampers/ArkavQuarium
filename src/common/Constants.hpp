@@ -31,7 +31,7 @@ const int pelletPriceTextY = 75;
 const int piranhaPriceTextX = 367;
 const int piranhaPriceTextY = 75;
 
-const int snailPriceTextX = 502;
+const int snailPriceTextX = 485;
 const int snailPriceTextY = 75;
 
 const int eggPriceTextX = 722;
@@ -66,6 +66,7 @@ const int buyEggButtonYStart = 7;
 const int buyEggButtonYEnd = 72;
 
 /* Game constants */
+const int gameInitialCoin = 200;
 const int gameFrameRate = 35;
 const int gameScreenWidth = 1024;
 const int gameScreenHeight = 768;
@@ -87,7 +88,7 @@ const int coinClickRadius = 20;
 const int guppyFoodThres = 2;
 const int guppyPrice = 100;
 const double guppyEatRadius = 20;
-const double guppyFullInterval = 1; 		/* Ini detik ye bos */
+const double guppyFullInterval = 15; 		/* Ini detik ye bos */
 const double guppyHungerInterval = 10;
 const double guppyMoveSpeed = 60; 			/* Pixels per second */
 const double guppyCoinInterval = 8;
@@ -102,8 +103,8 @@ const int pelletPrice = 10;
 const int piranhaFoodThres = 50;
 const int piranhaPrice = 400;
 const double piranhaEatRadius = 50;
-const double piranhaFullInterval = 10; 		/* Ini detik ye bos */
-const double piranhaHungerInterval = 15;
+const double piranhaFullInterval = 15; 		/* Ini detik ye bos */
+const double piranhaHungerInterval = 10;
 const double piranhaMoveSpeed = 82;
 const double piranhaCoinInterval = 8;
 

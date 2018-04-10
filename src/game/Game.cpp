@@ -12,7 +12,7 @@ aquariumYStart(gameScreenTopPadding),
 aquariumYEnd(gameScreenHeight - gameScreenBottomPadding),
 frameRate(gameFrameRate), 
 graphics(gameScreenWidth, gameScreenHeight),
-coin(0),
+coin(gameInitialCoin),
 egg(0) {
     /* Initialize game graphics */
     bool succ = graphics.init();
@@ -203,6 +203,7 @@ void Game::startGame() {
             }
         }
 
+        /* DEBUG */
         for (auto key : graphics.getPressedKeys()) {
             switch (key) {
             case SDLK_p:
