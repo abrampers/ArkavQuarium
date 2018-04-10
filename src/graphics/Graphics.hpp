@@ -67,6 +67,15 @@ public:
 		\param int egg_count
 	*/
 	void drawTopBar(int coin_count, int egg_count);
+
+	//! Draw the game's main menu
+	void drawMainMenu();
+
+	//! Draw the game's win menu
+	void drawWinMenu();
+
+	//! Draw the game's loose menu
+	void drawLooseMenu();
 	
 	//! Draw a guppy on screen
 	/*! 

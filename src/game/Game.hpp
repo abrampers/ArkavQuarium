@@ -53,10 +53,20 @@ class Game {
         void saveState(string filename);
 
         //! Start the game
-        void startGame();
+        /*! \return GameState state of the last game */
+        GameState startGame();
 
-        //! Show tha game main menu
-        void showMainMenu();
+        //! Show the game main menu
+        /*! \return GameState state of the last game */
+        GameState showMainMenu();
+
+        //! Show win menu
+        /*! \return GameState state of the last game */
+        GameState showWinMenu();
+
+        //! Show loose menu
+        /*! \return GameState state of the last game */
+        GameState showLooseMenu();
 
         //! Run game sequence
         void run();

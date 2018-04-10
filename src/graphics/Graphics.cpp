@@ -66,8 +66,8 @@ void Graphics::drawAquarium() {
 
 void Graphics::drawTopBar(int coin_count, int egg_count) {
     /* Draw top bar UI */
-    const string uiAssetPath = "assets/graphics/statics/aquarium_ui.png";
-    drawImage(uiAssetPath, screenWidth / 2, 87);
+    const string assetPath = "assets/graphics/statics/aquarium_ui.png";
+    drawImage(assetPath, screenWidth / 2, 87);
 
     /* Draw texts */
     drawText(to_string(coin_count), coinTextSize, coinTextX, 
@@ -90,6 +90,21 @@ void Graphics::drawTopBar(int coin_count, int egg_count) {
 
     drawText(to_string(egg_count), eggCountTextSize, eggCountTextX, 
         eggCountTextY, eggCountTextColorR, eggCountTextColorG, eggCountTextColorB);
+}
+
+void Graphics::drawMainMenu() {
+    const string assetPath = "assets/graphics/statics/main_menu.jpg";
+    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
+}
+
+void Graphics::drawWinMenu() {
+    const string assetPath = "assets/graphics/statics/win_menu.jpg";
+    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
+}
+
+void Graphics::drawLooseMenu() {
+    const string assetPath = "assets/graphics/statics/loose_menu.jpg";
+    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
 void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {

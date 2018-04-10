@@ -12,6 +12,7 @@ aquariumYStart(gameScreenTopPadding),
 aquariumYEnd(gameScreenHeight - gameScreenBottomPadding),
 frameRate(gameFrameRate), 
 graphics(gameScreenWidth, gameScreenHeight),
+aquarium(NULL),
 coin(gameInitialCoin),
 egg(0) {
     /* Initialize game graphics */
@@ -29,6 +30,11 @@ Game::~Game() {
 
 /* Initialize game state */
 void Game::initState() {
+    coin = gameInitialCoin;
+    egg = 0;
+    if (aquarium == NULL) {
+        delete aquarium;
+    }
     aquarium = new Aquarium(aquariumXStart, aquariumYStart, aquariumXEnd, aquariumYEnd);
     game_start_time = graphics.timeSinceStart();
 }
@@ -44,10 +50,10 @@ void Game::saveState(string filename) {
 }
 
 /* Start a game */
-void Game::startGame() {
-
+GameState Game::startGame() {
+    /* Play game until win, loose, or closed */
+    GameState game_state;
     bool running = true;
-
     while (running) {
         /* Start frame timer */
         double game_current_time = graphics.timeSinceStart();
@@ -215,9 +221,18 @@ void Game::startGame() {
             }
         }
 
-        /* Quit loop if UI quit button is clicked */
-        if (graphics.quitPressed()) {
+        /* Check game state */
+        if (egg == 3) {
             running = false;
+            game_state = GameState::win;
+
+        } else if (coin < guppyPrice && guppy_list.getLength() == 0 && piranha_list.getLength() == 0) {
+            running = false;
+            game_state = GameState::loose;
+
+        } else if (graphics.quitPressed()) {
+            running = false;
+            game_state = GameState::closed;
         }
         
         /* Update objects on screen */
@@ -229,24 +244,165 @@ void Game::startGame() {
         /* DEBUG */
         // cout << "FPS: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
     }
+
+    return game_state;
 }
 
-/* Show tha game main menu */
-void Game::showMainMenu() {
+/* Show the game main menu */
+GameState Game::showMainMenu() {
+    /* Reset and register mouse click targets */
+    graphics.resetClickTargets();
+    int start_click_target = graphics.addClickTarget(
+        mainStartButtonXStart, 
+        mainStartButtonXEnd, 
+        mainStartButtonYStart, 
+        mainStartButtonYEnd);
+
+    /* Draw main menu */
+    graphics.drawMainMenu();
+    graphics.updateScreen();
+
+    /* Wait user input */
+    bool start_game = false;
     bool running = true;
     while (running) {
+        /* Start frame timer */
+        double frame_current_time = graphics.timeSinceStart();
+
+        /* Handle input from OS */
+        graphics.handleInput();
+
+        /* Start game if button is clicked */
+        if (graphics.getClickedTarget() == start_click_target) {
+            start_game = true;
+            break;
+        }
+
+        /* Quit loop if UI quit button is clicked */
+        if (graphics.quitPressed()) {
+            running = false;
+        }
+
         /* Wait until frame time reaches 1 / frameRate */
-        while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate);
+        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate);
+    }
+
+    /* Start a new game */
+    if (start_game) {
+        initState();
+        return startGame();
+    } else {
+        return GameState::closed;
+    }
+}
+
+/* Show win menu */
+GameState Game::showWinMenu() {
+    /* Reset and register mouse click targets */
+    graphics.resetClickTargets();
+    int start_click_target = graphics.addClickTarget(
+        winStartButtonXStart, 
+        winStartButtonXEnd, 
+        winStartButtonYStart, 
+        winStartButtonYEnd);
+
+    /* Draw main menu */
+    graphics.drawWinMenu();
+    graphics.updateScreen();
+
+    /* Wait user input */
+    bool start_game = false;
+    bool running = true;
+    while (running) {
+        /* Start frame timer */
+        double frame_current_time = graphics.timeSinceStart();
+
+        /* Handle input from OS */
+        graphics.handleInput();
+
+        /* Start game if button is clicked */
+        if (graphics.getClickedTarget() == start_click_target) {
+            start_game = true;
+            break;
+        }
+
+        /* Quit loop if UI quit button is clicked */
+        if (graphics.quitPressed()) {
+            running = false;
+        }
+
+        /* Wait until frame time reaches 1 / frameRate */
+        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate);
+    }
+
+    /* Start a new game */
+    if (start_game) {
+        initState();
+        return startGame();
+    } else {
+        return GameState::closed;
+    }
+}
+
+/* Show loose menu */
+GameState Game::showLooseMenu() {
+     /* Reset and register mouse click targets */
+    graphics.resetClickTargets();
+    int start_click_target = graphics.addClickTarget(
+        looseStartButtonXStart, 
+        looseStartButtonXEnd, 
+        looseStartButtonYStart, 
+        looseStartButtonYEnd);
+
+    /* Draw main menu */
+    graphics.drawLooseMenu();
+    graphics.updateScreen();
+
+    /* Wait user input */
+    bool start_game = false;
+    bool running = true;
+    while (running) {
+        /* Start frame timer */
+        double frame_current_time = graphics.timeSinceStart();
+
+        /* Handle input from OS */
+        graphics.handleInput();
+
+        /* Start game if button is clicked */
+        if (graphics.getClickedTarget() == start_click_target) {
+            start_game = true;
+            break;
+        }
+
+        /* Quit loop if UI quit button is clicked */
+        if (graphics.quitPressed()) {
+            running = false;
+        }
+
+        /* Wait until frame time reaches 1 / frameRate */
+        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate);
+    }
+
+    /* Start a new game */
+    if (start_game) {
+        initState();
+        return startGame();
+    } else {
+        return GameState::closed;
     }
 }
 
 /* Run game sequence */
 void Game::run() {
+    /* Show main menu */  
+    GameState game_state = showMainMenu();
 
-    /* TODO: Show main menu */
-    
-    /* Init game states */
-    initState();
-    startGame();
-
+    /* Start a new game until closed */
+    while (game_state != GameState::closed) {
+        if (game_state == GameState::win) {
+            game_state = showWinMenu();
+        } else {
+            game_state = showLooseMenu();
+        }
+    }
 }

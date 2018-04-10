@@ -1,6 +1,10 @@
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 
+enum GameState {
+    win, loose, closed
+};
+
 enum Direction {
     left, right
 };
@@ -64,6 +68,21 @@ const int buyEggButtonXStart = 708;
 const int buyEggButtonXEnd = 783;
 const int buyEggButtonYStart = 7;
 const int buyEggButtonYEnd = 72;
+
+const int mainStartButtonXStart = 560;
+const int mainStartButtonXEnd = 900;
+const int mainStartButtonYStart = 80;
+const int mainStartButtonYEnd = 185;
+
+const int winStartButtonXStart = 406;
+const int winStartButtonXEnd = 621;
+const int winStartButtonYStart = 598;
+const int winStartButtonYEnd = 666;
+
+const int looseStartButtonXStart = 406;
+const int looseStartButtonXEnd = 621;
+const int looseStartButtonYStart = 598;
+const int looseStartButtonYEnd = 666;
 
 /* Game constants */
 const int gameInitialCoin = 200;
