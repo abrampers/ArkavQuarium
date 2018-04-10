@@ -64,7 +64,7 @@ public:
 		\return 
 	*/
 	void drawAquarium();
-	void drawCoinText(int value);
+	void drawTopBar(int coin_count, int egg_count);
 	void drawGuppy(int x, int y, int level, State state, int state_progress);
     void drawPiranha(int x, int y, State state, int state_progress);
     void drawSnail(int x, int y, State state, int state_progress);

@@ -66,7 +66,7 @@ void Game::startGame() {
 
         /* Draw UI */
         graphics.drawAquarium();
-        graphics.drawCoinText(coin);
+        graphics.drawTopBar(coin, egg);
 
         /* Register aquarium click target */
         int aquarium_click_target = graphics.addClickTarget(
@@ -74,6 +74,31 @@ void Game::startGame() {
             aquariumXEnd, 
             aquariumYStart, 
             aquariumYEnd);
+
+        /* Register UI click targets */
+        int buy_guppy_click_target = graphics.addClickTarget(
+            buyGuppyButtonXStart, 
+            buyGuppyButtonXEnd, 
+            buyGuppyButtonYStart, 
+            buyGuppyButtonYEnd);
+
+        int buy_piranha_click_target = graphics.addClickTarget(
+            buyPiranhaButtonXStart, 
+            buyPiranhaButtonXEnd, 
+            buyPiranhaButtonYStart, 
+            buyPiranhaButtonYEnd);
+
+        int buy_snail_click_target = graphics.addClickTarget(
+            buySnailButtonXStart, 
+            buySnailButtonXEnd, 
+            buySnailButtonYStart, 
+            buySnailButtonYEnd);
+
+        int buy_egg_click_target = graphics.addClickTarget(
+            buyEggButtonXStart, 
+            buyEggButtonXEnd, 
+            buyEggButtonYStart, 
+            buyEggButtonYEnd);
 
         /* Draw Guppy */
         for (int i = 0; i < guppy_list.getLength(); i++) {
@@ -143,6 +168,31 @@ void Game::startGame() {
                 aquarium->createPellet(x, y);
                 coin -= pelletPrice;
             }
+
+        } else if (clicked_target == buy_guppy_click_target) {
+            if (coin >= guppyPrice) {
+                aquarium->createGuppy();
+                coin -= guppyPrice;
+            }
+
+        } else if (clicked_target == buy_piranha_click_target) {
+            if (coin >= piranhaPrice) {
+                aquarium->createPiranha();
+                coin -= piranhaPrice;
+            }
+
+        } else if (clicked_target == buy_snail_click_target) {
+            if (coin >= snailPrice) {
+                aquarium->createSnail();
+                coin -= snailPrice;
+            }
+
+        } else if (clicked_target == buy_egg_click_target) {
+            if (coin >= eggPrice) {
+                egg += 1;
+                coin -= eggPrice;
+            }
+
         } else {
             for (int i = 0; i < coin_click_targets.size(); i++) {
                 if (clicked_target == coin_click_targets[i]) {
