@@ -50,10 +50,6 @@ int Aquatic::getProgress() {
 	return this->progress;
 }
 
-double Aquatic::getLastChangedProgressTime() {
-	return this->last_changed_progress_time;
-}
-
 double Aquatic::getLastProgressTime() {
 	return this->last_progress_time;
 }
@@ -76,10 +72,6 @@ void Aquatic::setState(State state) {
 
 void Aquatic::setProgress(int progress) {
 	this->progress = progress;
-}
-
-void Aquatic::setLastChangedProgressTime(double t) {
-	this->last_changed_progress_time = t;
 }
 
 void Aquatic::setLastProgressTime(double t) {

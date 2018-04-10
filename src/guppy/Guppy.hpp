@@ -7,6 +7,7 @@
 #include "linkedlist/LinkedList.hpp"
 #include "pellet/Pellet.hpp"
 
+//! Class Guppy. Represents all Guppy object in Aquarium.
 class Guppy : public Aquatic, public Fish {
     private:
         Pellet *nearest_pellet;
@@ -20,20 +21,36 @@ class Guppy : public Aquatic, public Fish {
         /* Euclidean distance from guppy to pellet */
         double distanceToPellet(Pellet *p);
     public:
-    	/* Constructor */
+        /* Constructor */
+        //! A constructor.
+        /*! Constructs a new Guppy object. 
+            \param Aquarium *aquarium The Aquarium that contains the Guppy.
+        */
         Guppy(Aquarium *aquarium);
 
         /***********/
         /* Methods */
         /***********/
         /* Implements pure virtual method from Aquatic */
+        //! Implements pure virtual method from Aquatic
         void updateState(); 
+
+        //! Implements pure virtual method from Aquatic
         void move();
+
+        //! Implements pure virtual method from Aquatic
         void updateProgress();
+
+        //! Implements pure virtual method from Aquatic
         void dead();
 
         /* Implements pure virtual method from Fish */
+        //! Implements pure virtual method from Fish
+        /*! Search for Pellet nearby, if the Pellet is in range, eat */
         void eat();
+
+        //! Implements pure virtual method from Fish
+        /*! Drop coin every constant time interval */
         void dropCoin(); 
 };
 

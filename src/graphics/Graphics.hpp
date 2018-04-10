@@ -16,6 +16,7 @@
 using namespace std;
 using namespace std::chrono;
 
+//! Class Graphics. Draw game objects and handle user inputs
 class Graphics {
 private:
 	const char* fontPath = "assets/fonts/Oswald-Heavy.ttf";
@@ -36,14 +37,32 @@ private:
     SDL_Surface* loadSurface(string path);
 
 public:
+	/* Constructor */
+    //! A constructor.
+    /*! Constructs a new Graphics object. 
+		\param int screen_width
+		\param int screen_height
+    */
 	Graphics(int screen_width, int screen_height);
+
+	/* Destructor */
+    //! A destructor.
+    /*! Destructs the Graphics object. */
 	~Graphics();
 
 	/* Setup */
+	//! Initialize game graphics and create the game window
 	bool init();
+
+	//! Unload all assets and close the game window
 	void close();
 
 	/* High level drawing */
+	//!
+	/*! 
+		\param
+		\return 
+	*/
 	void drawAquarium();
 	void drawCoinText(int value);
 	void drawGuppy(int x, int y, int level, State state, int state_progress);
