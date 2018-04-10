@@ -58,17 +58,57 @@ public:
 	void close();
 
 	/* High level drawing */
-	//!
-	/*! 
-		\param
-		\return 
-	*/
+	//! Draw the aquarium backround
 	void drawAquarium();
-	void drawCoinText(int value);
+	
+	//! Draw the game's top bar UI
+	/*! 
+		\param int coin_count
+		\param int egg_count
+	*/
+	void drawTopBar(int coin_count, int egg_count);
+	
+	//! Draw a guppy on screen
+	/*! 
+		\param int x
+		\param int y
+		\param int level
+		\param State state
+		\param int state_progress
+	*/
 	void drawGuppy(int x, int y, int level, State state, int state_progress);
+	
+	//! Draw a piranha on screen
+	/*! 
+		\param int x
+		\param int y
+		\param State state
+		\param int state_progress
+	*/
     void drawPiranha(int x, int y, State state, int state_progress);
+    
+    //! Draw a snail on screen
+	/*! 
+		\param int x
+		\param int y
+		\param State state
+		\param int state_progress
+	*/
     void drawSnail(int x, int y, State state, int state_progress);
+    
+    //! Draw a coin on screen
+	/*! 
+		\param int x
+		\param int y
+	*/
     void drawCoin(int x, int y);
+    
+    //! Draw a pellet on screen
+	/*! 
+		\param int x
+		\param int y
+		\param int state_progress
+	*/
     void drawPellet(int x, int y, int state_progress);
 
 	/* Low level drawing */
@@ -79,34 +119,68 @@ public:
     	unsigned char r, unsigned char g, unsigned char b);
 
 	/* Time */
+	//! Get time since graphics is initialized
+	/*! 
+		\return double time sice graphics initialized
+	*/
 	double timeSinceStart();
 
 	/* Input handling */
-	// Memproses masukan dari sistem operasi.
+	//! Handle OS inputs
 	void handleInput();
 
 	/* OS events handling */
-	// Mengembalikan apakah pengguna telah meminta keluar dengan menekan tombol
-	// keluar di jendela program ketika handle_input() terakhir dipanggil.
+	//! Check if user has closed the game window
+	/*! 
+		\return bool whethet user closed game window
+	*/
 	bool quitPressed();
 
 	/* Keyboard events handling */
-	// Untuk dua fungsi berikut, nama konstan kode yang tepat dapat dilihat di
-	// https://wiki.libsdl.org/SDL_Keycode pada kolom "SDL_Keycode Value".
-
-	// Mengembalikan himpunan kode tombol yang sedang ditekan pada saat
-	// handle_input() terakhir dipanggil.
+	//! Get pressed keys since handleInput() is last called
+	/*! 
+		Key codes can be seen at: https://wiki.libsdl.org/SDL_Keycode on section "SDL_Keycode Value"
+		\return const set<SDL_Keycode>& a set of pressed key codes
+	*/
 	const set<SDL_Keycode>& getPressedKeys();
 
-	// Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
-	// handle_input() terakhir dipanggil.
+	//! Get tapped keys since handleInput() is last called
+	/*! 
+		Key codes can be seen at: https://wiki.libsdl.org/SDL_Keycode on section "SDL_Keycode Value"
+		\return const set<SDL_Keycode>& a set of tapped key codes
+	*/
 	const set<SDL_Keycode>& getTappedKeys();
 
 	/* Mouse events handling */
+	//! Register a new click target
+	/*! 
+		\param int x_min
+		\param int x_max
+		\param int y_min
+		\param int y_max
+		\return int the id of the newly registered click target
+	*/
 	int addClickTarget(int x_min, int x_max, int y_min, int y_max);
+
+	//! Remove all registered click targets
 	void resetClickTargets();
+
+	//! Get the last clicked target since handleInput() is called
+	/*! 
+		\return const int& the id of the clicked target
+	*/
 	const int& getClickedTarget();
+
+	//! Get mouse x position
+	/*! 
+		\return int mouse x position
+	*/
 	int getMouseX();
+
+	//! Get mouse y position
+	/*! 
+		\return int mouse y position
+	*/
 	int getMouseY();
 };
 

@@ -61,13 +61,35 @@ void Graphics::close() {
 /* High level drawing */
 void Graphics::drawAquarium() {
     const string bgAssetPath = "assets/graphics/statics/aquarium_background.jpg";
-    const string uiAssetPath = "assets/graphics/statics/aquarium_ui.png";
     drawImage(bgAssetPath, screenWidth / 2, screenHeight / 2);
-    drawImage(uiAssetPath, screenWidth / 2, 87);
 }
 
-void Graphics::drawCoinText(int value) {
-    drawText(to_string(value), 23, 885, 63, 166, 255, 112);
+void Graphics::drawTopBar(int coin_count, int egg_count) {
+    /* Draw top bar UI */
+    const string uiAssetPath = "assets/graphics/statics/aquarium_ui.png";
+    drawImage(uiAssetPath, screenWidth / 2, 87);
+
+    /* Draw texts */
+    drawText(to_string(coin_count), coinTextSize, coinTextX, 
+        coinTextY, coinTextColorR, coinTextColorG, coinTextColorB);
+
+    drawText(to_string(guppyPrice), priceTextSize, guppyPriceTextX, 
+        guppyPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(pelletPrice), priceTextSize, pelletPriceTextX, 
+        pelletPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(piranhaPrice), priceTextSize, piranhaPriceTextX, 
+        piranhaPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(snailPrice), priceTextSize, snailPriceTextX, 
+        snailPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(eggPrice), priceTextSize, eggPriceTextX, 
+        eggPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(egg_count), eggCountTextSize, eggCountTextX, 
+        eggCountTextY, eggCountTextColorR, eggCountTextColorG, eggCountTextColorB);
 }
 
 void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
@@ -96,8 +118,6 @@ void Graphics::drawGuppy(int x, int y, int level, State state, int state_progres
     }
 
     assetPath += "/" + to_string(state_progress + 1);
-
-    cout << state << endl;
 
     assetPath += ".png";
     drawImage(assetPath, x, y);
