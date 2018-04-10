@@ -102,8 +102,8 @@ void Graphics::drawWinMenu() {
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
-void Graphics::drawLooseMenu() {
-    const string assetPath = "assets/graphics/statics/loose_menu.jpg";
+void Graphics::drawloseMenu() {
+    const string assetPath = "assets/graphics/statics/lose_menu.jpg";
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
@@ -317,7 +317,7 @@ void Graphics::resetClickTargets() {
     }
 }
 
-const int& Graphics::getClickedTarget() {
+int Graphics::getClickedTarget() {
     return clicked_target;
 }
 

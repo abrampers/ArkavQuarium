@@ -74,8 +74,8 @@ public:
 	//! Draw the game's win menu
 	void drawWinMenu();
 
-	//! Draw the game's loose menu
-	void drawLooseMenu();
+	//! Draw the game's lose menu
+	void drawloseMenu();
 	
 	//! Draw a guppy on screen
 	/*! 
@@ -176,9 +176,9 @@ public:
 
 	//! Get the last clicked target since handleInput() is called
 	/*! 
-		\return const int& the id of the clicked target
+		\return int the id of the clicked target
 	*/
-	const int& getClickedTarget();
+	int getClickedTarget();
 
 	//! Get mouse x position
 	/*! 

@@ -51,7 +51,7 @@ void Game::saveState(string filename) {
 
 /* Start a game */
 GameState Game::startGame() {
-    /* Play game until win, loose, or closed */
+    /* Play game until win, lose, or closed */
     GameState game_state;
     bool running = true;
     while (running) {
@@ -226,9 +226,12 @@ GameState Game::startGame() {
             running = false;
             game_state = GameState::win;
 
-        } else if (coin < guppyPrice && guppy_list.getLength() == 0 && piranha_list.getLength() == 0) {
+        } else if (coin < guppyPrice && 
+            guppy_list.getLength() == 0 && 
+            piranha_list.getLength() == 0 &&
+            coin_list.getLength() == 0) {
             running = false;
-            game_state = GameState::loose;
+            game_state = GameState::lose;
 
         } else if (graphics.quitPressed()) {
             running = false;
@@ -344,18 +347,18 @@ GameState Game::showWinMenu() {
     }
 }
 
-/* Show loose menu */
-GameState Game::showLooseMenu() {
+/* Show lose menu */
+GameState Game::showloseMenu() {
      /* Reset and register mouse click targets */
     graphics.resetClickTargets();
     int start_click_target = graphics.addClickTarget(
-        looseStartButtonXStart, 
-        looseStartButtonXEnd, 
-        looseStartButtonYStart, 
-        looseStartButtonYEnd);
+        loseStartButtonXStart, 
+        loseStartButtonXEnd, 
+        loseStartButtonYStart, 
+        loseStartButtonYEnd);
 
     /* Draw main menu */
-    graphics.drawLooseMenu();
+    graphics.drawloseMenu();
     graphics.updateScreen();
 
     /* Wait user input */
@@ -402,7 +405,7 @@ void Game::run() {
         if (game_state == GameState::win) {
             game_state = showWinMenu();
         } else {
-            game_state = showLooseMenu();
+            game_state = showloseMenu();
         }
     }
 }

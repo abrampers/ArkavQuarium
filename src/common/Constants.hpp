@@ -2,7 +2,7 @@
 #define CONSTANTS_HPP
 
 enum GameState {
-    win, loose, closed
+    win, lose, closed
 };
 
 enum Direction {
@@ -79,10 +79,10 @@ const int winStartButtonXEnd = 621;
 const int winStartButtonYStart = 598;
 const int winStartButtonYEnd = 666;
 
-const int looseStartButtonXStart = 406;
-const int looseStartButtonXEnd = 621;
-const int looseStartButtonYStart = 598;
-const int looseStartButtonYEnd = 666;
+const int loseStartButtonXStart = 406;
+const int loseStartButtonXEnd = 621;
+const int loseStartButtonYStart = 598;
+const int loseStartButtonYEnd = 666;
 
 /* Game constants */
 const int gameInitialCoin = 200;

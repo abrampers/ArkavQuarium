@@ -64,9 +64,9 @@ class Game {
         /*! \return GameState state of the last game */
         GameState showWinMenu();
 
-        //! Show loose menu
+        //! Show lose menu
         /*! \return GameState state of the last game */
-        GameState showLooseMenu();
+        GameState showloseMenu();
 
         //! Run game sequence
         void run();
