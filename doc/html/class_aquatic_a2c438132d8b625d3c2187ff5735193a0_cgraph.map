@@ -1,6 +1,0 @@
-<map id="Aquatic::isInside" name="Aquatic::isInside">
-<area shape="rect" id="node2" href="$class_aquarium.html#a3e9e4b1bc86a90a8654bcc76e20e25f1" title="Getter for xMin. " alt="" coords="174,5,308,31"/>
-<area shape="rect" id="node3" href="$class_aquarium.html#ad5ef328047a3a0815b32764f7114fbea" title="Getter for yMin. " alt="" coords="174,55,308,80"/>
-<area shape="rect" id="node4" href="$class_aquarium.html#a13893ca5240c99792040a7a64fd80bf5" title="Getter for yMax. " alt="" coords="172,104,310,129"/>
-<area shape="rect" id="node5" href="$class_aquarium.html#af0b5f88a7aaf71e817f809d7bee3e51e" title="Getter for xMax. " alt="" coords="172,153,310,179"/>
-</map>

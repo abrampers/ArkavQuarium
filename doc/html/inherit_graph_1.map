@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_aquatic.html" title="Abstract Class Aquatic. Represents all object in Aquarium such as Piranha, Guppy, Snail..." alt="" coords="5,104,71,129"/>
-<area shape="rect" id="node2" href="$class_coin.html" title="Class Coin. Represents all Coin object in Aquarium. " alt="" coords="128,104,177,129"/>
-<area shape="rect" id="node3" href="$class_guppy.html" title="Class Guppy. Represents all Guppy object in Aquarium. " alt="" coords="122,55,183,80"/>
-<area shape="rect" id="node4" href="$class_pellet.html" title="Class Pellet. Represents all Pellet object in Aquarium. " alt="" coords="125,153,180,179"/>
-<area shape="rect" id="node5" href="$class_piranha.html" title="Class Piranha. Represents all Piranha object in Aquarium. " alt="" coords="119,5,186,31"/>
-<area shape="rect" id="node6" href="$class_snail.html" title="Class Snail. Represents all Snail object in Aquarium. " alt="" coords="127,203,178,228"/>
-<area shape="rect" id="node7" href="$class_fish.html" title="Abstract Class Fish. Represents all Fish object in Aquarium such as Piranha and Guppy. " alt="" coords="15,31,61,56"/>
-</map>

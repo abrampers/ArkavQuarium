@@ -1,6 +1,0 @@
-<map id="Guppy::updateState" name="Guppy::updateState">
-<area shape="rect" id="node2" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="193,5,351,31"/>
-<area shape="rect" id="node3" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="399,5,526,31"/>
-<area shape="rect" id="node4" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="574,5,659,31"/>
-<area shape="rect" id="node5" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="707,5,757,31"/>
-</map>

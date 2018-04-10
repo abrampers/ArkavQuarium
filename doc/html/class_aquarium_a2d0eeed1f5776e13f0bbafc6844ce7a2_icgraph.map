@@ -1,5 +1,0 @@
-<map id="Aquarium::getPelletList" name="Aquarium::getPelletList">
-<area shape="rect" id="node2" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="212,5,339,31"/>
-<area shape="rect" id="node3" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="387,5,471,31"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="519,5,570,31"/>
-</map>

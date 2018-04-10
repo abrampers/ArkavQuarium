@@ -1,7 +1,0 @@
-<map id="Guppy::dead" name="Guppy::dead">
-<area shape="rect" id="node2" href="$class_guppy.html#ac62ef7053d40430ad98c1d5a54699f9d" title="Implements pure virtual method from Aquatic. " alt="" coords="151,5,291,31"/>
-<area shape="rect" id="node3" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="339,5,497,31"/>
-<area shape="rect" id="node4" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="545,5,672,31"/>
-<area shape="rect" id="node5" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="720,5,804,31"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="852,5,903,31"/>
-</map>

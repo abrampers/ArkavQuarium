@@ -1,8 +1,0 @@
-<map id="Pellet::updateProgress" name="Pellet::updateProgress">
-<area shape="rect" id="node2" href="$class_aquatic.html#aa84812ff8347a11345b9c8231c1375cc" title="Getter for aquarium. " alt="" coords="235,5,384,31"/>
-<area shape="rect" id="node3" href="$class_aquarium.html#aae7158daf192a78ffaf165285386221f" title="Getter for curr_time. " alt="" coords="230,55,389,80"/>
-<area shape="rect" id="node4" href="$class_aquatic.html#a60e1c0f173d0b37adce3cdd3d92efea0" title="Getter for last_progress_times. " alt="" coords="210,104,409,129"/>
-<area shape="rect" id="node5" href="$class_aquatic.html#a0de76e489d82ccad52dec32a1978850c" title="Getter for progress. " alt="" coords="237,153,382,179"/>
-<area shape="rect" id="node6" href="$class_aquatic.html#a56bd74d0814dd9ed13b395c0033eb594" title="Setter for progress. " alt="" coords="237,203,381,228"/>
-<area shape="rect" id="node7" href="$class_aquatic.html#a50e51e4b7bfd7f46d3c43bde27e0a5d8" title="Setter for last_progress_time. " alt="" coords="210,252,409,277"/>
-</map>

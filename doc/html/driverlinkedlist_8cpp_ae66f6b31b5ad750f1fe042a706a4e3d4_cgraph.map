@@ -1,6 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node2" href="$class_linked_list.html#a188425c092c410b45ab70a3d396aff67" title="Add a value to the LinkedList. " alt="" coords="118,5,229,31"/>
-<area shape="rect" id="node3" href="$class_linked_list.html#ad9b63a24343b67236dcf119e66066c24" title="Remove a value in the LinkedList. " alt="" coords="107,55,240,80"/>
-<area shape="rect" id="node4" href="$class_linked_list.html#a9675767b81fb9f1d8799444e4ee7f43b" title="Prints the LinkedList. " alt="" coords="116,104,231,129"/>
-<area shape="rect" id="node5" href="$class_linked_list.html#aa4614ce35a543b74afb3c5bff8b018d4" title="Getter for head. " alt="" coords="104,153,243,179"/>
-</map>

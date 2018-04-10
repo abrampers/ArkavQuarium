@@ -1,7 +1,0 @@
-<map id="Piranha::updateProgress" name="Piranha::updateProgress">
-<area shape="rect" id="node2" href="$class_piranha.html#a851c302af9de1d6eaf727242e2912f62" title="Implements pure virtual method from Aquatic. " alt="" coords="222,5,369,31"/>
-<area shape="rect" id="node3" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="417,5,575,31"/>
-<area shape="rect" id="node4" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="623,5,750,31"/>
-<area shape="rect" id="node5" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="798,5,882,31"/>
-<area shape="rect" id="node6" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="930,5,980,31"/>
-</map>
