@@ -81,7 +81,7 @@ const double pi = 3.14159265;
 
 /* Coin's constant */
 const double coinMoveSpeed = 100; 			/* TBD */
-const double coinDeletionInterval = 100; 	/* TBD */
+const double coinDeletionInterval = 5; 		/* TBD */
 const int coinClickRadius = 20;
 
 /* Guppy constants */
