@@ -1,0 +1,11 @@
+<map id="Aquarium::getYMin" name="Aquarium::getYMin">
+<area shape="rect" id="node2" href="$class_aquatic.html#a2c438132d8b625d3c2187ff5735193a0" title="Check whether the object is inside the aquarium or not. " alt="" coords="188,31,306,56"/>
+<area shape="rect" id="node3" href="$class_coin.html#ab62bca5834489b9b483deaa3ca3470e9" title="Implements pure virtual method from Aquatic. " alt="" coords="357,5,446,31"/>
+<area shape="rect" id="node9" href="$class_pellet.html#a7385101b04083be663ae465c38fd2a4d" title="Implements pure virtual method from Aquatic. " alt="" coords="354,55,449,80"/>
+<area shape="rect" id="node4" href="$class_coin.html#ac9d03cbd68f9ccb739895832f77d60a3" title="Implements pure virtual method from Aquatic. " alt="" coords="500,5,628,31"/>
+<area shape="rect" id="node5" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="679,31,837,56"/>
+<area shape="rect" id="node6" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="885,31,1012,56"/>
+<area shape="rect" id="node7" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="1060,31,1145,56"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="1193,31,1243,56"/>
+<area shape="rect" id="node10" href="$class_pellet.html#ab21f88899eba022e1693d911eba9dbfb" title="Implements pure virtual method from Aquatic. " alt="" coords="497,55,631,80"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Graphics::drawText" name="Graphics::drawText">
+<area shape="rect" id="node2" href="$class_graphics.html#adaecfa8fab0e04636cb575d7599494d6" title="Graphics::drawCoinText" alt="" coords="189,5,352,31"/>
+<area shape="rect" id="node3" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="400,5,527,31"/>
+<area shape="rect" id="node4" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="575,5,659,31"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="707,5,757,31"/>
+</map>

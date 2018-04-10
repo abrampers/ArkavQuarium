@@ -1,0 +1,15 @@
+<map id="Aquarium::getXMax" name="Aquarium::getXMax">
+<area shape="rect" id="node2" href="$class_aquatic.html#a2c438132d8b625d3c2187ff5735193a0" title="Check whether the object is inside the aquarium or not. " alt="" coords="192,55,310,80"/>
+<area shape="rect" id="node11" href="$class_guppy.html#ae6002948d74b3741bed34a7311be4377" title="Implements pure virtual method from Aquatic. " alt="" coords="201,105,301,131"/>
+<area shape="rect" id="node13" href="$class_piranha.html#a6b86e73b3e5a57ee0fdb768c24ab9b67" title="Implements pure virtual method from Aquatic. " alt="" coords="197,155,305,180"/>
+<area shape="rect" id="node3" href="$class_coin.html#ab62bca5834489b9b483deaa3ca3470e9" title="Implements pure virtual method from Aquatic. " alt="" coords="387,5,476,31"/>
+<area shape="rect" id="node9" href="$class_pellet.html#a7385101b04083be663ae465c38fd2a4d" title="Implements pure virtual method from Aquatic. " alt="" coords="384,55,479,80"/>
+<area shape="rect" id="node4" href="$class_coin.html#ac9d03cbd68f9ccb739895832f77d60a3" title="Implements pure virtual method from Aquatic. " alt="" coords="559,7,687,32"/>
+<area shape="rect" id="node5" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="741,81,898,107"/>
+<area shape="rect" id="node6" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="946,81,1074,107"/>
+<area shape="rect" id="node7" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="1122,81,1206,107"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="1254,81,1304,107"/>
+<area shape="rect" id="node10" href="$class_pellet.html#ab21f88899eba022e1693d911eba9dbfb" title="Implements pure virtual method from Aquatic. " alt="" coords="556,56,690,81"/>
+<area shape="rect" id="node12" href="$class_guppy.html#ac62ef7053d40430ad98c1d5a54699f9d" title="Implements pure virtual method from Aquatic. " alt="" coords="553,105,693,131"/>
+<area shape="rect" id="node14" href="$class_piranha.html#a851c302af9de1d6eaf727242e2912f62" title="Implements pure virtual method from Aquatic. " alt="" coords="358,156,505,181"/>
+</map>

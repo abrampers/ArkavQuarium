@@ -35,10 +35,6 @@ int Fish::getLevel() {
  	return level;
 }
 
-Direction Fish::getDirection() {
-	return x_dir >= 0 ? Direction::right : Direction::left;
-}
-
 void Fish::setLastEatTime(double last_eat_time) {
 	this->last_eat_time = last_eat_time;
 }

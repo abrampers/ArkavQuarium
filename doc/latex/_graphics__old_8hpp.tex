@@ -1,0 +1,134 @@
+\hypertarget{_graphics__old_8hpp}{}\section{graphics/\+Graphics\+\_\+old.hpp File Reference}
+\label{_graphics__old_8hpp}\index{graphics/\+Graphics\+\_\+old.\+hpp@{graphics/\+Graphics\+\_\+old.\+hpp}}
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Graphics\+\_\+old.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_graphics__old_8hpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_graphics}{Graphics}}
+\begin{DoxyCompactList}\small\item\em Class \mbox{\hyperlink{class_graphics}{Graphics}}. Draw game objects and handle user inputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_graphics__old_8hpp_a66612614c5187877b9c276f8c34d0615}{init\+\_\+graphics}} (int screen\+\_\+width, int screen\+\_\+height)
+\item 
+void \mbox{\hyperlink{_graphics__old_8hpp_a2b3a13411bd09ab8984ae19449d841ac}{close\+\_\+graphics}} ()
+\item 
+void \mbox{\hyperlink{_graphics__old_8hpp_a0f01596e4fd0a81c514c706c4936ee8d}{draw\+\_\+image}} (std\+::string filename, int x, int y)
+\item 
+void \mbox{\hyperlink{_graphics__old_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2}{draw\+\_\+text}} (std\+::string text, int font\+\_\+size, int x, int y, unsigned char r, unsigned char g, unsigned char b)
+\item 
+void \mbox{\hyperlink{_graphics__old_8hpp_a4953d1edcbbfc7e420c423ded1d5621a}{clear\+\_\+screen}} ()
+\item 
+void \mbox{\hyperlink{_graphics__old_8hpp_a10da25e92e69613be93d099bb029feb2}{update\+\_\+screen}} ()
+\item 
+void \mbox{\hyperlink{_graphics__old_8hpp_ab19fbad269feb4f8cf725031233ba56e}{handle\+\_\+input}} ()
+\item 
+bool \mbox{\hyperlink{_graphics__old_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298}{quit\+\_\+pressed}} ()
+\item 
+const std\+::set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& \mbox{\hyperlink{_graphics__old_8hpp_a155dba9d2b234776d0fb743da0dcdbc2}{get\+\_\+pressed\+\_\+keys}} ()
+\item 
+const std\+::set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& \mbox{\hyperlink{_graphics__old_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a}{get\+\_\+tapped\+\_\+keys}} ()
+\item 
+double \mbox{\hyperlink{_graphics__old_8hpp_a1ba1773fee3381786a816dc207a1f8d5}{time\+\_\+since\+\_\+start}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$const \mbox{\hyperlink{_graphics__old_8hpp_aa138e55e1cd5980069d8a26538b96fd3}{F\+O\+N\+T\+\_\+\+N\+A\+ME}} = \char`\"{}assets/fonts/Open\+Sans-\/Regular.\+ttf\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_graphics__old_8hpp_a4953d1edcbbfc7e420c423ded1d5621a}\label{_graphics__old_8hpp_a4953d1edcbbfc7e420c423ded1d5621a}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!clear\+\_\+screen@{clear\+\_\+screen}}
+\index{clear\+\_\+screen@{clear\+\_\+screen}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{clear\+\_\+screen()}{clear\_screen()}}
+{\footnotesize\ttfamily void clear\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a2b3a13411bd09ab8984ae19449d841ac}\label{_graphics__old_8hpp_a2b3a13411bd09ab8984ae19449d841ac}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!close\+\_\+graphics@{close\+\_\+graphics}}
+\index{close\+\_\+graphics@{close\+\_\+graphics}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{close\+\_\+graphics()}{close\_graphics()}}
+{\footnotesize\ttfamily void close\+\_\+graphics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a0f01596e4fd0a81c514c706c4936ee8d}\label{_graphics__old_8hpp_a0f01596e4fd0a81c514c706c4936ee8d}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!draw\+\_\+image@{draw\+\_\+image}}
+\index{draw\+\_\+image@{draw\+\_\+image}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{draw\+\_\+image()}{draw\_image()}}
+{\footnotesize\ttfamily void draw\+\_\+image (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{_graphics__old_8hpp_a0f01596e4fd0a81c514c706c4936ee8d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_graphics__old_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2}\label{_graphics__old_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!draw\+\_\+text@{draw\+\_\+text}}
+\index{draw\+\_\+text@{draw\+\_\+text}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{draw\+\_\+text()}{draw\_text()}}
+{\footnotesize\ttfamily void draw\+\_\+text (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{int}]{font\+\_\+size,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{unsigned char}]{r,  }\item[{unsigned char}]{g,  }\item[{unsigned char}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a155dba9d2b234776d0fb743da0dcdbc2}\label{_graphics__old_8hpp_a155dba9d2b234776d0fb743da0dcdbc2}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!get\+\_\+pressed\+\_\+keys@{get\+\_\+pressed\+\_\+keys}}
+\index{get\+\_\+pressed\+\_\+keys@{get\+\_\+pressed\+\_\+keys}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{get\+\_\+pressed\+\_\+keys()}{get\_pressed\_keys()}}
+{\footnotesize\ttfamily const std\+::set$<$S\+D\+L\+\_\+\+Keycode$>$\& get\+\_\+pressed\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a}\label{_graphics__old_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!get\+\_\+tapped\+\_\+keys@{get\+\_\+tapped\+\_\+keys}}
+\index{get\+\_\+tapped\+\_\+keys@{get\+\_\+tapped\+\_\+keys}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{get\+\_\+tapped\+\_\+keys()}{get\_tapped\_keys()}}
+{\footnotesize\ttfamily const std\+::set$<$S\+D\+L\+\_\+\+Keycode$>$\& get\+\_\+tapped\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_ab19fbad269feb4f8cf725031233ba56e}\label{_graphics__old_8hpp_ab19fbad269feb4f8cf725031233ba56e}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void handle\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a66612614c5187877b9c276f8c34d0615}\label{_graphics__old_8hpp_a66612614c5187877b9c276f8c34d0615}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!init\+\_\+graphics@{init\+\_\+graphics}}
+\index{init\+\_\+graphics@{init\+\_\+graphics}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{init\+\_\+graphics()}{init\_graphics()}}
+{\footnotesize\ttfamily bool init\+\_\+graphics (\begin{DoxyParamCaption}\item[{int}]{screen\+\_\+width,  }\item[{int}]{screen\+\_\+height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298}\label{_graphics__old_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!quit\+\_\+pressed@{quit\+\_\+pressed}}
+\index{quit\+\_\+pressed@{quit\+\_\+pressed}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{quit\+\_\+pressed()}{quit\_pressed()}}
+{\footnotesize\ttfamily bool quit\+\_\+pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a1ba1773fee3381786a816dc207a1f8d5}\label{_graphics__old_8hpp_a1ba1773fee3381786a816dc207a1f8d5}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!time\+\_\+since\+\_\+start@{time\+\_\+since\+\_\+start}}
+\index{time\+\_\+since\+\_\+start@{time\+\_\+since\+\_\+start}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{time\+\_\+since\+\_\+start()}{time\_since\_start()}}
+{\footnotesize\ttfamily double time\+\_\+since\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graphics__old_8hpp_a10da25e92e69613be93d099bb029feb2}\label{_graphics__old_8hpp_a10da25e92e69613be93d099bb029feb2}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!update\+\_\+screen@{update\+\_\+screen}}
+\index{update\+\_\+screen@{update\+\_\+screen}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{update\+\_\+screen()}{update\_screen()}}
+{\footnotesize\ttfamily void update\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_graphics__old_8hpp_aa138e55e1cd5980069d8a26538b96fd3}\label{_graphics__old_8hpp_aa138e55e1cd5980069d8a26538b96fd3}} 
+\index{Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}!F\+O\+N\+T\+\_\+\+N\+A\+ME@{F\+O\+N\+T\+\_\+\+N\+A\+ME}}
+\index{F\+O\+N\+T\+\_\+\+N\+A\+ME@{F\+O\+N\+T\+\_\+\+N\+A\+ME}!Graphics\+\_\+old.\+hpp@{Graphics\+\_\+old.\+hpp}}
+\subsubsection{\texorpdfstring{F\+O\+N\+T\+\_\+\+N\+A\+ME}{FONT\_NAME}}
+{\footnotesize\ttfamily const char$\ast$ const F\+O\+N\+T\+\_\+\+N\+A\+ME = \char`\"{}assets/fonts/Open\+Sans-\/Regular.\+ttf\char`\"{}}
+

@@ -1,0 +1,10 @@
+<map id="Aquatic::isInside" name="Aquatic::isInside">
+<area shape="rect" id="node2" href="$class_coin.html#ab62bca5834489b9b483deaa3ca3470e9" title="Implements pure virtual method from Aquatic. " alt="" coords="175,5,263,31"/>
+<area shape="rect" id="node8" href="$class_pellet.html#a7385101b04083be663ae465c38fd2a4d" title="Implements pure virtual method from Aquatic. " alt="" coords="172,55,266,80"/>
+<area shape="rect" id="node3" href="$class_coin.html#ac9d03cbd68f9ccb739895832f77d60a3" title="Implements pure virtual method from Aquatic. " alt="" coords="317,5,445,31"/>
+<area shape="rect" id="node4" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="496,31,654,56"/>
+<area shape="rect" id="node5" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="702,31,829,56"/>
+<area shape="rect" id="node6" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="877,31,962,56"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="1010,31,1060,56"/>
+<area shape="rect" id="node9" href="$class_pellet.html#ab21f88899eba022e1693d911eba9dbfb" title="Implements pure virtual method from Aquatic. " alt="" coords="314,55,448,80"/>
+</map>

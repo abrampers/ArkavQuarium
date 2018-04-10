@@ -1,0 +1,633 @@
+\hypertarget{class_aquarium}{}\section{Aquarium Class Reference}
+\label{class_aquarium}\index{Aquarium@{Aquarium}}
+
+
+Class \mbox{\hyperlink{class_aquarium}{Aquarium}}. Contains all game object such as \mbox{\hyperlink{class_piranha}{Piranha}}, \mbox{\hyperlink{class_guppy}{Guppy}}, \mbox{\hyperlink{class_snail}{Snail}}, \mbox{\hyperlink{class_pellet}{Pellet}}, and \mbox{\hyperlink{class_coin}{Coin}}.  
+
+
+
+
+{\ttfamily \#include $<$Aquarium.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aquarium_abd216182838b8edad8626a580e6e99e1}{Aquarium}} (double x\+Min, double y\+Min, double x\+Max, double y\+Max)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_aquarium_a40f31f27104d48e4f558d40059f4a590}{$\sim$\+Aquarium}} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_aquarium_af0b5f88a7aaf71e817f809d7bee3e51e}{get\+X\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Getter for x\+Max. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_aquarium_a13893ca5240c99792040a7a64fd80bf5}{get\+Y\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Getter for y\+Max. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_aquarium_a3e9e4b1bc86a90a8654bcc76e20e25f1}{get\+X\+Min}} () const
+\begin{DoxyCompactList}\small\item\em Getter for x\+Min. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_aquarium_ad5ef328047a3a0815b32764f7114fbea}{get\+Y\+Min}} () const
+\begin{DoxyCompactList}\small\item\em Getter for y\+Min. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_aquarium_aae7158daf192a78ffaf165285386221f}{get\+Curr\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Getter for curr\+\_\+time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_piranha}{Piranha}} $\ast$ $>$ \& \mbox{\hyperlink{class_aquarium_a46c1697b25884c5a91f7a942ae5b3ba7}{get\+Piranha\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getter for content\+\_\+piranha list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_guppy}{Guppy}} $\ast$ $>$ \& \mbox{\hyperlink{class_aquarium_a3244b33f404c2887f04342754f17f4ee}{get\+Guppy\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getter for content\+\_\+guppy list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_snail}{Snail}} $\ast$ $>$ \& \mbox{\hyperlink{class_aquarium_a278a38d4cf238908c4e3e170ea66841f}{get\+Snail\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getter for content\+\_\+snail list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_pellet}{Pellet}} $\ast$ $>$ \& \mbox{\hyperlink{class_aquarium_a2d0eeed1f5776e13f0bbafc6844ce7a2}{get\+Pellet\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getter for content\+\_\+pellet list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_coin}{Coin}} $\ast$ $>$ \& \mbox{\hyperlink{class_aquarium_a3b3592004ace881a5e11d19a8dc127e4}{get\+Coin\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getter for content\+\_\+coin list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_aa613d1ce40335c46aef9e4a8f44487ea}{set\+Curr\+Time}} (double t)
+\begin{DoxyCompactList}\small\item\em Setter for curr\+\_\+time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_ac9fc0451e82c808d91a32a2e23e9f18e}{update\+State}} (double current\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Updates all the aquarium object state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a416b16bc7c252260b9cbe053a6e5a76c}{create\+Piranha}} ()
+\begin{DoxyCompactList}\small\item\em Create \mbox{\hyperlink{class_piranha}{Piranha}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a44ab0beff51d6607e0f590270d9066b5}{create\+Guppy}} ()
+\begin{DoxyCompactList}\small\item\em Create \mbox{\hyperlink{class_guppy}{Guppy}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_ae631c3fd8587b1889ffea4e0ade6359e}{create\+Snail}} ()
+\begin{DoxyCompactList}\small\item\em Create \mbox{\hyperlink{class_snail}{Snail}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a049ffa77e7bbb68ac031a098c4e635e7}{create\+Pellet}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em Create \mbox{\hyperlink{class_pellet}{Pellet}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_aec1e8fb9d89399012733c747ec9e80ff}{create\+Coin}} (double x, double y, int value)
+\begin{DoxyCompactList}\small\item\em Create \mbox{\hyperlink{class_coin}{Coin}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a86cec76f7e0cbbdff79d5cef1e6e7f84}{delete\+Piranha}} (\mbox{\hyperlink{class_piranha}{Piranha}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Delete \mbox{\hyperlink{class_piranha}{Piranha}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_ae2372aef40d9474573833262b6062eb2}{delete\+Guppy}} (\mbox{\hyperlink{class_guppy}{Guppy}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Delete \mbox{\hyperlink{class_guppy}{Guppy}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a08048866266aabb12b8cc82bac042c18}{delete\+Snail}} (\mbox{\hyperlink{class_snail}{Snail}} $\ast$s)
+\begin{DoxyCompactList}\small\item\em Delete \mbox{\hyperlink{class_snail}{Snail}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a61329fb56bcb5af2e06fc62568456f1b}{delete\+Pellet}} (\mbox{\hyperlink{class_pellet}{Pellet}} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Delete \mbox{\hyperlink{class_pellet}{Pellet}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_aquarium_a187e59dd6efd62b577e97b8e00237c77}{delete\+Coin}} (\mbox{\hyperlink{class_coin}{Coin}} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Delete \mbox{\hyperlink{class_coin}{Coin}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \mbox{\hyperlink{class_aquarium}{Aquarium}}. Contains all game object such as \mbox{\hyperlink{class_piranha}{Piranha}}, \mbox{\hyperlink{class_guppy}{Guppy}}, \mbox{\hyperlink{class_snail}{Snail}}, \mbox{\hyperlink{class_pellet}{Pellet}}, and \mbox{\hyperlink{class_coin}{Coin}}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aquarium_abd216182838b8edad8626a580e6e99e1}\label{class_aquarium_abd216182838b8edad8626a580e6e99e1}} 
+\index{Aquarium@{Aquarium}!Aquarium@{Aquarium}}
+\index{Aquarium@{Aquarium}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{Aquarium()}{Aquarium()}}
+{\footnotesize\ttfamily Aquarium\+::\+Aquarium (\begin{DoxyParamCaption}\item[{double}]{x\+Min,  }\item[{double}]{y\+Min,  }\item[{double}]{x\+Max,  }\item[{double}]{y\+Max }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+Constructs a new \mbox{\hyperlink{class_aquarium}{Aquarium}} object. 
+\begin{DoxyParams}{Parameters}
+{\em double} & x\+Min Minium x value in the aquarium. \\
+\hline
+{\em double} & y\+Min Minium y value in the aquarium. \\
+\hline
+{\em double} & x\+Max Maximum x value in the aquarium. \\
+\hline
+{\em double} & y\+Max Maximum y value in the aquarium. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_abd216182838b8edad8626a580e6e99e1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a40f31f27104d48e4f558d40059f4a590}\label{class_aquarium_a40f31f27104d48e4f558d40059f4a590}} 
+\index{Aquarium@{Aquarium}!````~Aquarium@{$\sim$\+Aquarium}}
+\index{````~Aquarium@{$\sim$\+Aquarium}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{$\sim$\+Aquarium()}{~Aquarium()}}
+{\footnotesize\ttfamily Aquarium\+::$\sim$\+Aquarium (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A destructor. 
+
+Destructs the \mbox{\hyperlink{class_aquarium}{Aquarium}} object. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aquarium_aec1e8fb9d89399012733c747ec9e80ff}\label{class_aquarium_aec1e8fb9d89399012733c747ec9e80ff}} 
+\index{Aquarium@{Aquarium}!create\+Coin@{create\+Coin}}
+\index{create\+Coin@{create\+Coin}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{create\+Coin()}{createCoin()}}
+{\footnotesize\ttfamily void Aquarium\+::create\+Coin (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Create \mbox{\hyperlink{class_coin}{Coin}}. 
+
+Creates a new \mbox{\hyperlink{class_coin}{Coin}} and adds it to content\+\_\+coin list. 
+\begin{DoxyParams}{Parameters}
+{\em double} & x x-\/axis position of the newly created \mbox{\hyperlink{class_coin}{Coin}}. \\
+\hline
+{\em double} & y y-\/axis position of the newly created \mbox{\hyperlink{class_coin}{Coin}}. \\
+\hline
+{\em int} & value the value of the \mbox{\hyperlink{class_coin}{Coin}} \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_aquarium_aec1e8fb9d89399012733c747ec9e80ff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_aec1e8fb9d89399012733c747ec9e80ff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a44ab0beff51d6607e0f590270d9066b5}\label{class_aquarium_a44ab0beff51d6607e0f590270d9066b5}} 
+\index{Aquarium@{Aquarium}!create\+Guppy@{create\+Guppy}}
+\index{create\+Guppy@{create\+Guppy}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{create\+Guppy()}{createGuppy()}}
+{\footnotesize\ttfamily void Aquarium\+::create\+Guppy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create \mbox{\hyperlink{class_guppy}{Guppy}}. 
+
+Creates a new \mbox{\hyperlink{class_guppy}{Guppy}} and adds it to content\+\_\+guppy list. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_aquarium_a44ab0beff51d6607e0f590270d9066b5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a44ab0beff51d6607e0f590270d9066b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a049ffa77e7bbb68ac031a098c4e635e7}\label{class_aquarium_a049ffa77e7bbb68ac031a098c4e635e7}} 
+\index{Aquarium@{Aquarium}!create\+Pellet@{create\+Pellet}}
+\index{create\+Pellet@{create\+Pellet}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{create\+Pellet()}{createPellet()}}
+{\footnotesize\ttfamily void Aquarium\+::create\+Pellet (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Create \mbox{\hyperlink{class_pellet}{Pellet}}. 
+
+Creates a new \mbox{\hyperlink{class_pellet}{Pellet}} and adds it to content\+\_\+pellet list. 
+\begin{DoxyParams}{Parameters}
+{\em double} & x x-\/axis position of the newly created \mbox{\hyperlink{class_pellet}{Pellet}}. \\
+\hline
+{\em double} & y y-\/axis position of the newly created \mbox{\hyperlink{class_pellet}{Pellet}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{class_aquarium_a049ffa77e7bbb68ac031a098c4e635e7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a049ffa77e7bbb68ac031a098c4e635e7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a416b16bc7c252260b9cbe053a6e5a76c}\label{class_aquarium_a416b16bc7c252260b9cbe053a6e5a76c}} 
+\index{Aquarium@{Aquarium}!create\+Piranha@{create\+Piranha}}
+\index{create\+Piranha@{create\+Piranha}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{create\+Piranha()}{createPiranha()}}
+{\footnotesize\ttfamily void Aquarium\+::create\+Piranha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create \mbox{\hyperlink{class_piranha}{Piranha}}. 
+
+Creates a new \mbox{\hyperlink{class_piranha}{Piranha}} and adds it to content\+\_\+piranha list. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{class_aquarium_a416b16bc7c252260b9cbe053a6e5a76c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a416b16bc7c252260b9cbe053a6e5a76c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_ae631c3fd8587b1889ffea4e0ade6359e}\label{class_aquarium_ae631c3fd8587b1889ffea4e0ade6359e}} 
+\index{Aquarium@{Aquarium}!create\+Snail@{create\+Snail}}
+\index{create\+Snail@{create\+Snail}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{create\+Snail()}{createSnail()}}
+{\footnotesize\ttfamily void Aquarium\+::create\+Snail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create \mbox{\hyperlink{class_snail}{Snail}}. 
+
+Creates a new \mbox{\hyperlink{class_snail}{Snail}} and adds it to content\+\_\+snail list. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{class_aquarium_ae631c3fd8587b1889ffea4e0ade6359e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_aquarium_ae631c3fd8587b1889ffea4e0ade6359e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a187e59dd6efd62b577e97b8e00237c77}\label{class_aquarium_a187e59dd6efd62b577e97b8e00237c77}} 
+\index{Aquarium@{Aquarium}!delete\+Coin@{delete\+Coin}}
+\index{delete\+Coin@{delete\+Coin}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{delete\+Coin()}{deleteCoin()}}
+{\footnotesize\ttfamily void Aquarium\+::delete\+Coin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coin}{Coin}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Delete \mbox{\hyperlink{class_coin}{Coin}}. 
+
+Deletes a \mbox{\hyperlink{class_coin}{Coin}} and removes it from content\+\_\+coin list. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_coin}{Coin}}} & $\ast$c Pointer to the \mbox{\hyperlink{class_coin}{Coin}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_aquarium_a187e59dd6efd62b577e97b8e00237c77_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a187e59dd6efd62b577e97b8e00237c77_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_ae2372aef40d9474573833262b6062eb2}\label{class_aquarium_ae2372aef40d9474573833262b6062eb2}} 
+\index{Aquarium@{Aquarium}!delete\+Guppy@{delete\+Guppy}}
+\index{delete\+Guppy@{delete\+Guppy}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{delete\+Guppy()}{deleteGuppy()}}
+{\footnotesize\ttfamily void Aquarium\+::delete\+Guppy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_guppy}{Guppy}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Delete \mbox{\hyperlink{class_guppy}{Guppy}}. 
+
+Deletes a \mbox{\hyperlink{class_guppy}{Guppy}} and removes it from content\+\_\+guppy list. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_guppy}{Guppy}}} & $\ast$g Pointer to the \mbox{\hyperlink{class_guppy}{Guppy}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{class_aquarium_ae2372aef40d9474573833262b6062eb2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_ae2372aef40d9474573833262b6062eb2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a61329fb56bcb5af2e06fc62568456f1b}\label{class_aquarium_a61329fb56bcb5af2e06fc62568456f1b}} 
+\index{Aquarium@{Aquarium}!delete\+Pellet@{delete\+Pellet}}
+\index{delete\+Pellet@{delete\+Pellet}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{delete\+Pellet()}{deletePellet()}}
+{\footnotesize\ttfamily void Aquarium\+::delete\+Pellet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pellet}{Pellet}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Delete \mbox{\hyperlink{class_pellet}{Pellet}}. 
+
+Deletes a \mbox{\hyperlink{class_pellet}{Pellet}} and removes it from content\+\_\+pellet list. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_pellet}{Pellet}}} & $\ast$p Pointer to the \mbox{\hyperlink{class_pellet}{Pellet}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_aquarium_a61329fb56bcb5af2e06fc62568456f1b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a61329fb56bcb5af2e06fc62568456f1b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a86cec76f7e0cbbdff79d5cef1e6e7f84}\label{class_aquarium_a86cec76f7e0cbbdff79d5cef1e6e7f84}} 
+\index{Aquarium@{Aquarium}!delete\+Piranha@{delete\+Piranha}}
+\index{delete\+Piranha@{delete\+Piranha}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{delete\+Piranha()}{deletePiranha()}}
+{\footnotesize\ttfamily void Aquarium\+::delete\+Piranha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_piranha}{Piranha}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Delete \mbox{\hyperlink{class_piranha}{Piranha}}. 
+
+Deletes a \mbox{\hyperlink{class_piranha}{Piranha}} and removes it from content\+\_\+piranha list. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_piranha}{Piranha}}} & $\ast$p Pointer to the \mbox{\hyperlink{class_piranha}{Piranha}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_aquarium_a86cec76f7e0cbbdff79d5cef1e6e7f84_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a86cec76f7e0cbbdff79d5cef1e6e7f84_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a08048866266aabb12b8cc82bac042c18}\label{class_aquarium_a08048866266aabb12b8cc82bac042c18}} 
+\index{Aquarium@{Aquarium}!delete\+Snail@{delete\+Snail}}
+\index{delete\+Snail@{delete\+Snail}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{delete\+Snail()}{deleteSnail()}}
+{\footnotesize\ttfamily void Aquarium\+::delete\+Snail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_snail}{Snail}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Delete \mbox{\hyperlink{class_snail}{Snail}}. 
+
+Deletes a \mbox{\hyperlink{class_snail}{Snail}} and removes it from content\+\_\+snail list. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_snail}{Snail}}} & $\ast$s Pointer to the \mbox{\hyperlink{class_snail}{Snail}}. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_aquarium_a08048866266aabb12b8cc82bac042c18_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a3b3592004ace881a5e11d19a8dc127e4}\label{class_aquarium_a3b3592004ace881a5e11d19a8dc127e4}} 
+\index{Aquarium@{Aquarium}!get\+Coin\+List@{get\+Coin\+List}}
+\index{get\+Coin\+List@{get\+Coin\+List}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Coin\+List()}{getCoinList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_coin}{Coin}} $\ast$ $>$ \& Aquarium\+::get\+Coin\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for content\+\_\+coin list. 
+
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Coin $\ast$$>$\& list of all \mbox{\hyperlink{class_coin}{Coin}} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a3b3592004ace881a5e11d19a8dc127e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_aae7158daf192a78ffaf165285386221f}\label{class_aquarium_aae7158daf192a78ffaf165285386221f}} 
+\index{Aquarium@{Aquarium}!get\+Curr\+Time@{get\+Curr\+Time}}
+\index{get\+Curr\+Time@{get\+Curr\+Time}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Curr\+Time()}{getCurrTime()}}
+{\footnotesize\ttfamily double Aquarium\+::get\+Curr\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for curr\+\_\+time. 
+
+\begin{DoxyReturn}{Returns}
+double curr\+\_\+time 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_aae7158daf192a78ffaf165285386221f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a3244b33f404c2887f04342754f17f4ee}\label{class_aquarium_a3244b33f404c2887f04342754f17f4ee}} 
+\index{Aquarium@{Aquarium}!get\+Guppy\+List@{get\+Guppy\+List}}
+\index{get\+Guppy\+List@{get\+Guppy\+List}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Guppy\+List()}{getGuppyList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_guppy}{Guppy}} $\ast$ $>$ \& Aquarium\+::get\+Guppy\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for content\+\_\+guppy list. 
+
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Guppy $\ast$$>$\& list of all \mbox{\hyperlink{class_guppy}{Guppy}} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a3244b33f404c2887f04342754f17f4ee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a2d0eeed1f5776e13f0bbafc6844ce7a2}\label{class_aquarium_a2d0eeed1f5776e13f0bbafc6844ce7a2}} 
+\index{Aquarium@{Aquarium}!get\+Pellet\+List@{get\+Pellet\+List}}
+\index{get\+Pellet\+List@{get\+Pellet\+List}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Pellet\+List()}{getPelletList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_pellet}{Pellet}} $\ast$ $>$ \& Aquarium\+::get\+Pellet\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for content\+\_\+pellet list. 
+
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Pellet $\ast$$>$\& list of all \mbox{\hyperlink{class_pellet}{Pellet}} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a2d0eeed1f5776e13f0bbafc6844ce7a2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a46c1697b25884c5a91f7a942ae5b3ba7}\label{class_aquarium_a46c1697b25884c5a91f7a942ae5b3ba7}} 
+\index{Aquarium@{Aquarium}!get\+Piranha\+List@{get\+Piranha\+List}}
+\index{get\+Piranha\+List@{get\+Piranha\+List}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Piranha\+List()}{getPiranhaList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_piranha}{Piranha}} $\ast$ $>$ \& Aquarium\+::get\+Piranha\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for content\+\_\+piranha list. 
+
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Piranha $\ast$$>$\& list of all \mbox{\hyperlink{class_piranha}{Piranha}} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a46c1697b25884c5a91f7a942ae5b3ba7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a278a38d4cf238908c4e3e170ea66841f}\label{class_aquarium_a278a38d4cf238908c4e3e170ea66841f}} 
+\index{Aquarium@{Aquarium}!get\+Snail\+List@{get\+Snail\+List}}
+\index{get\+Snail\+List@{get\+Snail\+List}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Snail\+List()}{getSnailList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_snail}{Snail}} $\ast$ $>$ \& Aquarium\+::get\+Snail\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for content\+\_\+snail list. 
+
+\begin{DoxyReturn}{Returns}
+Linked\+List$<$\+Snail $\ast$$>$\& list of all \mbox{\hyperlink{class_snail}{Snail}} 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a278a38d4cf238908c4e3e170ea66841f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_af0b5f88a7aaf71e817f809d7bee3e51e}\label{class_aquarium_af0b5f88a7aaf71e817f809d7bee3e51e}} 
+\index{Aquarium@{Aquarium}!get\+X\+Max@{get\+X\+Max}}
+\index{get\+X\+Max@{get\+X\+Max}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+X\+Max()}{getXMax()}}
+{\footnotesize\ttfamily double Aquarium\+::get\+X\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for x\+Max. 
+
+\begin{DoxyReturn}{Returns}
+double x\+Max 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_af0b5f88a7aaf71e817f809d7bee3e51e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a3e9e4b1bc86a90a8654bcc76e20e25f1}\label{class_aquarium_a3e9e4b1bc86a90a8654bcc76e20e25f1}} 
+\index{Aquarium@{Aquarium}!get\+X\+Min@{get\+X\+Min}}
+\index{get\+X\+Min@{get\+X\+Min}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+X\+Min()}{getXMin()}}
+{\footnotesize\ttfamily double Aquarium\+::get\+X\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for x\+Min. 
+
+\begin{DoxyReturn}{Returns}
+double x\+Min 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a3e9e4b1bc86a90a8654bcc76e20e25f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_a13893ca5240c99792040a7a64fd80bf5}\label{class_aquarium_a13893ca5240c99792040a7a64fd80bf5}} 
+\index{Aquarium@{Aquarium}!get\+Y\+Max@{get\+Y\+Max}}
+\index{get\+Y\+Max@{get\+Y\+Max}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Y\+Max()}{getYMax()}}
+{\footnotesize\ttfamily double Aquarium\+::get\+Y\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for y\+Max. 
+
+\begin{DoxyReturn}{Returns}
+double y\+Max 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_a13893ca5240c99792040a7a64fd80bf5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_ad5ef328047a3a0815b32764f7114fbea}\label{class_aquarium_ad5ef328047a3a0815b32764f7114fbea}} 
+\index{Aquarium@{Aquarium}!get\+Y\+Min@{get\+Y\+Min}}
+\index{get\+Y\+Min@{get\+Y\+Min}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{get\+Y\+Min()}{getYMin()}}
+{\footnotesize\ttfamily double Aquarium\+::get\+Y\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for y\+Min. 
+
+\begin{DoxyReturn}{Returns}
+double y\+Min 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_ad5ef328047a3a0815b32764f7114fbea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_aquarium_aa613d1ce40335c46aef9e4a8f44487ea}\label{class_aquarium_aa613d1ce40335c46aef9e4a8f44487ea}} 
+\index{Aquarium@{Aquarium}!set\+Curr\+Time@{set\+Curr\+Time}}
+\index{set\+Curr\+Time@{set\+Curr\+Time}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{set\+Curr\+Time()}{setCurrTime()}}
+{\footnotesize\ttfamily void Aquarium\+::set\+Curr\+Time (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+
+
+
+Setter for curr\+\_\+time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & current time \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aquarium_ac9fc0451e82c808d91a32a2e23e9f18e}\label{class_aquarium_ac9fc0451e82c808d91a32a2e23e9f18e}} 
+\index{Aquarium@{Aquarium}!update\+State@{update\+State}}
+\index{update\+State@{update\+State}!Aquarium@{Aquarium}}
+\subsubsection{\texorpdfstring{update\+State()}{updateState()}}
+{\footnotesize\ttfamily void Aquarium\+::update\+State (\begin{DoxyParamCaption}\item[{double}]{current\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Updates all the aquarium object state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & current time \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_aquarium_ac9fc0451e82c808d91a32a2e23e9f18e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_aquarium_ac9fc0451e82c808d91a32a2e23e9f18e_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+aquarium/\mbox{\hyperlink{_aquarium_8hpp}{Aquarium.\+hpp}}\item 
+aquarium/\mbox{\hyperlink{_aquarium_8cpp}{Aquarium.\+cpp}}\end{DoxyCompactItemize}

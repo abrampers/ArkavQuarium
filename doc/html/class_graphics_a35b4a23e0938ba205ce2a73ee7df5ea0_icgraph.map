@@ -1,0 +1,6 @@
+<map id="Graphics::timeSinceStart" name="Graphics::timeSinceStart">
+<area shape="rect" id="node2" href="$class_game.html#a741532226fb50fd8113b0e2a0f162858" title="Initialize game state. " alt="" coords="229,5,342,31"/>
+<area shape="rect" id="node5" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="222,55,349,80"/>
+<area shape="rect" id="node3" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="397,31,482,56"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="530,31,580,56"/>
+</map>

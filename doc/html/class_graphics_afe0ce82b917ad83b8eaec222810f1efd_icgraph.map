@@ -1,0 +1,11 @@
+<map id="Graphics::drawImage" name="Graphics::drawImage">
+<area shape="rect" id="node2" href="$class_graphics.html#a5f3a657a7c54f13108bd90e6a85bd02e" title="Graphics::drawAquarium" alt="" coords="201,5,369,31"/>
+<area shape="rect" id="node6" href="$class_graphics.html#a35aa55c180a9f9be306b74906f710954" title="Graphics::drawGuppy" alt="" coords="210,55,361,80"/>
+<area shape="rect" id="node7" href="$class_graphics.html#a2b8425428b81e566f960928fa42133b6" title="Graphics::drawPiranha" alt="" coords="207,104,364,129"/>
+<area shape="rect" id="node8" href="$class_graphics.html#afce4453a05a511f4f07164d91c4ee2bf" title="Graphics::drawSnail" alt="" coords="215,153,356,179"/>
+<area shape="rect" id="node9" href="$class_graphics.html#a62b98d9f52ad55e9bd8617130cfbf37b" title="Graphics::drawCoin" alt="" coords="216,203,355,228"/>
+<area shape="rect" id="node10" href="$class_graphics.html#a63bc7bf1f68cfc785f08b6863d3034d2" title="Graphics::drawPellet" alt="" coords="213,252,358,277"/>
+<area shape="rect" id="node3" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="417,129,545,155"/>
+<area shape="rect" id="node4" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="593,129,677,155"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="725,129,775,155"/>
+</map>

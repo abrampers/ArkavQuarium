@@ -1,0 +1,10 @@
+<map id="Fish::setHungry" name="Fish::setHungry">
+<area shape="rect" id="node2" href="$class_guppy.html#afe934262a0988e4ad041f4ed3a1a7e02" title="Implements pure virtual method from Fish. " alt="" coords="171,5,258,31"/>
+<area shape="rect" id="node8" href="$class_piranha.html#ac48c0256edd56c427b3d82f6e0d4df82" title="Implements pure virtual method from Fish. " alt="" coords="168,55,261,80"/>
+<area shape="rect" id="node3" href="$class_guppy.html#ac62ef7053d40430ad98c1d5a54699f9d" title="Implements pure virtual method from Aquatic. " alt="" coords="313,5,453,31"/>
+<area shape="rect" id="node4" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="504,31,662,56"/>
+<area shape="rect" id="node5" href="$class_game.html#ae8638ccdb0ef3bf39a6affa30aa1258f" title="Start the game. " alt="" coords="710,31,837,56"/>
+<area shape="rect" id="node6" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="885,31,969,56"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="1017,31,1067,56"/>
+<area shape="rect" id="node9" href="$class_piranha.html#a851c302af9de1d6eaf727242e2912f62" title="Implements pure virtual method from Aquatic. " alt="" coords="309,55,456,80"/>
+</map>

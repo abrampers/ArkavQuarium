@@ -1,0 +1,10 @@
+<map id="Snail::updateProgress" name="Snail::updateProgress">
+<area shape="rect" id="node2" href="$class_aquatic.html#a3d73a0494585841ebd2acaee7281ece5" title="Getter for state. " alt="" coords="244,5,367,31"/>
+<area shape="rect" id="node3" href="$class_aquatic.html#a56bd74d0814dd9ed13b395c0033eb594" title="Setter for progress. " alt="" coords="233,55,378,80"/>
+<area shape="rect" id="node4" href="$class_aquatic.html#aa84812ff8347a11345b9c8231c1375cc" title="Getter for aquarium. " alt="" coords="231,104,380,129"/>
+<area shape="rect" id="node5" href="$class_aquarium.html#aae7158daf192a78ffaf165285386221f" title="Getter for curr_time. " alt="" coords="226,153,385,179"/>
+<area shape="rect" id="node6" href="$class_aquatic.html#a60e1c0f173d0b37adce3cdd3d92efea0" title="Getter for last_progress_times. " alt="" coords="206,203,405,228"/>
+<area shape="rect" id="node7" href="$class_aquatic.html#a0de76e489d82ccad52dec32a1978850c" title="Getter for progress. " alt="" coords="233,252,378,277"/>
+<area shape="rect" id="node8" href="$class_aquatic.html#a33de0f838d9a6f504cd8efeaa112b4ea" title="Setter for state. " alt="" coords="245,301,367,327"/>
+<area shape="rect" id="node9" href="$class_aquatic.html#a50e51e4b7bfd7f46d3c43bde27e0a5d8" title="Setter for last_progress_time. " alt="" coords="206,351,405,376"/>
+</map>

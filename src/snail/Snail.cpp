@@ -55,10 +55,6 @@ bool Snail::nearestCoinInRange() {
 	return false;
 }
 
-Direction Snail::getDirection() { 
-	return x_dir >= 0 ? Direction::right : Direction::left;
-}
-
 void Snail::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
 	this->updateProgress();
