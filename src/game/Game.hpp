@@ -55,6 +55,9 @@ class Game {
         //! Start the game
         void startGame();
 
+        //! Show tha game main menu
+        void showMainMenu();
+
         //! Run game sequence
         void run();
 };

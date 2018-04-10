@@ -225,7 +225,18 @@ void Game::startGame() {
 
         /* Wait until frame time reaches 1 / frameRate */
         while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate);
+
+        /* DEBUG */
         // cout << "FPS: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
+    }
+}
+
+/* Show tha game main menu */
+void Game::showMainMenu() {
+    bool running = true;
+    while (running) {
+        /* Wait until frame time reaches 1 / frameRate */
+        while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate);
     }
 }
 
