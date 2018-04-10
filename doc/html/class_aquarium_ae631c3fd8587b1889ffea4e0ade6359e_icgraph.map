@@ -1,0 +1,10 @@
+<map id="Aquarium::createSnail" name="Aquarium::createSnail">
+<area shape="rect" id="node2" href="$class_aquarium.html#abd216182838b8edad8626a580e6e99e1" title="A constructor. " alt="" coords="206,5,349,31"/>
+<area shape="rect" id="node3" href="$testaquarium_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="252,55,302,80"/>
+<area shape="rect" id="node4" href="$class_game.html#afcca871ec55fbe14b2179bcb914d5421" title="Start the game. " alt="" coords="214,104,341,129"/>
+<area shape="rect" id="node5" href="$class_game.html#a1bbeccf533a8d660ef5858c1f0cd08b6" title="Show the game main menu. " alt="" coords="397,55,555,80"/>
+<area shape="rect" id="node8" href="$class_game.html#a02d7239b140618836f409b6926070f88" title="Show win menu. " alt="" coords="400,104,552,129"/>
+<area shape="rect" id="node9" href="$class_game.html#a6b065cbc7a8a804ce90b5e5463b8ebfd" title="Show lose menu. " alt="" coords="399,153,553,179"/>
+<area shape="rect" id="node6" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="603,104,687,129"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="735,104,786,129"/>
+</map>

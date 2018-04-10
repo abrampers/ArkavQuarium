@@ -1,0 +1,20 @@
+<map id="Piranha::eat" name="Piranha::eat">
+<area shape="rect" id="node2" href="$class_aquatic.html#aa84812ff8347a11345b9c8231c1375cc" title="Getter for aquarium. " alt="" coords="365,68,514,94"/>
+<area shape="rect" id="node3" href="$class_aquarium.html#aae7158daf192a78ffaf165285386221f" title="Getter for curr_time. " alt="" coords="152,43,311,68"/>
+<area shape="rect" id="node4" href="$class_fish.html#aa4f43ec5e63aff8a1db32d530a91652d" title="Getter for hungry. " alt="" coords="174,92,289,118"/>
+<area shape="rect" id="node5" href="$class_fish.html#a5cc60f7e97c95136c19d54b4e49a5262" title="Getter for last_eat_time. " alt="" coords="158,142,305,167"/>
+<area shape="rect" id="node6" href="$class_fish.html#a8b24063bf538f0502cf38ce5859aec8e" title="Setter for hungry. " alt="" coords="174,191,289,216"/>
+<area shape="rect" id="node7" href="$class_fish.html#aca013c7fba46ca20ab12909945e535d4" title="Setter for last_hunger_time. " alt="" coords="147,240,316,266"/>
+<area shape="rect" id="node8" href="$class_piranha.html#aee107987f36631002f04c5283564382b" title="Implements pure virtual method from Fish. " alt="" coords="167,290,296,315"/>
+<area shape="rect" id="node13" href="$class_fish.html#a3f9ad26c3d1dfbc3d1334065691d55da" title="Getter for level. " alt="" coords="387,340,492,366"/>
+<area shape="rect" id="node14" href="$class_aquarium.html#ae2372aef40d9474573833262b6062eb2" title="Delete Guppy. " alt="" coords="151,391,312,416"/>
+<area shape="rect" id="node16" href="$class_fish.html#ad53bd870836825ab0cc4b4d987325772" title="Setter for last_eat_time. " alt="" coords="158,440,304,466"/>
+<area shape="rect" id="node17" href="$class_fish.html#a37379e4c783602bd7c3d475a67167c11" title="Setter for food_eaten. " alt="" coords="163,490,300,515"/>
+<area shape="rect" id="node18" href="$class_fish.html#a5ff6258ba2d031b4cc815e8318bea135" title="Getter for food_eaten. " alt="" coords="163,539,300,564"/>
+<area shape="rect" id="node19" href="$class_fish.html#aee737597ff02a50486c6e2096ccc220d" title="Setter for level. " alt="" coords="180,588,283,614"/>
+<area shape="rect" id="node9" href="$class_aquarium.html#aec1e8fb9d89399012733c747ec9e80ff" title="Create Coin. " alt="" coords="364,192,515,218"/>
+<area shape="rect" id="node11" href="$class_aquatic.html#ab59ba97a4876a0e3ae8b85c1915a82f9" title="Getter for x. " alt="" coords="389,242,490,267"/>
+<area shape="rect" id="node12" href="$class_aquatic.html#aadfede87649072d59192d923200b6fc3" title="Getter for y. " alt="" coords="389,291,490,316"/>
+<area shape="rect" id="node10" href="$class_linked_list.html#a188425c092c410b45ab70a3d396aff67" title="Add a value to the LinkedList. " alt="" coords="563,192,674,218"/>
+<area shape="rect" id="node15" href="$class_linked_list.html#ad9b63a24343b67236dcf119e66066c24" title="Remove a value in the LinkedList. " alt="" coords="373,391,506,416"/>
+</map>

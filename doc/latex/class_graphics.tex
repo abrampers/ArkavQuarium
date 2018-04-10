@@ -1,0 +1,709 @@
+\hypertarget{class_graphics}{}\section{Graphics Class Reference}
+\label{class_graphics}\index{Graphics@{Graphics}}
+
+
+Class \mbox{\hyperlink{class_graphics}{Graphics}}. Draw game objects and handle user inputs.  
+
+
+
+
+{\ttfamily \#include $<$Graphics.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graphics_ad02d1ced072b77d6177cb2ec6ea5b7df}{Graphics}} (int screen\+\_\+width, int screen\+\_\+height)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graphics_a7841c9a961ac9bca33bd30ddf8066cdb}{$\sim$\+Graphics}} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graphics_a64b5764b2dbef1b6df23ce18b1a918a1}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize game graphics and create the game window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a5285ec6ed237f24f7d7cf2423886a0cc}{close}} ()
+\begin{DoxyCompactList}\small\item\em Unload all assets and close the game window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a5f3a657a7c54f13108bd90e6a85bd02e}{draw\+Aquarium}} ()
+\begin{DoxyCompactList}\small\item\em Draw the aquarium backround. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a91331c794ba21a860e8137b25df855dc}{draw\+Top\+Bar}} (int coin\+\_\+count, int egg\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Draw the game\textquotesingle{}s top bar UI. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_ada6dbf202881bee3ed4bbe4ca31aecb6}{draw\+Main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draw the game\textquotesingle{}s main menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_ae8619c9c1de576df13861512024d7867}{draw\+Win\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draw the game\textquotesingle{}s win menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a88bb368ba8388bc9e072c7f48208edba}{drawlose\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draw the game\textquotesingle{}s lose menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a35aa55c180a9f9be306b74906f710954}{draw\+Guppy}} (int x, int y, int level, \mbox{\hyperlink{_constants_8hpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} state, int state\+\_\+progress)
+\begin{DoxyCompactList}\small\item\em Draw a guppy on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a2b8425428b81e566f960928fa42133b6}{draw\+Piranha}} (int x, int y, \mbox{\hyperlink{_constants_8hpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} state, int state\+\_\+progress)
+\begin{DoxyCompactList}\small\item\em Draw a piranha on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_afce4453a05a511f4f07164d91c4ee2bf}{draw\+Snail}} (int x, int y, \mbox{\hyperlink{_constants_8hpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} state, int state\+\_\+progress)
+\begin{DoxyCompactList}\small\item\em Draw a snail on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a62b98d9f52ad55e9bd8617130cfbf37b}{draw\+Coin}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Draw a coin on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a63bc7bf1f68cfc785f08b6863d3034d2}{draw\+Pellet}} (int x, int y, int state\+\_\+progress)
+\begin{DoxyCompactList}\small\item\em Draw a pellet on screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_a68beb512b0697952ebafce249c86dbd3}{clear\+Screen}} ()
+\item 
+void \mbox{\hyperlink{class_graphics_a3621b0f55951fb891a5ac2ad7dd403a0}{update\+Screen}} ()
+\item 
+void \mbox{\hyperlink{class_graphics_afe0ce82b917ad83b8eaec222810f1efd}{draw\+Image}} (std\+::string filename, int x, int y)
+\item 
+void \mbox{\hyperlink{class_graphics_a3b78a92ad6cd4daaa44291df5c5c3e55}{draw\+Text}} (std\+::string text, int font\+\_\+size, int x, int y, unsigned char r, unsigned char g, unsigned char b)
+\item 
+double \mbox{\hyperlink{class_graphics_a35b4a23e0938ba205ce2a73ee7df5ea0}{time\+Since\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Get time since graphics is initialized. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Handle OS inputs. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graphics_ad6339f656cf977c3a0cdd8688c672125}{quit\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Check if user has closed the game window. \end{DoxyCompactList}\item 
+const set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& \mbox{\hyperlink{class_graphics_a772ed930cc5ae22dcdc35b4094bffbce}{get\+Pressed\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Get pressed keys since \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input()}} is last called. \end{DoxyCompactList}\item 
+const set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& \mbox{\hyperlink{class_graphics_a0444c93625b87614ed8a742d8833e5ad}{get\+Tapped\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Get tapped keys since \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input()}} is last called. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_acf2ad5a746e2cdb9c16dd742b1455603}{add\+Click\+Target}} (int x\+\_\+min, int x\+\_\+max, int y\+\_\+min, int y\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Register a new click target. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_aedd2af95b26f8b2077e266f692818ea2}{reset\+Click\+Targets}} ()
+\begin{DoxyCompactList}\small\item\em Remove all registered click targets. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_a53c02790c4103525e542982175f1addb}{get\+Clicked\+Target}} ()
+\begin{DoxyCompactList}\small\item\em Get the last clicked target since \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input()}} is called. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_a48c86f4a3a87446fd8df707899e92d4f}{get\+MouseX}} ()
+\begin{DoxyCompactList}\small\item\em Get mouse x position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graphics_a4e21e1cfcd4523e86ddbc9c5d246de1e}{get\+MouseY}} ()
+\begin{DoxyCompactList}\small\item\em Get mouse y position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \mbox{\hyperlink{class_graphics}{Graphics}}. Draw game objects and handle user inputs. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graphics_ad02d1ced072b77d6177cb2ec6ea5b7df}\label{class_graphics_ad02d1ced072b77d6177cb2ec6ea5b7df}} 
+\index{Graphics@{Graphics}!Graphics@{Graphics}}
+\index{Graphics@{Graphics}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{Graphics()}{Graphics()}}
+{\footnotesize\ttfamily Graphics\+::\+Graphics (\begin{DoxyParamCaption}\item[{int}]{screen\+\_\+width,  }\item[{int}]{screen\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+Constructs a new \mbox{\hyperlink{class_graphics}{Graphics}} object. 
+\begin{DoxyParams}{Parameters}
+{\em int} & screen\+\_\+width \\
+\hline
+{\em int} & screen\+\_\+height \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graphics_a7841c9a961ac9bca33bd30ddf8066cdb}\label{class_graphics_a7841c9a961ac9bca33bd30ddf8066cdb}} 
+\index{Graphics@{Graphics}!````~Graphics@{$\sim$\+Graphics}}
+\index{````~Graphics@{$\sim$\+Graphics}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{$\sim$\+Graphics()}{~Graphics()}}
+{\footnotesize\ttfamily Graphics\+::$\sim$\+Graphics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A destructor. 
+
+Destructs the \mbox{\hyperlink{class_graphics}{Graphics}} object. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graphics_acf2ad5a746e2cdb9c16dd742b1455603}\label{class_graphics_acf2ad5a746e2cdb9c16dd742b1455603}} 
+\index{Graphics@{Graphics}!add\+Click\+Target@{add\+Click\+Target}}
+\index{add\+Click\+Target@{add\+Click\+Target}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{add\+Click\+Target()}{addClickTarget()}}
+{\footnotesize\ttfamily int Graphics\+::add\+Click\+Target (\begin{DoxyParamCaption}\item[{int}]{x\+\_\+min,  }\item[{int}]{x\+\_\+max,  }\item[{int}]{y\+\_\+min,  }\item[{int}]{y\+\_\+max }\end{DoxyParamCaption})}
+
+
+
+Register a new click target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x\+\_\+min \\
+\hline
+{\em int} & x\+\_\+max \\
+\hline
+{\em int} & y\+\_\+min \\
+\hline
+{\em int} & y\+\_\+max \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int the id of the newly registered click target 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_acf2ad5a746e2cdb9c16dd742b1455603_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a68beb512b0697952ebafce249c86dbd3}\label{class_graphics_a68beb512b0697952ebafce249c86dbd3}} 
+\index{Graphics@{Graphics}!clear\+Screen@{clear\+Screen}}
+\index{clear\+Screen@{clear\+Screen}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{clear\+Screen()}{clearScreen()}}
+{\footnotesize\ttfamily void Graphics\+::clear\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graphics_a5285ec6ed237f24f7d7cf2423886a0cc}\label{class_graphics_a5285ec6ed237f24f7d7cf2423886a0cc}} 
+\index{Graphics@{Graphics}!close@{close}}
+\index{close@{close}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void Graphics\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unload all assets and close the game window. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{class_graphics_a5285ec6ed237f24f7d7cf2423886a0cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a5f3a657a7c54f13108bd90e6a85bd02e}\label{class_graphics_a5f3a657a7c54f13108bd90e6a85bd02e}} 
+\index{Graphics@{Graphics}!draw\+Aquarium@{draw\+Aquarium}}
+\index{draw\+Aquarium@{draw\+Aquarium}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Aquarium()}{drawAquarium()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Aquarium (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw the aquarium backround. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a5f3a657a7c54f13108bd90e6a85bd02e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a5f3a657a7c54f13108bd90e6a85bd02e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a62b98d9f52ad55e9bd8617130cfbf37b}\label{class_graphics_a62b98d9f52ad55e9bd8617130cfbf37b}} 
+\index{Graphics@{Graphics}!draw\+Coin@{draw\+Coin}}
+\index{draw\+Coin@{draw\+Coin}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Coin()}{drawCoin()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Coin (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Draw a coin on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x \\
+\hline
+{\em int} & y \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{class_graphics_a62b98d9f52ad55e9bd8617130cfbf37b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a62b98d9f52ad55e9bd8617130cfbf37b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a35aa55c180a9f9be306b74906f710954}\label{class_graphics_a35aa55c180a9f9be306b74906f710954}} 
+\index{Graphics@{Graphics}!draw\+Guppy@{draw\+Guppy}}
+\index{draw\+Guppy@{draw\+Guppy}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Guppy()}{drawGuppy()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Guppy (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{level,  }\item[{\mbox{\hyperlink{_constants_8hpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}]{state,  }\item[{int}]{state\+\_\+progress }\end{DoxyParamCaption})}
+
+
+
+Draw a guppy on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x \\
+\hline
+{\em int} & y \\
+\hline
+{\em int} & level \\
+\hline
+{\em State} & state \\
+\hline
+{\em int} & state\+\_\+progress \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_graphics_a35aa55c180a9f9be306b74906f710954_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a35aa55c180a9f9be306b74906f710954_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_afe0ce82b917ad83b8eaec222810f1efd}\label{class_graphics_afe0ce82b917ad83b8eaec222810f1efd}} 
+\index{Graphics@{Graphics}!draw\+Image@{draw\+Image}}
+\index{draw\+Image@{draw\+Image}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Image()}{drawImage()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Image (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_afe0ce82b917ad83b8eaec222810f1efd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a88bb368ba8388bc9e072c7f48208edba}\label{class_graphics_a88bb368ba8388bc9e072c7f48208edba}} 
+\index{Graphics@{Graphics}!drawlose\+Menu@{drawlose\+Menu}}
+\index{drawlose\+Menu@{drawlose\+Menu}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{drawlose\+Menu()}{drawloseMenu()}}
+{\footnotesize\ttfamily void Graphics\+::drawlose\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw the game\textquotesingle{}s lose menu. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a88bb368ba8388bc9e072c7f48208edba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a88bb368ba8388bc9e072c7f48208edba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_ada6dbf202881bee3ed4bbe4ca31aecb6}\label{class_graphics_ada6dbf202881bee3ed4bbe4ca31aecb6}} 
+\index{Graphics@{Graphics}!draw\+Main\+Menu@{draw\+Main\+Menu}}
+\index{draw\+Main\+Menu@{draw\+Main\+Menu}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Main\+Menu()}{drawMainMenu()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw the game\textquotesingle{}s main menu. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_ada6dbf202881bee3ed4bbe4ca31aecb6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_ada6dbf202881bee3ed4bbe4ca31aecb6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a63bc7bf1f68cfc785f08b6863d3034d2}\label{class_graphics_a63bc7bf1f68cfc785f08b6863d3034d2}} 
+\index{Graphics@{Graphics}!draw\+Pellet@{draw\+Pellet}}
+\index{draw\+Pellet@{draw\+Pellet}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Pellet()}{drawPellet()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Pellet (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{state\+\_\+progress }\end{DoxyParamCaption})}
+
+
+
+Draw a pellet on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x \\
+\hline
+{\em int} & y \\
+\hline
+{\em int} & state\+\_\+progress \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{class_graphics_a63bc7bf1f68cfc785f08b6863d3034d2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a63bc7bf1f68cfc785f08b6863d3034d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a2b8425428b81e566f960928fa42133b6}\label{class_graphics_a2b8425428b81e566f960928fa42133b6}} 
+\index{Graphics@{Graphics}!draw\+Piranha@{draw\+Piranha}}
+\index{draw\+Piranha@{draw\+Piranha}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Piranha()}{drawPiranha()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Piranha (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{_constants_8hpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}]{state,  }\item[{int}]{state\+\_\+progress }\end{DoxyParamCaption})}
+
+
+
+Draw a piranha on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x \\
+\hline
+{\em int} & y \\
+\hline
+{\em State} & state \\
+\hline
+{\em int} & state\+\_\+progress \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_graphics_a2b8425428b81e566f960928fa42133b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a2b8425428b81e566f960928fa42133b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_afce4453a05a511f4f07164d91c4ee2bf}\label{class_graphics_afce4453a05a511f4f07164d91c4ee2bf}} 
+\index{Graphics@{Graphics}!draw\+Snail@{draw\+Snail}}
+\index{draw\+Snail@{draw\+Snail}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Snail()}{drawSnail()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Snail (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{_constants_8hpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}]{state,  }\item[{int}]{state\+\_\+progress }\end{DoxyParamCaption})}
+
+
+
+Draw a snail on screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x \\
+\hline
+{\em int} & y \\
+\hline
+{\em State} & state \\
+\hline
+{\em int} & state\+\_\+progress \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_graphics_afce4453a05a511f4f07164d91c4ee2bf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_afce4453a05a511f4f07164d91c4ee2bf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a3b78a92ad6cd4daaa44291df5c5c3e55}\label{class_graphics_a3b78a92ad6cd4daaa44291df5c5c3e55}} 
+\index{Graphics@{Graphics}!draw\+Text@{draw\+Text}}
+\index{draw\+Text@{draw\+Text}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Text()}{drawText()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{int}]{font\+\_\+size,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{unsigned char}]{r,  }\item[{unsigned char}]{g,  }\item[{unsigned char}]{b }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a3b78a92ad6cd4daaa44291df5c5c3e55_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a91331c794ba21a860e8137b25df855dc}\label{class_graphics_a91331c794ba21a860e8137b25df855dc}} 
+\index{Graphics@{Graphics}!draw\+Top\+Bar@{draw\+Top\+Bar}}
+\index{draw\+Top\+Bar@{draw\+Top\+Bar}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Top\+Bar()}{drawTopBar()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Top\+Bar (\begin{DoxyParamCaption}\item[{int}]{coin\+\_\+count,  }\item[{int}]{egg\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Draw the game\textquotesingle{}s top bar UI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & coin\+\_\+count \\
+\hline
+{\em int} & egg\+\_\+count \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_graphics_a91331c794ba21a860e8137b25df855dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a91331c794ba21a860e8137b25df855dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_ae8619c9c1de576df13861512024d7867}\label{class_graphics_ae8619c9c1de576df13861512024d7867}} 
+\index{Graphics@{Graphics}!draw\+Win\+Menu@{draw\+Win\+Menu}}
+\index{draw\+Win\+Menu@{draw\+Win\+Menu}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{draw\+Win\+Menu()}{drawWinMenu()}}
+{\footnotesize\ttfamily void Graphics\+::draw\+Win\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw the game\textquotesingle{}s win menu. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_ae8619c9c1de576df13861512024d7867_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_ae8619c9c1de576df13861512024d7867_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a53c02790c4103525e542982175f1addb}\label{class_graphics_a53c02790c4103525e542982175f1addb}} 
+\index{Graphics@{Graphics}!get\+Clicked\+Target@{get\+Clicked\+Target}}
+\index{get\+Clicked\+Target@{get\+Clicked\+Target}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{get\+Clicked\+Target()}{getClickedTarget()}}
+{\footnotesize\ttfamily int Graphics\+::get\+Clicked\+Target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the last clicked target since \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input()}} is called. 
+
+\begin{DoxyReturn}{Returns}
+int the id of the clicked target 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a53c02790c4103525e542982175f1addb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a48c86f4a3a87446fd8df707899e92d4f}\label{class_graphics_a48c86f4a3a87446fd8df707899e92d4f}} 
+\index{Graphics@{Graphics}!get\+MouseX@{get\+MouseX}}
+\index{get\+MouseX@{get\+MouseX}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{get\+Mouse\+X()}{getMouseX()}}
+{\footnotesize\ttfamily int Graphics\+::get\+MouseX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get mouse x position. 
+
+\begin{DoxyReturn}{Returns}
+int mouse x position 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a48c86f4a3a87446fd8df707899e92d4f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a4e21e1cfcd4523e86ddbc9c5d246de1e}\label{class_graphics_a4e21e1cfcd4523e86ddbc9c5d246de1e}} 
+\index{Graphics@{Graphics}!get\+MouseY@{get\+MouseY}}
+\index{get\+MouseY@{get\+MouseY}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{get\+Mouse\+Y()}{getMouseY()}}
+{\footnotesize\ttfamily int Graphics\+::get\+MouseY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get mouse y position. 
+
+\begin{DoxyReturn}{Returns}
+int mouse y position 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a4e21e1cfcd4523e86ddbc9c5d246de1e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a772ed930cc5ae22dcdc35b4094bffbce}\label{class_graphics_a772ed930cc5ae22dcdc35b4094bffbce}} 
+\index{Graphics@{Graphics}!get\+Pressed\+Keys@{get\+Pressed\+Keys}}
+\index{get\+Pressed\+Keys@{get\+Pressed\+Keys}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{get\+Pressed\+Keys()}{getPressedKeys()}}
+{\footnotesize\ttfamily const set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& Graphics\+::get\+Pressed\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get pressed keys since \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input()}} is last called. 
+
+Key codes can be seen at\+: \href{https://wiki.libsdl.org/SDL_Keycode}{\tt https\+://wiki.\+libsdl.\+org/\+S\+D\+L\+\_\+\+Keycode} on section \char`\"{}\+S\+D\+L\+\_\+\+Keycode Value\char`\"{} \begin{DoxyReturn}{Returns}
+const set$<$\+S\+D\+L\+\_\+\+Keycode$>$\& a set of pressed key codes 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a772ed930cc5ae22dcdc35b4094bffbce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a0444c93625b87614ed8a742d8833e5ad}\label{class_graphics_a0444c93625b87614ed8a742d8833e5ad}} 
+\index{Graphics@{Graphics}!get\+Tapped\+Keys@{get\+Tapped\+Keys}}
+\index{get\+Tapped\+Keys@{get\+Tapped\+Keys}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{get\+Tapped\+Keys()}{getTappedKeys()}}
+{\footnotesize\ttfamily const set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& Graphics\+::get\+Tapped\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get tapped keys since \mbox{\hyperlink{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}{handle\+Input()}} is last called. 
+
+Key codes can be seen at\+: \href{https://wiki.libsdl.org/SDL_Keycode}{\tt https\+://wiki.\+libsdl.\+org/\+S\+D\+L\+\_\+\+Keycode} on section \char`\"{}\+S\+D\+L\+\_\+\+Keycode Value\char`\"{} \begin{DoxyReturn}{Returns}
+const set$<$\+S\+D\+L\+\_\+\+Keycode$>$\& a set of tapped key codes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}\label{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1}} 
+\index{Graphics@{Graphics}!handle\+Input@{handle\+Input}}
+\index{handle\+Input@{handle\+Input}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{handle\+Input()}{handleInput()}}
+{\footnotesize\ttfamily void Graphics\+::handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handle OS inputs. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_adff993cdcd0ed498c82cf7be87ead4f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a64b5764b2dbef1b6df23ce18b1a918a1}\label{class_graphics_a64b5764b2dbef1b6df23ce18b1a918a1}} 
+\index{Graphics@{Graphics}!init@{init}}
+\index{init@{init}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Graphics\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize game graphics and create the game window. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{class_graphics_a64b5764b2dbef1b6df23ce18b1a918a1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_ad6339f656cf977c3a0cdd8688c672125}\label{class_graphics_ad6339f656cf977c3a0cdd8688c672125}} 
+\index{Graphics@{Graphics}!quit\+Pressed@{quit\+Pressed}}
+\index{quit\+Pressed@{quit\+Pressed}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{quit\+Pressed()}{quitPressed()}}
+{\footnotesize\ttfamily bool Graphics\+::quit\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if user has closed the game window. 
+
+\begin{DoxyReturn}{Returns}
+bool whethet user closed game window 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_ad6339f656cf977c3a0cdd8688c672125_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_aedd2af95b26f8b2077e266f692818ea2}\label{class_graphics_aedd2af95b26f8b2077e266f692818ea2}} 
+\index{Graphics@{Graphics}!reset\+Click\+Targets@{reset\+Click\+Targets}}
+\index{reset\+Click\+Targets@{reset\+Click\+Targets}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{reset\+Click\+Targets()}{resetClickTargets()}}
+{\footnotesize\ttfamily void Graphics\+::reset\+Click\+Targets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove all registered click targets. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_aedd2af95b26f8b2077e266f692818ea2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a35b4a23e0938ba205ce2a73ee7df5ea0}\label{class_graphics_a35b4a23e0938ba205ce2a73ee7df5ea0}} 
+\index{Graphics@{Graphics}!time\+Since\+Start@{time\+Since\+Start}}
+\index{time\+Since\+Start@{time\+Since\+Start}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{time\+Since\+Start()}{timeSinceStart()}}
+{\footnotesize\ttfamily double Graphics\+::time\+Since\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get time since graphics is initialized. 
+
+\begin{DoxyReturn}{Returns}
+double time sice graphics initialized 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a35b4a23e0938ba205ce2a73ee7df5ea0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graphics_a3621b0f55951fb891a5ac2ad7dd403a0}\label{class_graphics_a3621b0f55951fb891a5ac2ad7dd403a0}} 
+\index{Graphics@{Graphics}!update\+Screen@{update\+Screen}}
+\index{update\+Screen@{update\+Screen}!Graphics@{Graphics}}
+\subsubsection{\texorpdfstring{update\+Screen()}{updateScreen()}}
+{\footnotesize\ttfamily void Graphics\+::update\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graphics_a3621b0f55951fb891a5ac2ad7dd403a0_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graphics/\mbox{\hyperlink{_graphics_8hpp}{Graphics.\+hpp}}\item 
+graphics/\mbox{\hyperlink{_graphics_8cpp}{Graphics.\+cpp}}\end{DoxyCompactItemize}
