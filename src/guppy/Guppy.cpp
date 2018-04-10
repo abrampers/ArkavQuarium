@@ -99,13 +99,13 @@ void Guppy::move() {
 				double rad = fRand(0.1, 1.9 * pi);
 
 				double x_direction = cos(rad);
-				if(x_direction >= 0 && this->x_dir < getAquarium()->getXMin()) {
+				if(x_direction >= 0 && this->x_dir < 0) {
 					this->setState(turningRight);
 					this->setLastProgressTime(current_time);
 					this->setProgress(0);
 				}
 
-				if(x_direction < 0 && this->x_dir >= getAquarium()->getXMin()) {
+				if(x_direction < 0 && this->x_dir >= 0) {
 					this->setState(turningLeft);
 					this->setLastProgressTime(current_time);
 					this->setProgress(0);
