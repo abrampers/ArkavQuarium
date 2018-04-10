@@ -136,7 +136,6 @@ void Game::startGame() {
 
         /* Check mouse click events */
         int clicked_target = graphics.getClickedTarget();
-        cout << clicked_target << endl;
         if (clicked_target == aquarium_click_target) {
             int x = graphics.getMouseX();
             int y = graphics.getMouseY();

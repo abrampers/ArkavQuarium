@@ -97,6 +97,8 @@ void Graphics::drawGuppy(int x, int y, int level, State state, int state_progres
 
     assetPath += "/" + to_string(state_progress + 1);
 
+    cout << state << endl;
+
     assetPath += ".png";
     drawImage(assetPath, x, y);
 }
