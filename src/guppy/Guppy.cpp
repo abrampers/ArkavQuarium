@@ -88,6 +88,18 @@ void Guppy::move() {
 			double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 			double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
+			if(x_direction >= 0 && this->x_dir < 0) {
+				this->setState(turningRight);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			}
+
+			if(x_direction < 0 && this->x_dir >= 0) {
+				this->setState(turningLeft);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			}
+
 			this->setX(this->getX() + dx);
 			this->setY(this->getY() + dy);
 			this->x_dir = x_direction / distance;
