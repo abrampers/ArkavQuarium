@@ -1,0 +1,18 @@
+<map id="Node::getNext" name="Node::getNext">
+<area shape="rect" id="node2" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="160,55,318,80"/>
+<area shape="rect" id="node9" href="$class_linked_list.html#a2e41045167e4cd25820ae2ed7cb74938" title="A copy constructor. " alt="" coords="169,104,308,143"/>
+<area shape="rect" id="node10" href="$class_linked_list.html#a7c37609df3b83bc4eb0281b852f93fd7" title="A destructor. " alt="" coords="169,167,308,205"/>
+<area shape="rect" id="node11" href="$class_linked_list.html#aa4614ce35a543b74afb3c5bff8b018d4" title="Getter for head. " alt="" coords="169,229,308,268"/>
+<area shape="rect" id="node12" href="$class_linked_list.html#a7ecbb28e82117a680839ed0dc28ebdce" title="Check whether the LinkedList is empty. " alt="" coords="169,292,308,331"/>
+<area shape="rect" id="node13" href="$class_linked_list.html#a188425c092c410b45ab70a3d396aff67" title="Add a value to the LinkedList. " alt="" coords="169,355,308,393"/>
+<area shape="rect" id="node14" href="$class_linked_list.html#a23f2995817766b699c45a02d0040d741" title="Find a value in the LinkedList. " alt="" coords="169,417,308,456"/>
+<area shape="rect" id="node15" href="$class_linked_list.html#ad9b63a24343b67236dcf119e66066c24" title="Remove a value in the LinkedList. " alt="" coords="169,480,308,519"/>
+<area shape="rect" id="node16" href="$class_linked_list.html#a5ca21e769005d1b3af2a2d2bb3313c98" title="Get value by index. " alt="" coords="169,543,308,581"/>
+<area shape="rect" id="node17" href="$class_linked_list.html#a9675767b81fb9f1d8799444e4ee7f43b" title="Prints the LinkedList. " alt="" coords="169,605,308,644"/>
+<area shape="rect" id="node3" href="$class_game.html#afcca871ec55fbe14b2179bcb914d5421" title="Start the game. " alt="" coords="366,55,493,80"/>
+<area shape="rect" id="node4" href="$class_game.html#a1bbeccf533a8d660ef5858c1f0cd08b6" title="Show the game main menu. " alt="" coords="541,5,699,31"/>
+<area shape="rect" id="node7" href="$class_game.html#a02d7239b140618836f409b6926070f88" title="Show win menu. " alt="" coords="544,55,696,80"/>
+<area shape="rect" id="node8" href="$class_game.html#a6b065cbc7a8a804ce90b5e5463b8ebfd" title="Show lose menu. " alt="" coords="543,104,697,129"/>
+<area shape="rect" id="node5" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="747,55,832,80"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="880,55,930,80"/>
+</map>

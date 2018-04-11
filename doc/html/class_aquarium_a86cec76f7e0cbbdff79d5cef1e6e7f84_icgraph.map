@@ -1,0 +1,13 @@
+<map id="Aquarium::deletePiranha" name="Aquarium::deletePiranha">
+<area shape="rect" id="node2" href="$testaquarium_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="248,31,299,56"/>
+<area shape="rect" id="node3" href="$class_piranha.html#a1f30b46fb909558c44eba327e99d5f2e" title="Implements pure virtual method from Aquatic. " alt="" coords="221,80,326,105"/>
+<area shape="rect" id="node4" href="$class_piranha.html#a851c302af9de1d6eaf727242e2912f62" title="Implements pure virtual method from Aquatic. " alt="" coords="374,80,520,105"/>
+<area shape="rect" id="node5" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="568,55,726,80"/>
+<area shape="rect" id="node12" href="$testpiranha_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="622,104,672,129"/>
+<area shape="rect" id="node6" href="$class_game.html#afcca871ec55fbe14b2179bcb914d5421" title="Start the game. " alt="" coords="774,55,901,80"/>
+<area shape="rect" id="node7" href="$class_game.html#a1bbeccf533a8d660ef5858c1f0cd08b6" title="Show the game main menu. " alt="" coords="949,5,1108,31"/>
+<area shape="rect" id="node10" href="$class_game.html#a02d7239b140618836f409b6926070f88" title="Show win menu. " alt="" coords="952,55,1105,80"/>
+<area shape="rect" id="node11" href="$class_game.html#a6b065cbc7a8a804ce90b5e5463b8ebfd" title="Show lose menu. " alt="" coords="952,104,1106,129"/>
+<area shape="rect" id="node8" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="1156,55,1240,80"/>
+<area shape="rect" id="node9" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="1288,55,1338,80"/>
+</map>

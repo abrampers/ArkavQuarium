@@ -1,0 +1,5 @@
+<map id="Graphics::drawMainMenu" name="Graphics::drawMainMenu">
+<area shape="rect" id="node2" href="$class_game.html#a1bbeccf533a8d660ef5858c1f0cd08b6" title="Show the game main menu. " alt="" coords="227,5,385,31"/>
+<area shape="rect" id="node3" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="433,5,517,31"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="565,5,616,31"/>
+</map>
