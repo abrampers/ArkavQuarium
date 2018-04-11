@@ -1,0 +1,19 @@
+<map id="snail" name="snail">
+<area shape="rect" id="node1" href="dir_852d7bcc07f913a11328ae523f872f5b.html" title="snail" alt="" coords="106,5,178,53"/>
+<area shape="rect" id="node2" href="dir_dfbff0919987ef00e733c60be32d2204.html" title="aquarium" alt="" coords="104,101,181,149"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000012_000001.html" title="2" alt="" coords="138,75,145,89"/>
+<area shape="rect" id="node3" href="dir_ce7963a04981ac6ecffed9d16b868b2e.html" title="coin" alt="" coords="24,197,96,245"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000012_000003.html" title="1" alt="" coords="72,174,79,188"/>
+<area shape="rect" id="node4" href="dir_4589199a1a1c0f62c4a81aaa3dd69f24.html" title="aquatic" alt="" coords="98,293,170,341"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000012_000002.html" title="1" alt="" coords="81,286,88,299"/>
+<area shape="rect" id="node5" href="dir_fdedb0aba14d44ce9d99bc100e026e6a.html" title="common" alt="" coords="172,389,244,437"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000012_000004.html" title="2" alt="" coords="218,366,226,379"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000001_000012.html" title="1" alt="" coords="139,66,147,79"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000001_000003.html" title="1" alt="" coords="87,181,95,194"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000001_000002.html" title="1" alt="" coords="133,268,141,281"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000003_000001.html" title="2" alt="" coords="108,152,115,165"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000003_000002.html" title="1" alt="" coords="107,267,115,280"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000002_000001.html" title="1" alt="" coords="136,161,144,175"/>
+<area shape="rect" id="edge11-headlabel" href="dir_000002_000004.html" title="1" alt="" coords="181,363,188,376"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000004_000001.html" title="1" alt="" coords="148,163,155,176"/>
+</map>

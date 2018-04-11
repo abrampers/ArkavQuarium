@@ -1,0 +1,18 @@
+<map id="Graphics::drawImage" name="Graphics::drawImage">
+<area shape="rect" id="node2" href="$class_graphics.html#a5f3a657a7c54f13108bd90e6a85bd02e" title="Draw the aquarium backround. " alt="" coords="201,87,369,112"/>
+<area shape="rect" id="node9" href="$class_graphics.html#a91331c794ba21a860e8137b25df855dc" title="Draw the game&#39;s top bar UI. " alt="" coords="209,136,362,161"/>
+<area shape="rect" id="node10" href="$class_graphics.html#ada6dbf202881bee3ed4bbe4ca31aecb6" title="Draw the game&#39;s main menu. " alt="" coords="417,5,591,31"/>
+<area shape="rect" id="node11" href="$class_graphics.html#ae8619c9c1de576df13861512024d7867" title="Draw the game&#39;s win menu. " alt="" coords="420,92,588,117"/>
+<area shape="rect" id="node12" href="$class_graphics.html#a88bb368ba8388bc9e072c7f48208edba" title="Draw the game&#39;s lose menu. " alt="" coords="420,277,588,303"/>
+<area shape="rect" id="node13" href="$class_graphics.html#a35aa55c180a9f9be306b74906f710954" title="Draw a guppy on screen. " alt="" coords="210,185,361,211"/>
+<area shape="rect" id="node14" href="$class_graphics.html#a2b8425428b81e566f960928fa42133b6" title="Draw a piranha on screen. " alt="" coords="207,235,364,260"/>
+<area shape="rect" id="node15" href="$class_graphics.html#afce4453a05a511f4f07164d91c4ee2bf" title="Draw a snail on screen. " alt="" coords="215,284,356,309"/>
+<area shape="rect" id="node16" href="$class_graphics.html#a62b98d9f52ad55e9bd8617130cfbf37b" title="Draw a coin on screen. " alt="" coords="216,333,355,359"/>
+<area shape="rect" id="node17" href="$class_graphics.html#a63bc7bf1f68cfc785f08b6863d3034d2" title="Draw a pellet on screen. " alt="" coords="213,383,358,408"/>
+<area shape="rect" id="node3" href="$class_game.html#afcca871ec55fbe14b2179bcb914d5421" title="Start the game. " alt="" coords="440,216,568,241"/>
+<area shape="rect" id="node4" href="$class_game.html#a1bbeccf533a8d660ef5858c1f0cd08b6" title="Show the game main menu. " alt="" coords="639,155,797,180"/>
+<area shape="rect" id="node7" href="$class_game.html#a02d7239b140618836f409b6926070f88" title="Show win menu. " alt="" coords="642,204,794,229"/>
+<area shape="rect" id="node8" href="$class_game.html#a6b065cbc7a8a804ce90b5e5463b8ebfd" title="Show lose menu. " alt="" coords="641,253,795,279"/>
+<area shape="rect" id="node5" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="845,204,929,229"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="977,204,1028,229"/>
+</map>

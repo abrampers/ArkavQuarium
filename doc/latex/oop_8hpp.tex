@@ -1,0 +1,229 @@
+\hypertarget{oop_8hpp}{}\section{/\+Users/abrampers/\+Documents/\+Academics/4th Semester/\+O\+O\+P/\+I\+T\+B-\/\+Arkav\+Quarium/\+Library Tugas Besar O\+OP (Rev 2018-\/03-\/29 10/oop.hpp File Reference}
+\label{oop_8hpp}\index{/\+Users/abrampers/\+Documents/\+Academics/4th Semester/\+O\+O\+P/\+I\+T\+B-\/\+Arkav\+Quarium/\+Library Tugas Besar O\+O\+P (\+Rev 2018-\/03-\/29 10/oop.\+hpp@{/\+Users/abrampers/\+Documents/\+Academics/4th Semester/\+O\+O\+P/\+I\+T\+B-\/\+Arkav\+Quarium/\+Library Tugas Besar O\+O\+P (\+Rev 2018-\/03-\/29 10/oop.\+hpp}}
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for oop.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{oop_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{oop_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{oop_8hpp_aee8048628ff2b5c026c9e15acdcaacb8}{init}} ()
+\item 
+void \mbox{\hyperlink{oop_8hpp_a5ae591df94fc66ccb85cbb6565368bca}{close}} ()
+\item 
+void \mbox{\hyperlink{oop_8hpp_a0f01596e4fd0a81c514c706c4936ee8d}{draw\+\_\+image}} (std\+::string filename, int x, int y)
+\item 
+void \mbox{\hyperlink{oop_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2}{draw\+\_\+text}} (std\+::string text, int font\+\_\+size, int x, int y, unsigned char r, unsigned char g, unsigned char b)
+\item 
+void \mbox{\hyperlink{oop_8hpp_a4953d1edcbbfc7e420c423ded1d5621a}{clear\+\_\+screen}} ()
+\item 
+void \mbox{\hyperlink{oop_8hpp_a10da25e92e69613be93d099bb029feb2}{update\+\_\+screen}} ()
+\item 
+void \mbox{\hyperlink{oop_8hpp_ab19fbad269feb4f8cf725031233ba56e}{handle\+\_\+input}} ()
+\item 
+bool \mbox{\hyperlink{oop_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298}{quit\+\_\+pressed}} ()
+\item 
+const std\+::set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& \mbox{\hyperlink{oop_8hpp_a155dba9d2b234776d0fb743da0dcdbc2}{get\+\_\+pressed\+\_\+keys}} ()
+\item 
+const std\+::set$<$ S\+D\+L\+\_\+\+Keycode $>$ \& \mbox{\hyperlink{oop_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a}{get\+\_\+tapped\+\_\+keys}} ()
+\item 
+double \mbox{\hyperlink{oop_8hpp_a1ba1773fee3381786a816dc207a1f8d5}{time\+\_\+since\+\_\+start}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{oop_8hpp_a3482785bd2a4c8b307f9e0b6f54e2c36}{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH}} = 640
+\item 
+const int \mbox{\hyperlink{oop_8hpp_ab454541ae58bcf6555e8d723b1eb95e7}{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT}} = 480
+\item 
+const char $\ast$const \mbox{\hyperlink{oop_8hpp_aa138e55e1cd5980069d8a26538b96fd3}{F\+O\+N\+T\+\_\+\+N\+A\+ME}} = \char`\"{}Open\+Sans-\/Regular.\+ttf\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{oop_8hpp_a4953d1edcbbfc7e420c423ded1d5621a}\label{oop_8hpp_a4953d1edcbbfc7e420c423ded1d5621a}} 
+\index{oop.\+hpp@{oop.\+hpp}!clear\+\_\+screen@{clear\+\_\+screen}}
+\index{clear\+\_\+screen@{clear\+\_\+screen}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{clear\+\_\+screen()}{clear\_screen()}}
+{\footnotesize\ttfamily void clear\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{oop_8hpp_a4953d1edcbbfc7e420c423ded1d5621a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a5ae591df94fc66ccb85cbb6565368bca}\label{oop_8hpp_a5ae591df94fc66ccb85cbb6565368bca}} 
+\index{oop.\+hpp@{oop.\+hpp}!close@{close}}
+\index{close@{close}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{oop_8hpp_a5ae591df94fc66ccb85cbb6565368bca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a0f01596e4fd0a81c514c706c4936ee8d}\label{oop_8hpp_a0f01596e4fd0a81c514c706c4936ee8d}} 
+\index{oop.\+hpp@{oop.\+hpp}!draw\+\_\+image@{draw\+\_\+image}}
+\index{draw\+\_\+image@{draw\+\_\+image}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{draw\+\_\+image()}{draw\_image()}}
+{\footnotesize\ttfamily void draw\+\_\+image (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{oop_8hpp_a0f01596e4fd0a81c514c706c4936ee8d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{oop_8hpp_a0f01596e4fd0a81c514c706c4936ee8d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2}\label{oop_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2}} 
+\index{oop.\+hpp@{oop.\+hpp}!draw\+\_\+text@{draw\+\_\+text}}
+\index{draw\+\_\+text@{draw\+\_\+text}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{draw\+\_\+text()}{draw\_text()}}
+{\footnotesize\ttfamily void draw\+\_\+text (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{int}]{font\+\_\+size,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{unsigned char}]{r,  }\item[{unsigned char}]{g,  }\item[{unsigned char}]{b }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{oop_8hpp_a2b13ce610f0fb0df7a95eb2307e319d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a155dba9d2b234776d0fb743da0dcdbc2}\label{oop_8hpp_a155dba9d2b234776d0fb743da0dcdbc2}} 
+\index{oop.\+hpp@{oop.\+hpp}!get\+\_\+pressed\+\_\+keys@{get\+\_\+pressed\+\_\+keys}}
+\index{get\+\_\+pressed\+\_\+keys@{get\+\_\+pressed\+\_\+keys}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{get\+\_\+pressed\+\_\+keys()}{get\_pressed\_keys()}}
+{\footnotesize\ttfamily const std\+::set$<$S\+D\+L\+\_\+\+Keycode$>$\& get\+\_\+pressed\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{oop_8hpp_a155dba9d2b234776d0fb743da0dcdbc2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a}\label{oop_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a}} 
+\index{oop.\+hpp@{oop.\+hpp}!get\+\_\+tapped\+\_\+keys@{get\+\_\+tapped\+\_\+keys}}
+\index{get\+\_\+tapped\+\_\+keys@{get\+\_\+tapped\+\_\+keys}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{get\+\_\+tapped\+\_\+keys()}{get\_tapped\_keys()}}
+{\footnotesize\ttfamily const std\+::set$<$S\+D\+L\+\_\+\+Keycode$>$\& get\+\_\+tapped\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{oop_8hpp_a4fdfe498ed93ea27801b69f2158e5e6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_ab19fbad269feb4f8cf725031233ba56e}\label{oop_8hpp_ab19fbad269feb4f8cf725031233ba56e}} 
+\index{oop.\+hpp@{oop.\+hpp}!handle\+\_\+input@{handle\+\_\+input}}
+\index{handle\+\_\+input@{handle\+\_\+input}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{handle\+\_\+input()}{handle\_input()}}
+{\footnotesize\ttfamily void handle\+\_\+input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{oop_8hpp_ab19fbad269feb4f8cf725031233ba56e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_aee8048628ff2b5c026c9e15acdcaacb8}\label{oop_8hpp_aee8048628ff2b5c026c9e15acdcaacb8}} 
+\index{oop.\+hpp@{oop.\+hpp}!init@{init}}
+\index{init@{init}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{oop_8hpp_aee8048628ff2b5c026c9e15acdcaacb8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298}\label{oop_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298}} 
+\index{oop.\+hpp@{oop.\+hpp}!quit\+\_\+pressed@{quit\+\_\+pressed}}
+\index{quit\+\_\+pressed@{quit\+\_\+pressed}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{quit\+\_\+pressed()}{quit\_pressed()}}
+{\footnotesize\ttfamily bool quit\+\_\+pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{oop_8hpp_a1b14e3b0f5799f93f8dab7f5c6819298_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a1ba1773fee3381786a816dc207a1f8d5}\label{oop_8hpp_a1ba1773fee3381786a816dc207a1f8d5}} 
+\index{oop.\+hpp@{oop.\+hpp}!time\+\_\+since\+\_\+start@{time\+\_\+since\+\_\+start}}
+\index{time\+\_\+since\+\_\+start@{time\+\_\+since\+\_\+start}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{time\+\_\+since\+\_\+start()}{time\_since\_start()}}
+{\footnotesize\ttfamily double time\+\_\+since\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{oop_8hpp_a1ba1773fee3381786a816dc207a1f8d5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{oop_8hpp_a10da25e92e69613be93d099bb029feb2}\label{oop_8hpp_a10da25e92e69613be93d099bb029feb2}} 
+\index{oop.\+hpp@{oop.\+hpp}!update\+\_\+screen@{update\+\_\+screen}}
+\index{update\+\_\+screen@{update\+\_\+screen}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{update\+\_\+screen()}{update\_screen()}}
+{\footnotesize\ttfamily void update\+\_\+screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{oop_8hpp_a10da25e92e69613be93d099bb029feb2_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{oop_8hpp_aa138e55e1cd5980069d8a26538b96fd3}\label{oop_8hpp_aa138e55e1cd5980069d8a26538b96fd3}} 
+\index{oop.\+hpp@{oop.\+hpp}!F\+O\+N\+T\+\_\+\+N\+A\+ME@{F\+O\+N\+T\+\_\+\+N\+A\+ME}}
+\index{F\+O\+N\+T\+\_\+\+N\+A\+ME@{F\+O\+N\+T\+\_\+\+N\+A\+ME}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{F\+O\+N\+T\+\_\+\+N\+A\+ME}{FONT\_NAME}}
+{\footnotesize\ttfamily const char$\ast$ const F\+O\+N\+T\+\_\+\+N\+A\+ME = \char`\"{}Open\+Sans-\/Regular.\+ttf\char`\"{}}
+
+\mbox{\Hypertarget{oop_8hpp_ab454541ae58bcf6555e8d723b1eb95e7}\label{oop_8hpp_ab454541ae58bcf6555e8d723b1eb95e7}} 
+\index{oop.\+hpp@{oop.\+hpp}!S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT@{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT@{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT}{SCREEN\_HEIGHT}}
+{\footnotesize\ttfamily const int S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT = 480}
+
+\mbox{\Hypertarget{oop_8hpp_a3482785bd2a4c8b307f9e0b6f54e2c36}\label{oop_8hpp_a3482785bd2a4c8b307f9e0b6f54e2c36}} 
+\index{oop.\+hpp@{oop.\+hpp}!S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH@{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH@{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH}!oop.\+hpp@{oop.\+hpp}}
+\subsubsection{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH}{SCREEN\_WIDTH}}
+{\footnotesize\ttfamily const int S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH = 640}
+

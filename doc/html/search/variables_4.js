@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['gameframerate',['gameFrameRate',['../_constants_8hpp.html#a39af30f3cb98905e9faf4c486c5dfffc',1,'Constants.hpp']]],
+  ['gameinitialcoin',['gameInitialCoin',['../_constants_8hpp.html#a92b81ad732b8c5c2b5b2a6f33a7de8e0',1,'Constants.hpp']]],
+  ['gamescreenbottompadding',['gameScreenBottomPadding',['../_constants_8hpp.html#acdc61ab2488a037e3c487de0169ae7ea',1,'Constants.hpp']]],
+  ['gamescreenheight',['gameScreenHeight',['../_constants_8hpp.html#a6abd18710c5016756afec99633c3a2dd',1,'Constants.hpp']]],
+  ['gamescreenleftpadding',['gameScreenLeftPadding',['../_constants_8hpp.html#ac6abe506938f97b0c4319fd5e0ee5b7f',1,'Constants.hpp']]],
+  ['gamescreenrightpadding',['gameScreenRightPadding',['../_constants_8hpp.html#a837abdd1fa9ccd24b69c554a1dec0733',1,'Constants.hpp']]],
+  ['gamescreentoppadding',['gameScreenTopPadding',['../_constants_8hpp.html#aa07a67579cd252cfe96362c7f0f9a4e0',1,'Constants.hpp']]],
+  ['gamescreenwidth',['gameScreenWidth',['../_constants_8hpp.html#a3032ef8e221bb2bac271502fa882c7d6',1,'Constants.hpp']]],
+  ['guppycoininterval',['guppyCoinInterval',['../_constants_8hpp.html#a677a07d4f8074b41dd4cfbdd6672a93c',1,'Constants.hpp']]],
+  ['guppycoinmultiplier',['guppyCoinMultiplier',['../_constants_8hpp.html#a71fb5e6c88eab39674828b6a4d15d28e',1,'Constants.hpp']]],
+  ['guppydeadprogressincrementtime',['guppyDeadProgressIncrementTime',['../_constants_8hpp.html#aa116f0196c086bdd51dbdc54bd6ff98e',1,'Constants.hpp']]],
+  ['guppyeatradius',['guppyEatRadius',['../_constants_8hpp.html#ad7f62ccaef42031908bdb945f560401c',1,'Constants.hpp']]],
+  ['guppyfoodthres',['guppyFoodThres',['../_constants_8hpp.html#a6d9080ccb0129c3f1e7e1b90948fcaa0',1,'Constants.hpp']]],
+  ['guppyfullinterval',['guppyFullInterval',['../_constants_8hpp.html#aff367c289dd11989a6e4964bedb61b7c',1,'Constants.hpp']]],
+  ['guppyhungerinterval',['guppyHungerInterval',['../_constants_8hpp.html#ab127e37bf248a2f8f0cf3990e8fad85e',1,'Constants.hpp']]],
+  ['guppymoveprogressincrementtime',['guppyMoveProgressIncrementTime',['../_constants_8hpp.html#a1ecb65e110480d5cf2f86e3915e13113',1,'Constants.hpp']]],
+  ['guppymovespeed',['guppyMoveSpeed',['../_constants_8hpp.html#af8dffa10706bd33d3a6aefbe0171d37d',1,'Constants.hpp']]],
+  ['guppyprice',['guppyPrice',['../_constants_8hpp.html#a85471e140e7214c39adb70222f908d01',1,'Constants.hpp']]],
+  ['guppypricetextx',['guppyPriceTextX',['../_constants_8hpp.html#ad24a8069c24f2185c3d40513615ba30c',1,'Constants.hpp']]],
+  ['guppypricetexty',['guppyPriceTextY',['../_constants_8hpp.html#a33792e58204e4f6f6232c705bd6f236f',1,'Constants.hpp']]],
+  ['guppyturnprogressincrementtime',['guppyTurnProgressIncrementTime',['../_constants_8hpp.html#a102edac1e243f3836eb44ef4b3f76759',1,'Constants.hpp']]]
+];

@@ -5,9 +5,10 @@
 Pellet::Pellet(double x, double y, Aquarium* a) : Aquatic(x, y, pelletSpeed, a) {}
 
 void Pellet::updateState() {
+	this->updateProgress();
     this->move();
     if (this->getY() >= this->getAquarium()->getYMax()) {
-    	this->getAquarium()->deletePellet(this);
+    	this->dead();
     }
 }
 
@@ -24,6 +25,18 @@ void Pellet::move() {
 	}
 }
 
-void Pellet::updateProgress() {}
+void Pellet::updateProgress() {
+	double current_time = this->getAquarium()->getCurrTime();
+	if(current_time - this->getLastProgressTime() > pelletProgressIncrementTime) {
+		if(this->getProgress() < progressPeriod - 1) {
+			this->setProgress(this->getProgress() + 1);
+		} else {
+			this->setProgress(0);
+		}
+		this->setLastProgressTime(current_time);
+	}
+}
 
-void Pellet::dead() {}
+void Pellet::dead() {
+	this->getAquarium()->deletePellet(this);
+}

@@ -16,9 +16,10 @@
 using namespace std;
 using namespace std::chrono;
 
+//! Class Graphics. Draw game objects and handle user inputs
 class Graphics {
 private:
-	const char* fontPath = "assets/fonts/OpenSans-Regular.ttf";
+	const char* fontPath = "assets/fonts/Oswald-Heavy.ttf";
 	const int screenWidth, screenHeight;
 	int mouse_x, mouse_y;
 	
@@ -30,26 +31,94 @@ private:
     set<SDL_Keycode> pressed_keys;
     set<SDL_Keycode> tapped_keys;
     vector<tuple<int, int, int, int> > click_targets;
-    set<int> clicked_targets;
+    int clicked_target;
     bool quit;
 
     SDL_Surface* loadSurface(string path);
 
 public:
+	/* Constructor */
+    //! A constructor.
+    /*! Constructs a new Graphics object. 
+		\param int screen_width
+		\param int screen_height
+    */
 	Graphics(int screen_width, int screen_height);
+
+	/* Destructor */
+    //! A destructor.
+    /*! Destructs the Graphics object. */
 	~Graphics();
 
 	/* Setup */
+	//! Initialize game graphics and create the game window
 	bool init();
+
+	//! Unload all assets and close the game window
 	void close();
 
 	/* High level drawing */
-	void drawBackground();
-	void drawGuppy(int x, int y, int level, Direction direction);
-    void drawPiranha(int x, int y, int level, Direction direction);
-    void drawSnail(int x, int y, Direction direction);
+	//! Draw the aquarium backround
+	void drawAquarium();
+	
+	//! Draw the game's top bar UI
+	/*! 
+		\param int coin_count
+		\param int egg_count
+	*/
+	void drawTopBar(int coin_count, int egg_count);
+
+	//! Draw the game's main menu
+	void drawMainMenu();
+
+	//! Draw the game's win menu
+	void drawWinMenu();
+
+	//! Draw the game's lose menu
+	void drawloseMenu();
+	
+	//! Draw a guppy on screen
+	/*! 
+		\param int x
+		\param int y
+		\param int level
+		\param State state
+		\param int state_progress
+	*/
+	void drawGuppy(int x, int y, int level, State state, int state_progress);
+	
+	//! Draw a piranha on screen
+	/*! 
+		\param int x
+		\param int y
+		\param State state
+		\param int state_progress
+	*/
+    void drawPiranha(int x, int y, State state, int state_progress);
+    
+    //! Draw a snail on screen
+	/*! 
+		\param int x
+		\param int y
+		\param State state
+		\param int state_progress
+	*/
+    void drawSnail(int x, int y, State state, int state_progress);
+    
+    //! Draw a coin on screen
+	/*! 
+		\param int x
+		\param int y
+	*/
     void drawCoin(int x, int y);
-    void drawPellet(int x, int y);
+    
+    //! Draw a pellet on screen
+	/*! 
+		\param int x
+		\param int y
+		\param int state_progress
+	*/
+    void drawPellet(int x, int y, int state_progress);
 
 	/* Low level drawing */
 	void clearScreen();
@@ -59,34 +128,68 @@ public:
     	unsigned char r, unsigned char g, unsigned char b);
 
 	/* Time */
+	//! Get time since graphics is initialized
+	/*! 
+		\return double time sice graphics initialized
+	*/
 	double timeSinceStart();
 
 	/* Input handling */
-	// Memproses masukan dari sistem operasi.
+	//! Handle OS inputs
 	void handleInput();
 
 	/* OS events handling */
-	// Mengembalikan apakah pengguna telah meminta keluar dengan menekan tombol
-	// keluar di jendela program ketika handle_input() terakhir dipanggil.
+	//! Check if user has closed the game window
+	/*! 
+		\return bool whethet user closed game window
+	*/
 	bool quitPressed();
 
 	/* Keyboard events handling */
-	// Untuk dua fungsi berikut, nama konstan kode yang tepat dapat dilihat di
-	// https://wiki.libsdl.org/SDL_Keycode pada kolom "SDL_Keycode Value".
-
-	// Mengembalikan himpunan kode tombol yang sedang ditekan pada saat
-	// handle_input() terakhir dipanggil.
+	//! Get pressed keys since handleInput() is last called
+	/*! 
+		Key codes can be seen at: https://wiki.libsdl.org/SDL_Keycode on section "SDL_Keycode Value"
+		\return const set<SDL_Keycode>& a set of pressed key codes
+	*/
 	const set<SDL_Keycode>& getPressedKeys();
 
-	// Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
-	// handle_input() terakhir dipanggil.
+	//! Get tapped keys since handleInput() is last called
+	/*! 
+		Key codes can be seen at: https://wiki.libsdl.org/SDL_Keycode on section "SDL_Keycode Value"
+		\return const set<SDL_Keycode>& a set of tapped key codes
+	*/
 	const set<SDL_Keycode>& getTappedKeys();
 
 	/* Mouse events handling */
+	//! Register a new click target
+	/*! 
+		\param int x_min
+		\param int x_max
+		\param int y_min
+		\param int y_max
+		\return int the id of the newly registered click target
+	*/
 	int addClickTarget(int x_min, int x_max, int y_min, int y_max);
+
+	//! Remove all registered click targets
 	void resetClickTargets();
-	const set<int>& getClickedTargets();
+
+	//! Get the last clicked target since handleInput() is called
+	/*! 
+		\return int the id of the clicked target
+	*/
+	int getClickedTarget();
+
+	//! Get mouse x position
+	/*! 
+		\return int mouse x position
+	*/
 	int getMouseX();
+
+	//! Get mouse y position
+	/*! 
+		\return int mouse y position
+	*/
 	int getMouseY();
 };
 

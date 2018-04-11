@@ -59,14 +59,57 @@ void Graphics::close() {
 }
 
 /* High level drawing */
-void Graphics::drawBackground() {
-    const string assetPath = "assets/graphics/aquarium.jpg";
+void Graphics::drawAquarium() {
+    const string bgAssetPath = "assets/graphics/statics/aquarium_background.jpg";
+    drawImage(bgAssetPath, screenWidth / 2, screenHeight / 2);
+}
+
+void Graphics::drawTopBar(int coin_count, int egg_count) {
+    /* Draw top bar UI */
+    const string assetPath = "assets/graphics/statics/aquarium_ui.png";
+    drawImage(assetPath, screenWidth / 2, 87);
+
+    /* Draw texts */
+    drawText(to_string(coin_count), coinTextSize, coinTextX, 
+        coinTextY, coinTextColorR, coinTextColorG, coinTextColorB);
+
+    drawText(to_string(guppyPrice), priceTextSize, guppyPriceTextX, 
+        guppyPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(pelletPrice), priceTextSize, pelletPriceTextX, 
+        pelletPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(piranhaPrice), priceTextSize, piranhaPriceTextX, 
+        piranhaPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(snailPrice), priceTextSize, snailPriceTextX, 
+        snailPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(eggPrice), priceTextSize, eggPriceTextX, 
+        eggPriceTextY, priceTextColorR, priceTextColorG, priceTextColorB);
+
+    drawText(to_string(egg_count), eggCountTextSize, eggCountTextX, 
+        eggCountTextY, eggCountTextColorR, eggCountTextColorG, eggCountTextColorB);
+}
+
+void Graphics::drawMainMenu() {
+    const string assetPath = "assets/graphics/statics/main_menu.jpg";
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
-void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
-    string assetPath = "assets/graphics/guppy";
-    
+void Graphics::drawWinMenu() {
+    const string assetPath = "assets/graphics/statics/win_menu.jpg";
+    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
+}
+
+void Graphics::drawloseMenu() {
+    const string assetPath = "assets/graphics/statics/lose_menu.jpg";
+    drawImage(assetPath, screenWidth / 2, screenHeight / 2);
+}
+
+void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
+    string assetPath = "assets/graphics/sprites/guppy";
+ 
     if (level == 1) {
         assetPath += "_small";
     } else if (level == 2) {
@@ -75,45 +118,67 @@ void Graphics::drawGuppy(int x, int y, int level, Direction direction) {
         assetPath += "_large";
     }
 
-    if (direction == Direction::left) {
-        assetPath += "_left";
-    } else {
-        assetPath += "_right";
+    if (state == State::movingLeft) {
+        assetPath += "/move_left";
+    } else if (state == State::movingRight) {
+        assetPath += "/move_right";
+    } else if (state == State::turningLeft) {
+        assetPath += "/turn_left";
+    } else if (state == State::turningRight) {
+        assetPath += "/turn_right";
+    } else if (state == State::deadLeft) {
+        assetPath += "/dead_left";
+    } else if (state == State::deadRight) {
+        assetPath += "/dead_right";
     }
+
+    assetPath += "/" + to_string(state_progress + 1);
 
     assetPath += ".png";
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawPiranha(int x, int y, int level, Direction direction) {
-    string assetPath = "assets/graphics/piranha";
+void Graphics::drawPiranha(int x, int y, State state, int state_progress) {
+    string assetPath = "assets/graphics/sprites/piranha";
+
+    if (state == State::movingLeft) {
+        assetPath += "/move_left";
+    } else if (state == State::movingRight) {
+        assetPath += "/move_right";
+    } else if (state == State::turningLeft) {
+        assetPath += "/turn_left";
+    } else if (state == State::turningRight) {
+        assetPath += "/turn_right";
+    } else if (state == State::deadLeft) {
+        assetPath += "/dead_left";
+    } else if (state == State::deadRight) {
+        assetPath += "/dead_right";
+    }
+
+    assetPath += "/" + to_string(state_progress + 1);
     
-    if (level == 1) {
-        assetPath += "_small";
-    } else if (level == 2) {
-        assetPath += "_medium";
-    } else {
-        assetPath += "_large";
-    }
-
-    if (direction == Direction::left) {
-        assetPath += "_left";
-    } else {
-        assetPath += "_right";
-    }
-
     assetPath += ".png";
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawSnail(int x, int y, Direction direction) {
-    string assetPath = "assets/graphics/snail";
+void Graphics::drawSnail(int x, int y, State state, int state_progress) {
+    string assetPath = "assets/graphics/sprites/snail";
 
-    if (direction == Direction::left) {
-        assetPath += "_left";
-    } else {
-        assetPath += "_right";
+    if (state == State::movingLeft) {
+        assetPath += "/move_left";
+    } else if (state == State::movingRight) {
+        assetPath += "/move_right";
+    } else if (state == State::turningLeft) {
+        assetPath += "/turn_left";
+    } else if (state == State::turningRight) {
+        assetPath += "/turn_right";
+    } else if (state == State::stillRight) {
+        assetPath += "/move_right";
+    } else if (state == State::stillLeft) {
+        assetPath += "/move_left";
     }
+
+    assetPath += "/" + to_string(state_progress + 1);
 
     assetPath += ".png";
     drawImage(assetPath, x, y);
@@ -125,9 +190,10 @@ void Graphics::drawCoin(int x, int y) {
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawPellet(int x, int y) {
-    string assetPath = "assets/graphics/pellet";
-    assetPath += ".gif";
+void Graphics::drawPellet(int x, int y, int state_progress) {
+    string assetPath = "assets/graphics/sprites/pellet";
+    assetPath += "/" + to_string(state_progress + 1);
+    assetPath += ".png";
     drawImage(assetPath, x, y);
 }
 
@@ -189,9 +255,7 @@ void Graphics::handleInput() {
     if (!tapped_keys.empty()) {
         tapped_keys.clear();
     }
-    if (!clicked_targets.empty()) {
-        clicked_targets.clear();
-    }
+    clicked_target = -1;
 
     while(SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
@@ -212,12 +276,8 @@ void Graphics::handleInput() {
                         mouse_x <= get<1>(target) &&
                         mouse_y >= get<2>(target) &&
                         mouse_y <= get<3>(target)) {
-                        clicked_targets.insert(i);
+                        clicked_target = i;
                     }
-                }
-                /* If click event is not inside any registered target */
-                if (clicked_targets.empty()) {
-                    clicked_targets.insert(-1);
                 }
             }
         }
@@ -255,13 +315,10 @@ void Graphics::resetClickTargets() {
     if (!click_targets.empty()) {
         click_targets.clear();
     }
-    if (!clicked_targets.empty()) {
-        clicked_targets.clear();
-    }
 }
 
-const set<int>& Graphics::getClickedTargets() {
-    return clicked_targets;
+int Graphics::getClickedTarget() {
+    return clicked_target;
 }
 
 int Graphics::getMouseX() {

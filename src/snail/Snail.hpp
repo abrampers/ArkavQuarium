@@ -7,6 +7,7 @@
 #include "coin/Coin.hpp"
 #include <cmath>
 
+//! Class Snail. Represents all Snail object in Aquarium.
 class Snail : public Aquatic {
 	private:
 		const double snailRadius;
@@ -23,16 +24,38 @@ class Snail : public Aquatic {
 		void findNearestCoin();
         bool nearestCoinInRange();
 	public:
-		/*ctor*/
-		Snail(Aquarium*); //Initialize y-axis location to be always at the bottom of the aquarium
+		/* Constructor */
+		//! A constructor.
+        /*! Constructs a new Snail object. 
+        	Initialize y-axis location to be always at the bottom of the aquarium.
+            \param Aquarium *aquarium The Aquarium that contains the Snail.
+        */
+		Snail(Aquarium*); //
 
-		/*getter-setter*/
-        Direction getDirection();
+		/* Getter & Setter */
+		//! Getter for hold_coin_value.
+        /*!  
+            \return int hold_coin_value
+        */
+        int getCoin();
 
-		/*methods*/
+        //! Setter for hold_coin_value.
+        /*! Reset the hold_coin_value to 0 */
+        void resetCoin();
+
+		/***********/
+        /* Methods */
+        /***********/
+        //! Implements pure virtual method from Aquatic
         void updateState(); 
+
+        //! Implements pure virtual method from Aquatic
         void move();
+
+        //! Implements pure virtual method from Aquatic
         void updateProgress();
+
+        //! Implements pure virtual method from Aquatic
         void dead();
 };
 

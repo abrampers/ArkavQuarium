@@ -1,0 +1,16 @@
+<map id="Aquarium::deletePellet" name="Aquarium::deletePellet">
+<area shape="rect" id="node2" href="$testaquarium_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="230,5,280,31"/>
+<area shape="rect" id="node3" href="$class_guppy.html#afe934262a0988e4ad041f4ed3a1a7e02" title="Implements pure virtual method from Fish. " alt="" coords="211,55,298,80"/>
+<area shape="rect" id="node13" href="$class_pellet.html#a50bfc2589da43b06640bc5504e3c689b" title="Implements pure virtual method from Aquatic. " alt="" coords="209,104,301,129"/>
+<area shape="rect" id="node4" href="$class_guppy.html#ac62ef7053d40430ad98c1d5a54699f9d" title="Implements pure virtual method from Aquatic. " alt="" coords="349,55,489,80"/>
+<area shape="rect" id="node5" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="537,79,694,104"/>
+<area shape="rect" id="node12" href="$testguppy_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="590,29,640,55"/>
+<area shape="rect" id="node6" href="$class_game.html#afcca871ec55fbe14b2179bcb914d5421" title="Start the game. " alt="" coords="742,79,870,104"/>
+<area shape="rect" id="node7" href="$class_game.html#a1bbeccf533a8d660ef5858c1f0cd08b6" title="Show the game main menu. " alt="" coords="918,29,1076,55"/>
+<area shape="rect" id="node10" href="$class_game.html#a02d7239b140618836f409b6926070f88" title="Show win menu. " alt="" coords="920,79,1073,104"/>
+<area shape="rect" id="node11" href="$class_game.html#a6b065cbc7a8a804ce90b5e5463b8ebfd" title="Show lose menu. " alt="" coords="920,128,1074,153"/>
+<area shape="rect" id="node8" href="$class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa" title="Run game sequence. " alt="" coords="1124,79,1208,104"/>
+<area shape="rect" id="node9" href="$main_8cpp.html#a700a0caa5b70a06d1064e576f9f3cf65" title="main" alt="" coords="1256,79,1307,104"/>
+<area shape="rect" id="node14" href="$class_pellet.html#ab21f88899eba022e1693d911eba9dbfb" title="Implements pure virtual method from Aquatic. " alt="" coords="352,104,486,129"/>
+<area shape="rect" id="node15" href="$testpellet_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="590,128,640,153"/>
+</map>

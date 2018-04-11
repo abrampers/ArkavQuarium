@@ -9,21 +9,32 @@ template <typename T> class Node;
 template <typename T> class LinkedList;
 
 template <typename T>
+//! Generic Class Node. Stores <T> value and pointer to next and prev Node.
 class Node {
 private:
 	T value;
 	Node* prev;
 	Node* next;
 public:
+	//! A default constructor.
+    /*! Constructs a new Node. */
 	Node() {
 		prev = NULL;
 		next = NULL;
 	}
+
+	//! A user defined constructor.
+    /*! Constructs a new Node.
+        \param <T> value.
+    */
 	Node(T value) { 
 		this->value = value; 
 		prev = NULL;
 		next = NULL;
 	}
+
+	//! A destructor.
+    /*! Destructs the Node. */
 	~Node() { 
 		Node* n = next;
 		Node* p = prev;
@@ -31,20 +42,52 @@ public:
 		if(p != NULL) p->setNext(n);
 	}
 
+	//! Setter for value.
+    /*! 
+        \param <T> value
+     */
 	void setValue(T value) { this->value = value; }
+
+	//! Setter for prev.
+    /*! 
+        \param Node<T> *p Previous Node
+     */
 	void setPrev(Node* p) { prev = p; }
+
+	//! Setter for next.
+    /*! 
+        \param Node<T> *n Next Node
+     */
 	void setNext(Node* n) { next = n; }
+
+	//! Getter for value.
+    /*!  
+        \return <T> value.
+    */
 	T getValue() { return value; }
+
+	//! Getter for next.
+    /*!  
+        \return Node<T> *next.
+    */
 	Node *getNext() { return this->next; }
+
+	//! Getter for prev.
+    /*!  
+        \return Node<T> *prev.
+    */
 	Node *getPrev() { return this->prev; }
 };
 
 template <typename T> 
+//! Generic Class LinkedList. LinkedList like container
 class LinkedList {
 private:
 	Node<T> *head;
 	int length;
 public:
+	//! A constructor.
+    /*! Constructs a new LinkedList object. */
 	LinkedList() {
 		head = new Node<T>;
 		head->setValue(0);
@@ -53,6 +96,10 @@ public:
 		length = 0;
 	}
 
+	//! A copy constructor.
+    /*! Constructs a new LinkedList object. 
+        \param const LinkedList<T>& ll
+    */
 	LinkedList(const LinkedList<T>& ll) {
 		head = new Node<T>;
 		head->setValue(0);
@@ -67,6 +114,8 @@ public:
 		}
 	}
 
+	//! A destructor.
+    /*! Destructs the Linkedlist object. */
 	~LinkedList() {
 		Node<T>* target;
 		Node<T>* next = head->getNext();
@@ -77,23 +126,29 @@ public:
 		}
 		delete head;
 	}
-	
-	// LinkedList(const LinkedList&);
-	// void operator=(const LinkedList&) {
-	// 	head = new Node<T>;
-	// 	head->setValue(0);
-	// 	head->setNext(NULL);
-	// 	head->setPrev(NULL);
 
-	// 	ll
-	// }
-
+	//! Getter for head.
+    /*!  
+        \return Node<T> *head;
+    */
 	Node<T>* getHead() {
 		return head->getNext();
 	}
 
+	//! Getter for move_speed.
+    /*!  
+        \return double move_speed
+    */
+	int getLength() {
+		return length;
+	}
+
+	//! Check whether the LinkedList is empty
+	/*! \return bool is empty */
 	bool isEmpty() { return head->getNext() == NULL; }
 
+	//!	Add a value to the LinkedList
+	/*! \param <T> value */
 	void add(T value) {
 		Node<T>* n = new Node<T>(value);
 		Node<T>* currNode = head;
@@ -105,6 +160,8 @@ public:
 		length += 1;
 	}
 
+	//! Find a value in the LinkedList
+	/*! \param <T> value */
 	int find(T value) {
 		if (!isEmpty()) {
 			Node<T>* currNode = head->getNext();
@@ -123,6 +180,8 @@ public:
 		}
 	}
 
+	//! Remove a value in the LinkedList
+	/*! \param <T> value */
 	void remove(T value) {
 		if (!isEmpty()) {
 			int idx = find(value);
@@ -138,6 +197,11 @@ public:
 	}
 
 	/* Assume the index is always correct */
+	//! Get value by index
+	/*! 
+		\param int index
+		\return <T> value
+	*/
 	T get(int idx) {
 		Node<T>* currNode = head->getNext();
 		for (int i = 0; i < idx; ++i) {
@@ -146,10 +210,7 @@ public:
 		return currNode->getValue();
 	}
 
-	int getLength() {
-		return length;
-	}
-
+	//! Prints the LinkedList
 	void print() {
 		if (isEmpty()) {
 			cout << "Linked list empty" << endl;

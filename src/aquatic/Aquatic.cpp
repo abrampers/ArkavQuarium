@@ -50,10 +50,6 @@ int Aquatic::getProgress() {
 	return this->progress;
 }
 
-double Aquatic::getLastChangedProgressTime() {
-	return this->last_changed_progress_time;
-}
-
 double Aquatic::getLastProgressTime() {
 	return this->last_progress_time;
 }
@@ -78,14 +74,10 @@ void Aquatic::setProgress(int progress) {
 	this->progress = progress;
 }
 
-void Aquatic::setLastChangedProgressTime(double t) {
-	this->last_changed_progress_time = t;
-}
-
 void Aquatic::setLastProgressTime(double t) {
 	this->last_progress_time = t;
 }
 
 bool Aquatic::isInside() {
-	return x >= 0 && y >= 0 && y < this->aquarium->getYMax() && x < this->aquarium->getXMax();
+	return x > this->aquarium->getXMin() && y > this->aquarium->getYMin() && y < this->aquarium->getYMax() && x < this->aquarium->getXMax();
 }

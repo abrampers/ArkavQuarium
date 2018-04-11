@@ -3,8 +3,8 @@
 #include "aquarium/Aquarium.hpp"
 
 Guppy::Guppy(Aquarium *aquarium): 
-Aquatic(floor(fRand(0, aquarium->getXMax())), 
-	floor(fRand(0, aquarium->getYMax())), 
+Aquatic(floor(fRand(aquarium->getXMin(), aquarium->getXMax())), 
+	floor(fRand(aquarium->getYMin(), aquarium->getYMax())), 
 	guppyMoveSpeed, 
 	aquarium),
 Fish(guppyFoodThres, 
@@ -28,7 +28,7 @@ double Guppy::distanceToPellet(Pellet *p) {
 	double guppy_x_position = this->getX();
 	double guppy_y_position = this->getY();
 	double pellet_x_position = p->getX();
-	double pellet_y_position = p->getX();
+	double pellet_y_position = p->getY();
 
 	return sqrt((guppy_x_position - pellet_x_position) * (guppy_x_position - pellet_x_position) + (guppy_y_position - pellet_y_position) * (guppy_y_position - pellet_y_position));
 }
@@ -62,7 +62,7 @@ bool Guppy::nearestPelletInRange() {
 /* Change hunger status */
 void Guppy::updateState() {
 	double current_time = this->getAquarium()->getCurrTime();
-	if(this->getState() == State::dead || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
+	if(this->getState() == State::deadLeft || this->getState() == State::deadRight || (this->getHungry() && current_time - this->getLastHungerTime() > this->hungerTimeout)) {
 		/* Dead guppy */
 		this->dead();
 	} else {
@@ -88,15 +88,27 @@ void Guppy::move() {
 			double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 			double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
+			if(x_direction >= 0 && this->x_dir < 0) {
+				this->setState(turningRight);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			}
+
+			if(x_direction < 0 && this->x_dir >= 0) {
+				this->setState(turningLeft);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			}
+
 			this->setX(this->getX() + dx);
 			this->setY(this->getY() + dy);
-			this->x_dir = x_direction;
-			this->y_dir = y_direction;
+			this->x_dir = x_direction / distance;
+			this->y_dir = y_direction / distance;
 		} else {
 			/* Randomize move direction after some interval */
 			if(current_time - this->getLastRandomTime() > randomMoveInterval) {
 				this->setLastRandomTime(current_time);
-				double rad = fRand(0.0, 2.0 * pi);
+				double rad = fRand(0.1, 1.9 * pi);
 
 				double x_direction = cos(rad);
 				if(x_direction >= 0 && this->x_dir < 0) {
@@ -126,7 +138,7 @@ void Guppy::move() {
 				this->setState(turningLeft);
 				this->setLastProgressTime(current_time);
 				this->setProgress(0);
-			} else if (getX() + dx <= 0.0 && this->x_dir < 0.0) {
+			} else if (getX() + dx <= getAquarium()->getXMin() && this->x_dir < 0.0) {
 				this->x_dir *= -1.0;
 				this->setState(turningRight);
 				this->setLastProgressTime(current_time);
@@ -138,7 +150,7 @@ void Guppy::move() {
 
 			if (getY() + dx >= getAquarium()->getYMax() && this->y_dir > 0.0) {
 				this->y_dir *= -1.0;
-			} else if (getY() + dy <= 0.0 && this->y_dir < 0.0) {
+			} else if (getY() + dy <= getAquarium()->getYMin() && this->y_dir < 0.0) {
 				this->y_dir *= -1.0;
 			} else {
 				this->setY(this->getY() + dy);
@@ -192,6 +204,8 @@ void Guppy::updateProgress() {
 		} else if(this->getState() == turningLeft) {
 			this->setProgress(0);
 			this->setState(movingLeft);
+		} else {
+			this->setProgress(0);
 		}
 		this->setLastProgressTime(current_time);
 	}
@@ -199,7 +213,11 @@ void Guppy::updateProgress() {
 
 /* Implementasi dead masih salah bung */
 void Guppy::dead() {
-	this->setState(State::dead);
+	if(this->getState() == movingRight || (this->getState() == turningRight && this->getProgress() >= 5) || (this->getState() == turningLeft && this->getProgress() < 5)) {
+		this->setState(State::deadRight);
+	} else if(this->getState() == movingLeft || (this->getState() == turningLeft && this->getProgress() >= 5) || (this->getState() == turningRight && this->getProgress() < 5)) {
+		this->setState(State::deadLeft);
+	}
 	double current_time = this->getAquarium()->getCurrTime();
 	if(current_time - this->getLastProgressTime() > guppyDeadProgressIncrementTime) {
 		this->setProgress(this->getProgress() + 1);

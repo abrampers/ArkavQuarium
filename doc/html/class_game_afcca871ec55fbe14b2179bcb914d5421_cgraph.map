@@ -1,0 +1,51 @@
+<map id="Game::startGame" name="Game::startGame">
+<area shape="rect" id="node2" href="$class_graphics.html#a35b4a23e0938ba205ce2a73ee7df5ea0" title="Get time since graphics is initialized. " alt="" coords="188,5,357,31"/>
+<area shape="rect" id="node3" href="$class_graphics.html#aedd2af95b26f8b2077e266f692818ea2" title="Remove all registered click targets. " alt="" coords="181,55,365,80"/>
+<area shape="rect" id="node4" href="$class_aquarium.html#ac9fc0451e82c808d91a32a2e23e9f18e" title="Updates all the aquarium object state. " alt="" coords="194,353,352,379"/>
+<area shape="rect" id="node8" href="$class_aquatic.html#a3d73a0494585841ebd2acaee7281ece5" title="Getter for state. " alt="" coords="609,255,732,280"/>
+<area shape="rect" id="node13" href="$class_aquatic.html#aadfede87649072d59192d923200b6fc3" title="Getter for y. " alt="" coords="620,501,721,527"/>
+<area shape="rect" id="node15" href="$class_aquarium.html#a3244b33f404c2887f04342754f17f4ee" title="Getter for content_guppy list. " alt="" coords="191,528,355,553"/>
+<area shape="rect" id="node16" href="$class_aquarium.html#a46c1697b25884c5a91f7a942ae5b3ba7" title="Getter for content_piranha list. " alt="" coords="187,577,358,603"/>
+<area shape="rect" id="node17" href="$class_aquarium.html#a278a38d4cf238908c4e3e170ea66841f" title="Getter for content_snail list. " alt="" coords="195,627,350,652"/>
+<area shape="rect" id="node18" href="$class_aquarium.html#a2d0eeed1f5776e13f0bbafc6844ce7a2" title="Getter for content_pellet list. " alt="" coords="194,676,352,701"/>
+<area shape="rect" id="node19" href="$class_aquarium.html#a3b3592004ace881a5e11d19a8dc127e4" title="Getter for content_coin list. " alt="" coords="197,725,349,751"/>
+<area shape="rect" id="node20" href="$class_graphics.html#a5f3a657a7c54f13108bd90e6a85bd02e" title="Draw the aquarium backround. " alt="" coords="189,1219,357,1244"/>
+<area shape="rect" id="node22" href="$class_graphics.html#a91331c794ba21a860e8137b25df855dc" title="Draw the game&#39;s top bar UI. " alt="" coords="196,775,349,800"/>
+<area shape="rect" id="node24" href="$class_graphics.html#acf2ad5a746e2cdb9c16dd742b1455603" title="Register a new click target. " alt="" coords="188,873,358,899"/>
+<area shape="rect" id="node25" href="$class_linked_list.html#ac650bde26cf5b3c074e2d59f97e0ff3b" title="Getter for move_speed. " alt="" coords="199,923,347,948"/>
+<area shape="rect" id="node26" href="$class_linked_list.html#a5ca21e769005d1b3af2a2d2bb3313c98" title="Get value by index. " alt="" coords="219,972,326,997"/>
+<area shape="rect" id="node27" href="$class_aquatic.html#ab59ba97a4876a0e3ae8b85c1915a82f9" title="Getter for x. " alt="" coords="222,1021,323,1047"/>
+<area shape="rect" id="node28" href="$class_fish.html#a3f9ad26c3d1dfbc3d1334065691d55da" title="Getter for level. " alt="" coords="221,1071,325,1096"/>
+<area shape="rect" id="node29" href="$class_aquatic.html#a0de76e489d82ccad52dec32a1978850c" title="Getter for progress. " alt="" coords="200,1120,345,1145"/>
+<area shape="rect" id="node30" href="$class_graphics.html#a35aa55c180a9f9be306b74906f710954" title="Draw a guppy on screen. " alt="" coords="198,1268,348,1293"/>
+<area shape="rect" id="node31" href="$class_graphics.html#a2b8425428b81e566f960928fa42133b6" title="Draw a piranha on screen. " alt="" coords="194,1416,351,1441"/>
+<area shape="rect" id="node32" href="$class_graphics.html#afce4453a05a511f4f07164d91c4ee2bf" title="Draw a snail on screen. " alt="" coords="202,1465,343,1491"/>
+<area shape="rect" id="node33" href="$class_snail.html#a78405d7cca0e430a3adf51a8461fff68" title="Getter for hold_coin_value. " alt="" coords="221,1317,325,1343"/>
+<area shape="rect" id="node34" href="$class_snail.html#a21ebc352e8884cd36a1733aafb731944" title="Setter for hold_coin_value. " alt="" coords="215,1367,331,1392"/>
+<area shape="rect" id="node35" href="$class_graphics.html#a63bc7bf1f68cfc785f08b6863d3034d2" title="Draw a pellet on screen. " alt="" coords="201,824,345,849"/>
+<area shape="rect" id="node36" href="$class_graphics.html#a62b98d9f52ad55e9bd8617130cfbf37b" title="Draw a coin on screen. " alt="" coords="204,1169,342,1195"/>
+<area shape="rect" id="node37" href="$class_graphics.html#adff993cdcd0ed498c82cf7be87ead4f1" title="Handle OS inputs. " alt="" coords="197,1515,349,1540"/>
+<area shape="rect" id="node38" href="$class_graphics.html#a53c02790c4103525e542982175f1addb" title="Get the last clicked target since handleInput() is called. " alt="" coords="182,1564,364,1589"/>
+<area shape="rect" id="node39" href="$class_graphics.html#a48c86f4a3a87446fd8df707899e92d4f" title="Get mouse x position. " alt="" coords="198,1613,348,1639"/>
+<area shape="rect" id="node40" href="$class_graphics.html#a4e21e1cfcd4523e86ddbc9c5d246de1e" title="Get mouse y position. " alt="" coords="198,1663,348,1688"/>
+<area shape="rect" id="node41" href="$class_aquarium.html#a049ffa77e7bbb68ac031a098c4e635e7" title="Create Pellet. " alt="" coords="195,1811,351,1836"/>
+<area shape="rect" id="node43" href="$class_aquarium.html#a44ab0beff51d6607e0f590270d9066b5" title="Create Guppy. " alt="" coords="192,1860,354,1885"/>
+<area shape="rect" id="node44" href="$class_aquarium.html#a416b16bc7c252260b9cbe053a6e5a76c" title="Create Piranha. " alt="" coords="188,1712,357,1737"/>
+<area shape="rect" id="node45" href="$class_aquarium.html#ae631c3fd8587b1889ffea4e0ade6359e" title="Create Snail. " alt="" coords="197,1761,349,1787"/>
+<area shape="rect" id="node46" href="$class_coin.html#a53c8bf65afdde1422cfda51d753d74b7" title="Getter for value. " alt="" coords="219,1909,327,1935"/>
+<area shape="rect" id="node47" href="$class_aquarium.html#a187e59dd6efd62b577e97b8e00237c77" title="Delete Coin. " alt="" coords="198,1959,348,1984"/>
+<area shape="rect" id="node48" href="$class_graphics.html#a772ed930cc5ae22dcdc35b4094bffbce" title="Get pressed keys since handleInput() is last called. " alt="" coords="183,2008,362,2033"/>
+<area shape="rect" id="node49" href="$class_graphics.html#ad6339f656cf977c3a0cdd8688c672125" title="Check if user has closed the game window. " alt="" coords="197,2057,349,2083"/>
+<area shape="rect" id="node50" href="$class_graphics.html#a3621b0f55951fb891a5ac2ad7dd403a0" title="Graphics::updateScreen" alt="" coords="190,2107,355,2132"/>
+<area shape="rect" id="node5" href="$class_linked_list.html#aa4614ce35a543b74afb3c5bff8b018d4" title="Getter for head. " alt="" coords="417,353,557,379"/>
+<area shape="rect" id="node6" href="$class_node.html#a8a9d6500c263a8338c1b763f44f8dadd" title="Getter for value. " alt="" coords="431,403,543,428"/>
+<area shape="rect" id="node7" href="$class_piranha.html#a851c302af9de1d6eaf727242e2912f62" title="Implements pure virtual method from Aquatic. " alt="" coords="414,304,560,329"/>
+<area shape="rect" id="node9" href="$class_node.html#aaf2b6c875d0972479da9a26fca47db54" title="Getter for next. " alt="" coords="434,156,540,181"/>
+<area shape="rect" id="node10" href="$class_guppy.html#ac62ef7053d40430ad98c1d5a54699f9d" title="Implements pure virtual method from Aquatic. " alt="" coords="417,255,557,280"/>
+<area shape="rect" id="node11" href="$class_snail.html#a46dbefb10308c29341d96423e853cb2b" title="Implements pure virtual method from Aquatic. " alt="" coords="422,205,552,231"/>
+<area shape="rect" id="node12" href="$class_pellet.html#ab21f88899eba022e1693d911eba9dbfb" title="Implements pure virtual method from Aquatic. " alt="" coords="420,501,554,527"/>
+<area shape="rect" id="node14" href="$class_coin.html#ac9d03cbd68f9ccb739895832f77d60a3" title="Implements pure virtual method from Aquatic. " alt="" coords="423,452,551,477"/>
+<area shape="rect" id="node21" href="$class_graphics.html#afe0ce82b917ad83b8eaec222810f1efd" title="Graphics::drawImage" alt="" coords="413,1219,561,1244"/>
+<area shape="rect" id="node23" href="$class_graphics.html#a3b78a92ad6cd4daaa44291df5c5c3e55" title="Graphics::drawText" alt="" coords="419,775,555,800"/>
+<area shape="rect" id="node42" href="$class_linked_list.html#a188425c092c410b45ab70a3d396aff67" title="Add a value to the LinkedList. " alt="" coords="431,1785,543,1811"/>
+</map>

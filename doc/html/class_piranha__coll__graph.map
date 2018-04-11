@@ -1,0 +1,4 @@
+<map id="Piranha" name="Piranha">
+<area shape="rect" id="node2" href="$class_aquatic.html" title="Abstract Class Aquatic. Represents all object in Aquarium such as Piranha, Guppy, Snail..." alt="" coords="5,5,71,31"/>
+<area shape="rect" id="node3" href="$class_fish.html" title="Abstract Class Fish. Represents all Fish object in Aquarium such as Piranha and Guppy. " alt="" coords="95,5,141,31"/>
+</map>
