@@ -85,6 +85,18 @@ void Piranha::move() {
 			double dx = (x_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 			double dy = (y_direction / distance) * this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 
+			if(x_direction >= 0 && this->x_dir < 0) {
+				this->setState(turningRight);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			}
+
+			if(x_direction < 0 && this->x_dir >= 0) {
+				this->setState(turningLeft);
+				this->setLastProgressTime(current_time);
+				this->setProgress(0);
+			}
+
 			this->setX(this->getX() + dx);
 			this->setY(this->getY() + dy);
 			this->x_dir = x_direction / distance;
@@ -174,9 +186,41 @@ void Piranha::dropCoin() {
 
 void Piranha::updateProgress() {
 	double current_time = this->getAquarium()->getCurrTime();
-	double progress_increment_time = (this->getState() == State::movingRight || this->getState() == State::movingLeft)
-									? piranhaMoveProgressIncrementTime 
-									: piranhaTurnProgressIncrementTime;
+	double progress_increment_time; 
+	switch(this->getState()) {
+		case State::movingRight :
+			progress_increment_time = piranhaMoveProgressIncrementTime;
+			break;
+		case State::movingLeft :
+			progress_increment_time = piranhaMoveProgressIncrementTime;
+			break;
+		case State::turningRight :
+			progress_increment_time = piranhaTurnProgressIncrementTime;
+			break;
+		case State::turningLeft :
+			progress_increment_time = piranhaTurnProgressIncrementTime;
+			break;
+		case State::eatingRight :
+			progress_increment_time = piranhaEatProgressIncrementTime;
+			break;
+		case State::eatingLeft :
+			progress_increment_time = piranhaEatProgressIncrementTime;
+			break;
+		default:
+			progress_increment_time = piranhaMoveProgressIncrementTime;
+	}
+
+	if((this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_guppy != NULL) && distanceToGuppy(this->nearest_guppy) < (2 * piranhaEatRadius)) {
+		if(this->getState() == State::movingRight) {
+			this->setState(State::eatingRight);
+		} else {
+			this->setState(State::eatingLeft);
+		}
+		this->setProgress(0);
+		this->setLastProgressTime(current_time);
+		return;
+	}
+
 	if(current_time - this->getLastProgressTime() > progress_increment_time) {
 		if(this->getProgress() < progressPeriod - 1) {
 			this->setProgress(this->getProgress() + 1);
@@ -186,7 +230,11 @@ void Piranha::updateProgress() {
 		} else if(this->getState() == turningLeft) {
 			this->setProgress(0);
 			this->setState(movingLeft);
-		} else {
+		} else if(this->x_dir >= 0) {
+			this->setState(movingRight);
+			this->setProgress(0);
+		} else if(this->x_dir < 0) {
+			this->setState(movingLeft);
 			this->setProgress(0);
 		}
 		this->setLastProgressTime(current_time);
