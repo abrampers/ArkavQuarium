@@ -215,7 +215,7 @@ void Guppy::updateProgress() {
 			progress_increment_time = guppyMoveProgressIncrementTime;
 	}
 
-	if((this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_pellet != NULL) && distanceToPellet(this->nearest_pellet) < (2 * guppyEatRadius)) {
+	if(this->getHungry() && (this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_pellet != NULL) && distanceToPellet(this->nearest_pellet) < (2 * guppyEatRadius)) {
 		if(this->getState() == State::movingRight) {
 			this->setState(State::eatingRight);
 		} else {

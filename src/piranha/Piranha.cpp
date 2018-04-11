@@ -210,7 +210,7 @@ void Piranha::updateProgress() {
 			progress_increment_time = piranhaMoveProgressIncrementTime;
 	}
 
-	if((this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_guppy != NULL) && distanceToGuppy(this->nearest_guppy) < (2 * piranhaEatRadius)) {
+	if(this->getHungry() && (this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_guppy != NULL) && distanceToGuppy(this->nearest_guppy) < (2 * piranhaEatRadius)) {
 		if(this->getState() == State::movingRight) {
 			this->setState(State::eatingRight);
 		} else {

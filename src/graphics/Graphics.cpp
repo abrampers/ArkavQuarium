@@ -164,11 +164,11 @@ void Graphics::drawPiranha(int x, int y, State state, int state_progress, bool h
     } else if (state == State::turningRight) {
         assetPath += hungry ? "/turn/hungry/right" : "/turn/normal/right";
 
-    // } else if (state == State::eatingLeft) {
-    //     assetPath += hungry ? "/eat/hungry/left" : "/eat/normal/left";
+    } else if (state == State::eatingLeft) {
+        assetPath += hungry ? "/eat/hungry/left" : "/eat/normal/left";
 
-    // } else if (state == State::eatingRight) {
-    //     assetPath += hungry ? "/eat/hungry/right" : "/eat/normal/right";
+    } else if (state == State::eatingRight) {
+        assetPath += hungry ? "/eat/hungry/right" : "/eat/normal/right";
 
     } else if (state == State::deadLeft) {
         assetPath += "/dead/left";
