@@ -78,7 +78,6 @@ void Guppy::updateState() {
 
 void Guppy::move() {
 	double current_time = this->getAquarium()->getCurrTime();
-	cout << this->getState() << endl;
 	if(this->getState() != turningRight && this->getState() != turningLeft) {
 		if(nearest_pellet != NULL && this->getHungry()) {
 			double x_direction = nearest_pellet->getX() - this->getX();

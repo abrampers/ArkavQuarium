@@ -107,29 +107,40 @@ void Graphics::drawloseMenu() {
     drawImage(assetPath, screenWidth / 2, screenHeight / 2);
 }
 
-void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress) {
+void Graphics::drawGuppy(int x, int y, int level, State state, int state_progress, bool hungry) {
     string assetPath = "assets/graphics/sprites/guppy";
  
     if (level == 1) {
-        assetPath += "_small";
+        assetPath += "/small";
     } else if (level == 2) {
-        assetPath += "_medium";
+        assetPath += "/medium";
     } else {
-        assetPath += "_large";
+        assetPath += "/large";
     }
 
     if (state == State::movingLeft) {
-        assetPath += "/move_left";
+        assetPath += hungry ? "/move/hungry/left" : "/move/normal/left";
+
     } else if (state == State::movingRight) {
-        assetPath += "/move_right";
+        assetPath += hungry ? "/move/hungry/right" : "/move/normal/right";
+
     } else if (state == State::turningLeft) {
-        assetPath += "/turn_left";
+        assetPath += hungry ? "/turn/hungry/left" : "/turn/normal/left";
+
     } else if (state == State::turningRight) {
-        assetPath += "/turn_right";
+        assetPath += hungry ? "/turn/hungry/right" : "/turn/normal/right";
+
+    } else if (state == State::eatingLeft) {
+        assetPath += hungry ? "/eat/hungry/left" : "/eat/normal/left";
+
+    } else if (state == State::eatingRight) {
+        assetPath += hungry ? "/eat/hungry/right" : "/eat/normal/right";
+
     } else if (state == State::deadLeft) {
-        assetPath += "/dead_left";
+        assetPath += "/dead/left";
+
     } else if (state == State::deadRight) {
-        assetPath += "/dead_right";
+        assetPath += "/dead/right";
     }
 
     assetPath += "/" + to_string(state_progress + 1);
@@ -138,21 +149,32 @@ void Graphics::drawGuppy(int x, int y, int level, State state, int state_progres
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawPiranha(int x, int y, State state, int state_progress) {
+void Graphics::drawPiranha(int x, int y, State state, int state_progress, bool hungry) {
     string assetPath = "assets/graphics/sprites/piranha";
 
     if (state == State::movingLeft) {
-        assetPath += "/move_left";
+        assetPath += hungry ? "/move/hungry/left" : "/move/normal/left";
+
     } else if (state == State::movingRight) {
-        assetPath += "/move_right";
+        assetPath += hungry ? "/move/hungry/right" : "/move/normal/right";
+
     } else if (state == State::turningLeft) {
-        assetPath += "/turn_left";
+        assetPath += hungry ? "/turn/hungry/left" : "/turn/normal/left";
+
     } else if (state == State::turningRight) {
-        assetPath += "/turn_right";
+        assetPath += hungry ? "/turn/hungry/right" : "/turn/normal/right";
+
+    // } else if (state == State::eatingLeft) {
+    //     assetPath += hungry ? "/eat/hungry/left" : "/eat/normal/left";
+
+    // } else if (state == State::eatingRight) {
+    //     assetPath += hungry ? "/eat/hungry/right" : "/eat/normal/right";
+
     } else if (state == State::deadLeft) {
-        assetPath += "/dead_left";
+        assetPath += "/dead/left";
+
     } else if (state == State::deadRight) {
-        assetPath += "/dead_right";
+        assetPath += "/dead/right";
     }
 
     assetPath += "/" + to_string(state_progress + 1);
@@ -165,17 +187,17 @@ void Graphics::drawSnail(int x, int y, State state, int state_progress) {
     string assetPath = "assets/graphics/sprites/snail";
 
     if (state == State::movingLeft) {
-        assetPath += "/move_left";
+        assetPath += "/move/left";
     } else if (state == State::movingRight) {
-        assetPath += "/move_right";
+        assetPath += "/move/right";
     } else if (state == State::turningLeft) {
-        assetPath += "/turn_left";
+        assetPath += "/turn/left";
     } else if (state == State::turningRight) {
-        assetPath += "/turn_right";
+        assetPath += "/turn/right";
     } else if (state == State::stillRight) {
-        assetPath += "/move_right";
+        assetPath += "/move/right";
     } else if (state == State::stillLeft) {
-        assetPath += "/move_left";
+        assetPath += "/move/left";
     }
 
     assetPath += "/" + to_string(state_progress + 1);
@@ -184,8 +206,10 @@ void Graphics::drawSnail(int x, int y, State state, int state_progress) {
     drawImage(assetPath, x, y);
 }
 
-void Graphics::drawCoin(int x, int y) {
-    string assetPath = "assets/graphics/coin";
+void Graphics::drawCoin(int x, int y, bool is_gold, int state_progress) {
+    string assetPath = "assets/graphics/sprites/coin";
+    assetPath += is_gold ? "/gold" : "/silver";
+    assetPath += "/" + to_string(state_progress + 1);
     assetPath += ".png";
     drawImage(assetPath, x, y);
 }

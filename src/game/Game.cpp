@@ -114,7 +114,14 @@ GameState Game::startGame() {
             int curr_guppy_level = curr_guppy->getLevel();
             State curr_guppy_state = curr_guppy->getState();
             int curr_guppy_state_progress = curr_guppy->getProgress();
-            graphics.drawGuppy(curr_guppy_x, curr_guppy_y, curr_guppy_level, curr_guppy_state, curr_guppy_state_progress);
+            bool curr_guppy_hungry = curr_guppy->getHungry();
+            graphics.drawGuppy(
+                curr_guppy_x, 
+                curr_guppy_y, 
+                curr_guppy_level, 
+                curr_guppy_state, 
+                curr_guppy_state_progress,
+                curr_guppy_hungry);
         }
 
         /* Draw Piranha */
@@ -124,7 +131,13 @@ GameState Game::startGame() {
             double curr_piranha_y = curr_piranha->getY();
             State curr_piranha_state = curr_piranha->getState();
             int curr_piranha_state_progress = curr_piranha->getProgress();
-            graphics.drawPiranha(curr_piranha_x, curr_piranha_y, curr_piranha_state, curr_piranha_state_progress);
+            bool curr_piranha_hungry = curr_piranha->getHungry();
+            graphics.drawPiranha(
+                curr_piranha_x, 
+                curr_piranha_y, 
+                curr_piranha_state, 
+                curr_piranha_state_progress,
+                curr_piranha_hungry);
         }
         
         /* Draw Snail and get coins */
@@ -153,7 +166,9 @@ GameState Game::startGame() {
             Coin *curr_coin = coin_list.get(i);
             double curr_coin_x = curr_coin->getX();
             double curr_coin_y = curr_coin->getY();
-            graphics.drawCoin(curr_coin_x, curr_coin_y);
+            bool curr_coin_gold = curr_coin->getValue() > 20;
+            int curr_coin_state_progress = curr_coin->getProgress();
+            graphics.drawCoin(curr_coin_x, curr_coin_y, curr_coin_gold, curr_coin_state_progress);
             int click_target = graphics.addClickTarget(
                 curr_coin_x - coinClickRadius,
                 curr_coin_x + coinClickRadius,

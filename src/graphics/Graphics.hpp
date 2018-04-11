@@ -85,7 +85,7 @@ public:
 		\param State state
 		\param int state_progress
 	*/
-	void drawGuppy(int x, int y, int level, State state, int state_progress);
+	void drawGuppy(int x, int y, int level, State state, int state_progress, bool hungry);
 	
 	//! Draw a piranha on screen
 	/*! 
@@ -94,7 +94,7 @@ public:
 		\param State state
 		\param int state_progress
 	*/
-    void drawPiranha(int x, int y, State state, int state_progress);
+    void drawPiranha(int x, int y, State state, int state_progress, bool hungry);
     
     //! Draw a snail on screen
 	/*! 
@@ -110,7 +110,7 @@ public:
 		\param int x
 		\param int y
 	*/
-    void drawCoin(int x, int y);
+    void drawCoin(int x, int y, bool is_gold, int state_progress);
     
     //! Draw a pellet on screen
 	/*! 
