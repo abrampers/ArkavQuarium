@@ -108,7 +108,7 @@ const int guppyFoodThres = 2;
 const int guppyPrice = 100;
 const double guppyEatRadius = 20;
 const double guppyFullInterval = 15; 		/* Ini detik ye bos */
-const double guppyHungerInterval = 10;
+const double guppyHungerInterval = 15;
 const double guppyMoveSpeed = 60; 			/* Pixels per second */
 const double guppyCoinInterval = 8;
 const double guppyCoinMultiplier = 10;
@@ -123,7 +123,7 @@ const int piranhaFoodThres = 50;
 const int piranhaPrice = 400;
 const double piranhaEatRadius = 50;
 const double piranhaFullInterval = 15; 		/* Ini detik ye bos */
-const double piranhaHungerInterval = 10;
+const double piranhaHungerInterval = 15;
 const double piranhaMoveSpeed = 82;
 const double piranhaCoinInterval = 8;
 
