@@ -10,7 +10,7 @@ enum Direction {
 };
 
 enum State {
-	movingLeft, movingRight, turningLeft, turningRight, deadLeft, deadRight, fading, stillRight, stillLeft
+	movingLeft, movingRight, turningLeft, turningRight, deadLeft, deadRight, fading, stillRight, stillLeft, eatingRight, eatingLeft
 };
 
 /* Graphics UI constants */
@@ -137,9 +137,11 @@ const double progressPeriod = 10;
 const double guppyTurnProgressIncrementTime = 0.05;
 const double guppyMoveProgressIncrementTime = 0.05;
 const double guppyDeadProgressIncrementTime = 0.16;
+const double guppyEatProgressIncrementTime = 0.05;
 const double piranhaTurnProgressIncrementTime = 0.05;
 const double piranhaMoveProgressIncrementTime = 0.05;
 const double piranhaDeadProgressIncrementTime = 0.16;
+const double piranhaEatProgressIncrementTime = 0.05;
 const double snailTurnProgressIncrementTime = 0.05;
 const double snailMoveProgressIncrementTime = 0.05;
 const double pelletProgressIncrementTime = 0.05;

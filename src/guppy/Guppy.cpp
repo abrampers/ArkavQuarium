@@ -78,6 +78,7 @@ void Guppy::updateState() {
 
 void Guppy::move() {
 	double current_time = this->getAquarium()->getCurrTime();
+	cout << this->getState() << endl;
 	if(this->getState() != turningRight && this->getState() != turningLeft) {
 		if(nearest_pellet != NULL && this->getHungry()) {
 			double x_direction = nearest_pellet->getX() - this->getX();
@@ -189,29 +190,63 @@ void Guppy::dropCoin() {
 	}
 }
 
-/* TODO: Last changed progress time perlu ga? */
 void Guppy::updateProgress() {
 	double current_time = this->getAquarium()->getCurrTime();
-	double progress_increment_time = (this->getState() == State::movingRight || this->getState() == State::movingLeft)
-									? guppyMoveProgressIncrementTime 
-									: guppyTurnProgressIncrementTime;
+	double progress_increment_time; 
+	switch(this->getState()) {
+		case State::movingRight :
+			progress_increment_time = guppyMoveProgressIncrementTime;
+			break;
+		case State::movingLeft :
+			progress_increment_time = guppyMoveProgressIncrementTime;
+			break;
+		case State::turningRight :
+			progress_increment_time = guppyTurnProgressIncrementTime;
+			break;
+		case State::turningLeft :
+			progress_increment_time = guppyTurnProgressIncrementTime;
+			break;
+		case State::eatingRight :
+			progress_increment_time = guppyEatProgressIncrementTime;
+			break;
+		case State::eatingLeft :
+			progress_increment_time = guppyEatProgressIncrementTime;
+			break;
+		default:
+			progress_increment_time = guppyMoveProgressIncrementTime;
+	}
+
+	if((this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_pellet != NULL) && distanceToPellet(this->nearest_pellet) < (2 * guppyEatRadius)) {
+		if(this->getState() == State::movingRight) {
+			this->setState(State::eatingRight);
+		} else {
+			this->setState(State::eatingLeft);
+		}
+		this->setProgress(0);
+		this->setLastProgressTime(current_time);
+		return;
+	}
+
 	if(current_time - this->getLastProgressTime() > progress_increment_time) {
 		if(this->getProgress() < progressPeriod - 1) {
 			this->setProgress(this->getProgress() + 1);
 		} else if(this->getState() == turningRight) {
-			this->setProgress(0);
 			this->setState(movingRight);
-		} else if(this->getState() == turningLeft) {
 			this->setProgress(0);
+		} else if(this->getState() == turningLeft) {
 			this->setState(movingLeft);
-		} else {
+			this->setProgress(0);
+		} else if(this->x_dir >= 0) {
+			this->setState(movingRight);
+			this->setProgress(0);
+		} else if(this->x_dir < 0) {
+			this->setState(movingLeft);
 			this->setProgress(0);
 		}
 		this->setLastProgressTime(current_time);
 	}
 }
 
-/* Implementasi dead masih salah bung */
 void Guppy::dead() {
 	if(this->getState() == movingRight || (this->getState() == turningRight && this->getProgress() >= 5) || (this->getState() == turningLeft && this->getProgress() < 5)) {
 		this->setState(State::deadRight);
