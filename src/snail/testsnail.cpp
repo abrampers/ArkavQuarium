@@ -1,7 +1,7 @@
 /* Driver file for Snail */
 #include <iostream>
-#include "aquarium/Aquarium.hpp"
-#include "snail/Snail.hpp"
+#include "Aquarium.hpp"
+#include "Snail.hpp"
 using namespace std;
 
 int main() {

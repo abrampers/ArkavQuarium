@@ -1,7 +1,7 @@
 /* Driver file for Piranha */
 #include <iostream>
-#include "aquarium/Aquarium.hpp"
-#include "piranha/Piranha.hpp"
+#include "Aquarium.hpp"
+#include "Piranha.hpp"
 using namespace std;
 
 int main() {

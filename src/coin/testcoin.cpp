@@ -1,7 +1,7 @@
 /* Driver file for Aquarium */
 #include <iostream>
-#include "aquarium/Aquarium.hpp"
-#include "coin/Coin.hpp"
+#include "Aquarium.hpp"
+#include "Coin.hpp"
 using namespace std;
 
 int main() {

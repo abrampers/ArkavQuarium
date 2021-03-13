@@ -1,8 +1,8 @@
 #ifndef FISH_HPP
 #define FISH_HPP
 
-#include "common/Constants.hpp"
-#include "common/Helper.hpp"
+#include "Constants.hpp"
+#include "Helper.hpp"
 
 //! Abstract Class Fish. Represents all Fish object in Aquarium such as Piranha and Guppy.
 class Fish {

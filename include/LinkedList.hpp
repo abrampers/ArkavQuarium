@@ -3,7 +3,6 @@
 #define DOUBLL_HPP
 
 #include <iostream>
-using namespace std;
 
 template <typename T> class Node;
 template <typename T> class LinkedList;
@@ -213,14 +212,14 @@ public:
 	//! Prints the LinkedList
 	void print() {
 		if (isEmpty()) {
-			cout << "Linked list empty" << endl;
+			std::cout << "Linked list empty" << std::endl;
 		} else {
 			Node<T>* x = head->getNext();
 			while(x!=NULL) {
-				cout << x->getValue() << " -> ";
+				std::cout << x->getValue() << " -> ";
 				x = x->getNext();
 			}
-			cout << "NULL" << endl;
+			std::cout << "NULL" << std::endl;
 		}
 	}
 };

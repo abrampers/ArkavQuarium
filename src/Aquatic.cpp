@@ -1,6 +1,6 @@
 /* Implementation file of Aquatic */
-#include "aquatic/Aquatic.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "Aquatic.hpp"
+#include "Aquarium.hpp"
 
 Aquatic::Aquatic(Aquarium *aquarium) : moveSpeed(0) {
 	x = 0;

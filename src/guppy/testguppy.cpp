@@ -1,7 +1,7 @@
 /* Driver file for Guppy */
 #include <iostream>
-#include "aquarium/Aquarium.hpp"
-#include "guppy/Guppy.hpp"
+#include "Aquarium.hpp"
+#include "Guppy.hpp"
 using namespace std;
 
 int main() {

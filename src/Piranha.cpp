@@ -1,6 +1,6 @@
 /* Implementation file of Piranha */
-#include "piranha/Piranha.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "Piranha.hpp"
+#include "Aquarium.hpp"
 
 Piranha::Piranha(Aquarium *aquarium): 
 Aquatic(floor(fRand(aquarium->getXMin(), aquarium->getXMax())), 

@@ -1,6 +1,6 @@
 /* Implementation file of Snail */
-#include "snail/Snail.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "Snail.hpp"
+#include "Aquarium.hpp"
 
 Snail::Snail(Aquarium* a) : Aquatic(fRand(a->getXMin(), a->getXMax()), a->getYMax(), snailSpeed, a), snailRadius(snailEatRadius) {
 	nearest_coin = NULL;

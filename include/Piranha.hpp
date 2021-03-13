@@ -1,10 +1,10 @@
 #ifndef PIRANHA_HPP
 #define PIRANHA_HPP
 
-#include "aquatic/Aquatic.hpp"
-#include "fish/Fish.hpp"
-#include "linkedlist/LinkedList.hpp"
-#include "guppy/Guppy.hpp"
+#include "Aquatic.hpp"
+#include "Fish.hpp"
+#include "LinkedList.hpp"
+#include "Guppy.hpp"
 
 //! Class Piranha. Represents all Piranha object in Aquarium.
 class Piranha : public Aquatic, public Fish {

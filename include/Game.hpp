@@ -1,9 +1,9 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "common/master.hpp"
-#include "graphics/Graphics.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "master.hpp"
+#include "Graphics.hpp"
+#include "Aquarium.hpp"
 
 #include <iostream>
 #include <math.h>

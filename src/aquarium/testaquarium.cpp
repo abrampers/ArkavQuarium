@@ -1,6 +1,6 @@
 /* Driver file for Aquarium */
 #include <iostream>
-#include "aquarium/Aquarium.hpp"
+#include "Aquarium.hpp"
 using namespace std;
 
 int main() {

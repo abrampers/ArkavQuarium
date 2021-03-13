@@ -3,3 +3,5 @@
 arkavquarium
 *.zip
 test*
+build/
+compile_commands.json

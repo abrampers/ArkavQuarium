@@ -1,6 +1,6 @@
 /* Implementation file of Pellet */
-#include "pellet/Pellet.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "Pellet.hpp"
+#include "Aquarium.hpp"
 
 Pellet::Pellet(double x, double y, Aquarium* a) : Aquatic(x, y, pelletSpeed, a) {}
 

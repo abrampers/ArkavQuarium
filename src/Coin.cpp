@@ -1,6 +1,6 @@
 /* Implementation file of Coin */
-#include "coin/Coin.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "Coin.hpp"
+#include "Aquarium.hpp"
 
 Coin::Coin(double x, double y, int value, Aquarium *aquarium) : Aquatic(x, y, coinMoveSpeed, aquarium), value(value) {
 	last_bottom_time = 0;

@@ -1,10 +1,10 @@
 #ifndef SNAIL_HPP
 #define SNAIL_HPP
 
-#include "common/Constants.hpp"
-#include "common/Helper.hpp"
-#include "aquatic/Aquatic.hpp"
-#include "coin/Coin.hpp"
+#include "Constants.hpp"
+#include "Helper.hpp"
+#include "Aquatic.hpp"
+#include "Coin.hpp"
 #include <cmath>
 
 //! Class Snail. Represents all Snail object in Aquarium.

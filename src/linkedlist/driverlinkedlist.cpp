@@ -1,6 +1,6 @@
 /* Driver for DoublyLinkedList class */
 #include <iostream>
-#include "linkedlist/LinkedList.hpp"
+#include "LinkedList.hpp"
 
 int main() {
 	LinkedList<int> dll;

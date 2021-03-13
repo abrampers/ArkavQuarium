@@ -1,11 +1,11 @@
 #ifndef GUPPY_HPP
 #define GUPPY_HPP
 
-#include "common/Helper.hpp"
-#include "aquatic/Aquatic.hpp"
-#include "fish/Fish.hpp"
-#include "linkedlist/LinkedList.hpp"
-#include "pellet/Pellet.hpp"
+#include "Helper.hpp"
+#include "Aquatic.hpp"
+#include "Fish.hpp"
+#include "LinkedList.hpp"
+#include "Pellet.hpp"
 
 //! Class Guppy. Represents all Guppy object in Aquarium.
 class Guppy : public Aquatic, public Fish {

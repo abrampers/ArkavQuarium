@@ -1,14 +1,14 @@
 #ifndef AQUARIUM_HPP
 #define AQUARIUM_HPP
 
-#include "aquatic/Aquatic.hpp"
-#include "coin/Coin.hpp"
-#include "fish/Fish.hpp"
-#include "guppy/Guppy.hpp"
-#include "linkedlist/LinkedList.hpp"
-#include "pellet/Pellet.hpp"
-#include "piranha/Piranha.hpp"
-#include "snail/Snail.hpp"
+#include "Aquatic.hpp"
+#include "Coin.hpp"
+#include "Fish.hpp"
+#include "Guppy.hpp"
+#include "LinkedList.hpp"
+#include "Pellet.hpp"
+#include "Piranha.hpp"
+#include "Snail.hpp"
 
 //! Class Aquarium. Contains all game object such as Piranha, Guppy, Snail, Pellet, and Coin.
 class Aquarium {

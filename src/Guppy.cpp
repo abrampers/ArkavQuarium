@@ -1,6 +1,6 @@
 /* Implementation file of Guppy */
-#include "guppy/Guppy.hpp"
-#include "aquarium/Aquarium.hpp"
+#include "Guppy.hpp"
+#include "Aquarium.hpp"
 
 Guppy::Guppy(Aquarium *aquarium): 
 Aquatic(floor(fRand(aquarium->getXMin(), aquarium->getXMax())), 

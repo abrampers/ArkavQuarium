@@ -1,11 +1,11 @@
 #ifndef GRAPHICS_HPP
 #define GRAPHICS_HPP
 
-#include "common/master.hpp"
+#include "master.hpp"
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <set>
 #include <string>
 #include <map>

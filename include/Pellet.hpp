@@ -1,7 +1,7 @@
 #ifndef PELLET_HPP
 #define PELLET_HPP
 
-#include "aquatic/Aquatic.hpp"
+#include "Aquatic.hpp"
 
 //! Class Pellet. Represents all Pellet object in Aquarium.
 class Pellet : public Aquatic {

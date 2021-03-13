@@ -1,7 +1,7 @@
 /* Driver file for Pellet */
 #include <iostream>
-#include "aquarium/Aquarium.hpp"
-#include "pellet/Pellet.hpp"
+#include "Aquarium.hpp"
+#include "Pellet.hpp"
 using namespace std;
 
 int main() {

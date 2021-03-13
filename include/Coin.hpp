@@ -1,7 +1,7 @@
 #ifndef COIN_HPP
 #define COIN_HPP
 
-#include "aquatic/Aquatic.hpp"
+#include "Aquatic.hpp"
 
 //! Class Coin. Represents all Coin object in Aquarium.
 class Coin : public Aquatic {
