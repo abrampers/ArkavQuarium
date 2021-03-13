@@ -13,28 +13,25 @@
 #include <iostream>
 #include <chrono>
 
-using namespace std;
-using namespace std::chrono;
-
 //! Class Graphics. Draw game objects and handle user inputs
 class Graphics {
 private:
-	const char* fontPath = "assets/fonts/Oswald-Heavy.ttf";
-	const int screenWidth, screenHeight;
-	int mouse_x, mouse_y;
-	
-	high_resolution_clock::time_point start;
+    const char* fontPath = "assets/fonts/Oswald-Heavy.ttf";
+    const int screenWidth, screenHeight;
+    int mouse_x, mouse_y;
+
+    std::chrono::high_resolution_clock::time_point start;
     SDL_Window* sdl_window;
     SDL_Surface* g_screen_surface;
-    map<std::string, SDL_Surface*> loaded_surfaces;
-    map<int, TTF_Font*> loaded_font_sizes;
-    set<SDL_Keycode> pressed_keys;
-    set<SDL_Keycode> tapped_keys;
-    vector<tuple<int, int, int, int> > click_targets;
+    std::map<std::string, SDL_Surface*> loaded_surfaces;
+    std::map<int, TTF_Font*> loaded_font_sizes;
+    std::set<SDL_Keycode> pressed_keys;
+    std::set<SDL_Keycode> tapped_keys;
+    std::vector<std::tuple<int, int, int, int> > click_targets;
     int clicked_target;
     bool quit;
 
-    SDL_Surface* loadSurface(string path);
+    SDL_Surface* loadSurface(std::string path);
 
 public:
 	/* Constructor */
@@ -86,7 +83,7 @@ public:
 		\param int state_progress
 	*/
 	void drawGuppy(int x, int y, int level, State state, int state_progress, bool hungry);
-	
+
 	//! Draw a piranha on screen
 	/*! 
 		\param int x
@@ -151,14 +148,14 @@ public:
 		Key codes can be seen at: https://wiki.libsdl.org/SDL_Keycode on section "SDL_Keycode Value"
 		\return const set<SDL_Keycode>& a set of pressed key codes
 	*/
-	const set<SDL_Keycode>& getPressedKeys();
+    const std::set<SDL_Keycode>& getPressedKeys();
 
 	//! Get tapped keys since handleInput() is last called
 	/*! 
 		Key codes can be seen at: https://wiki.libsdl.org/SDL_Keycode on section "SDL_Keycode Value"
 		\return const set<SDL_Keycode>& a set of tapped key codes
 	*/
-	const set<SDL_Keycode>& getTappedKeys();
+    const std::set<SDL_Keycode>& getTappedKeys();
 
 	/* Mouse events handling */
 	//! Register a new click target

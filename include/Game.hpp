@@ -9,8 +9,6 @@
 #include <math.h>
 #include <sstream>
 
-using namespace std;
-
 //! Class Game. Control the game state and synchronize the game object state
 class Game {
     private:
@@ -46,11 +44,11 @@ class Game {
 
         //! Load game state from an external file
         /*! \param string filename */
-        void loadState(string filename);
+        void loadState(std::string filename);
 
         //! Save game state to an external file
         /*! \param string filename */
-        void saveState(string filename);
+        void saveState(std::string filename);
 
         //! Start the game
         /*! \return GameState state of the last game */
