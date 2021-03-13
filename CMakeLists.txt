@@ -17,6 +17,9 @@ add_custom_target(copy_assets
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/assets ${CMAKE_CURRENT_BINARY_DIR}/assets
 )
 
+find_package(PkgConfig)
+pkg_search_module(GTEST REQUIRED gtest_main)
+
 include_directories(
     include
 )

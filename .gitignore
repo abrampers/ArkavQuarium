@@ -2,7 +2,6 @@
 **.DS_STORE
 arkavquarium
 *.zip
-test*
 build/
 Debug
 compile_commands.json
