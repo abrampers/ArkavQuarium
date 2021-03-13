@@ -1,132 +1,83 @@
-/* Driver file for Aquarium */
-#include <iostream>
+#include "gtest/gtest.h"
 #include "Aquarium.hpp"
-using namespace std;
 
-int main() {
-	int ret;
-	Aquarium a(0, 0, 480, 640);
+class CreateAquariumTest : public ::testing::Test {
+protected:
+  void SetUp() override {
+    aq = new Aquarium(0, 0, 480, 640);
+  }
+  Aquarium *aq;
+};
 
-	cout << "#########################" << endl;
-	cout << "# RUNNING AQUARIUM TEST #" << endl;
-	cout << "#########################" << endl;
+TEST_F(CreateAquariumTest, CreatePiranha) {
+  aq->createPiranha();
+  EXPECT_EQ(1, aq->getPiranhaList().getLength());
+}
 
-	/* Test 1 */
-	cout << "Running TEST 1" << endl;
-	a.createPiranha();
-	ret = a.getPiranhaList().getLength();
-	cout << "	TEST 1: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(CreateAquariumTest, CreateGuppy) {
+  aq->createGuppy();
+  EXPECT_EQ(2, aq->getGuppyList().getLength());
+}
 
-	/* Test 2 */
-	cout << "Running TEST 2" << endl;
-	a.createGuppy();
-	ret = a.getGuppyList().getLength();
-	cout << "	TEST 2: ";
-	if(ret == 2) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(CreateAquariumTest, CreateSnail) {
+  aq->createSnail();
+  EXPECT_EQ(2, aq->getSnailList().getLength());
+}
 
-	/* Test 3 */
-	cout << "Running TEST 3" << endl;
-	a.createSnail();
-	ret = a.getSnailList().getLength();
-	cout << "	TEST 3: ";
-	if(ret == 2) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(CreateAquariumTest, CreatePellet_At5x5) {
+  aq->createPellet(5, 5);
+  EXPECT_EQ(1, aq->getPelletList().getLength());
+}
 
-	/* Test 4 */
-	cout << "Running TEST 4" << endl;
-	a.createPellet(5, 5);
-	ret = a.getPelletList().getLength();
-	cout << "	TEST 4: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(CreateAquariumTest, CreateCoin_At5x5_WithValue_1) {
+  aq->createCoin(5, 5, 1);
+  EXPECT_EQ(1, aq->getCoinList().getLength());
+}
 
-	/* Test 5 */
-	cout << "Running TEST 5" << endl;
-	a.createCoin(5, 5, 1);
-	ret = a.getCoinList().getLength();
-	cout << "	TEST 5: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+class DeleteAquariumTest : public ::testing::Test {
+protected:
+  void SetUp() override {
+    aq = new Aquarium(0, 0, 480, 640);
+    aq->createPiranha();
+    aq->createPellet(5, 5);
+    aq->createCoin(5, 5, 1);
 
-	Piranha *pir = a.getPiranhaList().get(0);
-	Guppy *gup = a.getGuppyList().get(0);
-	Snail *snail = a.getSnailList().get(0);
-	Coin *c = a.getCoinList().get(0);
-	Pellet *p = a.getPelletList().get(0);
+    pir = aq->getPiranhaList().get(0);
+    gup = aq->getGuppyList().get(0);
+    snail = aq->getSnailList().get(0);
+    coin = aq->getCoinList().get(0);
+    pellet = aq->getPelletList().get(0);
+  }
 
-	/* Test 6 */
-	cout << "Running TEST 6" << endl;
-	a.deletePiranha(pir);
-	ret = a.getPiranhaList().getLength();
-	cout << "	TEST 6: ";
-	if(ret == 0) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+  Aquarium *aq;
+  Piranha *pir;
+  Guppy *gup;
+  Snail *snail;
+  Coin *coin;
+  Pellet *pellet;
+};
 
-	/* Test 7 */
-	cout << "Running TEST 7" << endl;
-	a.deleteGuppy(gup);
-	ret = a.getGuppyList().getLength();
-	cout << "	TEST 7: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(DeleteAquariumTest, DeletePiranha) {
+  aq->deletePiranha(pir);
+  EXPECT_EQ(0, aq->getPiranhaList().getLength());
+}
 
-	/* Test 8 */
-	cout << "Running TEST 8" << endl;
-	a.deleteSnail(snail);
-	ret = a.getSnailList().getLength();
-	cout << "	TEST 8: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(DeleteAquariumTest, DeleteGuppy) {
+  aq->deleteGuppy(gup);
+  EXPECT_EQ(0, aq->getGuppyList().getLength());
+}
 
-	/* Test 9 */
-	cout << "Running TEST 9" << endl;
-	a.deletePellet(p);
-	ret = a.getPelletList().getLength();
-	cout << "	TEST 9: ";
-	if(ret == 0) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(DeleteAquariumTest, DeleteSnail) {
+  aq->deleteSnail(snail);
+  EXPECT_EQ(0, aq->getSnailList().getLength());
+}
 
-	/* Test 10 */
-	cout << "Running TEST 10" << endl;
-	a.deleteCoin(c);
-	ret = a.getCoinList().getLength();
-	cout << "	TEST 10: ";
-	if(ret == 0) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(DeleteAquariumTest, DeletePellet) {
+  aq->deletePellet(pellet);
+  EXPECT_EQ(0, aq->getPelletList().getLength());
+}
 
-	cout << endl << endl;
-
+TEST_F(DeleteAquariumTest, DeleteCoin) {
+  aq->deleteCoin(coin);
+  EXPECT_EQ(0, aq->getCoinList().getLength());
 }
