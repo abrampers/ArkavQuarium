@@ -6,3 +6,4 @@ test*
 build/
 Debug
 compile_commands.json
+.ccls-cache
