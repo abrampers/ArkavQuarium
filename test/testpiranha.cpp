@@ -1,5 +1,5 @@
 /* Driver file for Piranha */
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include "Aquarium.hpp"
 #include "Piranha.hpp"
 
