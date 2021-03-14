@@ -1,10 +1,11 @@
 /* Driver file for Aquarium */
 #include <gtest/gtest.h>
+
 #include "Aquarium.hpp"
 #include "Coin.hpp"
 
-class CoinTest: public ::testing::Test {
-protected:
+class CoinTest : public ::testing::Test {
+ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
     aq->createCoin(5, 5, 100);
@@ -13,9 +14,7 @@ protected:
     y = c->getY();
   }
 
-  void TearDown() override {
-    delete aq;
-  }
+  void TearDown() override { delete aq; }
 
   Aquarium *aq;
   Coin *c;

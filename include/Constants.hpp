@@ -1,16 +1,22 @@
 #ifndef CONSTANTS_HPP
 #define CONSTANTS_HPP
 
-enum GameState {
-    win, lose, closed
-};
+enum GameState { win, lose, closed };
 
-enum Direction {
-    left, right
-};
+enum Direction { left, right };
 
 enum State {
-	movingLeft, movingRight, turningLeft, turningRight, deadLeft, deadRight, fading, stillRight, stillLeft, eatingRight, eatingLeft
+  movingLeft,
+  movingRight,
+  turningLeft,
+  turningRight,
+  deadLeft,
+  deadRight,
+  fading,
+  stillRight,
+  stillLeft,
+  eatingRight,
+  eatingLeft
 };
 
 /* Graphics UI constants */
@@ -95,34 +101,33 @@ const int gameScreenTopPadding = 170;
 const int gameScreenBottomPadding = 65;
 const int maxLevel = 3;
 const int eggPrice = 2000;
-const double randomMoveInterval = 2; 		/* Ini juga detik ya brok */
+const double randomMoveInterval = 2; /* Ini juga detik ya brok */
 const double pi = 3.14159265;
 
 /* Coin's constant */
-const double coinMoveSpeed = 100; 			/* TBD */
-const double coinDeletionInterval = 5; 		/* TBD */
+const double coinMoveSpeed = 100;      /* TBD */
+const double coinDeletionInterval = 5; /* TBD */
 const int coinClickRadius = 20;
 
 /* Guppy constants */
 const int guppyFoodThres = 2;
 const int guppyPrice = 100;
 const double guppyEatRadius = 20;
-const double guppyFullInterval = 15; 		/* Ini detik ye bos */
+const double guppyFullInterval = 15; /* Ini detik ye bos */
 const double guppyHungerInterval = 15;
-const double guppyMoveSpeed = 60; 			/* Pixels per second */
+const double guppyMoveSpeed = 60; /* Pixels per second */
 const double guppyCoinInterval = 8;
 const double guppyCoinMultiplier = 10;
 
-
 /* Pellet's constant */
-const double pelletSpeed = 0.125; 				/* TBD */
+const double pelletSpeed = 0.125; /* TBD */
 const int pelletPrice = 10;
 
 /* Piranha constants */
 const int piranhaFoodThres = 50;
 const int piranhaPrice = 400;
 const double piranhaEatRadius = 50;
-const double piranhaFullInterval = 15; 		/* Ini detik ye bos */
+const double piranhaFullInterval = 15; /* Ini detik ye bos */
 const double piranhaHungerInterval = 15;
 const double piranhaMoveSpeed = 82;
 const double piranhaCoinInterval = 8;
@@ -146,7 +151,7 @@ const double snailTurnProgressIncrementTime = 0.05;
 const double snailMoveProgressIncrementTime = 0.05;
 const double pelletProgressIncrementTime = 0.05;
 const double coinProgressIncrementTime = 0.05;
-const double coinFadeProgressIncrementTime = coinDeletionInterval / progressPeriod;
-
+const double coinFadeProgressIncrementTime =
+    coinDeletionInterval / progressPeriod;
 
 #endif

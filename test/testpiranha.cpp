@@ -1,10 +1,11 @@
 /* Driver file for Piranha */
 #include <gtest/gtest.h>
+
 #include "Aquarium.hpp"
 #include "Piranha.hpp"
 
-class PiranhaTest: public ::testing::Test {
-protected:
+class PiranhaTest : public ::testing::Test {
+ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
     aq->createPiranha();
@@ -17,9 +18,7 @@ protected:
     aq->setCurrTime(5);
   }
 
-  void TearDown() override {
-    delete aq;
-  }
+  void TearDown() override { delete aq; }
 
   Aquarium *aq;
   Piranha *pir;

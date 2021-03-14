@@ -1,10 +1,11 @@
 /* Driver file for Pellet */
 #include <gtest/gtest.h>
+
 #include "Aquarium.hpp"
 #include "Pellet.hpp"
 
-class PelletTest: public ::testing::Test {
-protected:
+class PelletTest : public ::testing::Test {
+ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
     aq->createPellet(5, 5);
@@ -13,9 +14,7 @@ protected:
     y = p->getY();
   }
 
-  void TearDown() override {
-    delete aq;
-  }
+  void TearDown() override { delete aq; }
 
   Aquarium *aq;
   Pellet *p;

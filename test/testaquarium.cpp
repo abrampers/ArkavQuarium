@@ -1,15 +1,12 @@
 #include <gtest/gtest.h>
+
 #include "Aquarium.hpp"
 
 class CreateAquariumTest : public ::testing::Test {
-protected:
-  void SetUp() override {
-    aq = new Aquarium(0, 0, 480, 640);
-  }
+ protected:
+  void SetUp() override { aq = new Aquarium(0, 0, 480, 640); }
 
-  void TearDown() override {
-    delete aq;
-  }
+  void TearDown() override { delete aq; }
 
   Aquarium *aq;
 };
@@ -40,7 +37,7 @@ TEST_F(CreateAquariumTest, CreateCoin_At5x5_WithValue_1) {
 }
 
 class DeleteAquariumTest : public ::testing::Test {
-protected:
+ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
     aq->createPiranha();

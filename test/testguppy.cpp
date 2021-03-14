@@ -1,10 +1,11 @@
 /* Driver file for Guppy */
 #include <gtest/gtest.h>
+
 #include "Aquarium.hpp"
 #include "Guppy.hpp"
 
-class GuppyTest: public ::testing::Test {
-protected:
+class GuppyTest : public ::testing::Test {
+ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
     gup = aq->getGuppyList().get(0);
@@ -12,9 +13,7 @@ protected:
     gup->setHungry(true);
   }
 
-  void TearDown() override {
-    delete aq;
-  }
+  void TearDown() override { delete aq; }
 
   Aquarium *aq;
   Guppy *gup;

@@ -1,10 +1,11 @@
 /* Driver file for Snail */
 #include <gtest/gtest.h>
+
 #include "Aquarium.hpp"
 #include "Snail.hpp"
 
-class SnailTest: public ::testing::Test {
-protected:
+class SnailTest : public ::testing::Test {
+ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
     s = aq->getSnailList().get(0);
