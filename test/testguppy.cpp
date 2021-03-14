@@ -1,44 +1,41 @@
 /* Driver file for Guppy */
-#include <iostream>
+#include <gtest/gtest.h>
 #include "Aquarium.hpp"
 #include "Guppy.hpp"
-using namespace std;
 
-int main() {
-	int ret;
-	Aquarium a(0, 0, 480, 640);
-	Guppy *g = a.getGuppyList().get(0);
+class GuppyTest: public ::testing::Test {
+protected:
+  void SetUp() override {
+    aq = new Aquarium(0, 0, 480, 640);
+    gup = aq->getGuppyList().get(0);
+    aq->createPellet(gup->getX(), gup->getY());
+    gup->setHungry(true);
+  }
 
-	cout << "######################" << endl;
-	cout << "# RUNNING GUPPY TEST #" << endl;
-	cout << "######################" << endl;
+  void TearDown() override {
+    delete aq;
+  }
 
-	/* Test 1 */
-	cout << "Running TEST 1" << endl;
-	a.createPellet(g->getX(), g->getY());
-	g->setHungry(true);
-	a.setCurrTime(5);
-	g->updateState();
-	ret = a.getPelletList().getLength() == 0 ? 1 : 0;
-	cout << "	TEST 1: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+  Aquarium *aq;
+  Guppy *gup;
+};
 
-	/* Test 2 */
-	cout << "Running TEST 2" << endl;
-	a.setCurrTime(200);
-	g->dropCoin();
-	ret = a.getCoinList().getLength();
-	cout << "	TEST 2: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(GuppyTest, ForwardTime5ms_Should_EatPellet) {
+  aq->setCurrTime(5);
+  gup->updateState();
+  EXPECT_EQ(0, aq->getPelletList().getLength());
+}
 
-	cout << endl << endl;
+TEST_F(GuppyTest, ForwardTime200ms_Should_DropCoin) {
+  aq->setCurrTime(15);
+  gup->updateState();
+  aq->setCurrTime(15);
+  gup->updateState();
+  EXPECT_EQ(1, aq->getCoinList().getLength());
+}
 
+TEST_F(GuppyTest, ForwardTime200ms_Should_Dead) {
+  aq->setCurrTime(200);
+  gup->updateState();
+  EXPECT_EQ(State::deadRight, gup->getState());
 }
