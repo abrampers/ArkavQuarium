@@ -1,7 +1,7 @@
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/googletest" "vendor/googletest")
 
-macro(package_add_test_with_libraries TESTNAME FILES LIBRARIES)
-    add_executable(${TESTNAME} ${FILES})
+macro(package_add_test_with_libraries TESTNAME LIBRARIES)
+    add_executable(${TESTNAME} ${ARGN})
     target_link_libraries(${TESTNAME} gtest gmock gtest_main ${LIBRARIES} ${GTEST_LDFLAGS})
     target_compile_options(${TESTNAME} PUBLIC ${GTEST_CFLAGS})
     gtest_discover_tests(${TESTNAME}
@@ -18,8 +18,8 @@ include_directories(
 
 package_add_test_with_libraries(
     all_tests
-    testaquarium.cpp
     ArkavQuariumLib
+    testaquarium.cpp testpiranha.cpp
 )
 
 include(CTest)

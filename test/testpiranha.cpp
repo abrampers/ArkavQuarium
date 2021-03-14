@@ -1,45 +1,33 @@
 /* Driver file for Piranha */
-#include <iostream>
+#include "gtest/gtest.h"
 #include "Aquarium.hpp"
 #include "Piranha.hpp"
-using namespace std;
 
-int main() {
-	int ret;
-	Aquarium a(0, 0, 480, 640);
-	a.createPiranha();
-	Piranha *p = a.getPiranhaList().get(0);
+class PiranhaTest: public ::testing::Test {
+protected:
+  void SetUp() override {
+    aq = new Aquarium(0, 0, 480, 640);
+    aq->createPiranha();
+    pir = aq->getPiranhaList().get(0);
+    gup = aq->getGuppyList().get(0);
 
-	cout << "########################" << endl;
-	cout << "# RUNNING PIRANHA TEST #" << endl;
-	cout << "########################" << endl;
+    gup->setX(pir->getX());
+    gup->setY(pir->getY());
+    pir->setHungry(true);
+    aq->setCurrTime(5);
+  }
 
-	/* Test 1 */
-	cout << "Running TEST 1" << endl;
-	Guppy *g = a.getGuppyList().get(0);
-	g->setX(p->getX());
-	g->setY(p->getY());
-	p->setHungry(true);
-	a.setCurrTime(5);
-	p->updateState();
-	ret = a.getGuppyList().getLength() == 0 ? 1 : 0;
-	cout << "	TEST 1: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+  Aquarium *aq;
+  Piranha *pir;
+  Guppy *gup;
+};
 
-	/* Test 2 */
-	cout << "Running TEST 2" << endl;
-	ret = a.getCoinList().getLength();
-	cout << "	TEST 2: ";
-	if(ret == 1) {
-		cout << "SUCCESS" << endl;
-	} else {
-		cout << "FAIL" << endl;
-	}
+TEST_F(PiranhaTest, EatGupppyWhenHungry) {
+  pir->updateState();
+  EXPECT_EQ(0, aq->getGuppyList().getLength());
+}
 
-	cout << endl << endl;
-
+TEST_F(PiranhaTest, CoinCreated) {
+  pir->updateState();
+  EXPECT_EQ(1, aq->getCoinList().getLength());
 }
