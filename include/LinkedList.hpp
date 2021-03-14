@@ -37,9 +37,9 @@ public:
 	~Node() { 
 		Node* n = next;
 		Node* p = prev;
-		if(n != nullptr) n->setPrev(p);
-		if(p != nullptr) p->setNext(n);
-	}
+		if(n != nullptr) { n->setPrev(p); }
+		if(p != nullptr) { p->setNext(n); }
+    }
 
 	//! Setter for value.
     /*! 

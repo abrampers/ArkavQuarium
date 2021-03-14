@@ -257,7 +257,7 @@ GameState Game::startGame() {
         graphics.updateScreen();
 
         /* Wait until frame time reaches 1 / frameRate */
-        while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate);
+        while (graphics.timeSinceStart() - game_current_time < 1.0 / frameRate) {}
 
         /* DEBUG */
         // cout << "FPS: " << 1.0 / (graphics.timeSinceStart() - game_current_time) << endl;
@@ -302,7 +302,7 @@ GameState Game::showMainMenu() {
         }
 
         /* Wait until frame time reaches 1 / frameRate */
-        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate);
+        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate) {}
     }
 
     /* Start a new game */
@@ -350,7 +350,7 @@ GameState Game::showWinMenu() {
         }
 
         /* Wait until frame time reaches 1 / frameRate */
-        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate);
+        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate) {}
     }
 
     /* Start a new game */
@@ -398,7 +398,7 @@ GameState Game::showloseMenu() {
         }
 
         /* Wait until frame time reaches 1 / frameRate */
-        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate);
+        while (graphics.timeSinceStart() - frame_current_time < 1.0 / frameRate) {}
     }
 
     /* Start a new game */
