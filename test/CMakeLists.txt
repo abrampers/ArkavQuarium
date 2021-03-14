@@ -24,6 +24,7 @@ package_add_test_with_libraries(
     testcoin.cpp
     testguppy.cpp
     testpellet.cpp
+    testsnail.cpp
 )
 
 include(CTest)
