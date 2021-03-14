@@ -19,7 +19,11 @@ include_directories(
 package_add_test_with_libraries(
     all_tests
     ArkavQuariumLib
-    testaquarium.cpp testpiranha.cpp testcoin.cpp testguppy.cpp
+    testaquarium.cpp
+    testpiranha.cpp
+    testcoin.cpp
+    testguppy.cpp
+    testpellet.cpp
 )
 
 include(CTest)
