@@ -17,6 +17,10 @@ protected:
     aq->setCurrTime(5);
   }
 
+  void TearDown() override {
+    delete aq;
+  }
+
   Aquarium *aq;
   Piranha *pir;
   Guppy *gup;

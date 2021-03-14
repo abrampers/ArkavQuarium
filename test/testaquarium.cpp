@@ -6,6 +6,11 @@ protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
   }
+
+  void TearDown() override {
+    delete aq;
+  }
+
   Aquarium *aq;
 };
 
