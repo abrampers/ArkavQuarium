@@ -2,8 +2,8 @@
 
 ArkavQuarium 2.0 is a simplified version of the most famous **InsaniQuarium** game. The goal of this game is to buy an egg using player's **Coin**. The coin is produced by **Guppy** or **Piranha** and can be taken by the **Snail** or by the player himself. This game is made with the most beautiful animation made by us for our beloved players. We hope this game will change our lives and fate.
 
-[Home](doc/images/home.png)
-[Game](doc/images/game.png)
+![Home](doc/images/home.png)
+![Game](doc/images/game.png)
 
 ## Getting Started
 
