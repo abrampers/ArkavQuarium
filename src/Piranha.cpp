@@ -12,7 +12,7 @@ Fish(piranhaFoodThres,
 	piranhaFullInterval, 
 	piranhaHungerInterval, 
 	aquarium->getCurrTime()) {
-	nearest_guppy = NULL;
+	nearest_guppy = nullptr;
 	/* Initialize random movement */
 	double rad = fRand(0, 360) * pi / 180;
 	this->x_dir = cos(rad);
@@ -33,11 +33,11 @@ double Piranha::distanceToGuppy(Guppy *g) {
 
 void Piranha::findNearestGuppy() {
 	LinkedList<Guppy*>& ll = this->getAquarium()->getGuppyList();
-	Guppy* current_nearest_guppy = NULL;
+	Guppy* current_nearest_guppy = nullptr;
 	Node<Guppy*>* curr_node = ll.getHead();
-	while(curr_node != NULL) {
+	while(curr_node != nullptr) {
 	    Guppy* current_guppy = curr_node->getValue();
-	    if(current_nearest_guppy == NULL) {
+	    if(current_nearest_guppy == nullptr) {
 	    	current_nearest_guppy = current_guppy;
 	    } else if(distanceToGuppy(current_guppy) < distanceToGuppy(current_nearest_guppy)) {
 	    	current_nearest_guppy = current_guppy;
@@ -48,7 +48,7 @@ void Piranha::findNearestGuppy() {
 }
 
 bool Piranha::nearestGuppyInRange() {
-	if(nearest_guppy == NULL) {
+	if(nearest_guppy == nullptr) {
 		return false;
 	} else if(distanceToGuppy(nearest_guppy) < this->eatRadius) {
 		return true;
@@ -76,7 +76,7 @@ void Piranha::updateState() {
 void Piranha::move() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(this->getState() != turningRight && this->getState() != turningLeft) {
-		if(nearest_guppy != NULL && this->getHungry()) {
+		if(nearest_guppy != nullptr && this->getHungry()) {
 			double x_direction = nearest_guppy->getX() - this->getX();
 			double y_direction = nearest_guppy->getY() - this->getY();
 			double distance = distanceToGuppy(nearest_guppy);
@@ -168,7 +168,7 @@ void Piranha::eat() {
 	if(this->getHungry() && nearestGuppyInRange()) {
 		this->dropCoin();
 		this->getAquarium()->deleteGuppy(nearest_guppy);
-		nearest_guppy = NULL;
+		nearest_guppy = nullptr;
 		this->setHungry(false);
 		this->setLastEatTime(current_time);
 		this->setFoodEaten(this->getFoodEaten() + 1);
@@ -210,7 +210,7 @@ void Piranha::updateProgress() {
 			progress_increment_time = piranhaMoveProgressIncrementTime;
 	}
 
-	if(this->getHungry() && (this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_guppy != NULL) && distanceToGuppy(this->nearest_guppy) < (2 * piranhaEatRadius)) {
+	if(this->getHungry() && (this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_guppy != nullptr) && distanceToGuppy(this->nearest_guppy) < (2 * piranhaEatRadius)) {
 		if(this->getState() == State::movingRight) {
 			this->setState(State::eatingRight);
 		} else {

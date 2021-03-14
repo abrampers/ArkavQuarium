@@ -59,35 +59,35 @@ void Aquarium::updateState(double current_time) {
 	Node<Piranha*>* pointer_piranha;
 	/* Piranha */
 	pointer_piranha = content_piranha.getHead();
-	while (pointer_piranha != NULL) {
+	while (pointer_piranha != nullptr) {
 		pointer_piranha->getValue()->updateState();
 		pointer_piranha = pointer_piranha->getNext();
 	}
 	/* Guppy */
 	Node<Guppy*>* pointer_guppy;
 	pointer_guppy = content_guppy.getHead();
-	while (pointer_guppy != NULL) {
+	while (pointer_guppy != nullptr) {
 		pointer_guppy->getValue()->updateState();
 		pointer_guppy = pointer_guppy->getNext();
 	}
 	/* Snail */
 	Node<Snail*>* pointer_snail;
 	pointer_snail = content_snail.getHead();
-	while (pointer_snail != NULL) {
+	while (pointer_snail != nullptr) {
 		pointer_snail->getValue()->updateState();
 		pointer_snail = pointer_snail->getNext();
 	}
 	/* Pellet */
 	Node<Pellet*>* pointer_pellet;
 	pointer_pellet = content_pellet.getHead();
-	while (pointer_pellet != NULL) {
+	while (pointer_pellet != nullptr) {
 		pointer_pellet->getValue()->updateState();
 		pointer_pellet = pointer_pellet->getNext();
 	}
 	/*Coin*/
 	Node<Coin*>* pointer_coin;
 	pointer_coin = content_coin.getHead();
-	while (pointer_coin != NULL) {
+	while (pointer_coin != nullptr) {
 		pointer_coin->getValue()->updateState();
 		pointer_coin = pointer_coin->getNext();
 	}

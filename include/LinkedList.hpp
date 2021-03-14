@@ -18,8 +18,8 @@ public:
 	//! A default constructor.
     /*! Constructs a new Node. */
 	Node() {
-		prev = NULL;
-		next = NULL;
+		prev = nullptr;
+		next = nullptr;
 	}
 
 	//! A user defined constructor.
@@ -28,8 +28,8 @@ public:
     */
 	Node(T value) { 
 		this->value = value; 
-		prev = NULL;
-		next = NULL;
+		prev = nullptr;
+		next = nullptr;
 	}
 
 	//! A destructor.
@@ -37,8 +37,8 @@ public:
 	~Node() { 
 		Node* n = next;
 		Node* p = prev;
-		if(n != NULL) n->setPrev(p);
-		if(p != NULL) p->setNext(n);
+		if(n != nullptr) n->setPrev(p);
+		if(p != nullptr) p->setNext(n);
 	}
 
 	//! Setter for value.
@@ -90,8 +90,8 @@ public:
 	LinkedList() {
 		head = new Node<T>;
 		head->setValue(0);
-		head->setNext(NULL);
-		head->setPrev(NULL);
+		head->setNext(nullptr);
+		head->setPrev(nullptr);
 		length = 0;
 	}
 
@@ -118,7 +118,7 @@ public:
 	~LinkedList() {
 		Node<T>* target;
 		Node<T>* next = head->getNext();
-		while (next != NULL) {
+		while (next != nullptr) {
 			target = next;
 			next = target->getNext();
 			delete target;
@@ -144,14 +144,14 @@ public:
 
 	//! Check whether the LinkedList is empty
 	/*! \return bool is empty */
-	bool isEmpty() { return head->getNext() == NULL; }
+	bool isEmpty() { return head->getNext() == nullptr; }
 
 	//!	Add a value to the LinkedList
 	/*! \param <T> value */
 	void add(T value) {
 		Node<T>* n = new Node<T>(value);
 		Node<T>* currNode = head;
-		while(currNode->getNext() != NULL) {
+		while(currNode->getNext() != nullptr) {
 			currNode = currNode->getNext();
 		}
 		currNode->setNext(n);
@@ -165,11 +165,11 @@ public:
 		if (!isEmpty()) {
 			Node<T>* currNode = head->getNext();
 			int idx = 0;
-			while(currNode->getValue() != value && currNode != NULL) {
+			while(currNode->getValue() != value && currNode != nullptr) {
 				currNode = currNode->getNext();
 				idx++;
 			}
-			if (currNode == NULL) {
+			if (currNode == nullptr) {
 				return -1;
 			} else {
 				return idx;

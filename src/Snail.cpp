@@ -3,7 +3,7 @@
 #include "Aquarium.hpp"
 
 Snail::Snail(Aquarium* a) : Aquatic(fRand(a->getXMin(), a->getXMax()), a->getYMax(), snailSpeed, a), snailRadius(snailEatRadius) {
-	nearest_coin = NULL;
+	nearest_coin = nullptr;
 	hold_coin_value = 0;
 	x_dir = 0;
 	this->setLastProgressTime(a->getCurrTime());
@@ -28,16 +28,16 @@ bool Snail::isCoinOnTop() {
 void Snail::pickCoin(Coin* c) {
 	hold_coin_value += c->getValue();
 	this->getAquarium()->deleteCoin(c);
-	nearest_coin = NULL;
+	nearest_coin = nullptr;
 }
 
 void Snail::findNearestCoin() {
 	/* Find nearest coin to pursue */
 	LinkedList<Coin*>& coin_list = this->getAquarium()->getCoinList();
-	Coin* current_nearest_coin = NULL;
+	Coin* current_nearest_coin = nullptr;
 	for (int i = 0; i < coin_list.getLength(); i++) {
 		Coin *current_coin = coin_list.get(i);
-		if(current_nearest_coin == NULL) {
+		if(current_nearest_coin == nullptr) {
 			current_nearest_coin = current_coin;
 		} else if ((getDistance(current_coin, this)) < getDistance(current_nearest_coin, this)) {
 			current_nearest_coin = current_coin;
@@ -47,7 +47,7 @@ void Snail::findNearestCoin() {
 }
 
 bool Snail::nearestCoinInRange() {
-	if (nearest_coin != NULL) {
+	if (nearest_coin != nullptr) {
 		if (getDistance(this, nearest_coin) < this->snailRadius) {
 			return true;
 		}
@@ -70,7 +70,7 @@ void Snail::updateState() {
 void Snail::move() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(this->getState() != turningRight && this->getState() != turningLeft) {
-		if (nearest_coin != NULL) {
+		if (nearest_coin != nullptr) {
 			if(!isCoinOnTop()) {
 				double dx = this->getMoveSpeed() * ((current_time - this->getLastCurrTime()));
 				double x_direction = this->x_dir;

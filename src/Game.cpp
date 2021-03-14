@@ -12,7 +12,7 @@ aquariumYStart(gameScreenTopPadding),
 aquariumYEnd(gameScreenHeight - gameScreenBottomPadding),
 frameRate(gameFrameRate), 
 graphics(gameScreenWidth, gameScreenHeight),
-aquarium(NULL),
+aquarium(nullptr),
 coin(gameInitialCoin),
 egg(0) {
     /* Initialize game graphics */
@@ -32,7 +32,7 @@ Game::~Game() {
 void Game::initState() {
     coin = gameInitialCoin;
     egg = 0;
-    if (aquarium == NULL) {
+    if (aquarium == nullptr) {
         delete aquarium;
     }
     aquarium = new Aquarium(aquariumXStart, aquariumYStart, aquariumXEnd, aquariumYEnd);

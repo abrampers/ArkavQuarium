@@ -13,7 +13,7 @@ Fish(guppyFoodThres,
 	guppyHungerInterval, 
 	aquarium->getCurrTime()) {
 	
-	this->nearest_pellet = NULL;
+	this->nearest_pellet = nullptr;
 	this->last_drop_coin = aquarium->getCurrTime();
 	/* Initialize random movement */
 	double rad = fRand(0.0, 2.0 * pi);
@@ -35,11 +35,11 @@ double Guppy::distanceToPellet(Pellet *p) {
 
 void Guppy::findNearestPellet() {
 	LinkedList<Pellet*>& ll = this->getAquarium()->getPelletList();
-	Pellet* current_nearest_pellet = NULL;
+	Pellet* current_nearest_pellet = nullptr;
 	Node<Pellet*>* curr_node = ll.getHead();
-	while(curr_node != NULL) {
+	while(curr_node != nullptr) {
 	    Pellet* current_pellet = curr_node->getValue();
-	    if(current_nearest_pellet == NULL) {
+	    if(current_nearest_pellet == nullptr) {
 	    	current_nearest_pellet = current_pellet;
 	    } else if(distanceToPellet(current_pellet) < distanceToPellet(current_nearest_pellet)) {
 	    	current_nearest_pellet = current_pellet;
@@ -50,7 +50,7 @@ void Guppy::findNearestPellet() {
 }
 
 bool Guppy::nearestPelletInRange() {
-	if(nearest_pellet == NULL) {
+	if(nearest_pellet == nullptr) {
 		return false;
 	} else if(distanceToPellet(nearest_pellet) < this->eatRadius) {
 		return true;
@@ -79,7 +79,7 @@ void Guppy::updateState() {
 void Guppy::move() {
 	double current_time = this->getAquarium()->getCurrTime();
 	if(this->getState() != turningRight && this->getState() != turningLeft) {
-		if(nearest_pellet != NULL && this->getHungry()) {
+		if(nearest_pellet != nullptr && this->getHungry()) {
 			double x_direction = nearest_pellet->getX() - this->getX();
 			double y_direction = nearest_pellet->getY() - this->getY();
 			double distance = distanceToPellet(nearest_pellet);
@@ -169,7 +169,7 @@ void Guppy::eat() {
 
 	if(this->getHungry() && nearestPelletInRange()) {
 		this->getAquarium()->deletePellet(nearest_pellet);
-		nearest_pellet = NULL;
+		nearest_pellet = nullptr;
 		this->setHungry(false);
 		this->setLastEatTime(current_time);
 		this->setFoodEaten(this->getFoodEaten() + 1);
@@ -215,7 +215,7 @@ void Guppy::updateProgress() {
 			progress_increment_time = guppyMoveProgressIncrementTime;
 	}
 
-	if(this->getHungry() && (this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_pellet != NULL) && distanceToPellet(this->nearest_pellet) < (2 * guppyEatRadius)) {
+	if(this->getHungry() && (this->getState() != State::eatingRight && this->getState() != State::eatingLeft) && (this->nearest_pellet != nullptr) && distanceToPellet(this->nearest_pellet) < (2 * guppyEatRadius)) {
 		if(this->getState() == State::movingRight) {
 			this->setState(State::eatingRight);
 		} else {

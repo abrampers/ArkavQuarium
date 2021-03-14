@@ -6,7 +6,7 @@ using namespace std::chrono;
 Graphics::Graphics(int screen_width, int screen_height):
 screenWidth(screen_width), screenHeight(screen_height) {
     start = high_resolution_clock::now();
-    g_screen_surface = NULL;
+    g_screen_surface = nullptr;
     quit = false;
 }
 
@@ -17,7 +17,7 @@ Graphics::~Graphics() {
 /* Private functions */
 SDL_Surface* Graphics::loadSurface( std::string path ) {
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-    if( loadedSurface == NULL ) {
+    if( loadedSurface == nullptr ) {
         printf( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
     }
     return loadedSurface;
@@ -36,7 +36,7 @@ bool Graphics::init() {
             success = false;
         }
         sdl_window = SDL_CreateWindow( "ArkavQuarium", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_SHOWN );
-        if( sdl_window == NULL ) {
+        if( sdl_window == nullptr ) {
             printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
             success = false;
         } else {
@@ -54,7 +54,7 @@ void Graphics::close() {
         TTF_CloseFont(x.second);
     }
     SDL_DestroyWindow(sdl_window);
-    sdl_window = NULL;
+    sdl_window = nullptr;
     SDL_Quit();
 }
 
@@ -223,7 +223,7 @@ void Graphics::drawPellet(int x, int y, int state_progress) {
 
 /* Low level rawing */
 void Graphics::clearScreen() {
-    SDL_FillRect(g_screen_surface, NULL, SDL_MapRGB(g_screen_surface->format, 255, 255, 255));
+    SDL_FillRect(g_screen_surface, nullptr, SDL_MapRGB(g_screen_surface->format, 255, 255, 255));
 }
 
 void Graphics::updateScreen() {
@@ -242,7 +242,7 @@ void Graphics::drawImage(string filename, int x, int y) {
     dest.y = y - s->h/2;
     dest.w = s->w;
     dest.h = s->h;
-    SDL_BlitSurface(s, NULL, g_screen_surface, &dest);
+    SDL_BlitSurface(s, nullptr, g_screen_surface, &dest);
 }
 
 void Graphics::drawText(std::string text, int font_size, int x, int y,
@@ -258,7 +258,7 @@ void Graphics::drawText(std::string text, int font_size, int x, int y,
     dest.y = y;
     dest.w = result->w;
     dest.h = result->h;
-    SDL_BlitSurface(result, NULL, g_screen_surface, &dest);
+    SDL_BlitSurface(result, nullptr, g_screen_surface, &dest);
     SDL_FreeSurface(result);
 }
 
