@@ -33,25 +33,25 @@ class Guppy : public Aquatic, public Fish {
         /***********/
         /* Implements pure virtual method from Aquatic */
         //! Implements pure virtual method from Aquatic
-        void updateState(); 
+        void updateState() override;
 
         //! Implements pure virtual method from Aquatic
-        void move();
+        void move() override;
 
         //! Implements pure virtual method from Aquatic
-        void updateProgress();
+        void updateProgress() override;
 
         //! Implements pure virtual method from Aquatic
-        void dead();
+        void dead() override;
 
         /* Implements pure virtual method from Fish */
         //! Implements pure virtual method from Fish
         /*! Search for Pellet nearby, if the Pellet is in range, eat */
-        void eat();
+        void eat() override;
 
         //! Implements pure virtual method from Fish
         /*! Drop coin every constant time interval */
-        void dropCoin(); 
+        void dropCoin() override;
 };
 
 #endif

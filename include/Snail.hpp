@@ -47,16 +47,16 @@ class Snail : public Aquatic {
         /* Methods */
         /***********/
         //! Implements pure virtual method from Aquatic
-        void updateState(); 
+        void updateState() override;
 
         //! Implements pure virtual method from Aquatic
-        void move();
+        void move() override;
 
         //! Implements pure virtual method from Aquatic
-        void updateProgress();
+        void updateProgress() override;
 
         //! Implements pure virtual method from Aquatic
-        void dead();
+        void dead() override;
 };
 
 #endif
