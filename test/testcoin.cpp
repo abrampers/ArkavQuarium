@@ -7,13 +7,13 @@ class CoinTest: public ::testing::Test {
 protected:
   void SetUp() override {
     aq = new Aquarium(0, 0, 480, 640);
-    c = new Coin(5, 5, 100, aq);
+    aq->createCoin(5, 5, 100);
+    c = aq->getCoinList().get(0);
     x = c->getX();
     y = c->getY();
   }
 
   void TearDown() override {
-    delete c;
     delete aq;
   }
 
